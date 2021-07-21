@@ -1,33 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>About SSH</title>
-    <url>/2021/01/15/About-SSH/</url>
-    <content><![CDATA[<h2 id="SSH-tool"><a href="#SSH-tool" class="headerlink" title="SSH tool"></a>SSH tool</h2><p>I use MobaXterm (<a href="https://mobaxterm.mobatek.net/">official website</a>), since it enables the visualization of many operations.</p>
-<p>Select session -&gt; SSH; then type in the server ip, username and password.<br><a id="more"></a><br><img src="/2021/01/15/About-SSH/figure_SSH.jpg" alt="figureSSH"></p>
-<h2 id="Pycharm-connection"><a href="#Pycharm-connection" class="headerlink" title="Pycharm connection"></a>Pycharm connection</h2><p>I omit the basic downloading and  installation here. You can just google Pycharm and download its <strong>Professional</strong> version from its official website.</p>
-<p>Note: students and professors can use academic</p>
-<ol>
-<li><p>Select tools -&gt; Deployment -&gt; Configuration<br><img src="/2021/01/15/About-SSH/figure_1.jpg" alt="figure1"></p>
-</li>
-<li><p>Press “+” button and choose the SFTP (Secure File Transfer Protocol)<br><img src="/2021/01/15/About-SSH/figure_2.jpg" alt="figure2"></p>
-</li>
-<li><p>Add a new SSH configuration<br><img src="/2021/01/15/About-SSH/figure_3.jpg" alt="figure3"></p>
-<p><img src="/2021/01/15/About-SSH/figure_4.jpg" alt="figure4"></p>
-</li>
-<li><p>Root path is the location of the remote server you want to transfer files to; then for <strong>Mappings</strong>, local path is your local project’s path.<br><img src="/2021/01/15/About-SSH/figure_5.jpg" alt="figure5"></p>
-<p><img src="/2021/01/15/About-SSH/figure_6.jpg" alt="figure6"></p>
-</li>
-</ol>
-]]></content>
-      <categories>
-        <category>Remote Server</category>
-      </categories>
-      <tags>
-        <tag>SSH</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>AGD Method (Adversarial Example Detection)</title>
     <url>/2021/02/03/AGD-Method-Adversarial-Example-Detection/</url>
     <content><![CDATA[<p>Resource: <a href="https://arxiv.org/pdf/1507.05717.pdf">2021 AAAI-Beating Attackers At Their Own Games:<br>Adversarial Example Detection Using Adversarial Gradient Directions</a></p>
@@ -62,6 +35,53 @@
       </tags>
   </entry>
   <entry>
+    <title>[Paper-Review] Regularizing Neural Networks via Adversarial Model Perturbation</title>
+    <url>/2021/07/20/AMP-Regularizing-Neural-Networks-via-Adversarial-Model-Perturbation/</url>
+    <content><![CDATA[<div align="center"> <img src="/2021/07/20/AMP-Regularizing-Neural-Networks-via-Adversarial-Model-Perturbation/authors.jpg" width="650"></div>
+
+<h1 id="Background"><a href="#Background" class="headerlink" title="Background"></a>Background</h1><p>Alleviate the issue of over-fitting and improve generalization performance on testing data:<br><a id="more"></a></p>
+<ul>
+<li>Regularization-based methods – introduce penalty on the complexity of the model.</li>
+<li>Data augmentation techniques – leverage important invariance properties of the data.</li>
+</ul>
+<h1 id="Approach"><a href="#Approach" class="headerlink" title="Approach"></a>Approach</h1><p>Resource: <a href="https://openaccess.thecvf.com/content/CVPR2021/papers/Zheng_Regularizing_Neural_Networks_via_Adversarial_Model_Perturbation_CVPR_2021_paper.pdf">Regularizing Neural Networks via Adversarial Model Perturbation</a></p>
+]]></content>
+      <categories>
+        <category>Paper Review</category>
+      </categories>
+      <tags>
+        <tag>Adversarial Training</tag>
+        <tag>Improve Generalization</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>About SSH</title>
+    <url>/2021/01/15/About-SSH/</url>
+    <content><![CDATA[<h2 id="SSH-tool"><a href="#SSH-tool" class="headerlink" title="SSH tool"></a>SSH tool</h2><p>I use MobaXterm (<a href="https://mobaxterm.mobatek.net/">official website</a>), since it enables the visualization of many operations.</p>
+<p>Select session -&gt; SSH; then type in the server ip, username and password.<br><a id="more"></a><br><img src="/2021/01/15/About-SSH/figure_SSH.jpg" alt="figureSSH"></p>
+<h2 id="Pycharm-connection"><a href="#Pycharm-connection" class="headerlink" title="Pycharm connection"></a>Pycharm connection</h2><p>I omit the basic downloading and  installation here. You can just google Pycharm and download its <strong>Professional</strong> version from its official website.</p>
+<p>Note: students and professors can use academic</p>
+<ol>
+<li><p>Select tools -&gt; Deployment -&gt; Configuration<br><img src="/2021/01/15/About-SSH/figure_1.jpg" alt="figure1"></p>
+</li>
+<li><p>Press “+” button and choose the SFTP (Secure File Transfer Protocol)<br><img src="/2021/01/15/About-SSH/figure_2.jpg" alt="figure2"></p>
+</li>
+<li><p>Add a new SSH configuration<br><img src="/2021/01/15/About-SSH/figure_3.jpg" alt="figure3"></p>
+<p><img src="/2021/01/15/About-SSH/figure_4.jpg" alt="figure4"></p>
+</li>
+<li><p>Root path is the location of the remote server you want to transfer files to; then for <strong>Mappings</strong>, local path is your local project’s path.<br><img src="/2021/01/15/About-SSH/figure_5.jpg" alt="figure5"></p>
+<p><img src="/2021/01/15/About-SSH/figure_6.jpg" alt="figure6"></p>
+</li>
+</ol>
+]]></content>
+      <categories>
+        <category>Remote Server</category>
+      </categories>
+      <tags>
+        <tag>SSH</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Add Mathematical Formula in Hexo-Next Blogs</title>
     <url>/2021/07/20/Add-Mathematical-Formula-in-Hexo-Next-Blogs/</url>
     <content><![CDATA[<p>This blog is about how to add mathematical formulas for your hexo-next blogs.</p>
@@ -83,22 +103,6 @@
       </categories>
       <tags>
         <tag>Hexo</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Adversarial Attack and Defense</title>
-    <url>/2021/07/13/Attack/</url>
-    <content><![CDATA[<h1 id="Adversarial-Attacks"><a href="#Adversarial-Attacks" class="headerlink" title="Adversarial Attacks"></a>Adversarial Attacks</h1><h1 id="Adversarial-Defense"><a href="#Adversarial-Defense" class="headerlink" title="Adversarial Defense"></a>Adversarial Defense</h1><h2 id="Empirical-Defense"><a href="#Empirical-Defense" class="headerlink" title="Empirical Defense"></a>Empirical Defense</h2><p>Empirically seem robust to known adversarial attacks.</p>
-<h3 id="Adversarial-Training"><a href="#Adversarial-Training" class="headerlink" title="Adversarial Training"></a>Adversarial Training</h3><p>Adversarial examples are found during training (often using projected gradient descent) and added to the training set.</p>
-<h2 id="Certified-Defense"><a href="#Certified-Defense" class="headerlink" title="Certified Defense"></a>Certified Defense</h2><p>Provably robust to certain kinds of adversarial perturbations.</p>
-<p>For any input x,  one can easily obtain a guarantee that the classifier’s prediction is constant within some set around x, $l_2$ or $l_/infinity$ ball.</p>
-<ul>
-<li>Certified test set accuracy at radius r: the fraction of the test set which g classifies correctly with a prediction that is certifiably robust within an $l_2$ ball of radius r.</li>
-<li>Approximate ~: the fraction of the test set which <strong>CERTIFY</strong> classifies correctly and certifies robust with a radius $R \le r$</li>
-</ul>
-]]></content>
-      <tags>
-        <tag>Overview</tag>
       </tags>
   </entry>
   <entry>
@@ -189,6 +193,22 @@
       <tags>
         <tag>Network</tag>
         <tag>CTC</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Adversarial Attack and Defense</title>
+    <url>/2021/07/13/Attack/</url>
+    <content><![CDATA[<h1 id="Adversarial-Attacks"><a href="#Adversarial-Attacks" class="headerlink" title="Adversarial Attacks"></a>Adversarial Attacks</h1><h1 id="Adversarial-Defense"><a href="#Adversarial-Defense" class="headerlink" title="Adversarial Defense"></a>Adversarial Defense</h1><h2 id="Empirical-Defense"><a href="#Empirical-Defense" class="headerlink" title="Empirical Defense"></a>Empirical Defense</h2><p>Empirically seem robust to known adversarial attacks.</p>
+<h3 id="Adversarial-Training"><a href="#Adversarial-Training" class="headerlink" title="Adversarial Training"></a>Adversarial Training</h3><p>Adversarial examples are found during training (often using projected gradient descent) and added to the training set.</p>
+<h2 id="Certified-Defense"><a href="#Certified-Defense" class="headerlink" title="Certified Defense"></a>Certified Defense</h2><p>Provably robust to certain kinds of adversarial perturbations.</p>
+<p>For any input x,  one can easily obtain a guarantee that the classifier’s prediction is constant within some set around x, $l_2$ or $l_/infinity$ ball.</p>
+<ul>
+<li>Certified test set accuracy at radius r: the fraction of the test set which g classifies correctly with a prediction that is certifiably robust within an $l_2$ ball of radius r.</li>
+<li>Approximate ~: the fraction of the test set which <strong>CERTIFY</strong> classifies correctly and certifies robust with a radius $R \le r$</li>
+</ul>
+]]></content>
+      <tags>
+        <tag>Overview</tag>
       </tags>
   </entry>
   <entry>
@@ -369,9 +389,50 @@ use_cudnn_on_gpu=None, data_formt = None, name=None)</code></p>
         <category>Adversarial Attack</category>
       </categories>
       <tags>
+        <tag>Adversarial Training</tag>
         <tag>Attack</tag>
         <tag>hide</tag>
-        <tag>Adversarial Training</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Mathematical Symbols in Latex</title>
+    <url>/2021/07/20/Mathematical-Symbols-in-Latex/</url>
+    <content><![CDATA[<p><strong>This blog lists most of the mathematical symbols in latex for usage.</strong></p>
+<a id="more"></a>
+<ul>
+<li>$\mathbb{S}$: “\mathbb{S}”</li>
+<li>$\sum\limits_{i=1}\limits^n$: “\sum\limits_{i=1}\limits^n$”</li>
+<li>$\underline{p_A}$: “\underline{p_A}”</li>
+</ul>
+<h1 id="Operators"><a href="#Operators" class="headerlink" title="Operators"></a>Operators</h1><div align="center"> <img src="/2021/07/20/Mathematical-Symbols-in-Latex/operators.jpg" width="650"></div>
+
+<h1 id="Relations"><a href="#Relations" class="headerlink" title="Relations"></a>Relations</h1><div align="center"> <img src="/2021/07/20/Mathematical-Symbols-in-Latex/relations.jpg" width="650"></div>
+
+<p>Negations of many of these relations can be formed by just putting \not before the symbol, or by slipping an “n” between the \ and the word. Here are a couple examples, plus many other negations; it works for many of the many others as well.</p>
+<div align="center"> <img src="/2021/07/20/Mathematical-Symbols-in-Latex/relations_not.jpg" width="550"></div>
+
+<h1 id="Greek-Letters"><a href="#Greek-Letters" class="headerlink" title="Greek Letters"></a>Greek Letters</h1><div align="center"> <img src="/2021/07/20/Mathematical-Symbols-in-Latex/greek_letters.jpg" width="700"></div>
+
+<h1 id="Arrows"><a href="#Arrows" class="headerlink" title="Arrows"></a>Arrows</h1><div align="center"> <img src="/2021/07/20/Mathematical-Symbols-in-Latex/arrows.jpg" width="550"></div>
+
+<h1 id="Dots"><a href="#Dots" class="headerlink" title="Dots"></a>Dots</h1><div align="center"> <img src="/2021/07/20/Mathematical-Symbols-in-Latex/dots.jpg" width="350"></div>
+
+<h1 id="Accents"><a href="#Accents" class="headerlink" title="Accents"></a>Accents</h1><div align="center"> <img src="/2021/07/20/Mathematical-Symbols-in-Latex/greek_letters.jpg" width="700"></div>
+
+<h1 id="Others"><a href="#Others" class="headerlink" title="Others"></a>Others</h1><div align="center"> <img src="/2021/07/20/Mathematical-Symbols-in-Latex/others.jpg" width="600"></div>
+
+<p>Resource:</p>
+<ul>
+<li><a href="https://artofproblemsolving.com/wiki/index.php/LaTeX:Symbols">LaTeX:Symbols</a></li>
+<li><a href="https://artofproblemsolving.com/wiki/index.php/LaTeX:Commands">LaTeX:Commands</a></li>
+</ul>
+]]></content>
+      <categories>
+        <category>Hexo</category>
+      </categories>
+      <tags>
+        <tag>Hexo</tag>
+        <tag>Latex</tag>
       </tags>
   </entry>
   <entry>
@@ -491,41 +552,13 @@ use_cudnn_on_gpu=None, data_formt = None, name=None)</code></p>
       </tags>
   </entry>
   <entry>
-    <title>PCA Method</title>
-    <url>/2021/01/27/PCA-Method/</url>
-    <content><![CDATA[<p>Resource: <a href="https://arxiv.org/pdf/1608.00530.pdf">EARLY METHODS FOR DETECTING ADVERSARIAL IMAGES</a></p>
-<p>Code: <a href="https://github.com/hendrycks/fooling">https://github.com/hendrycks/fooling</a></p>
-<h2 id="Principle"><a href="#Principle" class="headerlink" title="Principle"></a>Principle</h2><p>Detect the adversarial images using the difference between coefficients of low-ranked principal components.</p>
-<a id="more"></a>
-<p><img src="/2021/01/27/PCA-Method/diff_of_coefficients.jpg" alt="figure1" title="Differences of Low-Ranked Principle Components"></p>
-<p>As is shown in the above figure, if we use the original, the adversarial images will have different coefficients for the low-ranked principal components than do clean images.</p>
-<p>Thus, we can use the <strong>coefficient variance</strong> to detect the adversarial examples.</p>
-<h2 id="Evaluation"><a href="#Evaluation" class="headerlink" title="Evaluation"></a>Evaluation</h2><p>AUROC: Area Under the Receiver Operating Characteristic (AU-ROC) metric</p>
-<ul>
-<li>ROC curve shows the true positive (tpr = tp/(tp+fn)) and false positive  (fpr = fp/(fp+tn)) rate against each other.</li>
-</ul>
-<p>AUPR: Area Under the Precision Recall curve</p>
-<ul>
-<li>PR curve plots the precision (tp/(tp+fp)) and recall (tp/tp+fn) against each other.</li>
-</ul>
-<h2 id="Performance"><a href="#Performance" class="headerlink" title="Performance"></a>Performance</h2><p>For this paper, they test the PCA method on Tiny-ImageNet, CIFAR-10 and MNIST. (They do not split the dataset into train and test dataset.)</p>
-<p><img src="/2021/01/27/PCA-Method/Performance.jpg" alt="figure1" title="Performance"></p>
-<h2 id="Limitation"><a href="#Limitation" class="headerlink" title="Limitation"></a>Limitation</h2><ul>
-<li><p>If we intend to reach high scores of both AUROC and AUPR, the training dataset (the samples used to generate the PCA) and the testing dataset (clean ones) should be similar to each other.</p>
-<p><strong>Note:</strong> The similarity is only meaningful to the magical program of generating PCA.</p>
-</li>
-<li><p>Only the AUROC and AUPR are not enough to finish the detection, we need to provide a kind of threshold <strong>(maybe the binary search is a possible method)</strong>.</p>
-</li>
-</ul>
-<h2 id="Idea"><a href="#Idea" class="headerlink" title="Idea"></a>Idea</h2><p>Use the PCA of adversarial examples of the training dataset to do auxiliary detection.</p>
-]]></content>
+    <title>Server</title>
+    <url>/2021/05/09/Server/</url>
+    <content><![CDATA[<p>This talks about how to build your own remote server.</p>
+<h2 id="Anaconda"><a href="#Anaconda" class="headerlink" title="Anaconda"></a>Anaconda</h2>]]></content>
       <categories>
-        <category>Adversarial Detection</category>
+        <category>Remote Server</category>
       </categories>
-      <tags>
-        <tag>Detection</tag>
-        <tag>PCA</tag>
-      </tags>
   </entry>
   <entry>
     <title>RNN &amp; LSTM</title>
@@ -605,73 +638,40 @@ use_cudnn_on_gpu=None, data_formt = None, name=None)</code></p>
       </tags>
   </entry>
   <entry>
-    <title>Server</title>
-    <url>/2021/05/09/Server/</url>
-    <content><![CDATA[<p>This talks about how to build your own remote server.</p>
-<h2 id="Anaconda"><a href="#Anaconda" class="headerlink" title="Anaconda"></a>Anaconda</h2>]]></content>
-      <categories>
-        <category>Remote Server</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>[Paper-Review] Regularizing Neural Networks via Adversarial Model Perturbation</title>
-    <url>/2021/07/20/AMP-Regularizing-Neural-Networks-via-Adversarial-Model-Perturbation/</url>
-    <content><![CDATA[<div align="center"> <img src="/2021/07/20/AMP-Regularizing-Neural-Networks-via-Adversarial-Model-Perturbation/authors.jpg" width="650"></div>
-
-<h1 id="Background"><a href="#Background" class="headerlink" title="Background"></a>Background</h1><p>Alleviate the issue of over-fitting and improve generalization performance on testing data:<br><a id="more"></a></p>
-<ul>
-<li>Regularization-based methods – introduce penalty on the complexity of the model.</li>
-<li>Data augmentation techniques – leverage important invariance properties of the data.</li>
-</ul>
-<h1 id="Approach"><a href="#Approach" class="headerlink" title="Approach"></a>Approach</h1><p>Resource: <a href="https://openaccess.thecvf.com/content/CVPR2021/papers/Zheng_Regularizing_Neural_Networks_via_Adversarial_Model_Perturbation_CVPR_2021_paper.pdf">Regularizing Neural Networks via Adversarial Model Perturbation</a></p>
-]]></content>
-      <categories>
-        <category>Paper Review</category>
-      </categories>
-      <tags>
-        <tag>Adversarial Training</tag>
-        <tag>Improve Generalization</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Mathematical Symbols in Latex</title>
-    <url>/2021/07/20/Mathematical-Symbols-in-Latex/</url>
-    <content><![CDATA[<p><strong>This blog lists most of the mathematical symbols in latex for usage.</strong></p>
+    <title>PCA Method</title>
+    <url>/2021/01/27/PCA-Method/</url>
+    <content><![CDATA[<p>Resource: <a href="https://arxiv.org/pdf/1608.00530.pdf">EARLY METHODS FOR DETECTING ADVERSARIAL IMAGES</a></p>
+<p>Code: <a href="https://github.com/hendrycks/fooling">https://github.com/hendrycks/fooling</a></p>
+<h2 id="Principle"><a href="#Principle" class="headerlink" title="Principle"></a>Principle</h2><p>Detect the adversarial images using the difference between coefficients of low-ranked principal components.</p>
 <a id="more"></a>
+<p><img src="/2021/01/27/PCA-Method/diff_of_coefficients.jpg" alt="figure1" title="Differences of Low-Ranked Principle Components"></p>
+<p>As is shown in the above figure, if we use the original, the adversarial images will have different coefficients for the low-ranked principal components than do clean images.</p>
+<p>Thus, we can use the <strong>coefficient variance</strong> to detect the adversarial examples.</p>
+<h2 id="Evaluation"><a href="#Evaluation" class="headerlink" title="Evaluation"></a>Evaluation</h2><p>AUROC: Area Under the Receiver Operating Characteristic (AU-ROC) metric</p>
 <ul>
-<li>$\mathbb{S}$: “\mathbb{S}”</li>
-<li>$\sum\limits_{i=1}\limits^n$: “\sum\limits_{i=1}\limits^n$”</li>
-<li>$\underline{p_A}$: “\underline{p_A}”</li>
+<li>ROC curve shows the true positive (tpr = tp/(tp+fn)) and false positive  (fpr = fp/(fp+tn)) rate against each other.</li>
 </ul>
-<h1 id="Operators"><a href="#Operators" class="headerlink" title="Operators"></a>Operators</h1><div align="center"> <img src="/2021/07/20/Mathematical-Symbols-in-Latex/operators.jpg" width="650"></div>
-
-<h1 id="Relations"><a href="#Relations" class="headerlink" title="Relations"></a>Relations</h1><div align="center"> <img src="/2021/07/20/Mathematical-Symbols-in-Latex/relations.jpg" width="650"></div>
-
-<p>Negations of many of these relations can be formed by just putting \not before the symbol, or by slipping an “n” between the \ and the word. Here are a couple examples, plus many other negations; it works for many of the many others as well.</p>
-<div align="center"> <img src="/2021/07/20/Mathematical-Symbols-in-Latex/relations_not.jpg" width="550"></div>
-
-<h1 id="Greek-Letters"><a href="#Greek-Letters" class="headerlink" title="Greek Letters"></a>Greek Letters</h1><div align="center"> <img src="/2021/07/20/Mathematical-Symbols-in-Latex/greek_letters.jpg" width="700"></div>
-
-<h1 id="Arrows"><a href="#Arrows" class="headerlink" title="Arrows"></a>Arrows</h1><div align="center"> <img src="/2021/07/20/Mathematical-Symbols-in-Latex/arrows.jpg" width="550"></div>
-
-<h1 id="Dots"><a href="#Dots" class="headerlink" title="Dots"></a>Dots</h1><div align="center"> <img src="/2021/07/20/Mathematical-Symbols-in-Latex/dots.jpg" width="350"></div>
-
-<h1 id="Accents"><a href="#Accents" class="headerlink" title="Accents"></a>Accents</h1><div align="center"> <img src="/2021/07/20/Mathematical-Symbols-in-Latex/greek_letters.jpg" width="700"></div>
-
-<h1 id="Others"><a href="#Others" class="headerlink" title="Others"></a>Others</h1><div align="center"> <img src="/2021/07/20/Mathematical-Symbols-in-Latex/others.jpg" width="600"></div>
-
-<p>Resource:</p>
+<p>AUPR: Area Under the Precision Recall curve</p>
 <ul>
-<li><a href="https://artofproblemsolving.com/wiki/index.php/LaTeX:Symbols">LaTeX:Symbols</a></li>
-<li><a href="https://artofproblemsolving.com/wiki/index.php/LaTeX:Commands">LaTeX:Commands</a></li>
+<li>PR curve plots the precision (tp/(tp+fp)) and recall (tp/tp+fn) against each other.</li>
 </ul>
+<h2 id="Performance"><a href="#Performance" class="headerlink" title="Performance"></a>Performance</h2><p>For this paper, they test the PCA method on Tiny-ImageNet, CIFAR-10 and MNIST. (They do not split the dataset into train and test dataset.)</p>
+<p><img src="/2021/01/27/PCA-Method/Performance.jpg" alt="figure1" title="Performance"></p>
+<h2 id="Limitation"><a href="#Limitation" class="headerlink" title="Limitation"></a>Limitation</h2><ul>
+<li><p>If we intend to reach high scores of both AUROC and AUPR, the training dataset (the samples used to generate the PCA) and the testing dataset (clean ones) should be similar to each other.</p>
+<p><strong>Note:</strong> The similarity is only meaningful to the magical program of generating PCA.</p>
+</li>
+<li><p>Only the AUROC and AUPR are not enough to finish the detection, we need to provide a kind of threshold <strong>(maybe the binary search is a possible method)</strong>.</p>
+</li>
+</ul>
+<h2 id="Idea"><a href="#Idea" class="headerlink" title="Idea"></a>Idea</h2><p>Use the PCA of adversarial examples of the training dataset to do auxiliary detection.</p>
 ]]></content>
       <categories>
-        <category>Hexo</category>
+        <category>Adversarial Detection</category>
       </categories>
       <tags>
-        <tag>Hexo</tag>
-        <tag>Latex</tag>
+        <tag>Detection</tag>
+        <tag>PCA</tag>
       </tags>
   </entry>
 </search>
