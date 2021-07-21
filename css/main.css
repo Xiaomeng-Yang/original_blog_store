@@ -3096,15 +3096,12 @@ body {
 }
 .post-block {
   background: rgba(0,0,0,0.7) none repeat scroll !important;
-  opacity: 0.7;
 }
 .sidebar-inner {
   background: rgba(0,0,0,0.7) none repeat scroll !important;
-  opacity: 0.7;
 }
 .header-inner {
   background: rgba(0,0,0,0.7);
-  opacity: 0.7;
 }
 .popup {
   opacity: 0.7;

@@ -35,26 +35,6 @@
       </tags>
   </entry>
   <entry>
-    <title>[Paper-Review] Regularizing Neural Networks via Adversarial Model Perturbation</title>
-    <url>/2021/07/20/AMP-Regularizing-Neural-Networks-via-Adversarial-Model-Perturbation/</url>
-    <content><![CDATA[<div align="center"> <img src="/2021/07/20/AMP-Regularizing-Neural-Networks-via-Adversarial-Model-Perturbation/authors.jpg" width="650"></div>
-
-<h1 id="Background"><a href="#Background" class="headerlink" title="Background"></a>Background</h1><p>Alleviate the issue of over-fitting and improve generalization performance on testing data:<br><a id="more"></a></p>
-<ul>
-<li>Regularization-based methods – introduce penalty on the complexity of the model.</li>
-<li>Data augmentation techniques – leverage important invariance properties of the data.</li>
-</ul>
-<h1 id="Approach"><a href="#Approach" class="headerlink" title="Approach"></a>Approach</h1><p>Resource: <a href="https://openaccess.thecvf.com/content/CVPR2021/papers/Zheng_Regularizing_Neural_Networks_via_Adversarial_Model_Perturbation_CVPR_2021_paper.pdf">Regularizing Neural Networks via Adversarial Model Perturbation</a></p>
-]]></content>
-      <categories>
-        <category>Paper Review</category>
-      </categories>
-      <tags>
-        <tag>Adversarial Training</tag>
-        <tag>Improve Generalization</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>About SSH</title>
     <url>/2021/01/15/About-SSH/</url>
     <content><![CDATA[<h2 id="SSH-tool"><a href="#SSH-tool" class="headerlink" title="SSH tool"></a>SSH tool</h2><p>I use MobaXterm (<a href="https://mobaxterm.mobatek.net/">official website</a>), since it enables the visualization of many operations.</p>
@@ -82,6 +62,26 @@
       </tags>
   </entry>
   <entry>
+    <title>[Paper-Review] Regularizing Neural Networks via Adversarial Model Perturbation</title>
+    <url>/2021/07/20/AMP-Regularizing-Neural-Networks-via-Adversarial-Model-Perturbation/</url>
+    <content><![CDATA[<div align="center"> <img src="/2021/07/20/AMP-Regularizing-Neural-Networks-via-Adversarial-Model-Perturbation/authors.jpg" width="650"></div>
+
+<h1 id="Background"><a href="#Background" class="headerlink" title="Background"></a>Background</h1><p>Alleviate the issue of over-fitting and improve generalization performance on testing data:<br><a id="more"></a></p>
+<ul>
+<li>Regularization-based methods – introduce penalty on the complexity of the model.</li>
+<li>Data augmentation techniques – leverage important invariance properties of the data.</li>
+</ul>
+<h1 id="Approach"><a href="#Approach" class="headerlink" title="Approach"></a>Approach</h1><p>Resource: <a href="https://openaccess.thecvf.com/content/CVPR2021/papers/Zheng_Regularizing_Neural_Networks_via_Adversarial_Model_Perturbation_CVPR_2021_paper.pdf">Regularizing Neural Networks via Adversarial Model Perturbation</a></p>
+]]></content>
+      <categories>
+        <category>Paper Review</category>
+      </categories>
+      <tags>
+        <tag>Adversarial Training</tag>
+        <tag>Improve Generalization</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Add Mathematical Formula in Hexo-Next Blogs</title>
     <url>/2021/07/20/Add-Mathematical-Formula-in-Hexo-Next-Blogs/</url>
     <content><![CDATA[<p>This blog is about how to add mathematical formulas for your hexo-next blogs.</p>
@@ -103,6 +103,22 @@
       </categories>
       <tags>
         <tag>Hexo</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Adversarial Attack and Defense</title>
+    <url>/2021/07/13/Attack/</url>
+    <content><![CDATA[<h1 id="Adversarial-Attacks"><a href="#Adversarial-Attacks" class="headerlink" title="Adversarial Attacks"></a>Adversarial Attacks</h1><h1 id="Adversarial-Defense"><a href="#Adversarial-Defense" class="headerlink" title="Adversarial Defense"></a>Adversarial Defense</h1><h2 id="Empirical-Defense"><a href="#Empirical-Defense" class="headerlink" title="Empirical Defense"></a>Empirical Defense</h2><p>Empirically seem robust to known adversarial attacks.</p>
+<h3 id="Adversarial-Training"><a href="#Adversarial-Training" class="headerlink" title="Adversarial Training"></a>Adversarial Training</h3><p>Adversarial examples are found during training (often using projected gradient descent) and added to the training set.</p>
+<h2 id="Certified-Defense"><a href="#Certified-Defense" class="headerlink" title="Certified Defense"></a>Certified Defense</h2><p>Provably robust to certain kinds of adversarial perturbations.</p>
+<p>For any input x,  one can easily obtain a guarantee that the classifier’s prediction is constant within some set around x, $l_2$ or $l_/infinity$ ball.</p>
+<ul>
+<li>Certified test set accuracy at radius r: the fraction of the test set which g classifies correctly with a prediction that is certifiably robust within an $l_2$ ball of radius r.</li>
+<li>Approximate ~: the fraction of the test set which <strong>CERTIFY</strong> classifies correctly and certifies robust with a radius $R \le r$</li>
+</ul>
+]]></content>
+      <tags>
+        <tag>Overview</tag>
       </tags>
   </entry>
   <entry>
@@ -193,22 +209,6 @@
       <tags>
         <tag>Network</tag>
         <tag>CTC</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Adversarial Attack and Defense</title>
-    <url>/2021/07/13/Attack/</url>
-    <content><![CDATA[<h1 id="Adversarial-Attacks"><a href="#Adversarial-Attacks" class="headerlink" title="Adversarial Attacks"></a>Adversarial Attacks</h1><h1 id="Adversarial-Defense"><a href="#Adversarial-Defense" class="headerlink" title="Adversarial Defense"></a>Adversarial Defense</h1><h2 id="Empirical-Defense"><a href="#Empirical-Defense" class="headerlink" title="Empirical Defense"></a>Empirical Defense</h2><p>Empirically seem robust to known adversarial attacks.</p>
-<h3 id="Adversarial-Training"><a href="#Adversarial-Training" class="headerlink" title="Adversarial Training"></a>Adversarial Training</h3><p>Adversarial examples are found during training (often using projected gradient descent) and added to the training set.</p>
-<h2 id="Certified-Defense"><a href="#Certified-Defense" class="headerlink" title="Certified Defense"></a>Certified Defense</h2><p>Provably robust to certain kinds of adversarial perturbations.</p>
-<p>For any input x,  one can easily obtain a guarantee that the classifier’s prediction is constant within some set around x, $l_2$ or $l_/infinity$ ball.</p>
-<ul>
-<li>Certified test set accuracy at radius r: the fraction of the test set which g classifies correctly with a prediction that is certifiably robust within an $l_2$ ball of radius r.</li>
-<li>Approximate ~: the fraction of the test set which <strong>CERTIFY</strong> classifies correctly and certifies robust with a radius $R \le r$</li>
-</ul>
-]]></content>
-      <tags>
-        <tag>Overview</tag>
       </tags>
   </entry>
   <entry>
@@ -552,15 +552,6 @@ use_cudnn_on_gpu=None, data_formt = None, name=None)</code></p>
       </tags>
   </entry>
   <entry>
-    <title>Server</title>
-    <url>/2021/05/09/Server/</url>
-    <content><![CDATA[<p>This talks about how to build your own remote server.</p>
-<h2 id="Anaconda"><a href="#Anaconda" class="headerlink" title="Anaconda"></a>Anaconda</h2>]]></content>
-      <categories>
-        <category>Remote Server</category>
-      </categories>
-  </entry>
-  <entry>
     <title>RNN &amp; LSTM</title>
     <url>/2021/01/15/RNN-LSTM/</url>
     <content><![CDATA[<p>Resource:</p>
@@ -636,6 +627,15 @@ use_cudnn_on_gpu=None, data_formt = None, name=None)</code></p>
         <tag>RNN</tag>
         <tag>LSTM</tag>
       </tags>
+  </entry>
+  <entry>
+    <title>Server</title>
+    <url>/2021/05/09/Server/</url>
+    <content><![CDATA[<p>This talks about how to build your own remote server.</p>
+<h2 id="Anaconda"><a href="#Anaconda" class="headerlink" title="Anaconda"></a>Anaconda</h2>]]></content>
+      <categories>
+        <category>Remote Server</category>
+      </categories>
   </entry>
   <entry>
     <title>PCA Method</title>
