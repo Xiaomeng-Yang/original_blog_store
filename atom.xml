@@ -6,7 +6,7 @@
   <link href="https://rachel-yang.github.io/atom.xml" rel="self"/>
   
   <link href="https://rachel-yang.github.io/"/>
-  <updated>2021-01-12T15:52:32.427Z</updated>
+  <updated>2021-07-21T09:08:19.686Z</updated>
   <id>https://rachel-yang.github.io/</id>
   
   <author>
@@ -17,23 +17,411 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>Hello World</title>
-    <link href="https://rachel-yang.github.io/2021/01/12/hello-world/"/>
-    <id>https://rachel-yang.github.io/2021/01/12/hello-world/</id>
-    <published>2021-01-12T15:52:32.427Z</published>
-    <updated>2021-01-12T15:52:32.427Z</updated>
+    <title>Mathematical Symbols in Latex</title>
+    <link href="https://rachel-yang.github.io/2021/07/20/Mathematical-Symbols-in-Latex/"/>
+    <id>https://rachel-yang.github.io/2021/07/20/Mathematical-Symbols-in-Latex/</id>
+    <published>2021-07-20T13:01:16.000Z</published>
+    <updated>2021-07-21T09:08:19.686Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;&lt;strong&gt;This blog lists most of the mathematical symbols in latex for usage.&lt;/strong&gt;&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="Hexo" scheme="https://rachel-yang.github.io/categories/Hexo/"/>
+    
+    
+    <category term="Hexo" scheme="https://rachel-yang.github.io/tags/Hexo/"/>
+    
+    <category term="Latex" scheme="https://rachel-yang.github.io/tags/Latex/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>[Paper-Review] Regularizing Neural Networks via Adversarial Model Perturbation</title>
+    <link href="https://rachel-yang.github.io/2021/07/20/AMP-Regularizing-Neural-Networks-via-Adversarial-Model-Perturbation/"/>
+    <id>https://rachel-yang.github.io/2021/07/20/AMP-Regularizing-Neural-Networks-via-Adversarial-Model-Perturbation/</id>
+    <published>2021-07-20T09:04:12.000Z</published>
+    <updated>2021-07-20T13:17:04.019Z</updated>
+    
+    
+    <summary type="html">&lt;div align=&quot;center&quot;&gt; &lt;img src=&quot;/2021/07/20/AMP-Regularizing-Neural-Networks-via-Adversarial-Model-Perturbation/authors.jpg&quot; width=&quot;650&quot;&gt;&lt;/div&gt;
+
+&lt;h1 id=&quot;Background&quot;&gt;&lt;a href=&quot;#Background&quot; class=&quot;headerlink&quot; title=&quot;Background&quot;&gt;&lt;/a&gt;Background&lt;/h1&gt;&lt;p&gt;Alleviate the issue of over-fitting and improve generalization performance on testing data:&lt;br&gt;&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="Paper Review" scheme="https://rachel-yang.github.io/categories/Paper-Review/"/>
+    
+    
+    <category term="Adversarial Training" scheme="https://rachel-yang.github.io/tags/Adversarial-Training/"/>
+    
+    <category term="Improve Generalization" scheme="https://rachel-yang.github.io/tags/Improve-Generalization/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Add Mathematical Formula in Hexo-Next Blogs</title>
+    <link href="https://rachel-yang.github.io/2021/07/20/Add-Mathematical-Formula-in-Hexo-Next-Blogs/"/>
+    <id>https://rachel-yang.github.io/2021/07/20/Add-Mathematical-Formula-in-Hexo-Next-Blogs/</id>
+    <published>2021-07-20T06:43:22.000Z</published>
+    <updated>2021-07-20T13:16:34.704Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;This blog is about how to add mathematical formulas for your hexo-next blogs.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;&lt;font color=&quot;#32adff&quot;&gt;Change the rendering engine of Hexo’s Markdown:&lt;/font&gt;&lt;/strong&gt;&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="Hexo" scheme="https://rachel-yang.github.io/categories/Hexo/"/>
+    
+    
+    <category term="Hexo" scheme="https://rachel-yang.github.io/tags/Hexo/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>[Paper Review] MaxUp: Lightweight Adversarial Training with Data Augmentation Improves Neural Network Training</title>
+    <link href="https://rachel-yang.github.io/2021/07/16/MaxUp-Method/"/>
+    <id>https://rachel-yang.github.io/2021/07/16/MaxUp-Method/</id>
+    <published>2021-07-16T03:26:32.000Z</published>
+    <updated>2021-07-20T13:17:39.335Z</updated>
+    
+    
+    <summary type="html">&lt;div align=&quot;center&quot;&gt; &lt;img src=&quot;/2021/07/16/MaxUp-Method/authors.jpg&quot; width=&quot;650&quot;&gt;&lt;/div&gt;
+
+&lt;h1 id=&quot;Background&quot;&gt;&lt;a href=&quot;#Background&quot; class=&quot;headerlink&quot; title=&quot;Background&quot;&gt;&lt;/a&gt;Background&lt;/h1&gt;&lt;p&gt;Alleviate the issue of over-fitting and improve generalization performance on testing data:&lt;br&gt;&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="Paper Review" scheme="https://rachel-yang.github.io/categories/Paper-Review/"/>
+    
+    
+    <category term="Adversarial Training" scheme="https://rachel-yang.github.io/tags/Adversarial-Training/"/>
+    
+    <category term="Improve Generalization" scheme="https://rachel-yang.github.io/tags/Improve-Generalization/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>CVPR2021 Papers About Adversarial Network</title>
+    <link href="https://rachel-yang.github.io/2021/07/14/CVPR2021-Papers/"/>
+    <id>https://rachel-yang.github.io/2021/07/14/CVPR2021-Papers/</id>
+    <published>2021-07-14T08:24:43.000Z</published>
+    <updated>2021-07-20T13:18:08.420Z</updated>
+    
+    
+    <summary type="html">&lt;h1 id=&quot;Adversarial-Training&quot;&gt;&lt;a href=&quot;#Adversarial-Training&quot; class=&quot;headerlink&quot; title=&quot;Adversarial Training:&quot;&gt;&lt;/a&gt;Adversarial Training:&lt;/h1&gt;&lt;h2 id=&quot;MaxUp-Lightweight-Adversarial-Training-with-Data-Augmentation-Improves-Neural-Network-Training&quot;&gt;&lt;a href=&quot;#MaxUp-Lightweight-Adversarial-Training-with-Data-Augmentation-Improves-Neural-Network-Training&quot; class=&quot;headerlink&quot; title=&quot;MaxUp: Lightweight Adversarial Training with Data Augmentation Improves Neural Network Training&quot;&gt;&lt;/a&gt;&lt;a href=&quot;https://openaccess.thecvf.com/content/CVPR2021/papers/Gong_MaxUp_Lightweight_Adversarial_Training_With_Data_Augmentation_Improves_Neural_Network_CVPR_2021_paper.pdf&quot;&gt;MaxUp: Lightweight Adversarial Training with Data Augmentation Improves Neural Network Training&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;&lt;strong&gt;Main Idea&lt;/strong&gt;: Generate a set of augmented samples, then &lt;font color=&quot;#32adff&quot;&gt;optimize over the worst (or highest) loss image&lt;/font&gt; —&amp;gt; Improve the model generalization.&lt;br&gt;&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="Paper Review" scheme="https://rachel-yang.github.io/categories/Paper-Review/"/>
+    
+    
+    <category term="Adversarial" scheme="https://rachel-yang.github.io/tags/Adversarial/"/>
+    
+    <category term="CVPR" scheme="https://rachel-yang.github.io/tags/CVPR/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Adversarial Attack and Defense</title>
+    <link href="https://rachel-yang.github.io/2021/07/13/Attack/"/>
+    <id>https://rachel-yang.github.io/2021/07/13/Attack/</id>
+    <published>2021-07-13T01:00:05.000Z</published>
+    <updated>2021-07-16T03:22:57.534Z</updated>
     
     
       
       
         
         
-    <summary type="html">&lt;p&gt;Welcome to &lt;a href=&quot;https://hexo.io/&quot;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a href=&quot;https://hexo.io/docs/&quot;&gt;documentation&lt;/a&gt;</summary>
+    <summary type="html">&lt;h1 id=&quot;Adversarial-Attacks&quot;&gt;&lt;a href=&quot;#Adversarial-Attacks&quot; class=&quot;headerlink&quot; title=&quot;Adversarial Attacks&quot;&gt;&lt;/a&gt;Adversarial Attacks&lt;/h1&gt;&lt;h1</summary>
         
       
     
     
     
+    
+    <category term="Overview" scheme="https://rachel-yang.github.io/tags/Overview/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>OCR-Data</title>
+    <link href="https://rachel-yang.github.io/2021/05/09/OCR-Data/"/>
+    <id>https://rachel-yang.github.io/2021/05/09/OCR-Data/</id>
+    <published>2021-05-09T07:40:59.000Z</published>
+    <updated>2021-07-16T03:24:03.502Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;This blog talks about the popular used &lt;strong&gt;Text Recognition Data&lt;/strong&gt;&lt;/p&gt;
+&lt;h2 id=&quot;Synthetic-Word-Dataset&quot;&gt;&lt;a</summary>
+        
+      
+    
+    
+    
+    <category term="Scene Text Recognition" scheme="https://rachel-yang.github.io/categories/Scene-Text-Recognition/"/>
+    
+    
+    <category term="Dataset" scheme="https://rachel-yang.github.io/tags/Dataset/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Server</title>
+    <link href="https://rachel-yang.github.io/2021/05/09/Server/"/>
+    <id>https://rachel-yang.github.io/2021/05/09/Server/</id>
+    <published>2021-05-09T07:03:47.000Z</published>
+    <updated>2021-05-09T07:36:27.041Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;This talks about how to build your own remote server.&lt;/p&gt;
+&lt;h2 id=&quot;Anaconda&quot;&gt;&lt;a href=&quot;#Anaconda&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="Remote Server" scheme="https://rachel-yang.github.io/categories/Remote-Server/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>FGSM Attack</title>
+    <link href="https://rachel-yang.github.io/2021/03/08/FGSM-Attack/"/>
+    <id>https://rachel-yang.github.io/2021/03/08/FGSM-Attack/</id>
+    <published>2021-03-08T11:23:05.000Z</published>
+    <updated>2021-07-16T03:23:41.809Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;Resource: &lt;a href=&quot;https://arxiv.org/abs/1412.6572&quot;&gt;Explaining and Harnessing Adversarial</summary>
+        
+      
+    
+    
+    
+    <category term="Adversarial Attack" scheme="https://rachel-yang.github.io/categories/Adversarial-Attack/"/>
+    
+    
+    <category term="Attack" scheme="https://rachel-yang.github.io/tags/Attack/"/>
+    
+    <category term="hide" scheme="https://rachel-yang.github.io/tags/hide/"/>
+    
+    <category term="Adversarial Training" scheme="https://rachel-yang.github.io/tags/Adversarial-Training/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>AGD Method (Adversarial Example Detection)</title>
+    <link href="https://rachel-yang.github.io/2021/02/03/AGD-Method-Adversarial-Example-Detection/"/>
+    <id>https://rachel-yang.github.io/2021/02/03/AGD-Method-Adversarial-Example-Detection/</id>
+    <published>2021-02-03T15:27:11.000Z</published>
+    <updated>2021-07-20T08:05:48.190Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;Resource: &lt;a href=&quot;https://arxiv.org/pdf/1507.05717.pdf&quot;&gt;2021 AAAI-Beating Attackers At Their Own Games:&lt;br&gt;Adversarial Example Detection Using Adversarial Gradient Directions&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&quot;Background&quot;&gt;&lt;a href=&quot;#Background&quot; class=&quot;headerlink&quot; title=&quot;Background&quot;&gt;&lt;/a&gt;Background&lt;/h2&gt;&lt;p&gt;Previous adversarial example detection methods primarily exploit the following two observed properties of adversarial examples:&lt;br&gt;&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="Adversarial Detection" scheme="https://rachel-yang.github.io/categories/Adversarial-Detection/"/>
+    
+    
+    <category term="Adversarial" scheme="https://rachel-yang.github.io/tags/Adversarial/"/>
+    
+    <category term="Detection" scheme="https://rachel-yang.github.io/tags/Detection/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>PCA Method</title>
+    <link href="https://rachel-yang.github.io/2021/01/27/PCA-Method/"/>
+    <id>https://rachel-yang.github.io/2021/01/27/PCA-Method/</id>
+    <published>2021-01-27T08:58:28.000Z</published>
+    <updated>2021-07-16T03:24:12.795Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;Resource: &lt;a href=&quot;https://arxiv.org/pdf/1608.00530.pdf&quot;&gt;EARLY METHODS FOR DETECTING ADVERSARIAL IMAGES&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Code: &lt;a href=&quot;https://github.com/hendrycks/fooling&quot;&gt;https://github.com/hendrycks/fooling&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&quot;Principle&quot;&gt;&lt;a href=&quot;#Principle&quot; class=&quot;headerlink&quot; title=&quot;Principle&quot;&gt;&lt;/a&gt;Principle&lt;/h2&gt;&lt;p&gt;Detect the adversarial images using the difference between coefficients of low-ranked principal components.&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="Adversarial Detection" scheme="https://rachel-yang.github.io/categories/Adversarial-Detection/"/>
+    
+    
+    <category term="Detection" scheme="https://rachel-yang.github.io/tags/Detection/"/>
+    
+    <category term="PCA" scheme="https://rachel-yang.github.io/tags/PCA/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>RNN &amp; LSTM</title>
+    <link href="https://rachel-yang.github.io/2021/01/15/RNN-LSTM/"/>
+    <id>https://rachel-yang.github.io/2021/01/15/RNN-LSTM/</id>
+    <published>2021-01-15T11:58:33.000Z</published>
+    <updated>2021-01-16T11:58:45.110Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;Resource:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://www.deeplearningbook.org/contents/rnn.html&quot;&gt;RNN Chapter of the DeepLearningBook&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://colah.github.io/posts/2015-08-Understanding-LSTMs/&quot;&gt;Understanding LSTM Networks, colah’s blog&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;In this passage, I will introduce the basic knowledge of RNN (Recurrent Neural Network) and its widely used type LSTM (Long Short Term Memory).&lt;/p&gt;
+&lt;h2 id=&quot;RNN-Network&quot;&gt;&lt;a href=&quot;#RNN-Network&quot; class=&quot;headerlink&quot; title=&quot;RNN Network&quot;&gt;&lt;/a&gt;RNN Network&lt;/h2&gt;&lt;p&gt;Recurrent neural networks are specialized for processing a sequence of values &lt;strong&gt;$x^{(1)}, …, x^{(T)}$&lt;/strong&gt; (input).&lt;br&gt;&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="Basic Neural Networks" scheme="https://rachel-yang.github.io/categories/Basic-Neural-Networks/"/>
+    
+    
+    <category term="Network" scheme="https://rachel-yang.github.io/tags/Network/"/>
+    
+    <category term="RNN" scheme="https://rachel-yang.github.io/tags/RNN/"/>
+    
+    <category term="LSTM" scheme="https://rachel-yang.github.io/tags/LSTM/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>About SSH</title>
+    <link href="https://rachel-yang.github.io/2021/01/15/About-SSH/"/>
+    <id>https://rachel-yang.github.io/2021/01/15/About-SSH/</id>
+    <published>2021-01-15T09:11:52.000Z</published>
+    <updated>2021-05-09T07:11:56.171Z</updated>
+    
+    
+    <summary type="html">&lt;h2 id=&quot;SSH-tool&quot;&gt;&lt;a href=&quot;#SSH-tool&quot; class=&quot;headerlink&quot; title=&quot;SSH tool&quot;&gt;&lt;/a&gt;SSH tool&lt;/h2&gt;&lt;p&gt;I use MobaXterm (&lt;a href=&quot;https://mobaxterm.mobatek.net/&quot;&gt;official website&lt;/a&gt;), since it enables the visualization of many operations.&lt;/p&gt;
+&lt;p&gt;Select session -&amp;gt; SSH; then type in the server ip, username and password.&lt;br&gt;&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="Remote Server" scheme="https://rachel-yang.github.io/categories/Remote-Server/"/>
+    
+    
+    <category term="SSH" scheme="https://rachel-yang.github.io/tags/SSH/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>DIM Attack</title>
+    <link href="https://rachel-yang.github.io/2021/01/15/DIM-Attack/"/>
+    <id>https://rachel-yang.github.io/2021/01/15/DIM-Attack/</id>
+    <published>2021-01-14T17:20:15.000Z</published>
+    <updated>2021-07-16T03:23:21.885Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;Resource: &lt;a href&gt;Improving Transferability of Adversarial Examples with Input</summary>
+        
+      
+    
+    
+    
+    <category term="Adversarial Attack" scheme="https://rachel-yang.github.io/categories/Adversarial-Attack/"/>
+    
+    
+    <category term="Attack" scheme="https://rachel-yang.github.io/tags/Attack/"/>
+    
+    <category term="Black-box" scheme="https://rachel-yang.github.io/tags/Black-box/"/>
+    
+    <category term="hide" scheme="https://rachel-yang.github.io/tags/hide/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>CTC Method</title>
+    <link href="https://rachel-yang.github.io/2021/01/15/CTC-Method/"/>
+    <id>https://rachel-yang.github.io/2021/01/15/CTC-Method/</id>
+    <published>2021-01-14T17:12:30.000Z</published>
+    <updated>2021-07-16T03:22:32.759Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;Resource:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;a href=&quot;https://www.cs.toronto.edu/~graves/icml_2006.pdf&quot;&gt;Connectionist Temporal Classification: Labelling Unsegmented&lt;br&gt;Sequence Data with Recurrent Neural Networks&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://zhuanlan.zhihu.com/p/43534801&quot;&gt;https://zhuanlan.zhihu.com/p/43534801&lt;/a&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&quot;Background&quot;&gt;&lt;a href=&quot;#Background&quot; class=&quot;headerlink&quot; title=&quot;Background&quot;&gt;&lt;/a&gt;Background&lt;/h2&gt;&lt;p&gt;Traditional RNNs require &lt;strong&gt;pre-segmented&lt;/strong&gt; training data and &lt;strong&gt;post-processing&lt;/strong&gt; to transform their outputs into label sequence.&lt;/p&gt;
+&lt;p&gt;Thus, CTC intends to presents a novel method for training RNNs to label unsegmented sequences directly.&lt;br&gt;&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="Scene Text Recognition" scheme="https://rachel-yang.github.io/categories/Scene-Text-Recognition/"/>
+    
+    
+    <category term="CTC" scheme="https://rachel-yang.github.io/tags/CTC/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Extra Knowledge of Tensorflow</title>
+    <link href="https://rachel-yang.github.io/2021/01/14/Extra-Knowledge-of-Tensorflow/"/>
+    <id>https://rachel-yang.github.io/2021/01/14/Extra-Knowledge-of-Tensorflow/</id>
+    <published>2021-01-14T11:35:24.000Z</published>
+    <updated>2021-01-15T11:57:02.483Z</updated>
+    
+    
+    <summary type="html">&lt;h3 id=&quot;NCHW-amp-NHWC&quot;&gt;&lt;a href=&quot;#NCHW-amp-NHWC&quot; class=&quot;headerlink&quot; title=&quot;NCHW &amp;amp; NHWC&quot;&gt;&lt;/a&gt;NCHW &amp;amp; NHWC&lt;/h3&gt;&lt;p&gt;When we use the Tensorflow Application,&lt;br&gt;E.g.&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;tf.nn.conv2d(input, filter, strides, padding,
+use_cudnn_on_gpu=None, data_formt = None, name=None)&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;data_format: default set to “NHWC”, which &lt;strong&gt;stipulate the orientation&lt;/strong&gt; of input and output Tensor&lt;br&gt;&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="Tensorflow" scheme="https://rachel-yang.github.io/categories/Tensorflow/"/>
+    
+    
+    <category term="Tensorflow" scheme="https://rachel-yang.github.io/tags/Tensorflow/"/>
+    
+    <category term="Basic Knowledge" scheme="https://rachel-yang.github.io/tags/Basic-Knowledge/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>CRNN Network</title>
+    <link href="https://rachel-yang.github.io/2021/01/13/CRNN-Network/"/>
+    <id>https://rachel-yang.github.io/2021/01/13/CRNN-Network/</id>
+    <published>2021-01-13T12:08:15.000Z</published>
+    <updated>2021-01-21T13:29:12.755Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;Resource: &lt;a href=&quot;https://arxiv.org/pdf/1507.05717.pdf&quot;&gt;An End-to-End Trainable Neural Network for Image-based Sequence Recognition and Its Application to Scene Text Recognition&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Implementation:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/MaybeShewill-CV/CRNN_Tensorflow&quot;&gt;Tensorflow, Author: MaybeShewill-CV&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/meijieru/crnn.pytorch&quot;&gt;Pytorch, Author: meijieru&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&quot;Background&quot;&gt;&lt;a href=&quot;#Background&quot; class=&quot;headerlink&quot; title=&quot;Background&quot;&gt;&lt;/a&gt;Background&lt;/h2&gt;&lt;p&gt;For image based sequence recognition, sequence-like objects, we need the system to predict &lt;strong&gt;a series of object labels&lt;/strong&gt;.&lt;br&gt;&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="Scene Text Recognition" scheme="https://rachel-yang.github.io/categories/Scene-Text-Recognition/"/>
+    
+    
+    <category term="Network" scheme="https://rachel-yang.github.io/tags/Network/"/>
+    
+    <category term="CTC" scheme="https://rachel-yang.github.io/tags/CTC/"/>
     
   </entry>
   

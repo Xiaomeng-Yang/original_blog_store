@@ -1,17 +1,677 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>Hello World</title>
-    <url>/2021/01/12/hello-world/</url>
-    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+    <title>About SSH</title>
+    <url>/2021/01/15/About-SSH/</url>
+    <content><![CDATA[<h2 id="SSH-tool"><a href="#SSH-tool" class="headerlink" title="SSH tool"></a>SSH tool</h2><p>I use MobaXterm (<a href="https://mobaxterm.mobatek.net/">official website</a>), since it enables the visualization of many operations.</p>
+<p>Select session -&gt; SSH; then type in the server ip, username and password.<br><a id="more"></a><br><img src="/2021/01/15/About-SSH/figure_SSH.jpg" alt="figureSSH"></p>
+<h2 id="Pycharm-connection"><a href="#Pycharm-connection" class="headerlink" title="Pycharm connection"></a>Pycharm connection</h2><p>I omit the basic downloading and  installation here. You can just google Pycharm and download its <strong>Professional</strong> version from its official website.</p>
+<p>Note: students and professors can use academic</p>
+<ol>
+<li><p>Select tools -&gt; Deployment -&gt; Configuration<br><img src="/2021/01/15/About-SSH/figure_1.jpg" alt="figure1"></p>
+</li>
+<li><p>Press “+” button and choose the SFTP (Secure File Transfer Protocol)<br><img src="/2021/01/15/About-SSH/figure_2.jpg" alt="figure2"></p>
+</li>
+<li><p>Add a new SSH configuration<br><img src="/2021/01/15/About-SSH/figure_3.jpg" alt="figure3"></p>
+<p><img src="/2021/01/15/About-SSH/figure_4.jpg" alt="figure4"></p>
+</li>
+<li><p>Root path is the location of the remote server you want to transfer files to; then for <strong>Mappings</strong>, local path is your local project’s path.<br><img src="/2021/01/15/About-SSH/figure_5.jpg" alt="figure5"></p>
+<p><img src="/2021/01/15/About-SSH/figure_6.jpg" alt="figure6"></p>
+</li>
+</ol>
 ]]></content>
+      <categories>
+        <category>Remote Server</category>
+      </categories>
+      <tags>
+        <tag>SSH</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>AGD Method (Adversarial Example Detection)</title>
+    <url>/2021/02/03/AGD-Method-Adversarial-Example-Detection/</url>
+    <content><![CDATA[<p>Resource: <a href="https://arxiv.org/pdf/1507.05717.pdf">2021 AAAI-Beating Attackers At Their Own Games:<br>Adversarial Example Detection Using Adversarial Gradient Directions</a></p>
+<h2 id="Background"><a href="#Background" class="headerlink" title="Background"></a>Background</h2><p>Previous adversarial example detection methods primarily exploit the following two observed properties of adversarial examples:<br><a id="more"></a></p>
+<ul>
+<li>Adversarial examples are comparatively more sensitive to perturbations in the input space than benign examples.</li>
+<li>The distance of an adversarial example to the data distribution of benign examples is anomalous.</li>
+</ul>
+<h2 id="Approach"><a href="#Approach" class="headerlink" title="Approach"></a>Approach</h2><h3 id="Overview"><a href="#Overview" class="headerlink" title="Overview"></a>Overview</h3><p><img src="/2021/02/03/AGD-Method-Adversarial-Example-Detection/Approach_overview.jpg" alt="figure1" title="Approach overview"></p>
+<h3 id="Notation"><a href="#Notation" class="headerlink" title="Notation"></a>Notation</h3><ul>
+<li>$I^q$: query Example</li>
+<li>$\phi(f(I), y)$: the loss function for the classifier f</li>
+<li>$I’$: adversarial example</li>
+<li>$$:</li>
+<li>$\tau(I^q) \rightarrow [0,1]$: adversarial example detector</li>
+<li>$I^p_l = I^q * T_l$: A transformed image</li>
+<li>$T_l$: an image transformation</li>
+<li>$I^n$: a prototype benign example that belongs to the predicted class a from a reference database $D’$</li>
+</ul>
+<h3 id="Scores"><a href="#Scores" class="headerlink" title="Scores"></a>Scores</h3><ul>
+<li>$\alpha_a$: compute the angular similarity between $I^q$ and $I^p$ —&gt; query and transformed</li>
+<li>$\beta_k$: compute the angular similarity between $I^q$ and $I^n$ — query and benign</li>
+<li>$\gamma_k$: compute the angular similarity between $I^p$ and $I^n$ — transformed and benign</li>
+</ul>
+]]></content>
+      <categories>
+        <category>Adversarial Detection</category>
+      </categories>
+      <tags>
+        <tag>Adversarial</tag>
+        <tag>Detection</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Add Mathematical Formula in Hexo-Next Blogs</title>
+    <url>/2021/07/20/Add-Mathematical-Formula-in-Hexo-Next-Blogs/</url>
+    <content><![CDATA[<p>This blog is about how to add mathematical formulas for your hexo-next blogs.</p>
+<p><strong><font color="#32adff">Change the rendering engine of Hexo’s Markdown:</font></strong></p>
+<a id="more"></a>
+<p>The hexo-renderer-kramed engine is modified based on the default rendering engine hexo-renderer-marked by rewriting the bugs. They are close to each other, and both of them are light weight.</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">npm uninstall hexo-renderer-marked --save</span><br><span class="line">npm install hexo-renderer-kramed --save</span><br></pre></td></tr></table></figure>
+<p><strong><font color="#32adff">Resolve semantic conflicts:</font></strong></p>
+<p>Find the file “node_modules\kramed\lib\rules\inline.js”, and make the following two changes.</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">//escape: /^\\([\\`*&#123;&#125;\[\]()<span class="comment">#$+\-.!_&gt;])/,</span></span><br><span class="line">escape: /^\\([`*\[\]()<span class="comment">#$+\-.!_&gt;])/,</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight"><table><tr><td class="code"><pre><span class="line">//em: /^\b_((?:__|[\s\S])+?)_\b|^\*((?:\*\*|[\s\S])+?)\*(?!\*)/,</span><br><span class="line">em: /^\*((?:\*\*|[\s\S])+?)\*(?!\*)/,</span><br></pre></td></tr></table></figure>
+<p><strong><font color="#32adff">Enable mathjax in the _config.yml of Next theme:</font></strong></p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">math:</span><br><span class="line">  <span class="comment"># Default (false) will load mathjax / katex script on demand.</span></span><br><span class="line">  <span class="comment"># That is it only render those page which has `mathjax: true` in Front-matter.</span></span><br><span class="line">  <span class="comment"># If you set it to true, it will load mathjax / katex srcipt EVERY PAGE.</span></span><br><span class="line">  every_page: false</span><br><span class="line"></span><br><span class="line">  mathjax:</span><br><span class="line">    enable: true <span class="comment"># change this to true</span></span><br><span class="line"></span><br><span class="line">  katex:</span><br><span class="line">    enable: false</span><br><span class="line">    <span class="comment"># See: https://github.com/KaTeX/KaTeX/tree/master/contrib/copy-tex</span></span><br><span class="line">    copy_tex: false</span><br></pre></td></tr></table></figure>
+<p><strong><font color="#32adff">Enable mathjax for a post:</font></strong><br><figure class="highlight python"><table><tr><td class="code"><pre><span class="line">title: Add Mathematical Formula <span class="keyword">in</span> Hexo-Next Blogs</span><br><span class="line">date: <span class="number">2021</span>-07-<span class="number">20</span> <span class="number">14</span>:<span class="number">43</span>:<span class="number">22</span></span><br><span class="line">tags:</span><br><span class="line">  - Hexo</span><br><span class="line">  - Latex</span><br><span class="line">categories: <span class="string">&quot;Hexo&quot;</span></span><br><span class="line">mathjax: true</span><br></pre></td></tr></table></figure><br><strong><font color="#32adff">Use a single $ or $$ to add mathematical formulas.</font></strong></p>
+<p>Resource: <a href="https://blog.csdn.net/ssjdoudou/article/details/103318019/">《Hexo-next主题支持数学公式》 by请叫我算术嘉</a></p>
+]]></content>
+      <categories>
+        <category>Hexo</category>
+      </categories>
+      <tags>
+        <tag>Hexo</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Adversarial Attack and Defense</title>
+    <url>/2021/07/13/Attack/</url>
+    <content><![CDATA[<h1 id="Adversarial-Attacks"><a href="#Adversarial-Attacks" class="headerlink" title="Adversarial Attacks"></a>Adversarial Attacks</h1><h1 id="Adversarial-Defense"><a href="#Adversarial-Defense" class="headerlink" title="Adversarial Defense"></a>Adversarial Defense</h1><h2 id="Empirical-Defense"><a href="#Empirical-Defense" class="headerlink" title="Empirical Defense"></a>Empirical Defense</h2><p>Empirically seem robust to known adversarial attacks.</p>
+<h3 id="Adversarial-Training"><a href="#Adversarial-Training" class="headerlink" title="Adversarial Training"></a>Adversarial Training</h3><p>Adversarial examples are found during training (often using projected gradient descent) and added to the training set.</p>
+<h2 id="Certified-Defense"><a href="#Certified-Defense" class="headerlink" title="Certified Defense"></a>Certified Defense</h2><p>Provably robust to certain kinds of adversarial perturbations.</p>
+<p>For any input x,  one can easily obtain a guarantee that the classifier’s prediction is constant within some set around x, $l_2$ or $l_/infinity$ ball.</p>
+<ul>
+<li>Certified test set accuracy at radius r: the fraction of the test set which g classifies correctly with a prediction that is certifiably robust within an $l_2$ ball of radius r.</li>
+<li>Approximate ~: the fraction of the test set which <strong>CERTIFY</strong> classifies correctly and certifies robust with a radius $R \le r$</li>
+</ul>
+]]></content>
+      <tags>
+        <tag>Overview</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>CRNN Network</title>
+    <url>/2021/01/13/CRNN-Network/</url>
+    <content><![CDATA[<p>Resource: <a href="https://arxiv.org/pdf/1507.05717.pdf">An End-to-End Trainable Neural Network for Image-based Sequence Recognition and Its Application to Scene Text Recognition</a></p>
+<p>Implementation:</p>
+<ul>
+<li><a href="https://github.com/MaybeShewill-CV/CRNN_Tensorflow">Tensorflow, Author: MaybeShewill-CV</a></li>
+<li><a href="https://github.com/meijieru/crnn.pytorch">Pytorch, Author: meijieru</a></li>
+</ul>
+<h2 id="Background"><a href="#Background" class="headerlink" title="Background"></a>Background</h2><p>For image based sequence recognition, sequence-like objects, we need the system to predict <strong>a series of object labels</strong>.<br><a id="more"></a></p>
+<ul>
+<li><strong>DCNN models</strong> often operate on inputs and outputs with fixed dimensions —&gt; cannot be directly used.</li>
+<li><strong>RNN models</strong> need a preprocessing step that convert an input image into a sequence of image features —&gt; cannot be trained and optimized in an end-to-end fashion.</li>
+</ul>
+<p>==&gt; <strong>Idea : merge</strong> the DCNN model and RNN model <strong>together</strong>, and try taking advantages of both these two models.</p>
+<h2 id="Structure"><a href="#Structure" class="headerlink" title="Structure"></a>Structure</h2><p>Convolutional Recurrent Neural Network &lt;— A combination of DCNN and RNN</p>
+<p><img src="/images/CRNN_structure.jpg" alt="figure1" title="Structure of CRNN Network"></p>
+<h3 id="Convolutional-Layers"><a href="#Convolutional-Layers" class="headerlink" title="Convolutional Layers"></a>Convolutional Layers</h3><ul>
+<li>Structure: <strong>convolutional and max-pooling layers</strong> from a standard CNN model (fully-connected layers are removed)</li>
+<li>Function: extract <strong>a sequential feature</strong> representation</li>
+<li>Preprocess: scale all the images to the same height</li>
+<li>Process:<ul>
+<li>The _i_-th feature vector is the concatenation of the _i_-th columns of all maps;</li>
+<li>The <strong><em>width</em></strong> of each column is fixed to <strong>single pixel</strong>;</li>
+<li>Each column of the feature maps corresponds to a rectangle region of the original image</li>
+</ul>
+</li>
+</ul>
+<p><img src="/images/CRNN_Receptive_Field.jpg" alt="figure2" title="Structure of CRNN Network"></p>
+<p>Code Example:</p>
+<ul>
+<li>input_size: [batch, 32, 100, 3] (NHWC format)</li>
+<li>ouput_size: [batch, 1, 25, 512] (split the input image to 25 pitches from left to right)</li>
+</ul>
+<h3 id="Recurrent-Layers"><a href="#Recurrent-Layers" class="headerlink" title="Recurrent Layers"></a>Recurrent Layers</h3><ul>
+<li><p>Structure: <strong>Deep bidirectional LSTM</strong></p>
+<p><img src="/images/CRNN_RNN.jpg" alt="figure3" title="Structure of LSTM and Recurrent Layers"></p>
+<ul>
+<li>For basic knowledge of RNN network, please see <a href="/2021/01/15/RNN-LSTM/" title="RNN &amp; LSTM">RNN &amp; LSTM</a>.</li>
+<li>LSTM (long-short Term Memory): a type of RNN unit to solve the vanishing gradient problem, whose structure shown in the above figure(a). For more information, also check the passage <a href="/2021/01/15/RNN-LSTM/" title="RNN &amp; LSTM">RNN &amp; LSTM</a>.</li>
+<li>The recurrent layers first combine two LSTMs (one forward and one backward), then stack multiple bidirectional LSTMs (figure(b)).</li>
+</ul>
+</li>
+<li><p>Function: predict a label distribution $y_t$ for each frame $x_t$ in the feature sequence $X = x_1,…,x_T$</p>
+</li>
+<li><p>Advantages:</p>
+<ul>
+<li>strong capability of capturing contextual information —&gt; better performance</li>
+<li>can back-propagates error differentials to its input —&gt; jointly train CNN and RNN layers</li>
+<li>can operate on sequences of arbitrary lengths</li>
+</ul>
+</li>
+</ul>
+<h3 id="Transcription"><a href="#Transcription" class="headerlink" title="Transcription"></a>Transcription</h3><p>Find the label sequence with the highest probability conditioned on the per-frame.</p>
+<p>Take usage of Connectionist Temporal Classification (CTC), defining the conditional probability as the sum of probabilities of all $\pi$ that are mapped by $B$ onto $l$:</p>
+<p><img src="/images/CNN_probability.jpg" alt="figure4" title="Contional Probability"></p>
+<ul>
+<li><p>$l$ is label sequence; $y = y_1, …, y_T$ are per-frame predictions; $T$ is the sequence length; $L’ = L \bigcup \{blank\}$, where $L$ contains all labels in the task; the path $\pi \in L’^T$; $B$ maps $\pi$ onto $l$</p>
+</li>
+<li><p>E.g. $B$ maps “—h-e-l-ll-oo—“ onto $hello$</p>
+</li>
+<li><p>The probability of $\pi$ is defined as $p(\pi | y) = \prod^T_{t=1}y^t_{\pi_t}$, where $y^t_{\pi_t}$ is the probability of having label $\pi_t$ at time stamp $t$.</p>
+</li>
+<li><p>CTC ignores the position where each label in $l$ is located, avoiding the labor of labeling positions of individual characters.</p>
+</li>
+<li><p>CTC utilizes forward-backward algorithm to calculate the conditional probability.</p>
+</li>
+<li><p>For details of CTC method, please see <a href="/2021/01/15/CTC-Method/" title="CTC Method">CTC Method</a>.</p>
+</li>
+</ul>
+<h4 id="Lexicon-Free"><a href="#Lexicon-Free" class="headerlink" title="Lexicon-Free"></a>Lexicon-Free</h4><p>Use prefix search decoding (forward-backward) algorithm adopted in CTC to find the sequence $l^*$:</p>
+<script type="math/tex; mode=display">l^* \approx B(argmax_\pi p(\pi | y))</script><h4 id="Lexicon-Based"><a href="#Lexicon-Based" class="headerlink" title="Lexicon-Based"></a>Lexicon-Based</h4><p>For lexicon $D$, we need to find $l^*$:</p>
+<script type="math/tex; mode=display">l^* = argmax_{l \in D}p(l | y)</script><p>For large lexicons, performing an exhaustive search is very time-consuming.</p>
+<p>Use lexicon-free transcription as baseline, and limit the search to the nearest-neighbor candidates $N_{\delta}(l’)$</p>
+<p><img src="/images/CRNN_lexicon.jpg" alt="figure5" title="Lexicon Based Mode"></p>
+<ul>
+<li>$\delta$ is the maximal edit distance</li>
+<li>$l’$ is the sequence transcribed from $y$ in lexicon-free mode</li>
+<li>$N_{\delta}(l’)$ can be found efficiently with BK-tree in time $O(log|D|)$, where $|D|$ is the lexicon size.</li>
+</ul>
+<h2 id="Network-Training"><a href="#Network-Training" class="headerlink" title="Network Training"></a>Network Training</h2><h2 id="Advantages"><a href="#Advantages" class="headerlink" title="Advantages"></a>Advantages</h2><p>-</p>
+]]></content>
+      <categories>
+        <category>Scene Text Recognition</category>
+      </categories>
+      <tags>
+        <tag>Network</tag>
+        <tag>CTC</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>CTC Method</title>
+    <url>/2021/01/15/CTC-Method/</url>
+    <content><![CDATA[<p>Resource:</p>
+<ol>
+<li><a href="https://www.cs.toronto.edu/~graves/icml_2006.pdf">Connectionist Temporal Classification: Labelling Unsegmented<br>Sequence Data with Recurrent Neural Networks</a></li>
+<li><a href="https://zhuanlan.zhihu.com/p/43534801">https://zhuanlan.zhihu.com/p/43534801</a></li>
+</ol>
+<h2 id="Background"><a href="#Background" class="headerlink" title="Background"></a>Background</h2><p>Traditional RNNs require <strong>pre-segmented</strong> training data and <strong>post-processing</strong> to transform their outputs into label sequence.</p>
+<p>Thus, CTC intends to presents a novel method for training RNNs to label unsegmented sequences directly.<br><a id="more"></a></p>
+<h2 id="Notation"><a href="#Notation" class="headerlink" title="Notation"></a>Notation</h2><h3 id="Path-Probability"><a href="#Path-Probability" class="headerlink" title="Path Probability"></a>Path Probability</h3><ul>
+<li>Input: <strong>$x$</strong> of length <strong>$T$</strong>, each element in <strong>$x$</strong> has $m$ dimensions.<ul>
+<li>$x = (x^1, x^2, x^3, …, x^T)$</li>
+<li>$x^t = (x^t_1, x^t_2, x^t_3, …, x^t_m)$</li>
+</ul>
+</li>
+<li>Outputs: <strong>$y$</strong> of length <strong>$T$</strong>, each element in <strong>$y$</strong> has $n$ dimensions.<ul>
+<li>$y = (y^1, y^2, y^3, …, y^T)$</li>
+<li>$y^t = (y^t_1, y^t_2, y^t_3, …, y^t_n)$</li>
+</ul>
+</li>
+<li>RNN Map: $N_w$ : $(R^m)^T \rightarrow (R^n)^T$<ul>
+<li>$y = N_w(x)$</li>
+</ul>
+</li>
+<li>Alphabet: $L’ = L \bigcup \{blank\}$</li>
+<li>Path: $\pi \in L’^T$ means the sequence of predicted labels</li>
+</ul>
+<p>Thus, $y_k^t$ represents the probability of observing label $k$ at time $t$</p>
+<p>The probability of a certain path $\pi$ over input $x$ is,<br><img src="/2021/01/15/CTC-Method/probability.jpg" alt="figure1" title="Probability of Path $\pi$ over Input $x$"><br>Note: the network outputs at different times must be conditionally independent.</p>
+<h3 id="Labelling-Probability"><a href="#Labelling-Probability" class="headerlink" title="Labelling Probability"></a>Labelling Probability</h3><ul>
+<li>Path to Labellings Map: $B$ : $L’^T \rightarrow L^{\leq T}$<ul>
+<li>$L^{\leq T}$ is the set of possible labellings</li>
+<li>E.g.<br><img src="/2021/01/15/CTC-Method/labellings_map.jpg" alt="figure2" title="Examples of Path to Labellings Map"></li>
+</ul>
+</li>
+</ul>
+<p>Thus, we can use $B$ to define the conditional probability of a given labelling $l \in L^{\leq T}$ as the sum of the probabilities of all the paths corresponding to it:<br><img src="/2021/01/15/CTC-Method/labellings_prob.jpg" alt="figure3" title="Probability of Labelling $l$ over Input $x$"></p>
+<h2 id="Decoding-Method"><a href="#Decoding-Method" class="headerlink" title="Decoding Method"></a>Decoding Method</h2><p>We aim to find the most probable labelling for the input sequence, which is:<br><img src="/2021/01/15/CTC-Method/predict.jpg" alt="figure4" title="Output of the Classifier"><br>Note: Refer to the task of finding this labelling as <strong>decoding</strong>.</p>
+<p>There are two approximate methods:</p>
+<h3 id="Best-Path-Decoding"><a href="#Best-Path-Decoding" class="headerlink" title="Best Path Decoding"></a>Best Path Decoding</h3><p>Assumption: The most probable path will correspond to the most probable labelling:<br><img src="/2021/01/15/CTC-Method/best_path_decoding.jpg" alt="figure5" title="Best Path Decoding Method"></p>
+<h3 id="Prefix-Search-Decoding"><a href="#Prefix-Search-Decoding" class="headerlink" title="Prefix Search Decoding"></a>Prefix Search Decoding</h3><p>This method is based on the <strong>forward-backward algorithm</strong>.</p>
+<p>Define <strong>$l’$</strong> as the labelling <strong>$l$</strong> with added to the beginnings and the end and inserted between every pair of labels. E.g.</p>
+<p><img src="/2021/01/15/CTC-Method/l_example.jpg" alt="figure8" title="Example of $l&#39;$"></p>
+<p>Then, $|l’| = 2|l| + 1$, where $|l|$ is the maximum length of labelling. For the above example, $|l| = 5$.</p>
+<p><img src="/2021/01/15/CTC-Method/example_path.jpg" alt="figure10" title="Example of Paths"></p>
+<h4 id="Forward-Variable"><a href="#Forward-Variable" class="headerlink" title="Forward Variable"></a>Forward Variable</h4><p>For the labelling <strong>$l$</strong>, define forward variable $\alpha_t(s)$ to be the total probability of $l_{1:s}$ at time $t$, where<br>$l_{1:s}$ presents labelling’s first $s$ symbols</p>
+<p><img src="/2021/01/15/CTC-Method/variable_alpha.jpg" alt="figure7" title="Forward Variable $\alpha_t(s)$"></p>
+<ul>
+<li><p>Initialization:</p>
+<p>Since the first label ($t = 1$) of the path could be blank ($b$) or the first symbol in $l (l_1)$,  we have the following rules:</p>
+<p><img src="/2021/01/15/CTC-Method/alpha_init.jpg" alt="figure9" title="$\alpha_t(s)$ Initialization"></p>
+</li>
+<li><p>Recursion:</p>
+<p>Consider a certain time $t$, if the label of the path is $l_k \in L$, then for the time $t-1$, the possible choices are $l_k$, $l_{k-1}$ and $blank$.</p>
+</li>
+</ul>
+<h4 id="Backward-Variable"><a href="#Backward-Variable" class="headerlink" title="Backward Variable"></a>Backward Variable</h4><h2 id="Training-CTC"><a href="#Training-CTC" class="headerlink" title="Training CTC"></a>Training CTC</h2><p><img src="/2021/01/15/CTC-Method/CTC_training.jpg" alt="figure6" title="CTC Training Process"><br>CTC training process is using $\frac{\partial p(l|x)}{\partial w}$ to adjust the CTC network weights $w$, which maximize the $p(l|x)$ when the input is $\pi \in B^{-1}(l)$</p>
+<h2 id="CTC-Programming-Interface"><a href="#CTC-Programming-Interface" class="headerlink" title="CTC Programming Interface"></a>CTC Programming Interface</h2><p>Tensorflow:<br><figure class="highlight python"><table><tr><td class="code"><pre><span class="line">tf.nn.ctc_loss(</span><br><span class="line">  labels,</span><br><span class="line">  inputs,</span><br><span class="line">  sequence_length,</span><br><span class="line">  preprocess_collapse_repeated = <span class="literal">False</span>,</span><br><span class="line">  ctc_merge_repreated = <span class="literal">True</span>,</span><br><span class="line">  ignore_longer_outputs_than_inputs = <span class="literal">False</span>,</span><br><span class="line">  time_major = <span class="literal">True</span></span><br><span class="line">)</span><br></pre></td></tr></table></figure><br>Pytorch:<br><figure class="highlight python"><table><tr><td class="code"><pre><span class="line">torch.nn.CTCLoss(blank=<span class="number">0</span>, reduction=<span class="string">&#x27;mean&#x27;</span>, zero_infinity=<span class="literal">False</span>)</span><br></pre></td></tr></table></figure></p>
+<h2 id="Summary"><a href="#Summary" class="headerlink" title="Summary"></a>Summary</h2><p>CTC is a method to compute loss, which can make training samples do not need to be aligned.</p>
+]]></content>
+      <categories>
+        <category>Scene Text Recognition</category>
+      </categories>
+      <tags>
+        <tag>CTC</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>CVPR2021 Papers About Adversarial Network</title>
+    <url>/2021/07/14/CVPR2021-Papers/</url>
+    <content><![CDATA[<h1 id="Adversarial-Training"><a href="#Adversarial-Training" class="headerlink" title="Adversarial Training:"></a>Adversarial Training:</h1><h2 id="MaxUp-Lightweight-Adversarial-Training-with-Data-Augmentation-Improves-Neural-Network-Training"><a href="#MaxUp-Lightweight-Adversarial-Training-with-Data-Augmentation-Improves-Neural-Network-Training" class="headerlink" title="MaxUp: Lightweight Adversarial Training with Data Augmentation Improves Neural Network Training"></a><a href="https://openaccess.thecvf.com/content/CVPR2021/papers/Gong_MaxUp_Lightweight_Adversarial_Training_With_Data_Augmentation_Improves_Neural_Network_CVPR_2021_paper.pdf">MaxUp: Lightweight Adversarial Training with Data Augmentation Improves Neural Network Training</a></h2><p><strong>Main Idea</strong>: Generate a set of augmented samples, then <font color="#32adff">optimize over the worst (or highest) loss image</font> —&gt; Improve the model generalization.<br><a id="more"></a></p>
+<p><strong>Approach</strong>: Do forward propagation for $m$ augmented images of each image and find the one with highest(worst) loss. Then calculate the ERM based on the worst images in a mini-batch.</p>
+<div align="center"> <img src="/2021/07/14/CVPR2021-Papers/maxup_al.jpg" width="700"></div>
+
+<p>For more details about this paper, please see <a href="/2021/07/16/MaxUp-Method/" title="[Paper Review] MaxUp: Lightweight Adversarial Training with Data Augmentation Improves Neural Network Training">[Paper Review] MaxUp: Lightweight Adversarial Training with Data Augmentation Improves Neural Network Training</a>.</p>
+<h2 id="Regularizing-Neural-Networks-via-Adversarial-Model-Perturbation"><a href="#Regularizing-Neural-Networks-via-Adversarial-Model-Perturbation" class="headerlink" title="Regularizing Neural Networks via Adversarial Model Perturbation"></a><a href="https://openaccess.thecvf.com/content/CVPR2021/papers/Zheng_Regularizing_Neural_Networks_via_Adversarial_Model_Perturbation_CVPR_2021_paper.pdf">Regularizing Neural Networks via Adversarial Model Perturbation</a></h2><p><strong>Problem</strong>: ERM training is prone to overfitting (lack of generalization ability).</p>
+<p><strong>Aim</strong>: Provide an effective regularization technique and take usage of flat minima. —&gt; <font color="#32adff">Improve the model’s generalization capability</font>.</p>
+<p><strong>Main idea</strong>:<br>Instead of directly minimizing the empirical risk, an alternative “AMP loss” is minimized via SGD. Specifically, the AMP loss is obtained from the empirical risk by <font color="#32adff">applying the “worst” norm-bounded perturbation <strong>highest loss</strong> on each point in the parameter space</font>.</p>
+<div align="center"> <img src="/2021/07/14/CVPR2021-Papers/amp_figure1.jpg" width="350"></div>
+
+<p><strong>Approach</strong>:</p>
+<div align="center"> <img src="/2021/07/14/CVPR2021-Papers/amp_algorithm.jpg" width="350"></div>
+
+<ul>
+<li><p>AMP loss: Do adversarial perturbation for $\theta$ to find the $\theta + \Delta_B$ with the worst (or highest) ER within $\epsilon$.</p>
+<div align="center"> <img src="/2021/07/14/CVPR2021-Papers/amp_figure2.jpg" width="260"></div>
+</li>
+<li><p>Then minimize the AMP loss via SGD.</p>
+</li>
+</ul>
+<p>For more details about this paper, please see <a href="/2021/07/20/AMP-Regularizing-Neural-Networks-via-Adversarial-Model-Perturbation/" title="[Paper-Review] Regularizing Neural Networks via Adversarial Model Perturbation">[Paper-Review] Regularizing Neural Networks via Adversarial Model Perturbation</a>.</p>
+<h2 id="Robust-and-Accurate-Object-Detection-via-Adversarial-Learning"><a href="#Robust-and-Accurate-Object-Detection-via-Adversarial-Learning" class="headerlink" title="Robust and Accurate Object Detection via Adversarial Learning"></a><a href="https://openaccess.thecvf.com/content/CVPR2021/papers/Chen_Robust_and_Accurate_Object_Detection_via_Adversarial_Learning_CVPR_2021_paper.pdf">Robust and Accurate Object Detection via Adversarial Learning</a></h2><p><strong>Main Idea</strong>: This work instead <font color="#32adff">augments the fine-tuning stage for object detectors by exploring adversarial examples</font>, which can be viewed as a model-dependent data augmentation. Our method dynamically selects the stronger adversarial images sourced from a detector’s classification and localization branches and evolves with the detector to ensure the augmentation policy stays current and relevant.</p>
+<p><strong>Approach</strong>:<br>Generate the adversarial $x^i_{cls}$ and $x^i_{loc}$ using FGSM. Then find the one maximization the  total loss. <font color="#32adff">(Just utilize the adversarial training method for object detection.)</font></p>
+<div align="center"> <img src="/2021/07/14/CVPR2021-Papers/detection_al.jpg" width="400"></div>
+
+<h1 id="Physical-Adversarial-Attack"><a href="#Physical-Adversarial-Attack" class="headerlink" title="Physical Adversarial Attack:"></a>Physical Adversarial Attack:</h1><h2 id="Adversarial-Imaging-Pipelines"><a href="#Adversarial-Imaging-Pipelines" class="headerlink" title="Adversarial Imaging Pipelines"></a><a href="https://openaccess.thecvf.com/content/CVPR2021/papers/Phan_Adversarial_Imaging_Pipelines_CVPR_2021_paper.pdf">Adversarial Imaging Pipelines</a></h2><p><strong>Main Idea</strong>: Existing attack methods aim to deceive CNN-based classifiers by manipulating RGB images that are fed directly to the classifiers. (Neglect <font color="#32adff">the influence of the camera optics and image processing pipeline</font> that produce the network inputs)</p>
+<p><strong>Approach</strong>:</p>
+<div align="center"> <img src="/2021/07/14/CVPR2021-Papers/pipeline_fig.jpg"></div>
+
+<h2 id="Invisible-Perturbations-Physical-Adversarial-Examples-Exploiting-the-Rolling-Shutter-Effect"><a href="#Invisible-Perturbations-Physical-Adversarial-Examples-Exploiting-the-Rolling-Shutter-Effect" class="headerlink" title="Invisible Perturbations: Physical Adversarial Examples Exploiting the Rolling Shutter Effect"></a><a href="https://openaccess.thecvf.com/content/CVPR2021/papers/Sayles_Invisible_Perturbations_Physical_Adversarial_Examples_Exploiting_the_Rolling_Shutter_Effect_CVPR_2021_paper.pdf">Invisible Perturbations: Physical Adversarial Examples Exploiting the Rolling Shutter Effect</a></h2><p><strong>Main Idea</strong>: <font color="#32adff">Modify light data that illuminates the object</font> to generate physical adversarial examples that are <font color="#32adff">invisible to human eyes</font>.</p>
+<p><strong>Approach</strong>:</p>
+<ul>
+<li>The attacker light source<br>flickers at a <font color="#32adff">frequency that humans cannot perceive</font>, and thus,<br>the scene simply appears to be illuminated.</li>
+<li>Compute a light signal $f(t)$ such that, when an image is taken under the influence of this light signal, the <font color="#32adff">loss is minimized between the model output and the desired target class</font>.</li>
+</ul>
+<div align="center"> <img src="/2021/07/14/CVPR2021-Papers/invisible_al.jpg" width="450"></div>
+
+
+<h2 id="Adversarial-Laser-Beam-Effective-Physical-World-Attack-to-DNNs-in-a-Blink"><a href="#Adversarial-Laser-Beam-Effective-Physical-World-Attack-to-DNNs-in-a-Blink" class="headerlink" title="Adversarial Laser Beam: Effective Physical-World Attack to DNNs in a Blink"></a><a href="https://openaccess.thecvf.com/content/CVPR2021/papers/Duan_Adversarial_Laser_Beam_Effective_Physical-World_Attack_to_DNNs_in_a_CVPR_2021_paper.pdf">Adversarial Laser Beam: Effective Physical-World Attack to DNNs in a Blink</a></h2><p><strong>Main Idea</strong>: Adversarial <font color="#32adff">Laser Beam</font> —&gt; enable manipulation of laser beam’s physical parameters to perform adversarial attack.</p>
+<div align="center"> <img src="/2021/07/14/CVPR2021-Papers/beam_example.jpg" width="300"></div>
+
+<p><strong>Approach</strong>:</p>
+<ul>
+<li><p><font color="#32adff">A greedy search with k-random-restart</font> for a vector of physical parameters $\theta$ of laser beam $l$ given image $x$, aiming to result in misclassification by $f$.</p>
+</li>
+<li><p>Use <font color="#32adff">confidence score based on a target model</font> because an attacker cannot attain the knowledge of the target model.</p>
+</li>
+</ul>
+]]></content>
+      <categories>
+        <category>Paper Review</category>
+      </categories>
+      <tags>
+        <tag>Adversarial</tag>
+        <tag>CVPR</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>DIM Attack</title>
+    <url>/2021/01/15/DIM-Attack/</url>
+    <content><![CDATA[<p>Resource: <a href>Improving Transferability of Adversarial Examples with Input Diversity</a></p>
+]]></content>
+      <categories>
+        <category>Adversarial Attack</category>
+      </categories>
+      <tags>
+        <tag>Attack</tag>
+        <tag>Black-box</tag>
+        <tag>hide</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Extra Knowledge of Tensorflow</title>
+    <url>/2021/01/14/Extra-Knowledge-of-Tensorflow/</url>
+    <content><![CDATA[<h3 id="NCHW-amp-NHWC"><a href="#NCHW-amp-NHWC" class="headerlink" title="NCHW &amp; NHWC"></a>NCHW &amp; NHWC</h3><p>When we use the Tensorflow Application,<br>E.g.</p>
+<p><code>tf.nn.conv2d(input, filter, strides, padding,
+use_cudnn_on_gpu=None, data_formt = None, name=None)</code></p>
+<p>data_format: default set to “NHWC”, which <strong>stipulate the orientation</strong> of input and output Tensor<br><a id="more"></a></p>
+<ul>
+<li>NHWC: [batch, height, width, channels]</li>
+<li>NCHW: [batch, channels, height, width]</li>
+</ul>
+<p><img src="/2021/01/14/Extra-Knowledge-of-Tensorflow/Data_Format_Ex.jpg" alt="figure1" title="Example of Different Format"></p>
+<p>Difference:</p>
+<ul>
+<li>The <strong>locality</strong> of access is <strong>better for NHWC</strong>.</li>
+<li><strong>NCHW</strong> has to wait for all the channels to prepare the final output, which <strong>requires bigger temporary space</strong></li>
+<li>NCHW is better for GPU, while NHWC better for CPU (most of situations)</li>
+</ul>
+]]></content>
+      <categories>
+        <category>Tensorflow</category>
+      </categories>
+      <tags>
+        <tag>Tensorflow</tag>
+        <tag>Basic Knowledge</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>FGSM Attack</title>
+    <url>/2021/03/08/FGSM-Attack/</url>
+    <content><![CDATA[<p>Resource: <a href="https://arxiv.org/abs/1412.6572">Explaining and Harnessing Adversarial Examples</a></p>
+]]></content>
+      <categories>
+        <category>Adversarial Attack</category>
+      </categories>
+      <tags>
+        <tag>Attack</tag>
+        <tag>hide</tag>
+        <tag>Adversarial Training</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>[Paper Review] MaxUp: Lightweight Adversarial Training with Data Augmentation Improves Neural Network Training</title>
+    <url>/2021/07/16/MaxUp-Method/</url>
+    <content><![CDATA[<div align="center"> <img src="/2021/07/16/MaxUp-Method/authors.jpg" width="650"></div>
+
+<h1 id="Background"><a href="#Background" class="headerlink" title="Background"></a>Background</h1><p>Alleviate the issue of over-fitting and improve generalization performance on testing data:<br><a id="more"></a></p>
+<ul>
+<li>Regularization-based methods – introduce penalty on the complexity of the model.</li>
+<li>Data augmentation techniques – leverage important invariance properties of the data.</li>
+</ul>
+<h1 id="Approach"><a href="#Approach" class="headerlink" title="Approach"></a>Approach</h1><h2 id="Overview"><a href="#Overview" class="headerlink" title="Overview"></a>Overview</h2><p>Idea: Generate a set of augmented data with some random perturbations or transforms, and minimize the maximum or worst case loss over the augmented data.</p>
+<ul>
+<li>Given a dataset $D_n=\{x_i\}_{i=1}^n$, for each point x in $D_n$, generate a set of perturbed data points $\{x_i’\}_{i=1}^m$</li>
+<li><p>Estimate $\theta$ by minimizing the maximum loss over $\{x’_i\}$</p>
+<div align="center"> <img src="/2021/07/16/MaxUp-Method/fig1.jpg" width="250"></div>
+
+</li>
+</ul>
+<h2 id="Algorithm"><a href="#Algorithm" class="headerlink" title="Algorithm"></a>Algorithm</h2><div align="center"> <img src="/2021/07/16/MaxUp-Method/alg.jpg" width="700"></div>
+
+<div align="center"> <img src="/2021/07/16/MaxUp-Method/fig2.jpg" width="400"></div>
+
+<p>Time&amp;Mem Cost: Only need to find the worst instance out of the <font color="#32adff">m</font> augmented copies through <font color="#32adff">forward propagation</font></p>
+<h1 id="Theoretical-Interpretation"><a href="#Theoretical-Interpretation" class="headerlink" title="Theoretical Interpretation"></a>Theoretical Interpretation</h1><font color="#32adff">MaxUp introduces an extra gradient-norm regularization over standard data augmentation to encourage smoothness.</font>
+
+<h2 id="Standard-data-augmentation"><a href="#Standard-data-augmentation" class="headerlink" title="Standard data augmentation:"></a>Standard data augmentation:</h2><p>Standard data augmentation minimizes the average loss: <font color="#ffaad4">$\mathop{min}\limits_\theta\mathbb{E}_{x\sim D_n}\left[\frac{1}{m}\sum\limits^m\limits_{i=1}L(x’_i,\theta)\right]$</font></p>
+<p>Define the expected loss on data point $x$: <font color="#ffaad4">$\hat{L}_{\mathbb{P},m}(x, \theta):=\mathbb{E}_{\{x’_i\}^m_{i=1}\sim\mathbb{P}(\cdot|x)^m}\left[\frac{1}{m}\sum\limits_{i=1}\limits^mL(x’_i,\theta)\right]$</font></p>
+<ul>
+<li>$L(x, \theta)$ is second-order differentiable w.r.t. $x$.</li>
+<li>$\mathbb{P}(\cdot|x)$ is any distribution whose expectation is $x$.</li>
+</ul>
+<p>With Taylor expansion: <font color="#ffaad4">$\hat{L}_{\mathbb{P},m}(x, \theta) = L(x, \theta) + O(\sigma^2)$</font></p>
+<font color="32adff">
+
+(The first-order term in the Taylor expansion is canceled out due to the averaging)</font>
+
+<h2 id="MaxUp-Method"><a href="#MaxUp-Method" class="headerlink" title="MaxUp Method:"></a>MaxUp Method:</h2><p>Define:</p>
+<div align="center"> <img src="/2021/07/16/MaxUp-Method/theo_def.jpg" width="300"></div>
+
+<p>$L^{max}_{\mathbb{P},m}(x,\theta)$ and $L^{avg}_{\mathbb{P},m}(x,\theta)$ denote the expected MaxUp and typical average risk on data point $x$ with $m$ augmented copies respectively.</p>
+<font color="32adff">Assume: $L(x,\theta)$ is second-order differentiable w.r.t. $x\in R^d$ and the variance of $\mathbb{P}(\cdot|x)$ is bounded by $\sigma^2$.</font>
+
+<p>For every positive integer $m$,</p>
+<div align="center"> <img src="/2021/07/16/MaxUp-Method/theo.jpg" width="400"></div>
+
+<p>, where $c_{\mathbb{P},m}^+\ge c_{\mathbb{P},m}^-\ge 0$ are two non-negative coefficients.</p>
+<h1 id="Experiments"><a href="#Experiments" class="headerlink" title="Experiments"></a>Experiments</h1><h2 id="Image-classification"><a href="#Image-classification" class="headerlink" title="Image classification"></a>Image classification</h2><h3 id="CutMix-for-ImageNet"><a href="#CutMix-for-ImageNet" class="headerlink" title="CutMix for ImageNet"></a>CutMix for ImageNet</h3><ul>
+<li>CutMix randomly cuts and pasts patches among training images, while the ground truth labels are also mixed proportionally to the area of the patches.</li>
+<li>Only fine-tune the pretrained models with MaxUp for a few epochs.</li>
+<li>$m = 4$</li>
+</ul>
+<div align="center"> <img src="/2021/07/16/MaxUp-Method/exp_cutmix.jpg" width="700"></div>
+
+<h3 id="Cutout-for-CIFAR10-100"><a href="#Cutout-for-CIFAR10-100" class="headerlink" title="Cutout for CIFAR10/100"></a>Cutout for CIFAR10/100</h3><div align="center"> <img src="/2021/07/16/MaxUp-Method/exp_cifar10_cutout.jpg" width="450"></div>
+
+<div align="center"> <img src="/2021/07/16/MaxUp-Method/exp_cifar100_cutout.jpg" width="450"></div>
+
+<div align="center"> <img src="/2021/07/16/MaxUp-Method/exp_m_cutout.jpg" width="450"></div>
+
+<h2 id="Adversarial-certification"><a href="#Adversarial-certification" class="headerlink" title="Adversarial certification"></a>Adversarial certification</h2><p>Adversarial Defense:</p>
+<ul>
+<li>Empirical Defense: Empirically seem robust to known adversarial attacks.</li>
+<li><font color="#32adff">Certified Defense: Provably robust to certain kinds of adversarial perturbations</font>
+
+</li>
+</ul>
+<p>MaxUp can be viewed as a “lightweight” variant of adversarial training against adversarial input perturbations <font color="32adff">(optimize over the worst samples)</font>.</p>
+<p>Use <strong>Gaussian Perturbation</strong> as the data augmentation method:</p>
+<div align="center"> <img src="/2021/07/16/MaxUp-Method/exp_adv.jpg" width="700"></div>
+
+<p>[4] “[2019-ICML] Certified Adversarial Robustness via Randomized Smoothing”: Trains the classifier with a Gaussian data augmentation.</p>
+<p>[18] “[2019-NeurIPS] Provably Robust Deep Learning via Adversarially Trained Smoothed Classifiers”: Improves the original Gaussian data augmentation by using PGD adversarial training (PGD is used to find a local maximal within a given $l_2$ perturbation ball).</p>
+<h3 id="Evaluation-Method"><a href="#Evaluation-Method" class="headerlink" title="Evaluation Method"></a>Evaluation Method</h3><p>Certified accuracy: the fraction of the test set which <font color="#32adff"><strong>CERTIFY</strong> classifies correctly</font> and <font color="#32adff">certifies robust with a radius $R \le r$</font>.</p>
+<ul>
+<li>$f$: classifier</li>
+<li>$n_0$: a same number of samples to take a guess</li>
+<li>$n$: a larger number of samples to estimate $\underline{p_A}$</li>
+<li>$\alpha$: failure probability</li>
+</ul>
+<div align="center"> <img src="/2021/07/16/MaxUp-Method/alg_cert.jpg" width="450"></div>
+
+<h2 id="Accelerate-Training"><a href="#Accelerate-Training" class="headerlink" title="Accelerate Training"></a>Accelerate Training</h2><p>For image related tasks: use low-resolution images when selecting the worst case among augmented images.</p>
+<div align="center"> <img src="/2021/07/16/MaxUp-Method/exp_acc.jpg" width="700"></div>
+
+<p>For other kinds of data type, e.g. point cloud, video, we can also use sub-sampled particles, sub-sampled spatial-temporal pairs.</p>
+<h1 id="Conclusion"><a href="#Conclusion" class="headerlink" title="Conclusion"></a>Conclusion</h1><p>MaxUp Idea: generate a set of augmented data, and <font color="#32adff">minimize the maximum or worst case loss over the augmented data</font>.</p>
+<ul>
+<li>Improve the generation performance (image classification, 3D point cloud classification).</li>
+<li>Increase the adversarial robustness in Gaussian adversarial certification.</li>
+<li>Possible ways to accelerate training (e.g. low-resolution for image classification).</li>
+</ul>
+<p>Resource: <a href="https://openaccess.thecvf.com/content/CVPR2021/papers/Gong_MaxUp_Lightweight_Adversarial_Training_With_Data_Augmentation_Improves_Neural_Network_CVPR_2021_paper.pdf">MaxUp: Lightweight Adversarial Training with Data Augmentation Improves Neural Network Training</a></p>
+]]></content>
+      <categories>
+        <category>Paper Review</category>
+      </categories>
+      <tags>
+        <tag>Adversarial Training</tag>
+        <tag>Improve Generalization</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>OCR-Data</title>
+    <url>/2021/05/09/OCR-Data/</url>
+    <content><![CDATA[<p>This blog talks about the popular used <strong>Text Recognition Data</strong></p>
+<h2 id="Synthetic-Word-Dataset"><a href="#Synthetic-Word-Dataset" class="headerlink" title="Synthetic Word Dataset"></a>Synthetic Word Dataset</h2><p><a href="https://www.robots.ox.ac.uk/~vgg/data/text/">https://www.robots.ox.ac.uk/~vgg/data/text/</a><br>This is synthetically generated dataset which we found sufficient for training text recognition on real-world images.</p>
+<p><img src="/2021/05/09/OCR-Data/Synth90k.jpg" alt="figure1" title="Synthetic 90k Example"></p>
+<p>Use linux remote server to download the dataset:<br><code>wget https://thor.robots.ox.ac.uk/~vgg/data/text/mjsynth.tar.gz</code></p>
+<h1 id><a href="#" class="headerlink" title="#"></a>#</h1>]]></content>
+      <categories>
+        <category>Scene Text Recognition</category>
+      </categories>
+      <tags>
+        <tag>Dataset</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>PCA Method</title>
+    <url>/2021/01/27/PCA-Method/</url>
+    <content><![CDATA[<p>Resource: <a href="https://arxiv.org/pdf/1608.00530.pdf">EARLY METHODS FOR DETECTING ADVERSARIAL IMAGES</a></p>
+<p>Code: <a href="https://github.com/hendrycks/fooling">https://github.com/hendrycks/fooling</a></p>
+<h2 id="Principle"><a href="#Principle" class="headerlink" title="Principle"></a>Principle</h2><p>Detect the adversarial images using the difference between coefficients of low-ranked principal components.</p>
+<a id="more"></a>
+<p><img src="/2021/01/27/PCA-Method/diff_of_coefficients.jpg" alt="figure1" title="Differences of Low-Ranked Principle Components"></p>
+<p>As is shown in the above figure, if we use the original, the adversarial images will have different coefficients for the low-ranked principal components than do clean images.</p>
+<p>Thus, we can use the <strong>coefficient variance</strong> to detect the adversarial examples.</p>
+<h2 id="Evaluation"><a href="#Evaluation" class="headerlink" title="Evaluation"></a>Evaluation</h2><p>AUROC: Area Under the Receiver Operating Characteristic (AU-ROC) metric</p>
+<ul>
+<li>ROC curve shows the true positive (tpr = tp/(tp+fn)) and false positive  (fpr = fp/(fp+tn)) rate against each other.</li>
+</ul>
+<p>AUPR: Area Under the Precision Recall curve</p>
+<ul>
+<li>PR curve plots the precision (tp/(tp+fp)) and recall (tp/tp+fn) against each other.</li>
+</ul>
+<h2 id="Performance"><a href="#Performance" class="headerlink" title="Performance"></a>Performance</h2><p>For this paper, they test the PCA method on Tiny-ImageNet, CIFAR-10 and MNIST. (They do not split the dataset into train and test dataset.)</p>
+<p><img src="/2021/01/27/PCA-Method/Performance.jpg" alt="figure1" title="Performance"></p>
+<h2 id="Limitation"><a href="#Limitation" class="headerlink" title="Limitation"></a>Limitation</h2><ul>
+<li><p>If we intend to reach high scores of both AUROC and AUPR, the training dataset (the samples used to generate the PCA) and the testing dataset (clean ones) should be similar to each other.</p>
+<p><strong>Note:</strong> The similarity is only meaningful to the magical program of generating PCA.</p>
+</li>
+<li><p>Only the AUROC and AUPR are not enough to finish the detection, we need to provide a kind of threshold <strong>(maybe the binary search is a possible method)</strong>.</p>
+</li>
+</ul>
+<h2 id="Idea"><a href="#Idea" class="headerlink" title="Idea"></a>Idea</h2><p>Use the PCA of adversarial examples of the training dataset to do auxiliary detection.</p>
+]]></content>
+      <categories>
+        <category>Adversarial Detection</category>
+      </categories>
+      <tags>
+        <tag>Detection</tag>
+        <tag>PCA</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>RNN &amp; LSTM</title>
+    <url>/2021/01/15/RNN-LSTM/</url>
+    <content><![CDATA[<p>Resource:</p>
+<ul>
+<li><a href="https://www.deeplearningbook.org/contents/rnn.html">RNN Chapter of the DeepLearningBook</a></li>
+<li><a href="https://colah.github.io/posts/2015-08-Understanding-LSTMs/">Understanding LSTM Networks, colah’s blog</a></li>
+</ul>
+<p>In this passage, I will introduce the basic knowledge of RNN (Recurrent Neural Network) and its widely used type LSTM (Long Short Term Memory).</p>
+<h2 id="RNN-Network"><a href="#RNN-Network" class="headerlink" title="RNN Network"></a>RNN Network</h2><p>Recurrent neural networks are specialized for processing a sequence of values <strong>$x^{(1)}, …, x^{(T)}$</strong> (input).<br><a id="more"></a></p>
+<p><img src="/2021/01/15/RNN-LSTM/RNN_structure.jpg" alt="RNN_structure" title="The Structure of RNN"></p>
+<p>Above figure shows the basic structure of RNN.</p>
+<ul>
+<li><strong>$o$</strong> is the output values</li>
+<li>$L$ measures how for each <strong>$o$</strong> is from the corresponding training target <strong>$y$</strong>.</li>
+</ul>
+<p>The for each $t$ from $1$ to $T$, we can apply the below formulations.</p>
+<p><img src="/2021/01/15/RNN-LSTM/RNN_formula.jpg" alt="RNN_formula" title="Example formulations of RNN"></p>
+<p>Then, for each input $x_t (t \in {1,2,…,T})$ with length $n_i$ (a column vector), we assume that</p>
+<script type="math/tex; mode=display">x_t = [x_{t,1}, x_{t,2}, x_{t,3}, ..., x_{t, n_i}]^T</script><p>And the hidden layer component $h_t$ with length $n_h$</p>
+<script type="math/tex; mode=display">h_t = [h_{t,1}, h_{t,2}, h_{t,3}, ..., h_{t, n_h}]^T</script><p>The output $y_t$ with length $n_o$</p>
+<script type="math/tex; mode=display">y_t = [y_{t,1}, y_{t,2}, y_{t,3}, ..., y_{t, n_o}]^T</script><p><img src="/2021/01/15/RNN-LSTM/RNN_structure_singlelayer.jpg" alt="RNN_layer" title="Details of Single Frame for RNN"></p>
+<p><strong>Note: Sharing Variables</strong> For an arbitrary $t \in {1,2,…,T}$, all the weights <strong>$U, W, V, B$</strong> are the same.</p>
+<h3 id="Bidirectional-RNN"><a href="#Bidirectional-RNN" class="headerlink" title="Bidirectional RNN"></a>Bidirectional RNN</h3><p>Sometimes, we also need the further contextual words to predict the $y_t$.</p>
+<p><img src="/2021/01/15/RNN-LSTM/BiRNN_structure.jpg" alt="RNN_bi" title="Structure of Bidirectional RNN"></p>
+<p>Above figure shows the basic structure of Bidirectional RNN.</p>
+<ul>
+<li><strong>$h^{(t)}$</strong> standing for the state of the sub-RNN that moves forward through time</li>
+<li><strong>$g^{(t)}$</strong> standing for the state of the sub-RNN that moves backward through time</li>
+</ul>
+<h2 id="LSTM-Network"><a href="#LSTM-Network" class="headerlink" title="LSTM Network"></a>LSTM Network</h2><h3 id="Drawback-of-RNN"><a href="#Drawback-of-RNN" class="headerlink" title="Drawback of RNN"></a>Drawback of RNN</h3><p>RNN network determines the output <strong>$y_t$</strong> based on its previous context information, but sometimes</p>
+<ul>
+<li>Prediction does not need any further context.<ul>
+<li>E.g. predict the last word in “the clouds are in the <em>sky</em>“</li>
+</ul>
+</li>
+<li>Prediction needs contextual words from further back.</li>
+</ul>
+<h3 id="LSTM-Structure"><a href="#LSTM-Structure" class="headerlink" title="LSTM Structure"></a>LSTM Structure</h3><p>The overall structure of LSTM is the same with basic RNN structure, but it has a different repeating cell, as is shown in below pictures.</p>
+<p><img src="/2021/01/15/RNN-LSTM/LSTM_blockdiagram.jpg" alt="LSTM_diagram" title="Block Diagram of LSTM Cell"></p>
+<p><img src="/2021/01/15/RNN-LSTM/LSTM_structure1.jpg" alt="LSTM_diagram2" title="Block Diagram of LSTM Cell"></p>
+<p>For the above diagram, the notations respectively mean that:</p>
+<p><img src="/2021/01/15/RNN-LSTM/LSTM_notation.jpg" alt="LSTM_notation" title="Notation of LSTM Diagram"></p>
+<p>The whole idea of the LSTM is to use <strong>sigmoid function</strong> to control what information we are going to use. And we need to determine the <strong>$C_t$</strong> and <strong>$h_t$</strong>.</p>
+<ul>
+<li><p><strong>$C_t$</strong> is determined by the forget and input gates.</p>
+</li>
+<li><p><strong>$h_t$</strong> is determined by the output gate.</p>
+</li>
+</ul>
+<h4 id="Forget-Gate"><a href="#Forget-Gate" class="headerlink" title="Forget Gate"></a>Forget Gate</h4><p>For this forget gate, we can decide what information we are going to <strong>throw away</strong> from the <strong>cell state</strong> <strong>&amp;C_{t-1}&amp;</strong> y using a <strong>sigmoid layer</strong>.</p>
+<ul>
+<li>1 represents “completely keep this”</li>
+<li>o represents “completely get rid of this”</li>
+</ul>
+<p><img src="/2021/01/15/RNN-LSTM/LSTM_Forget.jpg" alt="LSTM_Forget" title="Forget Gate of LSTM Diagram"></p>
+<h4 id="Input-Gate"><a href="#Input-Gate" class="headerlink" title="Input Gate"></a>Input Gate</h4><p>For this gate, we can decide what information we are going to <strong>store</strong> in the <strong>cell state</strong>. This consists two parts.</p>
+<ol>
+<li>A <strong>sigmoid layer</strong> decides which values we will update.</li>
+<li>A <strong>tanh layer</strong> creates a vector of new candidates values <strong>&amp;C’_t&amp;</strong>, that could be added to the state.</li>
+</ol>
+<p><img src="/2021/01/15/RNN-LSTM/LSTM_Input.jpg" alt="LSTM_Input" title="Input Gate of LSTM Diagram"></p>
+<p>Then, we could calculate the cell state <strong>&amp;C_t&amp;</strong>, which is shown in the following figure.</p>
+<p><img src="/2021/01/15/RNN-LSTM/LSTM_Ct.jpg" alt="LSTM_Ct" title="Calculation of Cell State $C_t$"></p>
+<h4 id="Output-Gate"><a href="#Output-Gate" class="headerlink" title="Output Gate"></a>Output Gate</h4><p>In this gate, we decide what we are going to output. It needs the <strong>cell state</strong> <strong>$C_t$</strong>, current input <strong>$x_t$</strong> and the <strong>$h_{t-1}$</strong> just like the basic RNN.</p>
+<p><img src="/2021/01/15/RNN-LSTM/LSTM_Output.jpg" alt="LSTM_Output" title="Output Gate of LSTM Diagram"></p>
+<p><strong>Note:</strong> The difference between the output <strong>$h_t$</strong> of basic RNN and LSTM is the component <strong>cell state</strong> <strong>$C_t$</strong>.</p>
+]]></content>
+      <categories>
+        <category>Basic Neural Networks</category>
+      </categories>
+      <tags>
+        <tag>Network</tag>
+        <tag>RNN</tag>
+        <tag>LSTM</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Server</title>
+    <url>/2021/05/09/Server/</url>
+    <content><![CDATA[<p>This talks about how to build your own remote server.</p>
+<h2 id="Anaconda"><a href="#Anaconda" class="headerlink" title="Anaconda"></a>Anaconda</h2>]]></content>
+      <categories>
+        <category>Remote Server</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>[Paper-Review] Regularizing Neural Networks via Adversarial Model Perturbation</title>
+    <url>/2021/07/20/AMP-Regularizing-Neural-Networks-via-Adversarial-Model-Perturbation/</url>
+    <content><![CDATA[<div align="center"> <img src="/2021/07/20/AMP-Regularizing-Neural-Networks-via-Adversarial-Model-Perturbation/authors.jpg" width="650"></div>
+
+<h1 id="Background"><a href="#Background" class="headerlink" title="Background"></a>Background</h1><p>Alleviate the issue of over-fitting and improve generalization performance on testing data:<br><a id="more"></a></p>
+<ul>
+<li>Regularization-based methods – introduce penalty on the complexity of the model.</li>
+<li>Data augmentation techniques – leverage important invariance properties of the data.</li>
+</ul>
+<h1 id="Approach"><a href="#Approach" class="headerlink" title="Approach"></a>Approach</h1><p>Resource: <a href="https://openaccess.thecvf.com/content/CVPR2021/papers/Zheng_Regularizing_Neural_Networks_via_Adversarial_Model_Perturbation_CVPR_2021_paper.pdf">Regularizing Neural Networks via Adversarial Model Perturbation</a></p>
+]]></content>
+      <categories>
+        <category>Paper Review</category>
+      </categories>
+      <tags>
+        <tag>Adversarial Training</tag>
+        <tag>Improve Generalization</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Mathematical Symbols in Latex</title>
+    <url>/2021/07/20/Mathematical-Symbols-in-Latex/</url>
+    <content><![CDATA[<p><strong>This blog lists most of the mathematical symbols in latex for usage.</strong></p>
+<a id="more"></a>
+<ul>
+<li>$\mathbb{S}$: “\mathbb{S}”</li>
+<li>$\sum\limits_{i=1}\limits^n$: “\sum\limits_{i=1}\limits^n$”</li>
+<li>$\underline{p_A}$: “\underline{p_A}”</li>
+</ul>
+<h1 id="Operators"><a href="#Operators" class="headerlink" title="Operators"></a>Operators</h1><div align="center"> <img src="/2021/07/20/Mathematical-Symbols-in-Latex/operators.jpg" width="650"></div>
+
+<h1 id="Relations"><a href="#Relations" class="headerlink" title="Relations"></a>Relations</h1><div align="center"> <img src="/2021/07/20/Mathematical-Symbols-in-Latex/relations.jpg" width="650"></div>
+
+<p>Negations of many of these relations can be formed by just putting \not before the symbol, or by slipping an “n” between the \ and the word. Here are a couple examples, plus many other negations; it works for many of the many others as well.</p>
+<div align="center"> <img src="/2021/07/20/Mathematical-Symbols-in-Latex/relations_not.jpg" width="550"></div>
+
+<h1 id="Greek-Letters"><a href="#Greek-Letters" class="headerlink" title="Greek Letters"></a>Greek Letters</h1><div align="center"> <img src="/2021/07/20/Mathematical-Symbols-in-Latex/greek_letters.jpg" width="700"></div>
+
+<h1 id="Arrows"><a href="#Arrows" class="headerlink" title="Arrows"></a>Arrows</h1><div align="center"> <img src="/2021/07/20/Mathematical-Symbols-in-Latex/arrows.jpg" width="550"></div>
+
+<h1 id="Dots"><a href="#Dots" class="headerlink" title="Dots"></a>Dots</h1><div align="center"> <img src="/2021/07/20/Mathematical-Symbols-in-Latex/dots.jpg" width="350"></div>
+
+<h1 id="Accents"><a href="#Accents" class="headerlink" title="Accents"></a>Accents</h1><div align="center"> <img src="/2021/07/20/Mathematical-Symbols-in-Latex/greek_letters.jpg" width="700"></div>
+
+<h1 id="Others"><a href="#Others" class="headerlink" title="Others"></a>Others</h1><div align="center"> <img src="/2021/07/20/Mathematical-Symbols-in-Latex/others.jpg" width="600"></div>
+
+<p>Resource:</p>
+<ul>
+<li><a href="https://artofproblemsolving.com/wiki/index.php/LaTeX:Symbols">LaTeX:Symbols</a></li>
+<li><a href="https://artofproblemsolving.com/wiki/index.php/LaTeX:Commands">LaTeX:Commands</a></li>
+</ul>
+]]></content>
+      <categories>
+        <category>Hexo</category>
+      </categories>
+      <tags>
+        <tag>Hexo</tag>
+        <tag>Latex</tag>
+      </tags>
   </entry>
 </search>
