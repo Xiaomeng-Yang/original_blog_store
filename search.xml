@@ -71,7 +71,58 @@
 <li>Regularization-based methods – introduce penalty on the complexity of the model.</li>
 <li>Data augmentation techniques – leverage important invariance properties of the data.</li>
 </ul>
-<h1 id="Approach"><a href="#Approach" class="headerlink" title="Approach"></a>Approach</h1><p>Resource: <a href="https://openaccess.thecvf.com/content/CVPR2021/papers/Zheng_Regularizing_Neural_Networks_via_Adversarial_Model_Perturbation_CVPR_2021_paper.pdf">Regularizing Neural Networks via Adversarial Model Perturbation</a></p>
+<p>The model parameter that corresponds to a flat minimum of the empirical risk tends to generalize better.</p>
+<h1 id="Approach"><a href="#Approach" class="headerlink" title="Approach"></a>Approach</h1><h2 id="Overview"><a href="#Overview" class="headerlink" title="Overview"></a>Overview</h2><p>This work sets out to develop a powerful regularization scheme under the principle of finding flat local minima of the empirical risk.</p>
+<div align="center"> <img src="/2021/07/20/AMP-Regularizing-Neural-Networks-via-Adversarial-Model-Perturbation/fig1.jpg" width="450"></div>
+
+<p>Adversarial Model Perturbation(AMP) minimizes an alternative “AMP loss”:</p>
+<font color="32adff">The AMP loss $L_{AMP}(\theta)$ at a parameter setting $\theta$, is the worst (or highest) empirical risk of all perturbations of $\theta$ with the perturbation norm no greater than a small value $\epsilon$.</font>
+
+<font color="#ffaad4">$$L_{AMP}(\theta):=\mathop{max}\limits_{\Delta:\Vert\Delta\Vert\le\epsilon}L_{ERM}(\theta+\Delta)$$</font>
+
+<p>The process of obtaining the AMP loss from the empirical risk can be seen as <font color="32adff">a “max-pooling” operation</font>: slide a window of width $2\epsilon$ across the parameter space and, at each location, returns the maximum value inside the window.</p>
+<h2 id="Algorithm"><a href="#Algorithm" class="headerlink" title="Algorithm"></a>Algorithm</h2><ul>
+<li><font color="#ffaad4">$L_{ERM}(\theta):=\frac{1}{\lvert D\rvert}\sum\limits_{(x,y)\in D}l(x,y;\theta)$</font></li>
+<li><font color="#ffaad4">$L_{AMP}(\theta):=\mathop{max}\limits_{\Delta\in B(0;\epsilon)}\frac{1}{\lvert D\rvert}\sum\limits_{(x,y)\in D}l(x,y;\theta)$, $B(\mu, \epsilon):=\{\theta\in\Theta:=\lVert\theta-\mu\rVert\le\epsilon\}$</font>, $\epsilon$ is a small positive value serving as a hyperparameter.</li>
+</ul>
+<p>Consider a mini-batched training approach:</p>
+<div align="center"> <img src="/2021/07/20/AMP-Regularizing-Neural-Networks-via-Adversarial-Model-Perturbation/fig2.jpg" width="300"></div>
+
+<p>Then, we can get:</p>
+<div align="center"> <img src="/2021/07/20/AMP-Regularizing-Neural-Networks-via-Adversarial-Model-Perturbation/fig3.jpg" width="300"></div>
+
+<p>For the algorithm below:</p>
+<ul>
+<li><p>Inner maximization: N steps are used to <font color="32adff">update $\Delta_B$ in the direction of increasing the ERM loss (PGD attack idea)</font> so as to obtain $J_{AMP,B}$.</p>
+</li>
+<li><p>Outer minimization: Loops over random batches and minimizes $E_BJ_{AMP,B}$ using mini-batched SGD.</p>
+</li>
+</ul>
+<div align="center"> <img src="/2021/07/20/AMP-Regularizing-Neural-Networks-via-Adversarial-Model-Perturbation/fig1.jpg" width="450"></div>
+
+<h1 id="Experiments"><a href="#Experiments" class="headerlink" title="Experiments"></a>Experiments</h1><h2 id="Generalization-ability"><a href="#Generalization-ability" class="headerlink" title="Generalization ability"></a>Generalization ability</h2><p>RMP: apply a random perturbation to the parameter</p>
+<div align="center"> <img src="/2021/07/20/AMP-Regularizing-Neural-Networks-via-Adversarial-Model-Perturbation/exp_1.jpg" width="600"></div>
+
+<p>Improvement over data augmentation:</p>
+<div align="center"> <img src="/2021/07/20/AMP-Regularizing-Neural-Networks-via-Adversarial-Model-Perturbation/exp2.jpg" width="450"></div>
+
+<p>Loss values v.s. $\theta$:</p>
+<div align="center"> <img src="/2021/07/20/AMP-Regularizing-Neural-Networks-via-Adversarial-Model-Perturbation/exp3.jpg" width="450"></div>
+
+<h2 id="Adversarial-Robustness"><a href="#Adversarial-Robustness" class="headerlink" title="Adversarial Robustness"></a>Adversarial Robustness</h2><p>The flat minima make the adversarial attacks take more efforts for the input to leave the minima.</p>
+<p>AMP is expected to improve the model’s adversarial robustness.</p>
+<div align="center"> <img src="/2021/07/20/AMP-Regularizing-Neural-Networks-via-Adversarial-Model-Perturbation/exp4.jpg" width="450"></div>
+
+<h2 id="Computational-Cost"><a href="#Computational-Cost" class="headerlink" title="Computational Cost"></a>Computational Cost</h2><p>Computational cost significantly increase as inner iteration number N grows.</p>
+<p>N=1 is sufficient to regularize the neural networks <font color="32adff">(FGSM attack idea)</font>.</p>
+<p>For N=1, AMP takes around 1.8x that of ERM training.</p>
+<p><strong>AFFORDABLE</strong></p>
+<h1 id="Conclusion"><a href="#Conclusion" class="headerlink" title="Conclusion"></a>Conclusion</h1><p>AMP Idea: minimize over <font color="32adff">AMP loss, the worst (or highest) empirical risk of all perturbations of $\theta$ with the perturbation norm no greater than a small value $\epsilon$.</font></p>
+<ul>
+<li>Improve the generation performance (image classification, 3D point cloud classification).</li>
+<li>Increase the adversarial robustness to some degree</li>
+</ul>
+<p>Resource: <a href="https://openaccess.thecvf.com/content/CVPR2021/papers/Zheng_Regularizing_Neural_Networks_via_Adversarial_Model_Perturbation_CVPR_2021_paper.pdf">Regularizing Neural Networks via Adversarial Model Perturbation</a></p>
 ]]></content>
       <categories>
         <category>Paper Review</category>
@@ -402,7 +453,8 @@ use_cudnn_on_gpu=None, data_formt = None, name=None)</code></p>
 <a id="more"></a>
 <ul>
 <li>$\mathbb{S}$: “\mathbb{S}”</li>
-<li>$\sum\limits_{i=1}\limits^n$: “\sum\limits_{i=1}\limits^n$”</li>
+<li>$\sum\limits_{i=1}\limits^n$: “\sum\limits_{i=1}\limits^n”</li>
+<li>$\mathop{min}\limits_{i\in R}$: \mathop{min}\limits_{i\in R}</li>
 <li>$\underline{p_A}$: “\underline{p_A}”</li>
 </ul>
 <h1 id="Operators"><a href="#Operators" class="headerlink" title="Operators"></a>Operators</h1><div align="center"> <img src="/2021/07/20/Mathematical-Symbols-in-Latex/operators.jpg" width="650"></div>
@@ -674,5 +726,10 @@ use_cudnn_on_gpu=None, data_formt = None, name=None)</code></p>
         <tag>Detection</tag>
         <tag>PCA</tag>
       </tags>
+  </entry>
+  <entry>
+    <title>Adversarial Training</title>
+    <url>/2021/08/03/Adversarial-Training/</url>
+    <content><![CDATA[]]></content>
   </entry>
 </search>

@@ -30,8 +30,16 @@
 <meta property="og:description" content="BackgroundAlleviate the issue of over-fitting and improve generalization performance on testing data:">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://rachel-yang.github.io/2021/07/20/AMP-Regularizing-Neural-Networks-via-Adversarial-Model-Perturbation/authors.jpg">
+<meta property="og:image" content="https://rachel-yang.github.io/2021/07/20/AMP-Regularizing-Neural-Networks-via-Adversarial-Model-Perturbation/fig1.jpg">
+<meta property="og:image" content="https://rachel-yang.github.io/2021/07/20/AMP-Regularizing-Neural-Networks-via-Adversarial-Model-Perturbation/fig2.jpg">
+<meta property="og:image" content="https://rachel-yang.github.io/2021/07/20/AMP-Regularizing-Neural-Networks-via-Adversarial-Model-Perturbation/fig3.jpg">
+<meta property="og:image" content="https://rachel-yang.github.io/2021/07/20/AMP-Regularizing-Neural-Networks-via-Adversarial-Model-Perturbation/fig1.jpg">
+<meta property="og:image" content="https://rachel-yang.github.io/2021/07/20/AMP-Regularizing-Neural-Networks-via-Adversarial-Model-Perturbation/exp_1.jpg">
+<meta property="og:image" content="https://rachel-yang.github.io/2021/07/20/AMP-Regularizing-Neural-Networks-via-Adversarial-Model-Perturbation/exp2.jpg">
+<meta property="og:image" content="https://rachel-yang.github.io/2021/07/20/AMP-Regularizing-Neural-Networks-via-Adversarial-Model-Perturbation/exp3.jpg">
+<meta property="og:image" content="https://rachel-yang.github.io/2021/07/20/AMP-Regularizing-Neural-Networks-via-Adversarial-Model-Perturbation/exp4.jpg">
 <meta property="article:published_time" content="2021-07-20T09:04:12.000Z">
-<meta property="article:modified_time" content="2021-07-20T13:17:04.019Z">
+<meta property="article:modified_time" content="2021-08-03T05:52:28.185Z">
 <meta property="article:author" content="珣XUN">
 <meta property="article:tag" content="Adversarial Training">
 <meta property="article:tag" content="Improve Generalization">
@@ -211,7 +219,7 @@
 
       <!--noindex-->
       <section class="post-toc-wrap sidebar-panel">
-          <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Background"><span class="nav-number">1.</span> <span class="nav-text">Background</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Approach"><span class="nav-number">2.</span> <span class="nav-text">Approach</span></a></li></ol></div>
+          <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Background"><span class="nav-number">1.</span> <span class="nav-text">Background</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Approach"><span class="nav-number">2.</span> <span class="nav-text">Approach</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Overview"><span class="nav-number">2.1.</span> <span class="nav-text">Overview</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Algorithm"><span class="nav-number">2.2.</span> <span class="nav-text">Algorithm</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Experiments"><span class="nav-number">3.</span> <span class="nav-text">Experiments</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Generalization-ability"><span class="nav-number">3.1.</span> <span class="nav-text">Generalization ability</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Adversarial-Robustness"><span class="nav-number">3.2.</span> <span class="nav-text">Adversarial Robustness</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Computational-Cost"><span class="nav-number">3.3.</span> <span class="nav-text">Computational Cost</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Conclusion"><span class="nav-number">4.</span> <span class="nav-text">Conclusion</span></a></li></ol></div>
       </section>
       <!--/noindex-->
 
@@ -227,7 +235,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">17</span>
+          <span class="site-state-item-count">18</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -310,10 +318,16 @@
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">Posted on</span>
-      
 
-      <time title="Created: 2021-07-20 17:04:12 / Modified: 21:17:04" itemprop="dateCreated datePublished" datetime="2021-07-20T17:04:12+08:00">2021-07-20</time>
+      <time title="Created: 2021-07-20 17:04:12" itemprop="dateCreated datePublished" datetime="2021-07-20T17:04:12+08:00">2021-07-20</time>
     </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">Edited on</span>
+        <time title="Modified: 2021-08-03 13:52:28" itemprop="dateModified" datetime="2021-08-03T13:52:28+08:00">2021-08-03</time>
+      </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
         <i class="far fa-folder"></i>
@@ -332,14 +346,14 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">Symbols count in article: </span>
-      <span>308</span>
+      <span>2.4k</span>
     </span>
     <span class="post-meta-item" title="Reading time">
       <span class="post-meta-item-icon">
         <i class="far fa-clock"></i>
       </span>
       <span class="post-meta-item-text">Reading time &asymp;</span>
-      <span>1 mins.</span>
+      <span>2 mins.</span>
     </span>
 </div>
 
@@ -357,7 +371,58 @@
 <li>Regularization-based methods – introduce penalty on the complexity of the model.</li>
 <li>Data augmentation techniques – leverage important invariance properties of the data.</li>
 </ul>
-<h1 id="Approach"><a href="#Approach" class="headerlink" title="Approach"></a>Approach</h1><p>Resource: <a target="_blank" rel="noopener" href="https://openaccess.thecvf.com/content/CVPR2021/papers/Zheng_Regularizing_Neural_Networks_via_Adversarial_Model_Perturbation_CVPR_2021_paper.pdf">Regularizing Neural Networks via Adversarial Model Perturbation</a></p>
+<p>The model parameter that corresponds to a flat minimum of the empirical risk tends to generalize better.</p>
+<h1 id="Approach"><a href="#Approach" class="headerlink" title="Approach"></a>Approach</h1><h2 id="Overview"><a href="#Overview" class="headerlink" title="Overview"></a>Overview</h2><p>This work sets out to develop a powerful regularization scheme under the principle of finding flat local minima of the empirical risk.</p>
+<div align="center"> <img src="/2021/07/20/AMP-Regularizing-Neural-Networks-via-Adversarial-Model-Perturbation/fig1.jpg" width="450"></div>
+
+<p>Adversarial Model Perturbation(AMP) minimizes an alternative “AMP loss”:</p>
+<font color="32adff">The AMP loss $L_{AMP}(\theta)$ at a parameter setting $\theta$, is the worst (or highest) empirical risk of all perturbations of $\theta$ with the perturbation norm no greater than a small value $\epsilon$.</font>
+
+<font color="#ffaad4">$$L_{AMP}(\theta):=\mathop{max}\limits_{\Delta:\Vert\Delta\Vert\le\epsilon}L_{ERM}(\theta+\Delta)$$</font>
+
+<p>The process of obtaining the AMP loss from the empirical risk can be seen as <font color="32adff">a “max-pooling” operation</font>: slide a window of width $2\epsilon$ across the parameter space and, at each location, returns the maximum value inside the window.</p>
+<h2 id="Algorithm"><a href="#Algorithm" class="headerlink" title="Algorithm"></a>Algorithm</h2><ul>
+<li><font color="#ffaad4">$L_{ERM}(\theta):=\frac{1}{\lvert D\rvert}\sum\limits_{(x,y)\in D}l(x,y;\theta)$</font></li>
+<li><font color="#ffaad4">$L_{AMP}(\theta):=\mathop{max}\limits_{\Delta\in B(0;\epsilon)}\frac{1}{\lvert D\rvert}\sum\limits_{(x,y)\in D}l(x,y;\theta)$, $B(\mu, \epsilon):=\{\theta\in\Theta:=\lVert\theta-\mu\rVert\le\epsilon\}$</font>, $\epsilon$ is a small positive value serving as a hyperparameter.</li>
+</ul>
+<p>Consider a mini-batched training approach:</p>
+<div align="center"> <img src="/2021/07/20/AMP-Regularizing-Neural-Networks-via-Adversarial-Model-Perturbation/fig2.jpg" width="300"></div>
+
+<p>Then, we can get:</p>
+<div align="center"> <img src="/2021/07/20/AMP-Regularizing-Neural-Networks-via-Adversarial-Model-Perturbation/fig3.jpg" width="300"></div>
+
+<p>For the algorithm below:</p>
+<ul>
+<li><p>Inner maximization: N steps are used to <font color="32adff">update $\Delta_B$ in the direction of increasing the ERM loss (PGD attack idea)</font> so as to obtain $J_{AMP,B}$.</p>
+</li>
+<li><p>Outer minimization: Loops over random batches and minimizes $E_BJ_{AMP,B}$ using mini-batched SGD.</p>
+</li>
+</ul>
+<div align="center"> <img src="/2021/07/20/AMP-Regularizing-Neural-Networks-via-Adversarial-Model-Perturbation/fig1.jpg" width="450"></div>
+
+<h1 id="Experiments"><a href="#Experiments" class="headerlink" title="Experiments"></a>Experiments</h1><h2 id="Generalization-ability"><a href="#Generalization-ability" class="headerlink" title="Generalization ability"></a>Generalization ability</h2><p>RMP: apply a random perturbation to the parameter</p>
+<div align="center"> <img src="/2021/07/20/AMP-Regularizing-Neural-Networks-via-Adversarial-Model-Perturbation/exp_1.jpg" width="600"></div>
+
+<p>Improvement over data augmentation:</p>
+<div align="center"> <img src="/2021/07/20/AMP-Regularizing-Neural-Networks-via-Adversarial-Model-Perturbation/exp2.jpg" width="450"></div>
+
+<p>Loss values v.s. $\theta$:</p>
+<div align="center"> <img src="/2021/07/20/AMP-Regularizing-Neural-Networks-via-Adversarial-Model-Perturbation/exp3.jpg" width="450"></div>
+
+<h2 id="Adversarial-Robustness"><a href="#Adversarial-Robustness" class="headerlink" title="Adversarial Robustness"></a>Adversarial Robustness</h2><p>The flat minima make the adversarial attacks take more efforts for the input to leave the minima.</p>
+<p>AMP is expected to improve the model’s adversarial robustness.</p>
+<div align="center"> <img src="/2021/07/20/AMP-Regularizing-Neural-Networks-via-Adversarial-Model-Perturbation/exp4.jpg" width="450"></div>
+
+<h2 id="Computational-Cost"><a href="#Computational-Cost" class="headerlink" title="Computational Cost"></a>Computational Cost</h2><p>Computational cost significantly increase as inner iteration number N grows.</p>
+<p>N=1 is sufficient to regularize the neural networks <font color="32adff">(FGSM attack idea)</font>.</p>
+<p>For N=1, AMP takes around 1.8x that of ERM training.</p>
+<p><strong>AFFORDABLE</strong></p>
+<h1 id="Conclusion"><a href="#Conclusion" class="headerlink" title="Conclusion"></a>Conclusion</h1><p>AMP Idea: minimize over <font color="32adff">AMP loss, the worst (or highest) empirical risk of all perturbations of $\theta$ with the perturbation norm no greater than a small value $\epsilon$.</font></p>
+<ul>
+<li>Improve the generation performance (image classification, 3D point cloud classification).</li>
+<li>Increase the adversarial robustness to some degree</li>
+</ul>
+<p>Resource: <a target="_blank" rel="noopener" href="https://openaccess.thecvf.com/content/CVPR2021/papers/Zheng_Regularizing_Neural_Networks_via_Adversarial_Model_Perturbation_CVPR_2021_paper.pdf">Regularizing Neural Networks via Adversarial Model Perturbation</a></p>
 
     </div>
 
@@ -477,13 +542,13 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-line"></i>
     </span>
-    <span title="Symbols count total">21k</span>
+    <span title="Symbols count total">24k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="Reading time total">16 mins.</span>
+    <span title="Reading time total">17 mins.</span>
   </span>
 </div>
 

@@ -6,7 +6,7 @@
   <link href="https://rachel-yang.github.io/atom.xml" rel="self"/>
   
   <link href="https://rachel-yang.github.io/"/>
-  <updated>2021-07-21T09:08:19.686Z</updated>
+  <updated>2021-08-03T05:13:13.536Z</updated>
   <id>https://rachel-yang.github.io/</id>
   
   <author>
@@ -17,11 +17,24 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>Adversarial Training</title>
+    <link href="https://rachel-yang.github.io/2021/08/03/Adversarial-Training/"/>
+    <id>https://rachel-yang.github.io/2021/08/03/Adversarial-Training/</id>
+    <published>2021-08-03T05:13:13.000Z</published>
+    <updated>2021-08-03T05:13:13.536Z</updated>
+    
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
     <title>Mathematical Symbols in Latex</title>
     <link href="https://rachel-yang.github.io/2021/07/20/Mathematical-Symbols-in-Latex/"/>
     <id>https://rachel-yang.github.io/2021/07/20/Mathematical-Symbols-in-Latex/</id>
     <published>2021-07-20T13:01:16.000Z</published>
-    <updated>2021-07-21T09:08:19.686Z</updated>
+    <updated>2021-08-03T05:23:43.549Z</updated>
     
     
     <summary type="html">&lt;p&gt;&lt;strong&gt;This blog lists most of the mathematical symbols in latex for usage.&lt;/strong&gt;&lt;/p&gt;</summary>
@@ -42,7 +55,7 @@
     <link href="https://rachel-yang.github.io/2021/07/20/AMP-Regularizing-Neural-Networks-via-Adversarial-Model-Perturbation/"/>
     <id>https://rachel-yang.github.io/2021/07/20/AMP-Regularizing-Neural-Networks-via-Adversarial-Model-Perturbation/</id>
     <published>2021-07-20T09:04:12.000Z</published>
-    <updated>2021-07-20T13:17:04.019Z</updated>
+    <updated>2021-08-03T05:52:28.185Z</updated>
     
     
     <summary type="html">&lt;div align=&quot;center&quot;&gt; &lt;img src=&quot;/2021/07/20/AMP-Regularizing-Neural-Networks-via-Adversarial-Model-Perturbation/authors.jpg&quot; width=&quot;650&quot;&gt;&lt;/div&gt;
