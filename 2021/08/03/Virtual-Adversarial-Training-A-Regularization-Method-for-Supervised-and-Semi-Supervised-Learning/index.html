@@ -28,8 +28,24 @@
 <meta property="og:site_name" content="Xun&#39;s Gallery">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://rachel-yang.github.io/2021/08/03/Virtual-Adversarial-Training-A-Regularization-Method-for-Supervised-and-Semi-Supervised-Learning/authors.jpg">
+<meta property="og:image" content="https://rachel-yang.github.io/2021/08/03/Virtual-Adversarial-Training-A-Regularization-Method-for-Supervised-and-Semi-Supervised-Learning/func1.jpg">
+<meta property="og:image" content="https://rachel-yang.github.io/2021/08/03/Virtual-Adversarial-Training-A-Regularization-Method-for-Supervised-and-Semi-Supervised-Learning/func2.jpg">
+<meta property="og:image" content="https://rachel-yang.github.io/2021/08/03/Virtual-Adversarial-Training-A-Regularization-Method-for-Supervised-and-Semi-Supervised-Learning/func3.jpg">
+<meta property="og:image" content="https://rachel-yang.github.io/2021/08/03/Virtual-Adversarial-Training-A-Regularization-Method-for-Supervised-and-Semi-Supervised-Learning/func4.jpg">
+<meta property="og:image" content="https://rachel-yang.github.io/2021/08/03/Virtual-Adversarial-Training-A-Regularization-Method-for-Supervised-and-Semi-Supervised-Learning/func5.jpg">
+<meta property="og:image" content="https://rachel-yang.github.io/2021/08/03/Virtual-Adversarial-Training-A-Regularization-Method-for-Supervised-and-Semi-Supervised-Learning/alg.jpg">
+<meta property="og:image" content="https://rachel-yang.github.io/2021/08/03/Virtual-Adversarial-Training-A-Regularization-Method-for-Supervised-and-Semi-Supervised-Learning/exp1.jpg">
+<meta property="og:image" content="https://rachel-yang.github.io/2021/08/03/Virtual-Adversarial-Training-A-Regularization-Method-for-Supervised-and-Semi-Supervised-Learning/exp2.jpg">
+<meta property="og:image" content="https://rachel-yang.github.io/2021/08/03/Virtual-Adversarial-Training-A-Regularization-Method-for-Supervised-and-Semi-Supervised-Learning/exp3.jpg">
+<meta property="og:image" content="https://rachel-yang.github.io/2021/08/03/Virtual-Adversarial-Training-A-Regularization-Method-for-Supervised-and-Semi-Supervised-Learning/exp4.jpg">
+<meta property="og:image" content="https://rachel-yang.github.io/2021/08/03/Virtual-Adversarial-Training-A-Regularization-Method-for-Supervised-and-Semi-Supervised-Learning/exp5.jpg">
+<meta property="og:image" content="https://rachel-yang.github.io/2021/08/03/Virtual-Adversarial-Training-A-Regularization-Method-for-Supervised-and-Semi-Supervised-Learning/the1.jpg">
+<meta property="og:image" content="https://rachel-yang.github.io/2021/08/03/Virtual-Adversarial-Training-A-Regularization-Method-for-Supervised-and-Semi-Supervised-Learning/the2.jpg">
+<meta property="og:image" content="https://rachel-yang.github.io/2021/08/03/Virtual-Adversarial-Training-A-Regularization-Method-for-Supervised-and-Semi-Supervised-Learning/adv1.jpg">
+<meta property="og:image" content="https://rachel-yang.github.io/2021/08/03/Virtual-Adversarial-Training-A-Regularization-Method-for-Supervised-and-Semi-Supervised-Learning/adv2.jpg">
+<meta property="og:image" content="https://rachel-yang.github.io/2021/08/03/Virtual-Adversarial-Training-A-Regularization-Method-for-Supervised-and-Semi-Supervised-Learning/adv3.jpg">
 <meta property="article:published_time" content="2021-08-03T09:45:12.000Z">
-<meta property="article:modified_time" content="2021-08-05T07:38:59.910Z">
+<meta property="article:modified_time" content="2021-08-05T08:07:20.353Z">
 <meta property="article:author" content="珣XUN">
 <meta property="article:tag" content="Adversarial Training">
 <meta property="article:tag" content="Improve Generalization">
@@ -210,7 +226,7 @@
 
       <!--noindex-->
       <section class="post-toc-wrap sidebar-panel">
-          <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Background"><span class="nav-number">1.</span> <span class="nav-text">Background</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Approach"><span class="nav-number">2.</span> <span class="nav-text">Approach</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Overview"><span class="nav-number">2.1.</span> <span class="nav-text">Overview</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Notations"><span class="nav-number">2.2.</span> <span class="nav-text">Notations</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Algorithm"><span class="nav-number">2.3.</span> <span class="nav-text">Algorithm</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Experiments"><span class="nav-number">3.</span> <span class="nav-text">Experiments</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Generalization-ability"><span class="nav-number">3.1.</span> <span class="nav-text">Generalization ability</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Adversarial-Robustness"><span class="nav-number">3.2.</span> <span class="nav-text">Adversarial Robustness</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Conclusion"><span class="nav-number">4.</span> <span class="nav-text">Conclusion</span></a></li></ol></div>
+          <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Background"><span class="nav-number">1.</span> <span class="nav-text">Background</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Approach"><span class="nav-number">2.</span> <span class="nav-text">Approach</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Overview"><span class="nav-number">2.1.</span> <span class="nav-text">Overview</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Notations"><span class="nav-number">2.2.</span> <span class="nav-text">Notations</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Details"><span class="nav-number">2.3.</span> <span class="nav-text">Details</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Algorithm"><span class="nav-number">2.4.</span> <span class="nav-text">Algorithm</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Experiments"><span class="nav-number">3.</span> <span class="nav-text">Experiments</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Generalization-ability"><span class="nav-number">3.1.</span> <span class="nav-text">Generalization ability</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Ablation-Study"><span class="nav-number">3.2.</span> <span class="nav-text">Ablation Study</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Adversarial-Robustness"><span class="nav-number">3.3.</span> <span class="nav-text">Adversarial Robustness</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Conclusion"><span class="nav-number">4.</span> <span class="nav-text">Conclusion</span></a></li></ol></div>
       </section>
       <!--/noindex-->
 
@@ -317,7 +333,7 @@
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">Edited on</span>
-        <time title="Modified: 2021-08-05 15:38:59" itemprop="dateModified" datetime="2021-08-05T15:38:59+08:00">2021-08-05</time>
+        <time title="Modified: 2021-08-05 16:07:20" itemprop="dateModified" datetime="2021-08-05T16:07:20+08:00">2021-08-05</time>
       </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -337,14 +353,14 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">Symbols count in article: </span>
-      <span>877</span>
+      <span>2.6k</span>
     </span>
     <span class="post-meta-item" title="Reading time">
       <span class="post-meta-item-icon">
         <i class="far fa-clock"></i>
       </span>
       <span class="post-meta-item-text">Reading time &asymp;</span>
-      <span>1 mins.</span>
+      <span>2 mins.</span>
     </span>
 </div>
 
@@ -376,9 +392,60 @@
 <script type="math/tex; mode=display">\mathcal{l}(\mathcal{D}_l, \theta) + \alpha\mathcal{R}(\mathcal{D}_l,\mathcal{D}_{ul},\theta)</script><h2 id="Notations"><a href="#Notations" class="headerlink" title="Notations"></a>Notations</h2><ul>
 <li>$x\in R^I, y\in Q$: input vector, output label</li>
 <li>$p(y|x,\theta)$: output distribution</li>
-<li>$$<h2 id="Algorithm"><a href="#Algorithm" class="headerlink" title="Algorithm"></a>Algorithm</h2></li>
+<li>$\hat{\theta}$: vector of the model parameters at a specific iteration step of the training process</li>
+<li>$\mathcal{D}_l=\{x_l^{(n)},y_l^{(n)}|n=1,\dots,N_l\}$: a labeled dataset</li>
+<li>$\mathcal{D}_{ul}=\{x_{ul}^{(m)}|m=1,\dots,N_l\}$: an unlabeled dataset</li>
+<li>$D[p,p’]$: non-negative function measures the divergence between two distributions $p$ and $p’$, for example the cross entropy: $D[p,p’] = -\sum_ip_ilogp’_i$</li>
 </ul>
-<h1 id="Experiments"><a href="#Experiments" class="headerlink" title="Experiments"></a>Experiments</h1><h2 id="Generalization-ability"><a href="#Generalization-ability" class="headerlink" title="Generalization ability"></a>Generalization ability</h2><h2 id="Adversarial-Robustness"><a href="#Adversarial-Robustness" class="headerlink" title="Adversarial Robustness"></a>Adversarial Robustness</h2><h1 id="Conclusion"><a href="#Conclusion" class="headerlink" title="Conclusion"></a>Conclusion</h1>
+<p>Thus, the formulation  of the adversarial training is:</p>
+<div align="center"> <img src="/2021/08/03/Virtual-Adversarial-Training-A-Regularization-Method-for-Supervised-and-Semi-Supervised-Learning/func1.jpg" width="400"></div>
+
+<h2 id="Details"><a href="#Details" class="headerlink" title="Details"></a>Details</h2><p>Let $x_*$ represent either $x_l$ or $x_{ul}$ (full label information is not available at all times,</p>
+<div align="center"> <img src="/2021/08/03/Virtual-Adversarial-Training-A-Regularization-Method-for-Supervised-and-Semi-Supervised-Learning/func2.jpg" width="400"></div>
+
+<p>Use “virtual” labels that are probabilistically generated from $p(y|x,\theta)$ in place of labels that are unknown to the user, and compute adversarial direction based on the virtual labels.</p>
+<div align="center"> <img src="/2021/08/03/Virtual-Adversarial-Training-A-Regularization-Method-for-Supervised-and-Semi-Supervised-Learning/func3.jpg" width="400"></div>
+<div align="center"> <img src="/2021/08/03/Virtual-Adversarial-Training-A-Regularization-Method-for-Supervised-and-Semi-Supervised-Learning/func4.jpg" width="400"></div>
+
+<p>The regularization term is the average of $LDS(x_*,\theta)$ over all input data points:</p>
+<div align="center"> <img src="/2021/08/03/Virtual-Adversarial-Training-A-Regularization-Method-for-Supervised-and-Semi-Supervised-Learning/func5.jpg" width="450"></div>
+
+<p>The full objective function is $\mathcal{l}(\mathcal{D}_l, \theta) + \alpha\mathcal{R}(\mathcal{D}_l,\mathcal{D}_{ul},\theta)$, where $\mathcal{l}(\mathcal{D}_l,\theta)$ is the negative log-likelihood for the labeled dataset.</p>
+<font color="32adff"> Virtual adversarial training (VAT) is a training method with the regularizer $R_{vadv}$. </font>
+
+<h2 id="Algorithm"><a href="#Algorithm" class="headerlink" title="Algorithm"></a>Algorithm</h2><p>VAT is an algorithm that updates the model by the weighted sum of the gradient of the likelihood and the gradient $\nabla_{\theta R_{adv}}$ computed with Algorithm 1.</p>
+<div align="center"> <img src="/2021/08/03/Virtual-Adversarial-Training-A-Regularization-Method-for-Supervised-and-Semi-Supervised-Learning/alg.jpg" width="450"></div>
+
+<h1 id="Experiments"><a href="#Experiments" class="headerlink" title="Experiments"></a>Experiments</h1><h2 id="Generalization-ability"><a href="#Generalization-ability" class="headerlink" title="Generalization ability"></a>Generalization ability</h2><p>Efficacy of VAT on Benchmark Tasks: supervised</p>
+<div align="center"> <img src="/2021/08/03/Virtual-Adversarial-Training-A-Regularization-Method-for-Supervised-and-Semi-Supervised-Learning/exp1.jpg" width="450"></div>
+
+<div align="center"> <img src="/2021/08/03/Virtual-Adversarial-Training-A-Regularization-Method-for-Supervised-and-Semi-Supervised-Learning/exp2.jpg" width="450"></div>
+
+<p>Efficacy of VAT on Benchmark Tasks: semi-supervised</p>
+<div align="center"> <img src="/2021/08/03/Virtual-Adversarial-Training-A-Regularization-Method-for-Supervised-and-Semi-Supervised-Learning/exp3.jpg" width="450"></div>
+
+<div align="center"> <img src="/2021/08/03/Virtual-Adversarial-Training-A-Regularization-Method-for-Supervised-and-Semi-Supervised-Learning/exp4.jpg" width="450"></div>
+
+<h2 id="Ablation-Study"><a href="#Ablation-Study" class="headerlink" title="Ablation Study"></a>Ablation Study</h2><p>Effects of perturbation size $\epsilon$ and regularization coefficient $\alpha$:</p>
+<div align="center"> <img src="/2021/08/03/Virtual-Adversarial-Training-A-Regularization-Method-for-Supervised-and-Semi-Supervised-Learning/exp5.jpg" width="450"></div>
+
+<p>For small $\epsilon$, the hyperparameter $\alpha$ plays a similar role as $\epsilon$:</p>
+<div align="center"> <img src="/2021/08/03/Virtual-Adversarial-Training-A-Regularization-Method-for-Supervised-and-Semi-Supervised-Learning/the1.jpg" width="400"></div>
+<div align="center"> <img src="/2021/08/03/Virtual-Adversarial-Training-A-Regularization-Method-for-Supervised-and-Semi-Supervised-Learning/the2.jpg" width="400"></div>
+
+<h2 id="Adversarial-Robustness"><a href="#Adversarial-Robustness" class="headerlink" title="Adversarial Robustness"></a>Adversarial Robustness</h2><div align="center"> <img src="/2021/08/03/Virtual-Adversarial-Training-A-Regularization-Method-for-Supervised-and-Semi-Supervised-Learning/adv1.jpg" width="500"></div>
+
+<div align="center"> <img src="/2021/08/03/Virtual-Adversarial-Training-A-Regularization-Method-for-Supervised-and-Semi-Supervised-Learning/adv2.jpg" width="500"></div>
+
+<div align="center"> <img src="/2021/08/03/Virtual-Adversarial-Training-A-Regularization-Method-for-Supervised-and-Semi-Supervised-Learning/adv3.jpg" width="500"></div>
+
+<h1 id="Conclusion"><a href="#Conclusion" class="headerlink" title="Conclusion"></a>Conclusion</h1><p>Virtual adversarial training:<br>Updates the model by <font color="32adff">the weighted sum</font> of the gradient of <font color="32adff">the likelihood and the LDS.</font></p>
+<ul>
+<li>applicability to semi-supervised learning tasks</li>
+<li>applicability to any parametric models for which we can evaluate the gradient with respect to input and parameter</li>
+<li>small number of hyperparameters $(\alpha, \epsilon)$</li>
+</ul>
+
     </div>
 
     
@@ -495,13 +562,13 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-line"></i>
     </span>
-    <span title="Symbols count total">24k</span>
+    <span title="Symbols count total">26k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="Reading time total">18 mins.</span>
+    <span title="Reading time total">19 mins.</span>
   </span>
 </div>
 
