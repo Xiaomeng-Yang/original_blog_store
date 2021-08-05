@@ -453,6 +453,8 @@ use_cudnn_on_gpu=None, data_formt = None, name=None)</code></p>
 <a id="more"></a>
 <ul>
 <li>$\mathbb{S}$: “\mathbb{S}”</li>
+<li>$\mathcal{L}$: “\mathcal{L}”</li>
+<li>$\mathscr{L}$: “\mathscr{L}”</li>
 <li>$\sum\limits_{i=1}\limits^n$: “\sum\limits_{i=1}\limits^n”</li>
 <li>$\mathop{min}\limits_{i\in R}$: \mathop{min}\limits_{i\in R}</li>
 <li>$\underline{p_A}$: “\underline{p_A}”</li>
@@ -470,7 +472,7 @@ use_cudnn_on_gpu=None, data_formt = None, name=None)</code></p>
 
 <h1 id="Dots"><a href="#Dots" class="headerlink" title="Dots"></a>Dots</h1><div align="center"> <img src="/2021/07/20/Mathematical-Symbols-in-Latex/dots.jpg" width="350"></div>
 
-<h1 id="Accents"><a href="#Accents" class="headerlink" title="Accents"></a>Accents</h1><div align="center"> <img src="/2021/07/20/Mathematical-Symbols-in-Latex/greek_letters.jpg" width="700"></div>
+<h1 id="Accents"><a href="#Accents" class="headerlink" title="Accents"></a>Accents</h1><div align="center"> <img src="/2021/07/20/Mathematical-Symbols-in-Latex/accents.jpg" width="700"></div>
 
 <h1 id="Others"><a href="#Others" class="headerlink" title="Others"></a>Others</h1><div align="center"> <img src="/2021/07/20/Mathematical-Symbols-in-Latex/others.jpg" width="600"></div>
 
@@ -731,5 +733,47 @@ use_cudnn_on_gpu=None, data_formt = None, name=None)</code></p>
     <title>Adversarial Training</title>
     <url>/2021/08/03/Adversarial-Training/</url>
     <content><![CDATA[]]></content>
+      <categories>
+        <category>Overview</category>
+      </categories>
+      <tags>
+        <tag>Adversarial Training</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>[Paper-Review] Virtual Adversarial Training: A Regularization Method for Supervised and Semi-Supervised Learning</title>
+    <url>/2021/08/03/Virtual-Adversarial-Training-A-Regularization-Method-for-Supervised-and-Semi-Supervised-Learning/</url>
+    <content><![CDATA[<div align="center"> <img src="/2021/08/03/Virtual-Adversarial-Training-A-Regularization-Method-for-Supervised-and-Semi-Supervised-Learning/authors.jpg" width="700"></div>
+
+<a id="more"></a>
+<h1 id="Background"><a href="#Background" class="headerlink" title="Background"></a>Background</h1><p>Alleviate the issue of over-fitting and improve generalization performance on testing data:</p>
+<ul>
+<li>Regularization-based methods – introduce penalty on the complexity of the model.</li>
+<li>Data augmentation techniques – leverage important invariance properties of the data.</li>
+</ul>
+<font color="32adff">The main goal of Generalization is to make the AI system to perform better on the test data.</font>
+
+
+<h1 id="Approach"><a href="#Approach" class="headerlink" title="Approach"></a>Approach</h1><h2 id="Overview"><a href="#Overview" class="headerlink" title="Overview"></a>Overview</h2><p>Virtual adversarial direction:</p>
+<ul>
+<li>a direction of the perturbation that can most greatly alter the output distribution in the sense of distributional divergence.</li>
+<li>can be defined on unlabeled data point.</li>
+</ul>
+<font color="32adff">Add a regularization item (LDS) to the original loss, LDS is the divergence based distributional robustness of the model against virtual adversarial direction. </font>
+
+<script type="math/tex; mode=display">\mathcal{l}(\mathcal{D}_l, \theta) + \alpha\mathcal{R}(\mathcal{D}_l,\mathcal{D}_{ul},\theta)</script><h2 id="Notations"><a href="#Notations" class="headerlink" title="Notations"></a>Notations</h2><ul>
+<li>$x\in R^I, y\in Q$: input vector, output label</li>
+<li>$p(y|x,\theta)$: output distribution</li>
+<li>$$<h2 id="Algorithm"><a href="#Algorithm" class="headerlink" title="Algorithm"></a>Algorithm</h2></li>
+</ul>
+<h1 id="Experiments"><a href="#Experiments" class="headerlink" title="Experiments"></a>Experiments</h1><h2 id="Generalization-ability"><a href="#Generalization-ability" class="headerlink" title="Generalization ability"></a>Generalization ability</h2><h2 id="Adversarial-Robustness"><a href="#Adversarial-Robustness" class="headerlink" title="Adversarial Robustness"></a>Adversarial Robustness</h2><h1 id="Conclusion"><a href="#Conclusion" class="headerlink" title="Conclusion"></a>Conclusion</h1>]]></content>
+      <categories>
+        <category>Paper Review</category>
+      </categories>
+      <tags>
+        <tag>Adversarial Training</tag>
+        <tag>Improve Generalization</tag>
+        <tag>Semi-Supervised Learning</tag>
+      </tags>
   </entry>
 </search>

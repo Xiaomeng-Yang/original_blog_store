@@ -22,20 +22,23 @@
     var CONFIG = {"hostname":"rachel-yang.github.io","root":"/","scheme":"Gemini","version":"8.0.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"b2t":false,"scrollpercent":true},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"search.xml","localsearch":{"enable":true,"trigger":"manual","top_n_per_article":1,"unescape":false,"preload":false}};
   </script>
 
-  <meta name="description" content="This talks about how to build your own remote server. Anaconda">
-<meta property="og:type" content="article">
-<meta property="og:title" content="Server">
-<meta property="og:url" content="https://rachel-yang.github.io/2021/05/09/Server/index.html">
+  <meta property="og:type" content="article">
+<meta property="og:title" content="[Paper-Review] Virtual Adversarial Training: A Regularization Method for Supervised and Semi-Supervised Learning">
+<meta property="og:url" content="https://rachel-yang.github.io/2021/08/03/Virtual-Adversarial-Training-A-Regularization-Method-for-Supervised-and-Semi-Supervised-Learning/index.html">
 <meta property="og:site_name" content="Xun&#39;s Gallery">
-<meta property="og:description" content="This talks about how to build your own remote server. Anaconda">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2021-05-09T07:03:47.000Z">
-<meta property="article:modified_time" content="2021-05-09T07:36:27.041Z">
+<meta property="og:image" content="https://rachel-yang.github.io/2021/08/03/Virtual-Adversarial-Training-A-Regularization-Method-for-Supervised-and-Semi-Supervised-Learning/authors.jpg">
+<meta property="article:published_time" content="2021-08-03T09:45:12.000Z">
+<meta property="article:modified_time" content="2021-08-05T07:38:59.910Z">
 <meta property="article:author" content="珣XUN">
+<meta property="article:tag" content="Adversarial Training">
+<meta property="article:tag" content="Improve Generalization">
+<meta property="article:tag" content="Semi-Supervised Learning">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://rachel-yang.github.io/2021/08/03/Virtual-Adversarial-Training-A-Regularization-Method-for-Supervised-and-Semi-Supervised-Learning/authors.jpg">
 
 
-<link rel="canonical" href="https://rachel-yang.github.io/2021/05/09/Server/">
+<link rel="canonical" href="https://rachel-yang.github.io/2021/08/03/Virtual-Adversarial-Training-A-Regularization-Method-for-Supervised-and-Semi-Supervised-Learning/">
 
 
 <script class="page-configurations">
@@ -48,7 +51,7 @@
   };
 </script>
 
-  <title>Server | Xun's Gallery</title>
+  <title>[Paper-Review] Virtual Adversarial Training: A Regularization Method for Supervised and Semi-Supervised Learning | Xun's Gallery</title>
   
 
 
@@ -207,7 +210,7 @@
 
       <!--noindex-->
       <section class="post-toc-wrap sidebar-panel">
-          <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Anaconda"><span class="nav-number">1.</span> <span class="nav-text">Anaconda</span></a></li></ol></div>
+          <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Background"><span class="nav-number">1.</span> <span class="nav-text">Background</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Approach"><span class="nav-number">2.</span> <span class="nav-text">Approach</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Overview"><span class="nav-number">2.1.</span> <span class="nav-text">Overview</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Notations"><span class="nav-number">2.2.</span> <span class="nav-text">Notations</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Algorithm"><span class="nav-number">2.3.</span> <span class="nav-text">Algorithm</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Experiments"><span class="nav-number">3.</span> <span class="nav-text">Experiments</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Generalization-ability"><span class="nav-number">3.1.</span> <span class="nav-text">Generalization ability</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Adversarial-Robustness"><span class="nav-number">3.2.</span> <span class="nav-text">Adversarial Robustness</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Conclusion"><span class="nav-number">4.</span> <span class="nav-text">Conclusion</span></a></li></ol></div>
       </section>
       <!--/noindex-->
 
@@ -280,7 +283,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://rachel-yang.github.io/2021/05/09/Server/">
+    <link itemprop="mainEntityOfPage" href="https://rachel-yang.github.io/2021/08/03/Virtual-Adversarial-Training-A-Regularization-Method-for-Supervised-and-Semi-Supervised-Learning/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.jpg">
@@ -296,7 +299,7 @@
     
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          Server
+          [Paper-Review] Virtual Adversarial Training: A Regularization Method for Supervised and Semi-Supervised Learning
         </h1>
 
         <div class="post-meta-container">
@@ -306,17 +309,23 @@
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">Posted on</span>
-      
 
-      <time title="Created: 2021-05-09 15:03:47 / Modified: 15:36:27" itemprop="dateCreated datePublished" datetime="2021-05-09T15:03:47+08:00">2021-05-09</time>
+      <time title="Created: 2021-08-03 17:45:12" itemprop="dateCreated datePublished" datetime="2021-08-03T17:45:12+08:00">2021-08-03</time>
     </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">Edited on</span>
+        <time title="Modified: 2021-08-05 15:38:59" itemprop="dateModified" datetime="2021-08-05T15:38:59+08:00">2021-08-05</time>
+      </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
         <i class="far fa-folder"></i>
       </span>
       <span class="post-meta-item-text">In</span>
         <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Remote-Server/" itemprop="url" rel="index"><span itemprop="name">Remote Server</span></a>
+          <a href="/categories/Paper-Review/" itemprop="url" rel="index"><span itemprop="name">Paper Review</span></a>
         </span>
     </span>
 
@@ -328,7 +337,7 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">Symbols count in article: </span>
-      <span>52</span>
+      <span>877</span>
     </span>
     <span class="post-meta-item" title="Reading time">
       <span class="post-meta-item-icon">
@@ -346,8 +355,30 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        <p>This talks about how to build your own remote server.</p>
-<h2 id="Anaconda"><a href="#Anaconda" class="headerlink" title="Anaconda"></a>Anaconda</h2>
+        <div align="center"> <img src="/2021/08/03/Virtual-Adversarial-Training-A-Regularization-Method-for-Supervised-and-Semi-Supervised-Learning/authors.jpg" width="700"></div>
+
+<a id="more"></a>
+<h1 id="Background"><a href="#Background" class="headerlink" title="Background"></a>Background</h1><p>Alleviate the issue of over-fitting and improve generalization performance on testing data:</p>
+<ul>
+<li>Regularization-based methods – introduce penalty on the complexity of the model.</li>
+<li>Data augmentation techniques – leverage important invariance properties of the data.</li>
+</ul>
+<font color="32adff">The main goal of Generalization is to make the AI system to perform better on the test data.</font>
+
+
+<h1 id="Approach"><a href="#Approach" class="headerlink" title="Approach"></a>Approach</h1><h2 id="Overview"><a href="#Overview" class="headerlink" title="Overview"></a>Overview</h2><p>Virtual adversarial direction:</p>
+<ul>
+<li>a direction of the perturbation that can most greatly alter the output distribution in the sense of distributional divergence.</li>
+<li>can be defined on unlabeled data point.</li>
+</ul>
+<font color="32adff">Add a regularization item (LDS) to the original loss, LDS is the divergence based distributional robustness of the model against virtual adversarial direction. </font>
+
+<script type="math/tex; mode=display">\mathcal{l}(\mathcal{D}_l, \theta) + \alpha\mathcal{R}(\mathcal{D}_l,\mathcal{D}_{ul},\theta)</script><h2 id="Notations"><a href="#Notations" class="headerlink" title="Notations"></a>Notations</h2><ul>
+<li>$x\in R^I, y\in Q$: input vector, output label</li>
+<li>$p(y|x,\theta)$: output distribution</li>
+<li>$$<h2 id="Algorithm"><a href="#Algorithm" class="headerlink" title="Algorithm"></a>Algorithm</h2></li>
+</ul>
+<h1 id="Experiments"><a href="#Experiments" class="headerlink" title="Experiments"></a>Experiments</h1><h2 id="Generalization-ability"><a href="#Generalization-ability" class="headerlink" title="Generalization ability"></a>Generalization ability</h2><h2 id="Adversarial-Robustness"><a href="#Adversarial-Robustness" class="headerlink" title="Adversarial Robustness"></a>Adversarial Robustness</h2><h1 id="Conclusion"><a href="#Conclusion" class="headerlink" title="Conclusion"></a>Conclusion</h1>
     </div>
 
     
@@ -392,19 +423,21 @@
     </div>
   </div>
 
+          <div class="post-tags">
+              <a href="/tags/Adversarial-Training/" rel="tag"><i class="fa fa-tag"></i> Adversarial Training</a>
+              <a href="/tags/Improve-Generalization/" rel="tag"><i class="fa fa-tag"></i> Improve Generalization</a>
+              <a href="/tags/Semi-Supervised-Learning/" rel="tag"><i class="fa fa-tag"></i> Semi-Supervised Learning</a>
+          </div>
 
         
 
           <div class="post-nav">
             <div class="post-nav-item">
-                <a href="/2021/03/08/FGSM-Attack/" rel="prev" title="FGSM Attack">
-                  <i class="fa fa-chevron-left"></i> FGSM Attack
+                <a href="/2021/08/03/Adversarial-Training/" rel="prev" title="Adversarial Training">
+                  <i class="fa fa-chevron-left"></i> Adversarial Training
                 </a>
             </div>
             <div class="post-nav-item">
-                <a href="/2021/05/09/OCR-Data/" rel="next" title="OCR-Data">
-                  OCR-Data <i class="fa fa-chevron-right"></i>
-                </a>
             </div>
           </div>
     </footer>
@@ -517,6 +550,50 @@
   
 
   
+      <script>
+  if (typeof MathJax === 'undefined') {
+    window.MathJax = {
+      tex: {
+        inlineMath: {'[+]': [['$', '$']]},
+        tags: 'ams'
+      },
+      options: {
+        renderActions: {
+          findScript: [10, doc => {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+              const display = !!node.type.match(/; *mode=display/);
+              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+              const text = document.createTextNode('');
+              node.parentNode.replaceChild(text, node);
+              math.start = {node: text, delim: '', n: 0};
+              math.end = {node: text, delim: '', n: 0};
+              doc.math.push(math);
+            });
+          }, '', false],
+          insertedScript: [200, () => {
+            document.querySelectorAll('mjx-container').forEach(node => {
+              const target = node.parentNode;
+              if (target.nodeName.toLowerCase() === 'li') {
+                target.parentNode.classList.add('has-jax');
+              }
+            });
+          }, '', false]
+        }
+      }
+    };
+    const script = document.createElement('script');
+    script.src = '//cdn.jsdelivr.net/npm/mathjax@3.1.0/es5/tex-mml-chtml.js';
+    script.defer = true;
+    document.head.appendChild(script);
+  } else {
+    MathJax.startup.document.state(0);
+    MathJax.typesetClear();
+    MathJax.texReset();
+    MathJax.typeset();
+  }
+</script>
+
+    
 
   
 

@@ -6,7 +6,7 @@
   <link href="https://rachel-yang.github.io/atom.xml" rel="self"/>
   
   <link href="https://rachel-yang.github.io/"/>
-  <updated>2021-08-03T05:13:13.536Z</updated>
+  <updated>2021-08-05T07:38:59.910Z</updated>
   <id>https://rachel-yang.github.io/</id>
   
   <author>
@@ -17,15 +17,42 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>[Paper-Review] Virtual Adversarial Training: A Regularization Method for Supervised and Semi-Supervised Learning</title>
+    <link href="https://rachel-yang.github.io/2021/08/03/Virtual-Adversarial-Training-A-Regularization-Method-for-Supervised-and-Semi-Supervised-Learning/"/>
+    <id>https://rachel-yang.github.io/2021/08/03/Virtual-Adversarial-Training-A-Regularization-Method-for-Supervised-and-Semi-Supervised-Learning/</id>
+    <published>2021-08-03T09:45:12.000Z</published>
+    <updated>2021-08-05T07:38:59.910Z</updated>
+    
+    
+    <summary type="html">&lt;div align=&quot;center&quot;&gt; &lt;img src=&quot;/2021/08/03/Virtual-Adversarial-Training-A-Regularization-Method-for-Supervised-and-Semi-Supervised-Learning/authors.jpg&quot; width=&quot;700&quot;&gt;&lt;/div&gt;</summary>
+    
+    
+    
+    <category term="Paper Review" scheme="https://rachel-yang.github.io/categories/Paper-Review/"/>
+    
+    
+    <category term="Adversarial Training" scheme="https://rachel-yang.github.io/tags/Adversarial-Training/"/>
+    
+    <category term="Improve Generalization" scheme="https://rachel-yang.github.io/tags/Improve-Generalization/"/>
+    
+    <category term="Semi-Supervised Learning" scheme="https://rachel-yang.github.io/tags/Semi-Supervised-Learning/"/>
+    
+  </entry>
+  
+  <entry>
     <title>Adversarial Training</title>
     <link href="https://rachel-yang.github.io/2021/08/03/Adversarial-Training/"/>
     <id>https://rachel-yang.github.io/2021/08/03/Adversarial-Training/</id>
     <published>2021-08-03T05:13:13.000Z</published>
-    <updated>2021-08-03T05:13:13.536Z</updated>
+    <updated>2021-08-03T06:08:37.485Z</updated>
     
     
     
     
+    <category term="Overview" scheme="https://rachel-yang.github.io/categories/Overview/"/>
+    
+    
+    <category term="Adversarial Training" scheme="https://rachel-yang.github.io/tags/Adversarial-Training/"/>
     
   </entry>
   
@@ -34,7 +61,7 @@
     <link href="https://rachel-yang.github.io/2021/07/20/Mathematical-Symbols-in-Latex/"/>
     <id>https://rachel-yang.github.io/2021/07/20/Mathematical-Symbols-in-Latex/</id>
     <published>2021-07-20T13:01:16.000Z</published>
-    <updated>2021-08-03T05:23:43.549Z</updated>
+    <updated>2021-08-05T07:40:32.144Z</updated>
     
     
     <summary type="html">&lt;p&gt;&lt;strong&gt;This blog lists most of the mathematical symbols in latex for usage.&lt;/strong&gt;&lt;/p&gt;</summary>

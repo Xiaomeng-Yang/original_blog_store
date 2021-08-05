@@ -30,8 +30,9 @@
 <meta property="og:description" content="Pretending to be a drawer (:-D)">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2021-08-03T05:13:13.000Z">
-<meta property="article:modified_time" content="2021-08-03T05:13:13.536Z">
+<meta property="article:modified_time" content="2021-08-03T06:08:37.485Z">
 <meta property="article:author" content="珣XUN">
+<meta property="article:tag" content="Adversarial Training">
 <meta name="twitter:card" content="summary">
 
 
@@ -222,20 +223,20 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">18</span>
+          <span class="site-state-item-count">19</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">8</span>
+        <span class="site-state-item-count">9</span>
         <span class="site-state-item-name">categories</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">20</span>
+        <span class="site-state-item-count">21</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>
@@ -305,8 +306,18 @@
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">Posted on</span>
+      
 
-      <time title="Created: 2021-08-03 13:13:13" itemprop="dateCreated datePublished" datetime="2021-08-03T13:13:13+08:00">2021-08-03</time>
+      <time title="Created: 2021-08-03 13:13:13 / Modified: 14:08:37" itemprop="dateCreated datePublished" datetime="2021-08-03T13:13:13+08:00">2021-08-03</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Overview/" itemprop="url" rel="index"><span itemprop="name">Overview</span></a>
+        </span>
     </span>
 
   
@@ -380,6 +391,9 @@
     </div>
   </div>
 
+          <div class="post-tags">
+              <a href="/tags/Adversarial-Training/" rel="tag"><i class="fa fa-tag"></i> Adversarial Training</a>
+          </div>
 
         
 
@@ -390,6 +404,9 @@
                 </a>
             </div>
             <div class="post-nav-item">
+                <a href="/2021/08/03/Virtual-Adversarial-Training-A-Regularization-Method-for-Supervised-and-Semi-Supervised-Learning/" rel="next" title="[Paper-Review] Virtual Adversarial Training: A Regularization Method for Supervised and Semi-Supervised Learning">
+                  [Paper-Review] Virtual Adversarial Training: A Regularization Method for Supervised and Semi-Supervised Learning <i class="fa fa-chevron-right"></i>
+                </a>
             </div>
           </div>
     </footer>
@@ -453,7 +470,7 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="Reading time total">17 mins.</span>
+    <span title="Reading time total">18 mins.</span>
   </span>
 </div>
 
@@ -502,6 +519,50 @@
   
 
   
+      <script>
+  if (typeof MathJax === 'undefined') {
+    window.MathJax = {
+      tex: {
+        inlineMath: {'[+]': [['$', '$']]},
+        tags: 'ams'
+      },
+      options: {
+        renderActions: {
+          findScript: [10, doc => {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+              const display = !!node.type.match(/; *mode=display/);
+              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+              const text = document.createTextNode('');
+              node.parentNode.replaceChild(text, node);
+              math.start = {node: text, delim: '', n: 0};
+              math.end = {node: text, delim: '', n: 0};
+              doc.math.push(math);
+            });
+          }, '', false],
+          insertedScript: [200, () => {
+            document.querySelectorAll('mjx-container').forEach(node => {
+              const target = node.parentNode;
+              if (target.nodeName.toLowerCase() === 'li') {
+                target.parentNode.classList.add('has-jax');
+              }
+            });
+          }, '', false]
+        }
+      }
+    };
+    const script = document.createElement('script');
+    script.src = '//cdn.jsdelivr.net/npm/mathjax@3.1.0/es5/tex-mml-chtml.js';
+    script.defer = true;
+    document.head.appendChild(script);
+  } else {
+    MathJax.startup.document.state(0);
+    MathJax.typesetClear();
+    MathJax.texReset();
+    MathJax.typeset();
+  }
+</script>
+
+    
 
   
 
