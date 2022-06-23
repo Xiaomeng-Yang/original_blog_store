@@ -6,7 +6,7 @@
   <link href="https://rachel-yang.github.io/atom.xml" rel="self"/>
   
   <link href="https://rachel-yang.github.io/"/>
-  <updated>2022-06-23T19:26:01.735Z</updated>
+  <updated>2022-06-23T19:55:45.751Z</updated>
   <id>https://rachel-yang.github.io/</id>
   
   <author>
@@ -15,6 +15,61 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>DAN Model</title>
+    <link href="https://rachel-yang.github.io/2022/06/24/DAN-Model/"/>
+    <id>https://rachel-yang.github.io/2022/06/24/DAN-Model/</id>
+    <published>2022-06-23T19:55:45.000Z</published>
+    <updated>2022-06-23T19:55:45.751Z</updated>
+    
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>[Paper Review] From Two to One: A New Scene Text Recognizer with Visual Language Modeling Network</title>
+    <link href="https://rachel-yang.github.io/2022/06/24/From-two-to-one/"/>
+    <id>https://rachel-yang.github.io/2022/06/24/From-two-to-one/</id>
+    <published>2022-06-23T19:54:49.000Z</published>
+    <updated>2022-06-23T20:08:07.627Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;&lt;div align=&quot;center&quot;&gt; &lt;img src=&quot;/2022/06/24/From-two-to-one/VisionLAN_pipeline.jpg&quot; width=&quot;750&quot;&gt;&lt;/div&gt;&lt;br&gt;&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="Paper Review" scheme="https://rachel-yang.github.io/categories/Paper-Review/"/>
+    
+    
+    <category term="STR" scheme="https://rachel-yang.github.io/tags/STR/"/>
+    
+    <category term="Semi-Supervised" scheme="https://rachel-yang.github.io/tags/Semi-Supervised/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>[Paper Review] Multi-modal Text Recognition Networks: Interactive Enhancements between Visual and Semantic Features</title>
+    <link href="https://rachel-yang.github.io/2022/06/24/MATRN-Model/"/>
+    <id>https://rachel-yang.github.io/2022/06/24/MATRN-Model/</id>
+    <published>2022-06-23T19:54:37.000Z</published>
+    <updated>2022-06-23T20:09:14.358Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;&lt;div align=&quot;center&quot;&gt; &lt;img src=&quot;/2022/06/24/MATRN-Model/MATRN_pipeline.jpg&quot; width=&quot;750&quot;&gt;&lt;/div&gt;&lt;br&gt;&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="Paper Review" scheme="https://rachel-yang.github.io/categories/Paper-Review/"/>
+    
+    
+    <category term="STR" scheme="https://rachel-yang.github.io/tags/STR/"/>
+    
+    <category term="Semantic Module" scheme="https://rachel-yang.github.io/tags/Semantic-Module/"/>
+    
+  </entry>
   
   <entry>
     <title>[Paper Review] Read Like Humans: Autonomous, Bidirectional and Iterative Language Modeling for Scene Text Recognition</title>
@@ -69,7 +124,7 @@
     <link href="https://rachel-yang.github.io/2022/06/23/Review-the-Scene-Text-Recognition-Models-with-Semantic-Information/"/>
     <id>https://rachel-yang.github.io/2022/06/23/Review-the-Scene-Text-Recognition-Models-with-Semantic-Information/</id>
     <published>2022-06-23T05:18:59.000Z</published>
-    <updated>2022-06-23T19:53:45.608Z</updated>
+    <updated>2022-06-23T20:08:57.415Z</updated>
     
     
     <summary type="html">&lt;p&gt;This article reviews the ways that scene text recognition models utilize the semantic information to boost their performance, from the &lt;font color=&quot;#32adff&quot;&gt;Bahdanau Attention Decoder&lt;/font&gt; to various &lt;font color=&quot;#32adff&quot;&gt;Semantic Modules&lt;/font&gt;.&lt;br&gt;&lt;/p&gt;</summary>
@@ -383,76 +438,6 @@
     <category term="Attack" scheme="https://rachel-yang.github.io/tags/Attack/"/>
     
     <category term="hide" scheme="https://rachel-yang.github.io/tags/hide/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>AGD Method (Adversarial Example Detection)</title>
-    <link href="https://rachel-yang.github.io/2021/02/03/AGD-Method-Adversarial-Example-Detection/"/>
-    <id>https://rachel-yang.github.io/2021/02/03/AGD-Method-Adversarial-Example-Detection/</id>
-    <published>2021-02-03T15:27:11.000Z</published>
-    <updated>2021-07-20T08:05:48.190Z</updated>
-    
-    
-    <summary type="html">&lt;p&gt;Resource: &lt;a href=&quot;https://arxiv.org/pdf/1507.05717.pdf&quot;&gt;2021 AAAI-Beating Attackers At Their Own Games:&lt;br&gt;Adversarial Example Detection Using Adversarial Gradient Directions&lt;/a&gt;&lt;/p&gt;
-&lt;h2 id=&quot;Background&quot;&gt;&lt;a href=&quot;#Background&quot; class=&quot;headerlink&quot; title=&quot;Background&quot;&gt;&lt;/a&gt;Background&lt;/h2&gt;&lt;p&gt;Previous adversarial example detection methods primarily exploit the following two observed properties of adversarial examples:&lt;br&gt;&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="Adversarial Detection" scheme="https://rachel-yang.github.io/categories/Adversarial-Detection/"/>
-    
-    
-    <category term="Adversarial" scheme="https://rachel-yang.github.io/tags/Adversarial/"/>
-    
-    <category term="Detection" scheme="https://rachel-yang.github.io/tags/Detection/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>PCA Method</title>
-    <link href="https://rachel-yang.github.io/2021/01/27/PCA-Method/"/>
-    <id>https://rachel-yang.github.io/2021/01/27/PCA-Method/</id>
-    <published>2021-01-27T08:58:28.000Z</published>
-    <updated>2021-07-16T03:24:12.795Z</updated>
-    
-    
-    <summary type="html">&lt;p&gt;Resource: &lt;a href=&quot;https://arxiv.org/pdf/1608.00530.pdf&quot;&gt;EARLY METHODS FOR DETECTING ADVERSARIAL IMAGES&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;Code: &lt;a href=&quot;https://github.com/hendrycks/fooling&quot;&gt;https://github.com/hendrycks/fooling&lt;/a&gt;&lt;/p&gt;
-&lt;h2 id=&quot;Principle&quot;&gt;&lt;a href=&quot;#Principle&quot; class=&quot;headerlink&quot; title=&quot;Principle&quot;&gt;&lt;/a&gt;Principle&lt;/h2&gt;&lt;p&gt;Detect the adversarial images using the difference between coefficients of low-ranked principal components.&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="Adversarial Detection" scheme="https://rachel-yang.github.io/categories/Adversarial-Detection/"/>
-    
-    
-    <category term="Detection" scheme="https://rachel-yang.github.io/tags/Detection/"/>
-    
-    <category term="PCA" scheme="https://rachel-yang.github.io/tags/PCA/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>RNN &amp; LSTM</title>
-    <link href="https://rachel-yang.github.io/2021/01/15/RNN-LSTM/"/>
-    <id>https://rachel-yang.github.io/2021/01/15/RNN-LSTM/</id>
-    <published>2021-01-15T11:58:33.000Z</published>
-    <updated>2022-06-23T08:24:09.935Z</updated>
-    
-    
-    <summary type="html">&lt;p&gt;Resource:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&quot;https://www.deeplearningbook.org/contents/rnn.html&quot;&gt;RNN Chapter of the DeepLearningBook&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://colah.github.io/posts/2015-08-Understanding-LSTMs/&quot;&gt;Understanding LSTM Networks, colah’s blog&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;In this passage, I will introduce the basic knowledge of RNN (Recurrent Neural Network) and its widely used type LSTM (Long Short Term Memory).&lt;/p&gt;
-&lt;h2 id=&quot;RNN-Network&quot;&gt;&lt;a href=&quot;#RNN-Network&quot; class=&quot;headerlink&quot; title=&quot;RNN Network&quot;&gt;&lt;/a&gt;RNN Network&lt;/h2&gt;&lt;p&gt;Recurrent neural networks are specialized for processing a sequence of values &lt;strong&gt;$x^{(1)}, …, x^{(T)}$&lt;/strong&gt; (input).&lt;br&gt;&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="Basic Neural Networks" scheme="https://rachel-yang.github.io/categories/Basic-Neural-Networks/"/>
-    
-    
-    <category term="LSTM" scheme="https://rachel-yang.github.io/tags/LSTM/"/>
     
   </entry>
   

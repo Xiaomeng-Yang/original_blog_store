@@ -975,7 +975,7 @@ where the probability of $\pi$ is defined as
 <li>Pass the wrong semantic information down and cause a error accumulation</li>
 <li>Time-consuming and inefficient</li>
 </ul>
-<h2 id="SRN"><a href="#SRN" class="headerlink" title="SRN"></a>SRN</h2><p><a href="/2022/06/23/Towards-Accurate-Scene-Text-Recognition-with-Semantic-Reasoning-Networks/" title="SRN">SRN</a> proposes a structure named global semantic reasoning module (GSRM), which is <font color="#32adff">multi-way parallel transmission</font>. The semantic module works like a post-processor.</p>
+<h2 id="DAN"><a href="#DAN" class="headerlink" title="DAN"></a>DAN</h2><h2 id="SEED-2020"><a href="#SEED-2020" class="headerlink" title="SEED (2020)"></a>SEED (2020)</h2><h2 id="SRN-2020"><a href="#SRN-2020" class="headerlink" title="SRN (2020)"></a>SRN (2020)</h2><p><a href="/2022/06/23/Towards-Accurate-Scene-Text-Recognition-with-Semantic-Reasoning-Networks/" title="SRN">SRN</a> proposes a structure named global semantic reasoning module (GSRM), which is <font color="#32adff">multi-way parallel transmission</font>. The semantic module works like a post-processor.</p>
 <ul>
 <li>PVAM: Parallel attention mechanism with idx queries.</li>
 <li>GSRM: Four Transformer layers (multi-head self-attention, masked the corresponding character itself)</li>
@@ -987,7 +987,7 @@ where the probability of $\pi$ is defined as
 <li>Cannot use the pre-trained LM from large-scale unlabeled text directly.</li>
 <li>Errors from VM output directly harm the LM accuracy.</li>
 </ul>
-<h2 id="ABINet"><a href="#ABINet" class="headerlink" title="ABINet"></a>ABINet</h2><p><a href="/2022/06/23/ABINet-Model/" title="ABINet">ABINet</a> proposes an <font color="#32adff"> autonomous, bidirectional and Iterative</font> structure.</p>
+<h2 id="ABINet-2021"><a href="#ABINet-2021" class="headerlink" title="ABINet (2021)"></a>ABINet (2021)</h2><p><a href="/2022/06/23/ABINet-Model/" title="ABINet">ABINet</a> proposes an <font color="#32adff"> autonomous, bidirectional and Iterative</font> structure.</p>
 <ul>
 <li>Autonomous: Block gradient flow between VM and LM, both VM and LM could be pretrained separately.</li>
 <li>Bidirectional: several Transformer decoder layers (no self-attention, query is the positional encodings of the characters in the first layer)</li>
@@ -995,7 +995,11 @@ where the probability of $\pi$ is defined as
 </ul>
 <div align="center"> <img src="/2022/06/23/Review-the-Scene-Text-Recognition-Models-with-Semantic-Information/ABINet_pipeline.jpg" width="700"></div>
 
-<h2 id="MATRN"><a href="#MATRN" class="headerlink" title="MATRN"></a>MATRN</h2><h2 id="From-two-to-one"><a href="#From-two-to-one" class="headerlink" title="From two to one"></a>From two to one</h2>]]></content>
+<h2 id="MATRN-2021"><a href="#MATRN-2021" class="headerlink" title="MATRN (2021)"></a>MATRN (2021)</h2><p><a href="/2022/06/24/MATRN-Model/" title="MATRN">MATRN</a> proposes an</p>
+<div align="center"> <img src="/2022/06/23/Review-the-Scene-Text-Recognition-Models-with-Semantic-Information/MATRN_pipeline.jpg" width="700"></div>
+
+<h2 id="VisionLAN-2021"><a href="#VisionLAN-2021" class="headerlink" title="VisionLAN (2021)"></a>VisionLAN (2021)</h2><div align="center"> <img src="/2022/06/23/Review-the-Scene-Text-Recognition-Models-with-Semantic-Information/VisionLAN_pipeline.jpg" width="700"></div>
+]]></content>
       <categories>
         <category>Scene Text Recognition</category>
       </categories>
@@ -1192,6 +1196,37 @@ Compare with the SRN:
         <tag>Semantic Module</tag>
         <tag>Parallel Decoder</tag>
         <tag>Iterative Correction</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>DAN Model</title>
+    <url>/2022/06/24/DAN-Model/</url>
+    <content><![CDATA[]]></content>
+  </entry>
+  <entry>
+    <title>[Paper Review] Multi-modal Text Recognition Networks: Interactive Enhancements between Visual and Semantic Features</title>
+    <url>/2022/06/24/MATRN-Model/</url>
+    <content><![CDATA[<p><div align="center"> <img src="/2022/06/24/MATRN-Model/MATRN_pipeline.jpg" width="750"></div><br><a id="more"></a></p>
+]]></content>
+      <categories>
+        <category>Paper Review</category>
+      </categories>
+      <tags>
+        <tag>STR</tag>
+        <tag>Semantic Module</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>[Paper Review] From Two to One: A New Scene Text Recognizer with Visual Language Modeling Network</title>
+    <url>/2022/06/24/From-two-to-one/</url>
+    <content><![CDATA[<p><div align="center"> <img src="/2022/06/24/From-two-to-one/VisionLAN_pipeline.jpg" width="750"></div><br><a id="more"></a></p>
+]]></content>
+      <categories>
+        <category>Paper Review</category>
+      </categories>
+      <tags>
+        <tag>STR</tag>
+        <tag>Semi-Supervised</tag>
       </tags>
   </entry>
 </search>
