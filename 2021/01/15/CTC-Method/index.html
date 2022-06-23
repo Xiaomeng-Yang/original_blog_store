@@ -22,29 +22,33 @@
     var CONFIG = {"hostname":"rachel-yang.github.io","root":"/","scheme":"Gemini","version":"8.0.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"b2t":false,"scrollpercent":true},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"search.xml","localsearch":{"enable":true,"trigger":"manual","top_n_per_article":1,"unescape":false,"preload":false}};
   </script>
 
-  <meta name="description" content="Resource:  Connectionist Temporal Classification: Labelling UnsegmentedSequence Data with Recurrent Neural Networks https:&#x2F;&#x2F;zhuanlan.zhihu.com&#x2F;p&#x2F;43534801  BackgroundTraditional RNNs require pre-segmen">
+  <meta name="description" content="Resource:  Connectionist Temporal Classification: Labelling UnsegmentedSequence Data with Recurrent Neural Networks https:&#x2F;&#x2F;zhuanlan.zhihu.com&#x2F;p&#x2F;43534801 Sequence Modeling With CTC  BackgroundTraditio">
 <meta property="og:type" content="article">
 <meta property="og:title" content="CTC Method">
 <meta property="og:url" content="https://rachel-yang.github.io/2021/01/15/CTC-Method/index.html">
 <meta property="og:site_name" content="Xun&#39;s Gallery">
-<meta property="og:description" content="Resource:  Connectionist Temporal Classification: Labelling UnsegmentedSequence Data with Recurrent Neural Networks https:&#x2F;&#x2F;zhuanlan.zhihu.com&#x2F;p&#x2F;43534801  BackgroundTraditional RNNs require pre-segmen">
+<meta property="og:description" content="Resource:  Connectionist Temporal Classification: Labelling UnsegmentedSequence Data with Recurrent Neural Networks https:&#x2F;&#x2F;zhuanlan.zhihu.com&#x2F;p&#x2F;43534801 Sequence Modeling With CTC  BackgroundTraditio">
 <meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://rachel-yang.github.io/2021/01/15/CTC-Method/alignment.jpg">
+<meta property="og:image" content="https://rachel-yang.github.io/2021/01/15/CTC-Method/alignment2.jpg">
 <meta property="og:image" content="https://rachel-yang.github.io/2021/01/15/CTC-Method/probability.jpg">
 <meta property="og:image" content="https://rachel-yang.github.io/2021/01/15/CTC-Method/labellings_map.jpg">
 <meta property="og:image" content="https://rachel-yang.github.io/2021/01/15/CTC-Method/labellings_prob.jpg">
 <meta property="og:image" content="https://rachel-yang.github.io/2021/01/15/CTC-Method/predict.jpg">
 <meta property="og:image" content="https://rachel-yang.github.io/2021/01/15/CTC-Method/best_path_decoding.jpg">
+<meta property="og:image" content="https://rachel-yang.github.io/2021/01/15/CTC-Method/prefix.jpg">
 <meta property="og:image" content="https://rachel-yang.github.io/2021/01/15/CTC-Method/l_example.jpg">
 <meta property="og:image" content="https://rachel-yang.github.io/2021/01/15/CTC-Method/example_path.jpg">
 <meta property="og:image" content="https://rachel-yang.github.io/2021/01/15/CTC-Method/variable_alpha.jpg">
 <meta property="og:image" content="https://rachel-yang.github.io/2021/01/15/CTC-Method/alpha_init.jpg">
+<meta property="og:image" content="https://rachel-yang.github.io/2021/01/15/CTC-Method/recurse.jpg">
 <meta property="og:image" content="https://rachel-yang.github.io/2021/01/15/CTC-Method/CTC_training.jpg">
 <meta property="article:published_time" content="2021-01-14T17:12:30.000Z">
-<meta property="article:modified_time" content="2021-07-16T03:22:32.759Z">
+<meta property="article:modified_time" content="2021-08-10T11:10:02.613Z">
 <meta property="article:author" content="珣XUN">
 <meta property="article:tag" content="CTC">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://rachel-yang.github.io/2021/01/15/CTC-Method/probability.jpg">
+<meta name="twitter:image" content="https://rachel-yang.github.io/2021/01/15/CTC-Method/alignment.jpg">
 
 
 <link rel="canonical" href="https://rachel-yang.github.io/2021/01/15/CTC-Method/">
@@ -219,7 +223,7 @@
 
       <!--noindex-->
       <section class="post-toc-wrap sidebar-panel">
-          <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Background"><span class="nav-number">1.</span> <span class="nav-text">Background</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Notation"><span class="nav-number">2.</span> <span class="nav-text">Notation</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Path-Probability"><span class="nav-number">2.1.</span> <span class="nav-text">Path Probability</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Labelling-Probability"><span class="nav-number">2.2.</span> <span class="nav-text">Labelling Probability</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Decoding-Method"><span class="nav-number">3.</span> <span class="nav-text">Decoding Method</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Best-Path-Decoding"><span class="nav-number">3.1.</span> <span class="nav-text">Best Path Decoding</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Prefix-Search-Decoding"><span class="nav-number">3.2.</span> <span class="nav-text">Prefix Search Decoding</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Forward-Variable"><span class="nav-number">3.2.1.</span> <span class="nav-text">Forward Variable</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Backward-Variable"><span class="nav-number">3.2.2.</span> <span class="nav-text">Backward Variable</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Training-CTC"><span class="nav-number">4.</span> <span class="nav-text">Training CTC</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#CTC-Programming-Interface"><span class="nav-number">5.</span> <span class="nav-text">CTC Programming Interface</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Summary"><span class="nav-number">6.</span> <span class="nav-text">Summary</span></a></li></ol></div>
+          <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Background"><span class="nav-number">1.</span> <span class="nav-text">Background</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Approach"><span class="nav-number">2.</span> <span class="nav-text">Approach</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Alignment"><span class="nav-number">2.1.</span> <span class="nav-text">Alignment</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Path-Probability"><span class="nav-number">2.2.</span> <span class="nav-text">Path Probability</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Labelling-Probability"><span class="nav-number">2.3.</span> <span class="nav-text">Labelling Probability</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Decoding-Method"><span class="nav-number">3.</span> <span class="nav-text">Decoding Method</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Best-Path-Decoding"><span class="nav-number">3.1.</span> <span class="nav-text">Best Path Decoding</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Prefix-Search-Decoding"><span class="nav-number">3.2.</span> <span class="nav-text">Prefix Search Decoding</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Forward-Variable"><span class="nav-number">3.2.1.</span> <span class="nav-text">Forward Variable</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Backward-Variable"><span class="nav-number">3.2.2.</span> <span class="nav-text">Backward Variable</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Training-CTC"><span class="nav-number">4.</span> <span class="nav-text">Training CTC</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#CTC-Programming-Interface"><span class="nav-number">5.</span> <span class="nav-text">CTC Programming Interface</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Summary"><span class="nav-number">5.1.</span> <span class="nav-text">Summary</span></a></li></ol></li></ol></div>
       </section>
       <!--/noindex-->
 
@@ -235,7 +239,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">19</span>
+          <span class="site-state-item-count">24</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -248,7 +252,7 @@
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">21</span>
+        <span class="site-state-item-count">24</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>
@@ -326,7 +330,7 @@
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">Edited on</span>
-        <time title="Modified: 2021-07-16 11:22:32" itemprop="dateModified" datetime="2021-07-16T11:22:32+08:00">2021-07-16</time>
+        <time title="Modified: 2021-08-10 19:10:02" itemprop="dateModified" datetime="2021-08-10T19:10:02+08:00">2021-08-10</time>
       </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -346,7 +350,7 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">Symbols count in article: </span>
-      <span>2.6k</span>
+      <span>3.1k</span>
     </span>
     <span class="post-meta-item" title="Reading time">
       <span class="post-meta-item-icon">
@@ -368,10 +372,27 @@
 <ol>
 <li><a target="_blank" rel="noopener" href="https://www.cs.toronto.edu/~graves/icml_2006.pdf">Connectionist Temporal Classification: Labelling Unsegmented<br>Sequence Data with Recurrent Neural Networks</a></li>
 <li><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/43534801">https://zhuanlan.zhihu.com/p/43534801</a></li>
+<li><a target="_blank" rel="noopener" href="https://distill.pub/2017/ctc/">Sequence Modeling With CTC</a></li>
 </ol>
-<h2 id="Background"><a href="#Background" class="headerlink" title="Background"></a>Background</h2><p>Traditional RNNs require <strong>pre-segmented</strong> training data and <strong>post-processing</strong> to transform their outputs into label sequence.</p>
+<h1 id="Background"><a href="#Background" class="headerlink" title="Background"></a>Background</h1><p>Traditional RNNs require <strong>pre-segmented</strong> training data and <strong>post-processing</strong> to transform their outputs into label sequence.</p>
 <p>Thus, CTC intends to presents a novel method for training RNNs to label unsegmented sequences directly.<br><a id="more"></a></p>
-<h2 id="Notation"><a href="#Notation" class="headerlink" title="Notation"></a>Notation</h2><h3 id="Path-Probability"><a href="#Path-Probability" class="headerlink" title="Path Probability"></a>Path Probability</h3><ul>
+<p>CTC needs to do two tasks efficiently:</p>
+<ul>
+<li><p><strong>Loss Function:</strong> For a given input, train our model to maximize the probability it assigns to the right master. <font color="32adff">Efficiently compute the conditional probability $p(Y|X)$, which should also be differentiable.</font></p>
+</li>
+<li><p><strong>Inference:</strong> Solve $Y^*=\mathop{argmax}\limits_Y\,p(Y|X)$. With CTC settle for an approximate solution that is not too expensive to find.</p>
+</li>
+</ul>
+<h1 id="Approach"><a href="#Approach" class="headerlink" title="Approach"></a>Approach</h1><h2 id="Alignment"><a href="#Alignment" class="headerlink" title="Alignment"></a>Alignment</h2><div align="center"> <img src="/2021/01/15/CTC-Method/alignment.jpg" width="650"></div>
+
+<ul>
+<li>The allowed alignments between $X$ and $Y$ are monotonic.</li>
+<li>The alignment of $X$ to $Y$ is many-to-one.</li>
+<li>The length of $Y$ cannot be greater than the length of $X$.</li>
+</ul>
+<div align="center"> <img src="/2021/01/15/CTC-Method/alignment2.jpg" width="650"></div>
+
+<h2 id="Path-Probability"><a href="#Path-Probability" class="headerlink" title="Path Probability"></a>Path Probability</h2><ul>
 <li>Input: <strong>$x$</strong> of length <strong>$T$</strong>, each element in <strong>$x$</strong> has $m$ dimensions.<ul>
 <li>$x = (x^1, x^2, x^3, …, x^T)$</li>
 <li>$x^t = (x^t_1, x^t_2, x^t_3, …, x^t_m)$</li>
@@ -390,36 +411,59 @@
 <li>Path: $\pi \in L’^T$ means the sequence of predicted labels</li>
 </ul>
 <p>Thus, $y_k^t$ represents the probability of observing label $k$ at time $t$</p>
-<p>The probability of a certain path $\pi$ over input $x$ is,<br><img src="/2021/01/15/CTC-Method/probability.jpg" alt="figure1" title="Probability of Path $\pi$ over Input $x$"><br>Note: the network outputs at different times must be conditionally independent.</p>
-<h3 id="Labelling-Probability"><a href="#Labelling-Probability" class="headerlink" title="Labelling Probability"></a>Labelling Probability</h3><ul>
-<li>Path to Labellings Map: $B$ : $L’^T \rightarrow L^{\leq T}$<ul>
+<p>The probability of a certain path $\pi$ over input $x$ is,</p>
+<div align="center"> <img src="/2021/01/15/CTC-Method/probability.jpg" width="450"></div>
+
+<p>Note: the network outputs at different times must be conditionally independent.</p>
+<h2 id="Labelling-Probability"><a href="#Labelling-Probability" class="headerlink" title="Labelling Probability"></a>Labelling Probability</h2><ul>
+<li><p>Path to Labellings Map: $B$ : $L’^T \rightarrow L^{\leq T}$</p>
+<ul>
 <li>$L^{\leq T}$ is the set of possible labellings</li>
-<li>E.g.<br><img src="/2021/01/15/CTC-Method/labellings_map.jpg" alt="figure2" title="Examples of Path to Labellings Map"></li>
+<li><p>E.g.</p>
+<div align="center"> <img src="/2021/01/15/CTC-Method/labellings_map.jpg" width="450"></div>
+
+</li>
 </ul>
 </li>
 </ul>
-<p>Thus, we can use $B$ to define the conditional probability of a given labelling $l \in L^{\leq T}$ as the sum of the probabilities of all the paths corresponding to it:<br><img src="/2021/01/15/CTC-Method/labellings_prob.jpg" alt="figure3" title="Probability of Labelling $l$ over Input $x$"></p>
-<h2 id="Decoding-Method"><a href="#Decoding-Method" class="headerlink" title="Decoding Method"></a>Decoding Method</h2><p>We aim to find the most probable labelling for the input sequence, which is:<br><img src="/2021/01/15/CTC-Method/predict.jpg" alt="figure4" title="Output of the Classifier"><br>Note: Refer to the task of finding this labelling as <strong>decoding</strong>.</p>
+<p>Thus, we can use $B$ to define the conditional probability of a given labelling $l \in L^{\leq T}$ as the sum of the probabilities of all the paths corresponding to it:</p>
+<div align="center"> <img src="/2021/01/15/CTC-Method/labellings_prob.jpg" width="450"></div>
+
+<h1 id="Decoding-Method"><a href="#Decoding-Method" class="headerlink" title="Decoding Method"></a>Decoding Method</h1><p>We aim to find the most probable labelling for the input sequence, which is:</p>
+<div align="center"> <img src="/2021/01/15/CTC-Method/predict.jpg" width="450"></div>
+
+<p>Note: Refer to the task of finding this labelling as <strong>decoding</strong>.</p>
 <p>There are two approximate methods:</p>
-<h3 id="Best-Path-Decoding"><a href="#Best-Path-Decoding" class="headerlink" title="Best Path Decoding"></a>Best Path Decoding</h3><p>Assumption: The most probable path will correspond to the most probable labelling:<br><img src="/2021/01/15/CTC-Method/best_path_decoding.jpg" alt="figure5" title="Best Path Decoding Method"></p>
-<h3 id="Prefix-Search-Decoding"><a href="#Prefix-Search-Decoding" class="headerlink" title="Prefix Search Decoding"></a>Prefix Search Decoding</h3><p>This method is based on the <strong>forward-backward algorithm</strong>.</p>
+<h2 id="Best-Path-Decoding"><a href="#Best-Path-Decoding" class="headerlink" title="Best Path Decoding"></a>Best Path Decoding</h2><p>Assumption: The most probable path will correspond to the most probable labelling:</p>
+<div align="center"> <img src="/2021/01/15/CTC-Method/best_path_decoding.jpg" width="450"></div>
+
+<h2 id="Prefix-Search-Decoding"><a href="#Prefix-Search-Decoding" class="headerlink" title="Prefix Search Decoding"></a>Prefix Search Decoding</h2><div align="center"> <img src="/2021/01/15/CTC-Method/prefix.jpg" width="700"></div>
+
+<p>This method is based on the <strong>forward-backward algorithm</strong>.</p>
 <p>Define <strong>$l’$</strong> as the labelling <strong>$l$</strong> with added to the beginnings and the end and inserted between every pair of labels. E.g.</p>
-<p><img src="/2021/01/15/CTC-Method/l_example.jpg" alt="figure8" title="Example of $l&#39;$"></p>
+<div align="center"> <img src="/2021/01/15/CTC-Method/l_example.jpg" width="450"></div>
+
 <p>Then, $|l’| = 2|l| + 1$, where $|l|$ is the maximum length of labelling. For the above example, $|l| = 5$.</p>
-<p><img src="/2021/01/15/CTC-Method/example_path.jpg" alt="figure10" title="Example of Paths"></p>
-<h4 id="Forward-Variable"><a href="#Forward-Variable" class="headerlink" title="Forward Variable"></a>Forward Variable</h4><p>For the labelling <strong>$l$</strong>, define forward variable $\alpha_t(s)$ to be the total probability of $l_{1:s}$ at time $t$, where<br>$l_{1:s}$ presents labelling’s first $s$ symbols</p>
-<p><img src="/2021/01/15/CTC-Method/variable_alpha.jpg" alt="figure7" title="Forward Variable $\alpha_t(s)$"></p>
+<div align="center"> <img src="/2021/01/15/CTC-Method/example_path.jpg" width="450"></div>
+
+<h3 id="Forward-Variable"><a href="#Forward-Variable" class="headerlink" title="Forward Variable"></a>Forward Variable</h3><p>For the labelling <strong>$l$</strong>, define forward variable $\alpha_t(s)$ to be the total probability of $l_{1:s}$ at time $t$, where<br>$l_{1:s}$ presents labelling’s first $s$ symbols</p>
+<div align="center"> <img src="/2021/01/15/CTC-Method/variable_alpha.jpg" width="450"></div>
+
 <ul>
 <li><p>Initialization:</p>
 <p>Since the first label ($t = 1$) of the path could be blank ($b$) or the first symbol in $l (l_1)$,  we have the following rules:</p>
-<p><img src="/2021/01/15/CTC-Method/alpha_init.jpg" alt="figure9" title="$\alpha_t(s)$ Initialization"></p>
+<div align="center"> <img src="/2021/01/15/CTC-Method/alpha_init.jpg" width="450"></div>
 </li>
 <li><p>Recursion:</p>
 <p>Consider a certain time $t$, if the label of the path is $l_k \in L$, then for the time $t-1$, the possible choices are $l_k$, $l_{k-1}$ and $blank$.</p>
+<div align="center"> <img src="/2021/01/15/CTC-Method/recurse.jpg" width="450"></div>
+
 </li>
 </ul>
-<h4 id="Backward-Variable"><a href="#Backward-Variable" class="headerlink" title="Backward Variable"></a>Backward Variable</h4><h2 id="Training-CTC"><a href="#Training-CTC" class="headerlink" title="Training CTC"></a>Training CTC</h2><p><img src="/2021/01/15/CTC-Method/CTC_training.jpg" alt="figure6" title="CTC Training Process"><br>CTC training process is using $\frac{\partial p(l|x)}{\partial w}$ to adjust the CTC network weights $w$, which maximize the $p(l|x)$ when the input is $\pi \in B^{-1}(l)$</p>
-<h2 id="CTC-Programming-Interface"><a href="#CTC-Programming-Interface" class="headerlink" title="CTC Programming Interface"></a>CTC Programming Interface</h2><p>Tensorflow:<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">tf.nn.ctc_loss(</span><br><span class="line">  labels,</span><br><span class="line">  inputs,</span><br><span class="line">  sequence_length,</span><br><span class="line">  preprocess_collapse_repeated = <span class="literal">False</span>,</span><br><span class="line">  ctc_merge_repreated = <span class="literal">True</span>,</span><br><span class="line">  ignore_longer_outputs_than_inputs = <span class="literal">False</span>,</span><br><span class="line">  time_major = <span class="literal">True</span></span><br><span class="line">)</span><br></pre></td></tr></table></figure><br>Pytorch:<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">torch.nn.CTCLoss(blank=<span class="number">0</span>, reduction=<span class="string">&#x27;mean&#x27;</span>, zero_infinity=<span class="literal">False</span>)</span><br></pre></td></tr></table></figure></p>
+<h3 id="Backward-Variable"><a href="#Backward-Variable" class="headerlink" title="Backward Variable"></a>Backward Variable</h3><h1 id="Training-CTC"><a href="#Training-CTC" class="headerlink" title="Training CTC"></a>Training CTC</h1><div align="center"> <img src="/2021/01/15/CTC-Method/CTC_training.jpg" width="450"></div>
+
+<p>CTC training process is using $\frac{\partial p(l|x)}{\partial w}$ to adjust the CTC network weights $w$, which maximize the $p(l|x)$ when the input is $\pi \in B^{-1}(l)$</p>
+<h1 id="CTC-Programming-Interface"><a href="#CTC-Programming-Interface" class="headerlink" title="CTC Programming Interface"></a>CTC Programming Interface</h1><p>Tensorflow:<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">tf.nn.ctc_loss(</span><br><span class="line">  labels,</span><br><span class="line">  inputs,</span><br><span class="line">  sequence_length,</span><br><span class="line">  preprocess_collapse_repeated = <span class="literal">False</span>,</span><br><span class="line">  ctc_merge_repreated = <span class="literal">True</span>,</span><br><span class="line">  ignore_longer_outputs_than_inputs = <span class="literal">False</span>,</span><br><span class="line">  time_major = <span class="literal">True</span></span><br><span class="line">)</span><br></pre></td></tr></table></figure><br>Pytorch:<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">torch.nn.CTCLoss(blank=<span class="number">0</span>, reduction=<span class="string">&#x27;mean&#x27;</span>, zero_infinity=<span class="literal">False</span>)</span><br></pre></td></tr></table></figure></p>
 <h2 id="Summary"><a href="#Summary" class="headerlink" title="Summary"></a>Summary</h2><p>CTC is a method to compute loss, which can make training samples do not need to be aligned.</p>
 
     </div>
@@ -429,43 +473,6 @@
     
 
     <footer class="post-footer">
-          <div class="reward-container">
-  <div>˚*̥(∗*⁰͈꒨⁰͈)*̥ wow~</div>
-  <button onclick="document.querySelector('.post-reward').classList.toggle('active');">
-    Donate
-  </button>
-  <div class="post-reward">
-      <div>
-        <img src="/images/wechatpay.png" alt="珣XUN WeChat Pay">
-        <span>WeChat Pay</span>
-      </div>
-      <div>
-        <img src="/images/alipay.jpg" alt="珣XUN Alipay">
-        <span>Alipay</span>
-      </div>
-
-  </div>
-</div>
-
-          
-
-  <div class="followme">
-    <span>Welcome to my other publishing channels</span>
-
-    <div class="social-list">
-
-        <div class="social-item">
-          <a target="_blank" class="social-link" href="/atom.xml">
-            <span class="icon">
-              <i class="fa fa-rss"></i>
-            </span>
-
-            <span class="label">RSS</span>
-          </a>
-        </div>
-    </div>
-  </div>
-
           <div class="post-tags">
               <a href="/tags/CTC/" rel="tag"><i class="fa fa-tag"></i> CTC</a>
           </div>
@@ -528,7 +535,7 @@
 <div class="copyright">
   
   &copy; 
-  <span itemprop="copyrightYear">2021</span>
+  <span itemprop="copyrightYear">2022</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
@@ -539,13 +546,13 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-line"></i>
     </span>
-    <span title="Symbols count total">26k</span>
+    <span title="Symbols count total">32k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="Reading time total">19 mins.</span>
+    <span title="Reading time total">23 mins.</span>
   </span>
 </div>
 

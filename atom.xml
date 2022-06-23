@@ -6,7 +6,7 @@
   <link href="https://rachel-yang.github.io/atom.xml" rel="self"/>
   
   <link href="https://rachel-yang.github.io/"/>
-  <updated>2021-08-05T08:07:20.353Z</updated>
+  <updated>2022-06-23T10:38:54.246Z</updated>
   <id>https://rachel-yang.github.io/</id>
   
   <author>
@@ -17,11 +17,118 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>[Paper Review] Towards Accurate Scene Text Recognition with Semantic Reasoning Networks</title>
+    <link href="https://rachel-yang.github.io/2022/06/23/Towards-Accurate-Scene-Text-Recognition-with-Semantic-Reasoning-Networks/"/>
+    <id>https://rachel-yang.github.io/2022/06/23/Towards-Accurate-Scene-Text-Recognition-with-Semantic-Reasoning-Networks/</id>
+    <published>2022-06-23T08:53:46.000Z</published>
+    <updated>2022-06-23T10:38:54.246Z</updated>
+    
+    
+    <summary type="html">&lt;div align=&quot;center&quot;&gt; &lt;img src=&quot;/2022/06/23/Towards-Accurate-Scene-Text-Recognition-with-Semantic-Reasoning-Networks/SRN_pipeline.jpg&quot; width=&quot;750&quot;&gt;&lt;/div&gt;</summary>
+    
+    
+    
+    <category term="Paper Review" scheme="https://rachel-yang.github.io/categories/Paper-Review/"/>
+    
+    
+    <category term="STR" scheme="https://rachel-yang.github.io/tags/STR/"/>
+    
+    <category term="Semantic Module" scheme="https://rachel-yang.github.io/tags/Semantic-Module/"/>
+    
+    <category term="Parallel Decoder" scheme="https://rachel-yang.github.io/tags/Parallel-Decoder/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Review the Scene Text Recognition Models with Semantic Information</title>
+    <link href="https://rachel-yang.github.io/2022/06/23/Review-the-Scene-Text-Recognition-Models-with-Semantic-Information/"/>
+    <id>https://rachel-yang.github.io/2022/06/23/Review-the-Scene-Text-Recognition-Models-with-Semantic-Information/</id>
+    <published>2022-06-23T05:18:59.000Z</published>
+    <updated>2022-06-23T08:58:40.054Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;This article reviews the ways that scene text recognition models utilize the semantic information to boost their performance. From the &lt;font color=&quot;#32adff&quot;&gt;Bahdanau Attention Decoder&lt;/font&gt; to various &lt;font color=&quot;#32adff&quot;&gt;Semantic Modules&lt;/font&gt;.&lt;br&gt;&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="Scene Text Recognition" scheme="https://rachel-yang.github.io/categories/Scene-Text-Recognition/"/>
+    
+    
+    <category term="STR" scheme="https://rachel-yang.github.io/tags/STR/"/>
+    
+    <category term="Review" scheme="https://rachel-yang.github.io/tags/Review/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Attention &amp; Transformer</title>
+    <link href="https://rachel-yang.github.io/2022/04/23/Attention-Transformer/"/>
+    <id>https://rachel-yang.github.io/2022/04/23/Attention-Transformer/</id>
+    <published>2022-04-23T09:36:46.000Z</published>
+    <updated>2022-06-23T10:44:22.253Z</updated>
+    
+    
+    <summary type="html">&lt;h1 id=&quot;Attention&quot;&gt;&lt;a href=&quot;#Attention&quot; class=&quot;headerlink&quot; title=&quot;Attention&quot;&gt;&lt;/a&gt;Attention&lt;/h1&gt;</summary>
+    
+    
+    
+    <category term="Basic Neural Networks" scheme="https://rachel-yang.github.io/categories/Basic-Neural-Networks/"/>
+    
+    
+    <category term="attention" scheme="https://rachel-yang.github.io/tags/attention/"/>
+    
+    <category term="transformer" scheme="https://rachel-yang.github.io/tags/transformer/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Algorithm Design and Analysis</title>
+    <link href="https://rachel-yang.github.io/2021/09/10/Algorithm-Design-and-Analysis/"/>
+    <id>https://rachel-yang.github.io/2021/09/10/Algorithm-Design-and-Analysis/</id>
+    <published>2021-09-10T01:44:12.000Z</published>
+    <updated>2022-06-23T05:17:57.574Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;Practical Problems:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;step1: topic choosing&lt;br&gt;A practical problem&lt;/li&gt;
+&lt;li&gt;step 2: formulate the problem&lt;/li&gt;&lt;/ul&gt;</summary>
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Connectionist Temporal Classification with Maximum Entropy Regularization</title>
+    <link href="https://rachel-yang.github.io/2021/08/05/Connectionist-Temporal-Classification-with-Maximum-Entropy-Regularization/"/>
+    <id>https://rachel-yang.github.io/2021/08/05/Connectionist-Temporal-Classification-with-Maximum-Entropy-Regularization/</id>
+    <published>2021-08-05T09:18:34.000Z</published>
+    <updated>2022-06-23T05:16:51.922Z</updated>
+    
+    
+    <summary type="html">&lt;h1 id=&quot;Background&quot;&gt;&lt;a href=&quot;#Background&quot; class=&quot;headerlink&quot; title=&quot;Background&quot;&gt;&lt;/a&gt;Background&lt;/h1&gt;&lt;p&gt;CTC tends to produce &lt;font color=&quot;32adff&quot;&gt;highly peaky and overconfident distributions&lt;/font&gt;, which is a symptom of &lt;strong&gt;overfitting&lt;/strong&gt;.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Harm the training process: CTC lacks exploration and is prone to fall into worse local minima.&lt;/li&gt;
+&lt;li&gt;Output overconfident paths: CTC tends to concentrate all its output distribution over one specific path.&lt;/li&gt;
+&lt;li&gt;Output paths with peaky distribution.&lt;/li&gt;
+&lt;/ul&gt;</summary>
+    
+    
+    
+    <category term="Paper Review" scheme="https://rachel-yang.github.io/categories/Paper-Review/"/>
+    
+    
+    <category term="CTC" scheme="https://rachel-yang.github.io/tags/CTC/"/>
+    
+  </entry>
+  
+  <entry>
     <title>[Paper-Review] Virtual Adversarial Training: A Regularization Method for Supervised and Semi-Supervised Learning</title>
     <link href="https://rachel-yang.github.io/2021/08/03/Virtual-Adversarial-Training-A-Regularization-Method-for-Supervised-and-Semi-Supervised-Learning/"/>
     <id>https://rachel-yang.github.io/2021/08/03/Virtual-Adversarial-Training-A-Regularization-Method-for-Supervised-and-Semi-Supervised-Learning/</id>
     <published>2021-08-03T09:45:12.000Z</published>
-    <updated>2021-08-05T08:07:20.353Z</updated>
+    <updated>2021-08-05T09:23:27.034Z</updated>
     
     
     <summary type="html">&lt;div align=&quot;center&quot;&gt; &lt;img src=&quot;/2021/08/03/Virtual-Adversarial-Training-A-Regularization-Method-for-Supervised-and-Semi-Supervised-Learning/authors.jpg&quot; width=&quot;700&quot;&gt;&lt;/div&gt;</summary>
@@ -148,7 +255,7 @@
     <link href="https://rachel-yang.github.io/2021/07/14/CVPR2021-Papers/"/>
     <id>https://rachel-yang.github.io/2021/07/14/CVPR2021-Papers/</id>
     <published>2021-07-14T08:24:43.000Z</published>
-    <updated>2021-07-20T13:18:08.420Z</updated>
+    <updated>2022-06-23T08:25:24.020Z</updated>
     
     
     <summary type="html">&lt;h1 id=&quot;Adversarial-Training&quot;&gt;&lt;a href=&quot;#Adversarial-Training&quot; class=&quot;headerlink&quot; title=&quot;Adversarial Training:&quot;&gt;&lt;/a&gt;Adversarial Training:&lt;/h1&gt;&lt;h2 id=&quot;MaxUp-Lightweight-Adversarial-Training-with-Data-Augmentation-Improves-Neural-Network-Training&quot;&gt;&lt;a href=&quot;#MaxUp-Lightweight-Adversarial-Training-with-Data-Augmentation-Improves-Neural-Network-Training&quot; class=&quot;headerlink&quot; title=&quot;MaxUp: Lightweight Adversarial Training with Data Augmentation Improves Neural Network Training&quot;&gt;&lt;/a&gt;&lt;a href=&quot;https://openaccess.thecvf.com/content/CVPR2021/papers/Gong_MaxUp_Lightweight_Adversarial_Training_With_Data_Augmentation_Improves_Neural_Network_CVPR_2021_paper.pdf&quot;&gt;MaxUp: Lightweight Adversarial Training with Data Augmentation Improves Neural Network Training&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;&lt;strong&gt;Main Idea&lt;/strong&gt;: Generate a set of augmented samples, then &lt;font color=&quot;#32adff&quot;&gt;optimize over the worst (or highest) loss image&lt;/font&gt; —&amp;gt; Improve the model generalization.&lt;br&gt;&lt;/p&gt;</summary>
@@ -158,7 +265,7 @@
     <category term="Paper Review" scheme="https://rachel-yang.github.io/categories/Paper-Review/"/>
     
     
-    <category term="Adversarial" scheme="https://rachel-yang.github.io/tags/Adversarial/"/>
+    <category term="Adversarial Training" scheme="https://rachel-yang.github.io/tags/Adversarial-Training/"/>
     
     <category term="CVPR" scheme="https://rachel-yang.github.io/tags/CVPR/"/>
     
@@ -186,7 +293,7 @@
     <link href="https://rachel-yang.github.io/2021/05/09/OCR-Data/"/>
     <id>https://rachel-yang.github.io/2021/05/09/OCR-Data/</id>
     <published>2021-05-09T07:40:59.000Z</published>
-    <updated>2021-07-21T12:28:41.763Z</updated>
+    <updated>2022-06-23T08:23:48.677Z</updated>
     
     
     <summary type="html">&lt;p&gt;This blog talks about the popular used &lt;strong&gt;Text Recognition Data&lt;/strong&gt;&lt;/p&gt;
@@ -197,7 +304,7 @@
     <category term="Scene Text Recognition" scheme="https://rachel-yang.github.io/categories/Scene-Text-Recognition/"/>
     
     
-    <category term="Dataset" scheme="https://rachel-yang.github.io/tags/Dataset/"/>
+    <category term="STR" scheme="https://rachel-yang.github.io/tags/STR/"/>
     
   </entry>
   
@@ -304,7 +411,7 @@
     <link href="https://rachel-yang.github.io/2021/01/15/RNN-LSTM/"/>
     <id>https://rachel-yang.github.io/2021/01/15/RNN-LSTM/</id>
     <published>2021-01-15T11:58:33.000Z</published>
-    <updated>2021-01-16T11:58:45.110Z</updated>
+    <updated>2022-06-23T08:24:09.935Z</updated>
     
     
     <summary type="html">&lt;p&gt;Resource:&lt;/p&gt;
@@ -319,10 +426,6 @@
     
     <category term="Basic Neural Networks" scheme="https://rachel-yang.github.io/categories/Basic-Neural-Networks/"/>
     
-    
-    <category term="Network" scheme="https://rachel-yang.github.io/tags/Network/"/>
-    
-    <category term="RNN" scheme="https://rachel-yang.github.io/tags/RNN/"/>
     
     <category term="LSTM" scheme="https://rachel-yang.github.io/tags/LSTM/"/>
     
@@ -345,111 +448,6 @@
     
     
     <category term="SSH" scheme="https://rachel-yang.github.io/tags/SSH/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>DIM Attack</title>
-    <link href="https://rachel-yang.github.io/2021/01/15/DIM-Attack/"/>
-    <id>https://rachel-yang.github.io/2021/01/15/DIM-Attack/</id>
-    <published>2021-01-14T17:20:15.000Z</published>
-    <updated>2021-07-16T03:23:21.885Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;p&gt;Resource: &lt;a href&gt;Improving Transferability of Adversarial Examples with Input</summary>
-        
-      
-    
-    
-    
-    <category term="Adversarial Attack" scheme="https://rachel-yang.github.io/categories/Adversarial-Attack/"/>
-    
-    
-    <category term="Attack" scheme="https://rachel-yang.github.io/tags/Attack/"/>
-    
-    <category term="Black-box" scheme="https://rachel-yang.github.io/tags/Black-box/"/>
-    
-    <category term="hide" scheme="https://rachel-yang.github.io/tags/hide/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>CTC Method</title>
-    <link href="https://rachel-yang.github.io/2021/01/15/CTC-Method/"/>
-    <id>https://rachel-yang.github.io/2021/01/15/CTC-Method/</id>
-    <published>2021-01-14T17:12:30.000Z</published>
-    <updated>2021-07-16T03:22:32.759Z</updated>
-    
-    
-    <summary type="html">&lt;p&gt;Resource:&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;&lt;a href=&quot;https://www.cs.toronto.edu/~graves/icml_2006.pdf&quot;&gt;Connectionist Temporal Classification: Labelling Unsegmented&lt;br&gt;Sequence Data with Recurrent Neural Networks&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://zhuanlan.zhihu.com/p/43534801&quot;&gt;https://zhuanlan.zhihu.com/p/43534801&lt;/a&gt;&lt;/li&gt;
-&lt;/ol&gt;
-&lt;h2 id=&quot;Background&quot;&gt;&lt;a href=&quot;#Background&quot; class=&quot;headerlink&quot; title=&quot;Background&quot;&gt;&lt;/a&gt;Background&lt;/h2&gt;&lt;p&gt;Traditional RNNs require &lt;strong&gt;pre-segmented&lt;/strong&gt; training data and &lt;strong&gt;post-processing&lt;/strong&gt; to transform their outputs into label sequence.&lt;/p&gt;
-&lt;p&gt;Thus, CTC intends to presents a novel method for training RNNs to label unsegmented sequences directly.&lt;br&gt;&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="Scene Text Recognition" scheme="https://rachel-yang.github.io/categories/Scene-Text-Recognition/"/>
-    
-    
-    <category term="CTC" scheme="https://rachel-yang.github.io/tags/CTC/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Extra Knowledge of Tensorflow</title>
-    <link href="https://rachel-yang.github.io/2021/01/14/Extra-Knowledge-of-Tensorflow/"/>
-    <id>https://rachel-yang.github.io/2021/01/14/Extra-Knowledge-of-Tensorflow/</id>
-    <published>2021-01-14T11:35:24.000Z</published>
-    <updated>2021-01-15T11:57:02.483Z</updated>
-    
-    
-    <summary type="html">&lt;h3 id=&quot;NCHW-amp-NHWC&quot;&gt;&lt;a href=&quot;#NCHW-amp-NHWC&quot; class=&quot;headerlink&quot; title=&quot;NCHW &amp;amp; NHWC&quot;&gt;&lt;/a&gt;NCHW &amp;amp; NHWC&lt;/h3&gt;&lt;p&gt;When we use the Tensorflow Application,&lt;br&gt;E.g.&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;tf.nn.conv2d(input, filter, strides, padding,
-use_cudnn_on_gpu=None, data_formt = None, name=None)&lt;/code&gt;&lt;/p&gt;
-&lt;p&gt;data_format: default set to “NHWC”, which &lt;strong&gt;stipulate the orientation&lt;/strong&gt; of input and output Tensor&lt;br&gt;&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="Tensorflow" scheme="https://rachel-yang.github.io/categories/Tensorflow/"/>
-    
-    
-    <category term="Tensorflow" scheme="https://rachel-yang.github.io/tags/Tensorflow/"/>
-    
-    <category term="Basic Knowledge" scheme="https://rachel-yang.github.io/tags/Basic-Knowledge/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>CRNN Network</title>
-    <link href="https://rachel-yang.github.io/2021/01/13/CRNN-Network/"/>
-    <id>https://rachel-yang.github.io/2021/01/13/CRNN-Network/</id>
-    <published>2021-01-13T12:08:15.000Z</published>
-    <updated>2021-01-21T13:29:12.755Z</updated>
-    
-    
-    <summary type="html">&lt;p&gt;Resource: &lt;a href=&quot;https://arxiv.org/pdf/1507.05717.pdf&quot;&gt;An End-to-End Trainable Neural Network for Image-based Sequence Recognition and Its Application to Scene Text Recognition&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;Implementation:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/MaybeShewill-CV/CRNN_Tensorflow&quot;&gt;Tensorflow, Author: MaybeShewill-CV&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/meijieru/crnn.pytorch&quot;&gt;Pytorch, Author: meijieru&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2 id=&quot;Background&quot;&gt;&lt;a href=&quot;#Background&quot; class=&quot;headerlink&quot; title=&quot;Background&quot;&gt;&lt;/a&gt;Background&lt;/h2&gt;&lt;p&gt;For image based sequence recognition, sequence-like objects, we need the system to predict &lt;strong&gt;a series of object labels&lt;/strong&gt;.&lt;br&gt;&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="Scene Text Recognition" scheme="https://rachel-yang.github.io/categories/Scene-Text-Recognition/"/>
-    
-    
-    <category term="Network" scheme="https://rachel-yang.github.io/tags/Network/"/>
-    
-    <category term="CTC" scheme="https://rachel-yang.github.io/tags/CTC/"/>
     
   </entry>
   

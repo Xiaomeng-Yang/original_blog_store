@@ -45,7 +45,7 @@
 <meta property="og:image" content="https://rachel-yang.github.io/2021/08/03/Virtual-Adversarial-Training-A-Regularization-Method-for-Supervised-and-Semi-Supervised-Learning/adv2.jpg">
 <meta property="og:image" content="https://rachel-yang.github.io/2021/08/03/Virtual-Adversarial-Training-A-Regularization-Method-for-Supervised-and-Semi-Supervised-Learning/adv3.jpg">
 <meta property="article:published_time" content="2021-08-03T09:45:12.000Z">
-<meta property="article:modified_time" content="2021-08-05T08:07:20.353Z">
+<meta property="article:modified_time" content="2021-08-05T09:23:27.034Z">
 <meta property="article:author" content="珣XUN">
 <meta property="article:tag" content="Adversarial Training">
 <meta property="article:tag" content="Improve Generalization">
@@ -226,7 +226,7 @@
 
       <!--noindex-->
       <section class="post-toc-wrap sidebar-panel">
-          <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Background"><span class="nav-number">1.</span> <span class="nav-text">Background</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Approach"><span class="nav-number">2.</span> <span class="nav-text">Approach</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Overview"><span class="nav-number">2.1.</span> <span class="nav-text">Overview</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Notations"><span class="nav-number">2.2.</span> <span class="nav-text">Notations</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Details"><span class="nav-number">2.3.</span> <span class="nav-text">Details</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Algorithm"><span class="nav-number">2.4.</span> <span class="nav-text">Algorithm</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Experiments"><span class="nav-number">3.</span> <span class="nav-text">Experiments</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Generalization-ability"><span class="nav-number">3.1.</span> <span class="nav-text">Generalization ability</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Ablation-Study"><span class="nav-number">3.2.</span> <span class="nav-text">Ablation Study</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Adversarial-Robustness"><span class="nav-number">3.3.</span> <span class="nav-text">Adversarial Robustness</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Conclusion"><span class="nav-number">4.</span> <span class="nav-text">Conclusion</span></a></li></ol></div>
+          <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Background"><span class="nav-number">1.</span> <span class="nav-text">Background</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Approach"><span class="nav-number">2.</span> <span class="nav-text">Approach</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Overview"><span class="nav-number">2.1.</span> <span class="nav-text">Overview</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Notations"><span class="nav-number">2.2.</span> <span class="nav-text">Notations</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Details"><span class="nav-number">2.3.</span> <span class="nav-text">Details</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Algorithm"><span class="nav-number">2.4.</span> <span class="nav-text">Algorithm</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Experiments"><span class="nav-number">3.</span> <span class="nav-text">Experiments</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Generalization-ability"><span class="nav-number">3.1.</span> <span class="nav-text">Generalization ability</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Ablation-Study"><span class="nav-number">3.2.</span> <span class="nav-text">Ablation Study</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Adversarial-Robustness"><span class="nav-number">3.3.</span> <span class="nav-text">Adversarial Robustness</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Conclusion"><span class="nav-number">4.</span> <span class="nav-text">Conclusion</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Resource"><span class="nav-number">5.</span> <span class="nav-text">Resource</span></a></li></ol></div>
       </section>
       <!--/noindex-->
 
@@ -242,7 +242,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">19</span>
+          <span class="site-state-item-count">24</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -255,7 +255,7 @@
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">21</span>
+        <span class="site-state-item-count">24</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>
@@ -333,7 +333,7 @@
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">Edited on</span>
-        <time title="Modified: 2021-08-05 16:07:20" itemprop="dateModified" datetime="2021-08-05T16:07:20+08:00">2021-08-05</time>
+        <time title="Modified: 2021-08-05 17:23:27" itemprop="dateModified" datetime="2021-08-05T17:23:27+08:00">2021-08-05</time>
       </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -353,7 +353,7 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">Symbols count in article: </span>
-      <span>2.6k</span>
+      <span>2.7k</span>
     </span>
     <span class="post-meta-item" title="Reading time">
       <span class="post-meta-item-icon">
@@ -445,6 +445,7 @@
 <li>applicability to any parametric models for which we can evaluate the gradient with respect to input and parameter</li>
 <li>small number of hyperparameters $(\alpha, \epsilon)$</li>
 </ul>
+<h1 id="Resource"><a href="#Resource" class="headerlink" title="Resource"></a>Resource</h1><p><a target="_blank" rel="noopener" href="https://ieeexplore.ieee.org/abstract/document/8417973">Virtual Adversarial Training: A Regularization Method for Supervised and Semi-Supervised Learning</a></p>
 
     </div>
 
@@ -453,43 +454,6 @@
     
 
     <footer class="post-footer">
-          <div class="reward-container">
-  <div>˚*̥(∗*⁰͈꒨⁰͈)*̥ wow~</div>
-  <button onclick="document.querySelector('.post-reward').classList.toggle('active');">
-    Donate
-  </button>
-  <div class="post-reward">
-      <div>
-        <img src="/images/wechatpay.png" alt="珣XUN WeChat Pay">
-        <span>WeChat Pay</span>
-      </div>
-      <div>
-        <img src="/images/alipay.jpg" alt="珣XUN Alipay">
-        <span>Alipay</span>
-      </div>
-
-  </div>
-</div>
-
-          
-
-  <div class="followme">
-    <span>Welcome to my other publishing channels</span>
-
-    <div class="social-list">
-
-        <div class="social-item">
-          <a target="_blank" class="social-link" href="/atom.xml">
-            <span class="icon">
-              <i class="fa fa-rss"></i>
-            </span>
-
-            <span class="label">RSS</span>
-          </a>
-        </div>
-    </div>
-  </div>
-
           <div class="post-tags">
               <a href="/tags/Adversarial-Training/" rel="tag"><i class="fa fa-tag"></i> Adversarial Training</a>
               <a href="/tags/Improve-Generalization/" rel="tag"><i class="fa fa-tag"></i> Improve Generalization</a>
@@ -505,6 +469,9 @@
                 </a>
             </div>
             <div class="post-nav-item">
+                <a href="/2021/08/05/Connectionist-Temporal-Classification-with-Maximum-Entropy-Regularization/" rel="next" title="Connectionist Temporal Classification with Maximum Entropy Regularization">
+                  Connectionist Temporal Classification with Maximum Entropy Regularization <i class="fa fa-chevron-right"></i>
+                </a>
             </div>
           </div>
     </footer>
@@ -551,7 +518,7 @@
 <div class="copyright">
   
   &copy; 
-  <span itemprop="copyrightYear">2021</span>
+  <span itemprop="copyrightYear">2022</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
@@ -562,13 +529,13 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-line"></i>
     </span>
-    <span title="Symbols count total">26k</span>
+    <span title="Symbols count total">32k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="Reading time total">19 mins.</span>
+    <span title="Reading time total">23 mins.</span>
   </span>
 </div>
 
