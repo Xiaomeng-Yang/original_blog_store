@@ -22,16 +22,18 @@
     var CONFIG = {"hostname":"rachel-yang.github.io","root":"/","scheme":"Gemini","version":"8.0.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"b2t":false,"scrollpercent":true},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"search.xml","localsearch":{"enable":true,"trigger":"manual","top_n_per_article":1,"unescape":false,"preload":false}};
   </script>
 
-  <meta name="description" content="This article reviews the ways that scene text recognition models utilize the semantic information to boost their performance. From the Bahdanau Attention Decoder to various Semantic Modules.">
+  <meta name="description" content="This article reviews the ways that scene text recognition models utilize the semantic information to boost their performance, from the Bahdanau Attention Decoder to various Semantic Modules.">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Review the Scene Text Recognition Models with Semantic Information">
 <meta property="og:url" content="https://rachel-yang.github.io/2022/06/23/Review-the-Scene-Text-Recognition-Models-with-Semantic-Information/index.html">
 <meta property="og:site_name" content="Xun&#39;s Gallery">
-<meta property="og:description" content="This article reviews the ways that scene text recognition models utilize the semantic information to boost their performance. From the Bahdanau Attention Decoder to various Semantic Modules.">
+<meta property="og:description" content="This article reviews the ways that scene text recognition models utilize the semantic information to boost their performance, from the Bahdanau Attention Decoder to various Semantic Modules.">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://rachel-yang.github.io/2022/06/23/Review-the-Scene-Text-Recognition-Models-with-Semantic-Information/RARE_architecture.jpg">
+<meta property="og:image" content="https://rachel-yang.github.io/2022/06/23/Review-the-Scene-Text-Recognition-Models-with-Semantic-Information/SRN_pipeline.jpg">
+<meta property="og:image" content="https://rachel-yang.github.io/2022/06/23/Review-the-Scene-Text-Recognition-Models-with-Semantic-Information/ABINet_pipeline.jpg">
 <meta property="article:published_time" content="2022-06-23T05:18:59.000Z">
-<meta property="article:modified_time" content="2022-06-23T08:58:40.054Z">
+<meta property="article:modified_time" content="2022-06-23T19:53:45.608Z">
 <meta property="article:author" content="珣XUN">
 <meta property="article:tag" content="STR">
 <meta property="article:tag" content="Review">
@@ -211,7 +213,7 @@
 
       <!--noindex-->
       <section class="post-toc-wrap sidebar-panel">
-          <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Bahdanau-Attention"><span class="nav-number">1.</span> <span class="nav-text">Bahdanau Attention</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#SRN"><span class="nav-number">2.</span> <span class="nav-text">SRN</span></a></li></ol></div>
+          <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Bahdanau-Attention"><span class="nav-number">1.</span> <span class="nav-text">Bahdanau Attention</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#SRN"><span class="nav-number">2.</span> <span class="nav-text">SRN</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ABINet"><span class="nav-number">3.</span> <span class="nav-text">ABINet</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#MATRN"><span class="nav-number">4.</span> <span class="nav-text">MATRN</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#From-two-to-one"><span class="nav-number">5.</span> <span class="nav-text">From two to one</span></a></li></ol></div>
       </section>
       <!--/noindex-->
 
@@ -227,7 +229,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">24</span>
+          <span class="site-state-item-count">25</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -240,7 +242,7 @@
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">24</span>
+        <span class="site-state-item-count">25</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>
@@ -310,10 +312,16 @@
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">Posted on</span>
-      
 
-      <time title="Created: 2022-06-23 13:18:59 / Modified: 16:58:40" itemprop="dateCreated datePublished" datetime="2022-06-23T13:18:59+08:00">2022-06-23</time>
+      <time title="Created: 2022-06-23 13:18:59" itemprop="dateCreated datePublished" datetime="2022-06-23T13:18:59+08:00">2022-06-23</time>
     </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">Edited on</span>
+        <time title="Modified: 2022-06-24 03:53:45" itemprop="dateModified" datetime="2022-06-24T03:53:45+08:00">2022-06-24</time>
+      </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
         <i class="far fa-folder"></i>
@@ -332,7 +340,7 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">Symbols count in article: </span>
-      <span>898</span>
+      <span>1.6k</span>
     </span>
     <span class="post-meta-item" title="Reading time">
       <span class="post-meta-item-icon">
@@ -350,10 +358,9 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        <p>This article reviews the ways that scene text recognition models utilize the semantic information to boost their performance. From the <font color="#32adff">Bahdanau Attention Decoder</font> to various <font color="#32adff">Semantic Modules</font>.<br><a id="more"></a></p>
+        <p>This article reviews the ways that scene text recognition models utilize the semantic information to boost their performance, from the <font color="#32adff">Bahdanau Attention Decoder</font> to various <font color="#32adff">Semantic Modules</font>.<br><a id="more"></a></p>
 <p>As we all know, to recognize the text in the wild, both the visual features and semantic information are significant, Especially for the blurred images. The ideal text recognition process is recognizing the clear text using visual features and inferring the blurred words according to its context information.</p>
-<h2 id="Bahdanau-Attention"><a href="#Bahdanau-Attention" class="headerlink" title="Bahdanau Attention"></a>Bahdanau Attention</h2><p>RARE, ASTER and so on utilizes the <font color="#32adff"> recurrence attention</font> to capture the semantic information during the decoding process.</p>
-<p>At time step $t$, the decoder predicts a character based on previous state $s_{t-1}$ and the sequence features $h_{t}$ output by BLSTM.</p>
+<h2 id="Bahdanau-Attention"><a href="#Bahdanau-Attention" class="headerlink" title="Bahdanau Attention"></a>Bahdanau Attention</h2><p>RARE, ASTER and so on utilizes the <font color="#32adff"> recurrence attention</font> to capture the semantic information during the decoding process. At time step $t$, the decoder predicts a character based on previous state $s_{t-1}$ and the sequence features $h_{t}$ output by BLSTM.</p>
 <div align="center"> <img src="/2022/06/23/Review-the-Scene-Text-Recognition-Models-with-Semantic-Information/RARE_architecture.jpg" width="300"></div>
 
 <p><strong>Drawbacks:</strong></p>
@@ -362,8 +369,27 @@
 <li>Pass the wrong semantic information down and cause a error accumulation</li>
 <li>Time-consuming and inefficient</li>
 </ul>
-<h2 id="SRN"><a href="#SRN" class="headerlink" title="SRN"></a>SRN</h2><p><a href="/2022/06/23/Towards-Accurate-Scene-Text-Recognition-with-Semantic-Reasoning-Networks/" title="SRN">SRN</a> proposes a structure named global semantic reasoning module (GSRM), which is <font color="#32adff">multi-way parallel transmission</font>.</p>
+<h2 id="SRN"><a href="#SRN" class="headerlink" title="SRN"></a>SRN</h2><p><a href="/2022/06/23/Towards-Accurate-Scene-Text-Recognition-with-Semantic-Reasoning-Networks/" title="SRN">SRN</a> proposes a structure named global semantic reasoning module (GSRM), which is <font color="#32adff">multi-way parallel transmission</font>. The semantic module works like a post-processor.</p>
+<ul>
+<li>PVAM: Parallel attention mechanism with idx queries.</li>
+<li>GSRM: Four Transformer layers (multi-head self-attention, masked the corresponding character itself)</li>
+</ul>
+<div align="center"> <img src="/2022/06/23/Review-the-Scene-Text-Recognition-Models-with-Semantic-Information/SRN_pipeline.jpg" width="750"></div>
 
+<p><strong>Drawbacks:</strong><br>  The serial connection between the visual and semantic module may not be the perfect interaction:</p>
+<ul>
+<li>Cannot use the pre-trained LM from large-scale unlabeled text directly.</li>
+<li>Errors from VM output directly harm the LM accuracy.</li>
+</ul>
+<h2 id="ABINet"><a href="#ABINet" class="headerlink" title="ABINet"></a>ABINet</h2><p><a href="/2022/06/23/ABINet-Model/" title="ABINet">ABINet</a> proposes an <font color="#32adff"> autonomous, bidirectional and Iterative</font> structure.</p>
+<ul>
+<li>Autonomous: Block gradient flow between VM and LM, both VM and LM could be pretrained separately.</li>
+<li>Bidirectional: several Transformer decoder layers (no self-attention, query is the positional encodings of the characters in the first layer)</li>
+<li>Iterative: Feed the outputs of ABINet into LM repeatedly.</li>
+</ul>
+<div align="center"> <img src="/2022/06/23/Review-the-Scene-Text-Recognition-Models-with-Semantic-Information/ABINet_pipeline.jpg" width="700"></div>
+
+<h2 id="MATRN"><a href="#MATRN" class="headerlink" title="MATRN"></a>MATRN</h2><h2 id="From-two-to-one"><a href="#From-two-to-one" class="headerlink" title="From two to one"></a>From two to one</h2>
     </div>
 
     
@@ -445,13 +471,13 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-line"></i>
     </span>
-    <span title="Symbols count total">32k</span>
+    <span title="Symbols count total">36k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="Reading time total">23 mins.</span>
+    <span title="Reading time total">26 mins.</span>
   </span>
 </div>
 

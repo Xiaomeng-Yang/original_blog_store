@@ -31,7 +31,7 @@
 <meta property="og:image" content="https://rachel-yang.github.io/2022/06/23/Towards-Accurate-Scene-Text-Recognition-with-Semantic-Reasoning-Networks/GSRM.jpg">
 <meta property="og:image" content="https://rachel-yang.github.io/2022/06/23/Towards-Accurate-Scene-Text-Recognition-with-Semantic-Reasoning-Networks/results.jpg">
 <meta property="article:published_time" content="2022-06-23T08:53:46.000Z">
-<meta property="article:modified_time" content="2022-06-23T10:38:54.246Z">
+<meta property="article:modified_time" content="2022-06-23T16:40:01.390Z">
 <meta property="article:author" content="珣XUN">
 <meta property="article:tag" content="STR">
 <meta property="article:tag" content="Semantic Module">
@@ -228,7 +228,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">24</span>
+          <span class="site-state-item-count">25</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -241,7 +241,7 @@
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">24</span>
+        <span class="site-state-item-count">25</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>
@@ -311,10 +311,16 @@
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">Posted on</span>
-      
 
-      <time title="Created: 2022-06-23 16:53:46 / Modified: 18:38:54" itemprop="dateCreated datePublished" datetime="2022-06-23T16:53:46+08:00">2022-06-23</time>
+      <time title="Created: 2022-06-23 16:53:46" itemprop="dateCreated datePublished" datetime="2022-06-23T16:53:46+08:00">2022-06-23</time>
     </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">Edited on</span>
+        <time title="Modified: 2022-06-24 00:40:01" itemprop="dateModified" datetime="2022-06-24T00:40:01+08:00">2022-06-24</time>
+      </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
         <i class="far fa-folder"></i>
@@ -363,13 +369,13 @@
 <ul>
 <li><font color="#32adff">Query: the reading order</font> $[0,1,…,N-1]$</li>
 <li>Key and Value: the input 2D features $(v_{ij}, v_{ij})$</li>
-<li>Attention Score: multi-layer perceptron (For more information, see <a href="/2022/06/23/Attention-Transformer/" title="the post about attention">the post about attention</a>.)</li>
+<li>Attention Score: multi-layer perceptron (For more information, see <a href="/2022/04/23/Attention-Transformer/" title="the post about attention">the post about attention</a>.)</li>
 </ul>
 <h2 id="GSRM"><a href="#GSRM" class="headerlink" title="GSRM"></a>GSRM</h2><div align="center"> <img src="/2022/06/23/Towards-Accurate-Scene-Text-Recognition-with-Semantic-Reasoning-Networks/GSRM.jpg" width="380"></div>
 
 <ul>
 <li>Visual-to-Semantic Embedding Block: Predict the text token utilizing the PVAM’s output.</li>
-<li>Global Semantic Reasoning Block: <font color="#32adff">several transformer units</font> (masked the corresponding character itself)</li>
+<li>Global Semantic Reasoning Block: <font color="#32adff">several transformer units</font> (multi-head self-attention, masked the corresponding character itself)</li>
 </ul>
 <h2 id="Fusion"><a href="#Fusion" class="headerlink" title="Fusion"></a>Fusion</h2><p>SRN utilizes the <font color="#32adff">gated unit</font> to fuse the visual aligned features G and semantic information S.</p>
 <p>$Loss = \alpha_eL_e + \alpha_rL_r + \alpha_fL_f$ (1.0, 0.15, 2.0)</p>
@@ -416,6 +422,9 @@
                 </a>
             </div>
             <div class="post-nav-item">
+                <a href="/2022/06/23/ABINet-Model/" rel="next" title="[Paper Review] Read Like Humans: Autonomous, Bidirectional and Iterative Language Modeling for Scene Text Recognition">
+                  [Paper Review] Read Like Humans: Autonomous, Bidirectional and Iterative Language Modeling for Scene Text Recognition <i class="fa fa-chevron-right"></i>
+                </a>
             </div>
           </div>
     </footer>
@@ -473,13 +482,13 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-line"></i>
     </span>
-    <span title="Symbols count total">32k</span>
+    <span title="Symbols count total">36k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="Reading time total">23 mins.</span>
+    <span title="Reading time total">26 mins.</span>
   </span>
 </div>
 

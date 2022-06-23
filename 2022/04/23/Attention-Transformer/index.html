@@ -22,19 +22,30 @@
     var CONFIG = {"hostname":"rachel-yang.github.io","root":"/","scheme":"Gemini","version":"8.0.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"b2t":false,"scrollpercent":true},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"search.xml","localsearch":{"enable":true,"trigger":"manual","top_n_per_article":1,"unescape":false,"preload":false}};
   </script>
 
-  <meta name="description" content="Attention">
+  <meta name="description" content="AttentionAttention mechanism mimics the retrieval of a value $v_i$ for a query $q$ based on a key $k_i$ in database.">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Attention &amp; Transformer">
 <meta property="og:url" content="https://rachel-yang.github.io/2022/04/23/Attention-Transformer/index.html">
 <meta property="og:site_name" content="Xun&#39;s Gallery">
-<meta property="og:description" content="Attention">
+<meta property="og:description" content="AttentionAttention mechanism mimics the retrieval of a value $v_i$ for a query $q$ based on a key $k_i$ in database.">
 <meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://rachel-yang.github.io/2022/04/23/Attention-Transformer/1.png">
+<meta property="og:image" content="https://rachel-yang.github.io/2022/04/23/Attention-Transformer/2.png">
+<meta property="og:image" content="https://rachel-yang.github.io/2022/04/23/Attention-Transformer/3.png">
+<meta property="og:image" content="https://rachel-yang.github.io/2022/04/23/Attention-Transformer/4.png">
+<meta property="og:image" content="https://rachel-yang.github.io/2022/04/23/Attention-Transformer/5.png">
+<meta property="og:image" content="https://rachel-yang.github.io/2022/04/23/Attention-Transformer/6.png">
+<meta property="og:image" content="https://rachel-yang.github.io/2022/04/23/Attention-Transformer/7.png">
+<meta property="og:image" content="https://rachel-yang.github.io/2022/04/23/Attention-Transformer/8.png">
+<meta property="og:image" content="https://rachel-yang.github.io/2022/04/23/Attention-Transformer/9.png">
+<meta property="og:image" content="https://rachel-yang.github.io/2022/04/23/Attention-Transformer/10.png">
 <meta property="article:published_time" content="2022-04-23T09:36:46.000Z">
-<meta property="article:modified_time" content="2022-06-23T10:44:22.253Z">
+<meta property="article:modified_time" content="2022-06-23T19:49:30.405Z">
 <meta property="article:author" content="珣XUN">
 <meta property="article:tag" content="attention">
 <meta property="article:tag" content="transformer">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://rachel-yang.github.io/2022/04/23/Attention-Transformer/1.png">
 
 
 <link rel="canonical" href="https://rachel-yang.github.io/2022/04/23/Attention-Transformer/">
@@ -209,7 +220,7 @@
 
       <!--noindex-->
       <section class="post-toc-wrap sidebar-panel">
-          <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Attention"><span class="nav-number">1.</span> <span class="nav-text">Attention</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Transformer"><span class="nav-number">2.</span> <span class="nav-text">Transformer</span></a></li></ol></div>
+          <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Attention"><span class="nav-number">1.</span> <span class="nav-text">Attention</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Bahdanau-Attention"><span class="nav-number">1.1.</span> <span class="nav-text">Bahdanau Attention</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Luong-Attention"><span class="nav-number">1.2.</span> <span class="nav-text">Luong Attention</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Self-Attention"><span class="nav-number">1.3.</span> <span class="nav-text">Self-Attention</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Transformer"><span class="nav-number">2.</span> <span class="nav-text">Transformer</span></a></li></ol></div>
       </section>
       <!--/noindex-->
 
@@ -225,7 +236,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">24</span>
+          <span class="site-state-item-count">25</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -238,7 +249,7 @@
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">24</span>
+        <span class="site-state-item-count">25</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>
@@ -316,7 +327,7 @@
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">Edited on</span>
-        <time title="Modified: 2022-06-23 18:44:22" itemprop="dateModified" datetime="2022-06-23T18:44:22+08:00">2022-06-23</time>
+        <time title="Modified: 2022-06-24 03:49:30" itemprop="dateModified" datetime="2022-06-24T03:49:30+08:00">2022-06-24</time>
       </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -336,7 +347,7 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">Symbols count in article: </span>
-      <span>149</span>
+      <span>812</span>
     </span>
     <span class="post-meta-item" title="Reading time">
       <span class="post-meta-item-icon">
@@ -354,8 +365,37 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        <h1 id="Attention"><a href="#Attention" class="headerlink" title="Attention"></a>Attention</h1><a id="more"></a>
-<h1 id="Transformer"><a href="#Transformer" class="headerlink" title="Transformer"></a>Transformer</h1><p>Resource:</p>
+        <h1 id="Attention"><a href="#Attention" class="headerlink" title="Attention"></a>Attention</h1><p>Attention mechanism mimics the retrieval of a value $v_i$ for a query $q$ based on a key $k_i$ in database.</p>
+<a id="more"></a>
+<div align="center"> <img src="/2022/04/23/Attention-Transformer/1.png" width="650"></div>
+
+<div align="center"> <img src="/2022/04/23/Attention-Transformer/2.png" width="500"></div>
+
+<p><strong>Ways to compute the attention scores:</strong></p>
+<div align="center"> <img src="/2022/04/23/Attention-Transformer/3.png" width="650"></div>
+
+<h2 id="Bahdanau-Attention"><a href="#Bahdanau-Attention" class="headerlink" title="Bahdanau Attention"></a>Bahdanau Attention</h2><p>Attention is used between decoder steps: state $h_{t-1}$ is used to compute attention and its output $c(t)$, and both $h_{t-1}$ and $c(t)$ are passed to the decoder at step $t$.</p>
+<ul>
+<li>ASTER use this attention</li>
+<li>SEED use the semantic embedding to initialize the c(0)</li>
+</ul>
+<div align="center"> <img src="/2022/04/23/Attention-Transformer/4.png" width="650"></div>
+
+<h2 id="Luong-Attention"><a href="#Luong-Attention" class="headerlink" title="Luong Attention"></a>Luong Attention</h2><p>Attention is used after RNN decoder step $t$ before making a prediction. State $h_{t}$ used to compute attention and its output $c(t)$. The $h_t$ is combined with $c(t)$ to get an updated representation $\tilde{h}_t$, which is used to get a prediction.</p>
+<div align="center"> <img src="/2022/04/23/Attention-Transformer/5.png" width="650"></div>
+
+<h2 id="Self-Attention"><a href="#Self-Attention" class="headerlink" title="Self-Attention"></a>Self-Attention</h2><p>Get the relations between x and each word, and then add the weighted summation into x.</p>
+<div align="center"> <img src="/2022/04/23/Attention-Transformer/6.png" width="650"></div>
+
+<h1 id="Transformer"><a href="#Transformer" class="headerlink" title="Transformer"></a>Transformer</h1><div align="center"> <img src="/2022/04/23/Attention-Transformer/7.png" width="550"></div>
+
+<div align="center"> <img src="/2022/04/23/Attention-Transformer/8.png" width="650"></div>
+
+<div align="center"> <img src="/2022/04/23/Attention-Transformer/9.png" width="650"></div>
+
+<div align="center"> <img src="/2022/04/23/Attention-Transformer/10.png" width="650"></div>
+
+<p>Resource:</p>
 <ul>
 <li>Thanks to Voita’s post, <a target="_blank" rel="noopener" href="https://lena-voita.github.io/nlp_course/seq2seq_and_attention.html">Seq2Seq and Attention</a></li>
 <li><a target="_blank" rel="noopener" href="https://arxiv.org/pdf/1409.0473.pdf">Neural Machine Translation by Jointly Learning to Align and Translate</a></li>
@@ -443,13 +483,13 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-line"></i>
     </span>
-    <span title="Symbols count total">32k</span>
+    <span title="Symbols count total">36k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="Reading time total">23 mins.</span>
+    <span title="Reading time total">26 mins.</span>
   </span>
 </div>
 

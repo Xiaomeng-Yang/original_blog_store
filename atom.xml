@@ -6,7 +6,7 @@
   <link href="https://rachel-yang.github.io/atom.xml" rel="self"/>
   
   <link href="https://rachel-yang.github.io/"/>
-  <updated>2022-06-23T10:38:54.246Z</updated>
+  <updated>2022-06-23T19:26:01.735Z</updated>
   <id>https://rachel-yang.github.io/</id>
   
   <author>
@@ -17,11 +17,36 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>[Paper Review] Read Like Humans: Autonomous, Bidirectional and Iterative Language Modeling for Scene Text Recognition</title>
+    <link href="https://rachel-yang.github.io/2022/06/23/ABINet-Model/"/>
+    <id>https://rachel-yang.github.io/2022/06/23/ABINet-Model/</id>
+    <published>2022-06-23T11:21:43.000Z</published>
+    <updated>2022-06-23T19:26:01.735Z</updated>
+    
+    
+    <summary type="html">&lt;div align=&quot;center&quot;&gt; &lt;img src=&quot;/2022/06/23/ABINet-Model/Pipeline.jpg&quot; width=&quot;700&quot;&gt;&lt;/div&gt;</summary>
+    
+    
+    
+    <category term="Paper Review" scheme="https://rachel-yang.github.io/categories/Paper-Review/"/>
+    
+    
+    <category term="STR" scheme="https://rachel-yang.github.io/tags/STR/"/>
+    
+    <category term="Semantic Module" scheme="https://rachel-yang.github.io/tags/Semantic-Module/"/>
+    
+    <category term="Parallel Decoder" scheme="https://rachel-yang.github.io/tags/Parallel-Decoder/"/>
+    
+    <category term="Iterative Correction" scheme="https://rachel-yang.github.io/tags/Iterative-Correction/"/>
+    
+  </entry>
+  
+  <entry>
     <title>[Paper Review] Towards Accurate Scene Text Recognition with Semantic Reasoning Networks</title>
     <link href="https://rachel-yang.github.io/2022/06/23/Towards-Accurate-Scene-Text-Recognition-with-Semantic-Reasoning-Networks/"/>
     <id>https://rachel-yang.github.io/2022/06/23/Towards-Accurate-Scene-Text-Recognition-with-Semantic-Reasoning-Networks/</id>
     <published>2022-06-23T08:53:46.000Z</published>
-    <updated>2022-06-23T10:38:54.246Z</updated>
+    <updated>2022-06-23T16:40:01.390Z</updated>
     
     
     <summary type="html">&lt;div align=&quot;center&quot;&gt; &lt;img src=&quot;/2022/06/23/Towards-Accurate-Scene-Text-Recognition-with-Semantic-Reasoning-Networks/SRN_pipeline.jpg&quot; width=&quot;750&quot;&gt;&lt;/div&gt;</summary>
@@ -44,10 +69,10 @@
     <link href="https://rachel-yang.github.io/2022/06/23/Review-the-Scene-Text-Recognition-Models-with-Semantic-Information/"/>
     <id>https://rachel-yang.github.io/2022/06/23/Review-the-Scene-Text-Recognition-Models-with-Semantic-Information/</id>
     <published>2022-06-23T05:18:59.000Z</published>
-    <updated>2022-06-23T08:58:40.054Z</updated>
+    <updated>2022-06-23T19:53:45.608Z</updated>
     
     
-    <summary type="html">&lt;p&gt;This article reviews the ways that scene text recognition models utilize the semantic information to boost their performance. From the &lt;font color=&quot;#32adff&quot;&gt;Bahdanau Attention Decoder&lt;/font&gt; to various &lt;font color=&quot;#32adff&quot;&gt;Semantic Modules&lt;/font&gt;.&lt;br&gt;&lt;/p&gt;</summary>
+    <summary type="html">&lt;p&gt;This article reviews the ways that scene text recognition models utilize the semantic information to boost their performance, from the &lt;font color=&quot;#32adff&quot;&gt;Bahdanau Attention Decoder&lt;/font&gt; to various &lt;font color=&quot;#32adff&quot;&gt;Semantic Modules&lt;/font&gt;.&lt;br&gt;&lt;/p&gt;</summary>
     
     
     
@@ -65,10 +90,10 @@
     <link href="https://rachel-yang.github.io/2022/04/23/Attention-Transformer/"/>
     <id>https://rachel-yang.github.io/2022/04/23/Attention-Transformer/</id>
     <published>2022-04-23T09:36:46.000Z</published>
-    <updated>2022-06-23T10:44:22.253Z</updated>
+    <updated>2022-06-23T19:49:30.405Z</updated>
     
     
-    <summary type="html">&lt;h1 id=&quot;Attention&quot;&gt;&lt;a href=&quot;#Attention&quot; class=&quot;headerlink&quot; title=&quot;Attention&quot;&gt;&lt;/a&gt;Attention&lt;/h1&gt;</summary>
+    <summary type="html">&lt;h1 id=&quot;Attention&quot;&gt;&lt;a href=&quot;#Attention&quot; class=&quot;headerlink&quot; title=&quot;Attention&quot;&gt;&lt;/a&gt;Attention&lt;/h1&gt;&lt;p&gt;Attention mechanism mimics the retrieval of a value $v_i$ for a query $q$ based on a key $k_i$ in database.&lt;/p&gt;</summary>
     
     
     
@@ -428,26 +453,6 @@
     
     
     <category term="LSTM" scheme="https://rachel-yang.github.io/tags/LSTM/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>About SSH</title>
-    <link href="https://rachel-yang.github.io/2021/01/15/About-SSH/"/>
-    <id>https://rachel-yang.github.io/2021/01/15/About-SSH/</id>
-    <published>2021-01-15T09:11:52.000Z</published>
-    <updated>2021-05-09T07:11:56.171Z</updated>
-    
-    
-    <summary type="html">&lt;h2 id=&quot;SSH-tool&quot;&gt;&lt;a href=&quot;#SSH-tool&quot; class=&quot;headerlink&quot; title=&quot;SSH tool&quot;&gt;&lt;/a&gt;SSH tool&lt;/h2&gt;&lt;p&gt;I use MobaXterm (&lt;a href=&quot;https://mobaxterm.mobatek.net/&quot;&gt;official website&lt;/a&gt;), since it enables the visualization of many operations.&lt;/p&gt;
-&lt;p&gt;Select session -&amp;gt; SSH; then type in the server ip, username and password.&lt;br&gt;&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="Remote Server" scheme="https://rachel-yang.github.io/categories/Remote-Server/"/>
-    
-    
-    <category term="SSH" scheme="https://rachel-yang.github.io/tags/SSH/"/>
     
   </entry>
   

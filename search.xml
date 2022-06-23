@@ -964,10 +964,9 @@ where the probability of $\pi$ is defined as
   <entry>
     <title>Review the Scene Text Recognition Models with Semantic Information</title>
     <url>/2022/06/23/Review-the-Scene-Text-Recognition-Models-with-Semantic-Information/</url>
-    <content><![CDATA[<p>This article reviews the ways that scene text recognition models utilize the semantic information to boost their performance. From the <font color="#32adff">Bahdanau Attention Decoder</font> to various <font color="#32adff">Semantic Modules</font>.<br><a id="more"></a></p>
+    <content><![CDATA[<p>This article reviews the ways that scene text recognition models utilize the semantic information to boost their performance, from the <font color="#32adff">Bahdanau Attention Decoder</font> to various <font color="#32adff">Semantic Modules</font>.<br><a id="more"></a></p>
 <p>As we all know, to recognize the text in the wild, both the visual features and semantic information are significant, Especially for the blurred images. The ideal text recognition process is recognizing the clear text using visual features and inferring the blurred words according to its context information.</p>
-<h2 id="Bahdanau-Attention"><a href="#Bahdanau-Attention" class="headerlink" title="Bahdanau Attention"></a>Bahdanau Attention</h2><p>RARE, ASTER and so on utilizes the <font color="#32adff"> recurrence attention</font> to capture the semantic information during the decoding process.</p>
-<p>At time step $t$, the decoder predicts a character based on previous state $s_{t-1}$ and the sequence features $h_{t}$ output by BLSTM.</p>
+<h2 id="Bahdanau-Attention"><a href="#Bahdanau-Attention" class="headerlink" title="Bahdanau Attention"></a>Bahdanau Attention</h2><p>RARE, ASTER and so on utilizes the <font color="#32adff"> recurrence attention</font> to capture the semantic information during the decoding process. At time step $t$, the decoder predicts a character based on previous state $s_{t-1}$ and the sequence features $h_{t}$ output by BLSTM.</p>
 <div align="center"> <img src="/2022/06/23/Review-the-Scene-Text-Recognition-Models-with-Semantic-Information/RARE_architecture.jpg" width="300"></div>
 
 <p><strong>Drawbacks:</strong></p>
@@ -976,8 +975,27 @@ where the probability of $\pi$ is defined as
 <li>Pass the wrong semantic information down and cause a error accumulation</li>
 <li>Time-consuming and inefficient</li>
 </ul>
-<h2 id="SRN"><a href="#SRN" class="headerlink" title="SRN"></a>SRN</h2><p><a href="/2022/06/23/Towards-Accurate-Scene-Text-Recognition-with-Semantic-Reasoning-Networks/" title="SRN">SRN</a> proposes a structure named global semantic reasoning module (GSRM), which is <font color="#32adff">multi-way parallel transmission</font>.</p>
-]]></content>
+<h2 id="SRN"><a href="#SRN" class="headerlink" title="SRN"></a>SRN</h2><p><a href="/2022/06/23/Towards-Accurate-Scene-Text-Recognition-with-Semantic-Reasoning-Networks/" title="SRN">SRN</a> proposes a structure named global semantic reasoning module (GSRM), which is <font color="#32adff">multi-way parallel transmission</font>. The semantic module works like a post-processor.</p>
+<ul>
+<li>PVAM: Parallel attention mechanism with idx queries.</li>
+<li>GSRM: Four Transformer layers (multi-head self-attention, masked the corresponding character itself)</li>
+</ul>
+<div align="center"> <img src="/2022/06/23/Review-the-Scene-Text-Recognition-Models-with-Semantic-Information/SRN_pipeline.jpg" width="750"></div>
+
+<p><strong>Drawbacks:</strong><br>  The serial connection between the visual and semantic module may not be the perfect interaction:</p>
+<ul>
+<li>Cannot use the pre-trained LM from large-scale unlabeled text directly.</li>
+<li>Errors from VM output directly harm the LM accuracy.</li>
+</ul>
+<h2 id="ABINet"><a href="#ABINet" class="headerlink" title="ABINet"></a>ABINet</h2><p><a href="/2022/06/23/ABINet-Model/" title="ABINet">ABINet</a> proposes an <font color="#32adff"> autonomous, bidirectional and Iterative</font> structure.</p>
+<ul>
+<li>Autonomous: Block gradient flow between VM and LM, both VM and LM could be pretrained separately.</li>
+<li>Bidirectional: several Transformer decoder layers (no self-attention, query is the positional encodings of the characters in the first layer)</li>
+<li>Iterative: Feed the outputs of ABINet into LM repeatedly.</li>
+</ul>
+<div align="center"> <img src="/2022/06/23/Review-the-Scene-Text-Recognition-Models-with-Semantic-Information/ABINet_pipeline.jpg" width="700"></div>
+
+<h2 id="MATRN"><a href="#MATRN" class="headerlink" title="MATRN"></a>MATRN</h2><h2 id="From-two-to-one"><a href="#From-two-to-one" class="headerlink" title="From two to one"></a>From two to one</h2>]]></content>
       <categories>
         <category>Scene Text Recognition</category>
       </categories>
@@ -1001,13 +1019,13 @@ where the probability of $\pi$ is defined as
 <ul>
 <li><font color="#32adff">Query: the reading order</font> $[0,1,…,N-1]$</li>
 <li>Key and Value: the input 2D features $(v_{ij}, v_{ij})$</li>
-<li>Attention Score: multi-layer perceptron (For more information, see <a href="/2022/06/23/Attention-Transformer/" title="the post about attention">the post about attention</a>.)</li>
+<li>Attention Score: multi-layer perceptron (For more information, see <a href="/2022/04/23/Attention-Transformer/" title="the post about attention">the post about attention</a>.)</li>
 </ul>
 <h2 id="GSRM"><a href="#GSRM" class="headerlink" title="GSRM"></a>GSRM</h2><div align="center"> <img src="/2022/06/23/Towards-Accurate-Scene-Text-Recognition-with-Semantic-Reasoning-Networks/GSRM.jpg" width="380"></div>
 
 <ul>
 <li>Visual-to-Semantic Embedding Block: Predict the text token utilizing the PVAM’s output.</li>
-<li>Global Semantic Reasoning Block: <font color="#32adff">several transformer units</font> (masked the corresponding character itself)</li>
+<li>Global Semantic Reasoning Block: <font color="#32adff">several transformer units</font> (multi-head self-attention, masked the corresponding character itself)</li>
 </ul>
 <h2 id="Fusion"><a href="#Fusion" class="headerlink" title="Fusion"></a>Fusion</h2><p>SRN utilizes the <font color="#32adff">gated unit</font> to fuse the visual aligned features G and semantic information S.</p>
 <p>$Loss = \alpha_eL_e + \alpha_rL_r + \alpha_fL_f$ (1.0, 0.15, 2.0)</p>
@@ -1044,8 +1062,37 @@ where the probability of $\pi$ is defined as
   <entry>
     <title>Attention &amp; Transformer</title>
     <url>/2022/04/23/Attention-Transformer/</url>
-    <content><![CDATA[<h1 id="Attention"><a href="#Attention" class="headerlink" title="Attention"></a>Attention</h1><a id="more"></a>
-<h1 id="Transformer"><a href="#Transformer" class="headerlink" title="Transformer"></a>Transformer</h1><p>Resource:</p>
+    <content><![CDATA[<h1 id="Attention"><a href="#Attention" class="headerlink" title="Attention"></a>Attention</h1><p>Attention mechanism mimics the retrieval of a value $v_i$ for a query $q$ based on a key $k_i$ in database.</p>
+<a id="more"></a>
+<div align="center"> <img src="/2022/04/23/Attention-Transformer/1.png" width="650"></div>
+
+<div align="center"> <img src="/2022/04/23/Attention-Transformer/2.png" width="500"></div>
+
+<p><strong>Ways to compute the attention scores:</strong></p>
+<div align="center"> <img src="/2022/04/23/Attention-Transformer/3.png" width="650"></div>
+
+<h2 id="Bahdanau-Attention"><a href="#Bahdanau-Attention" class="headerlink" title="Bahdanau Attention"></a>Bahdanau Attention</h2><p>Attention is used between decoder steps: state $h_{t-1}$ is used to compute attention and its output $c(t)$, and both $h_{t-1}$ and $c(t)$ are passed to the decoder at step $t$.</p>
+<ul>
+<li>ASTER use this attention</li>
+<li>SEED use the semantic embedding to initialize the c(0)</li>
+</ul>
+<div align="center"> <img src="/2022/04/23/Attention-Transformer/4.png" width="650"></div>
+
+<h2 id="Luong-Attention"><a href="#Luong-Attention" class="headerlink" title="Luong Attention"></a>Luong Attention</h2><p>Attention is used after RNN decoder step $t$ before making a prediction. State $h_{t}$ used to compute attention and its output $c(t)$. The $h_t$ is combined with $c(t)$ to get an updated representation $\tilde{h}_t$, which is used to get a prediction.</p>
+<div align="center"> <img src="/2022/04/23/Attention-Transformer/5.png" width="650"></div>
+
+<h2 id="Self-Attention"><a href="#Self-Attention" class="headerlink" title="Self-Attention"></a>Self-Attention</h2><p>Get the relations between x and each word, and then add the weighted summation into x.</p>
+<div align="center"> <img src="/2022/04/23/Attention-Transformer/6.png" width="650"></div>
+
+<h1 id="Transformer"><a href="#Transformer" class="headerlink" title="Transformer"></a>Transformer</h1><div align="center"> <img src="/2022/04/23/Attention-Transformer/7.png" width="550"></div>
+
+<div align="center"> <img src="/2022/04/23/Attention-Transformer/8.png" width="650"></div>
+
+<div align="center"> <img src="/2022/04/23/Attention-Transformer/9.png" width="650"></div>
+
+<div align="center"> <img src="/2022/04/23/Attention-Transformer/10.png" width="650"></div>
+
+<p>Resource:</p>
 <ul>
 <li>Thanks to Voita’s post, <a href="https://lena-voita.github.io/nlp_course/seq2seq_and_attention.html">Seq2Seq and Attention</a></li>
 <li><a href="https://arxiv.org/pdf/1409.0473.pdf">Neural Machine Translation by Jointly Learning to Align and Translate</a></li>
@@ -1058,6 +1105,93 @@ where the probability of $\pi$ is defined as
       <tags>
         <tag>attention</tag>
         <tag>transformer</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>[Paper Review] Read Like Humans: Autonomous, Bidirectional and Iterative Language Modeling for Scene Text Recognition</title>
+    <url>/2022/06/23/ABINet-Model/</url>
+    <content><![CDATA[<div align="center"> <img src="/2022/06/23/ABINet-Model/Pipeline.jpg" width="700"></div>
+
+<a id="more"></a>
+<h1 id="Background"><a href="#Background" class="headerlink" title="Background"></a>Background</h1><p>How to effectively model linguistic rules in end-to-end deep networks remains a research challenge.</p>
+<div align="center"> <img src="/2022/06/23/ABINet-Model/compare.jpg" width="380"></div>
+
+<p><strong>Approach:</strong></p>
+<ul>
+<li><p><font color="#32adff">Autonomous</font>: The learning between vision and language should be independent.</p>
+<p>The vision and language module for previous methods Fig. 1a are in serial, which makes it cannot utilize the pre-trained LM from large-scale unlabeled text.</p>
+</li>
+<li><font color="#32adff">Bidirectional</font>: The contextual information should be bidirectional.</li>
+<li><font color="#32adff">Iterative</font>: Humans adopt a progressive strategy to improve prediction confidence by iteratively correcting the recognized results.</li>
+</ul>
+<h1 id="Method"><a href="#Method" class="headerlink" title="Method"></a>Method</h1><p>The ABINet model contains vision model and language model. The VM extracts visual features and output the primary prediction tokens to the LM model. And the LM captures the bidirectional semantic information by Transformer units. The visual features and language features are fused using gated unit, and then the fusion prediction can be feed back into the LM repeatedly to feature correction.</p>
+<ul>
+<li>Autonomous: <font color="#32adff">Block gradient flow between VM and LM</font>, both VM and LM could be pretrained separately.</li>
+<li>Bidirectional: <font color="#32adff">several Transformer layers</font></li>
+<li>Iterative: <font color="#32adff">Feed the outputs of ABINet into LM repeatedly</font>.</li>
+</ul>
+<h2 id="Vision-Model"><a href="#Vision-Model" class="headerlink" title="Vision Model"></a>Vision Model</h2><ul>
+<li>Backbone: <font color="#ffad4">ResNet + Transformer units</font></li>
+<li>Position Attention:<ul>
+<li><font color="#ffad4">Query: positional encodings of character orders</font></li>
+<li>Key: a mini U-Net’s output with input features</li>
+<li>V: input features</li>
+<li>Attention Score: dot-product</li>
+</ul>
+</li>
+</ul>
+<div align="center"> <img src="/2022/06/23/ABINet-Model/vision.jpg" width="400"></div>
+
+<h2 id="Language-Model"><a href="#Language-Model" class="headerlink" title="Language Model"></a>Language Model</h2><p>A variant of L-layers transformer decoder (multi-head attention and feed-forward network followed by residual connection and layer normalization).</p>
+<p>Attention operation <font color="#ffad4">(No Self-Attention)</font>:</p>
+<ul>
+<li><font color="#32adff">Q: positional encodings of character orders in the first layer. </font></li>
+<li>K, V: character probability</li>
+<li>Attention Score: dot-product</li>
+</ul>
+<div align="center"> <img src="/2022/06/23/ABINet-Model/language.jpg" width="320"></div>
+
+<h2 id="Fusion-amp-Supervised-Training"><a href="#Fusion-amp-Supervised-Training" class="headerlink" title="Fusion &amp; Supervised Training"></a>Fusion &amp; Supervised Training</h2><font color="#32adff">Gated mechanism</font>:
+- $G = \sigma([F_v, F_l]W_f)$
+- $F_f = G\odot F_v + (1-G)\odot F_l$
+
+Total loss: $\mathcal{L} = \lambda_v\mathcal{L}_v + \frac{\lambda_l}{M} \sum\limits_{i=1}\limits^M\mathcal{L}_l^i + \frac{1}{M} \sum\limits_{i=1}\limits^M\mathcal{L}_f^i$
+ (cross entropy losses from $F_v$, $F_l$ and $F_f$ at $i$-th iteration)
+
+## Semi-supervised Ensemble Self-training
+<div align="center"> <img src="/2022/06/23/ABINet-Model/algorithm.jpg" width="500"></div>
+- Equation 8: the loss function for supervised training
+- Equation 9:
+  - $\mathcal{C} = \mathop{min}\limits_{1\le t\le T}e^{\mathbb{E}[logP(y_t)]}$ (the minimum confidence of characters within a text instance)
+  - $P(y_t) = \mathop{max}\limits_{1\le m\le M}P_m(y_t)$
+- $N_{upl}$: the step number for updating pseudo labels
+
+# Experiments
+<div align="center"> <img src="/2022/06/23/ABINet-Model/results.jpg" width="750"></div>
+
+# Conclusion
+Compare with the SRN:
+- Block the gradient between the LM and VM
+- Modify the parallel attention
+- LM layers does not use self-attention
+
+**Questions to think about:**
+- <font color="#32adff">"No self-attention is applied in BCN to avoid leaking information across time steps" ??</font>
+- <font color="#32adff">Although this paper analyzes the better way to combine the visual and semantic information compared with SRN, it seems that there is still room for improvement.</font>
+
+<h1 id="Reference"><a href="#Reference" class="headerlink" title="Reference:"></a>Reference:</h1><ul>
+<li>Paper: <a href="https://https://openaccess.thecvf.com/content/CVPR2021/papers/Fang_Read_Like_Humans_Autonomous_Bidirectional_and_Iterative_Language_Modeling_for_CVPR_2021_paper.pdf">Read Like Humans: Autonomous, Bidirectional and Iterative Language Modeling for Scene Text Recognition</a></li>
+<li>Code: <a href="https://github.com/FangShancheng/ABINet">https://github.com/FangShancheng/ABINet</a></li>
+</ul>
+]]></content>
+      <categories>
+        <category>Paper Review</category>
+      </categories>
+      <tags>
+        <tag>STR</tag>
+        <tag>Semantic Module</tag>
+        <tag>Parallel Decoder</tag>
+        <tag>Iterative Correction</tag>
       </tags>
   </entry>
 </search>
