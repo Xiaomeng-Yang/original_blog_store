@@ -1123,7 +1123,7 @@ where the probability of $\pi$ is defined as
 <p><strong>Approach:</strong></p>
 <ul>
 <li><p><font color="#32adff">Autonomous</font>: The learning between vision and language should be independent.</p>
-<p>The vision and language module for previous methods Fig. 1a are in serial, which makes it cannot utilize the pre-trained LM from large-scale unlabeled text.</p>
+<p>The vision and language modules in previous methods are in serial (Fig. 1a), which makes it cannot utilize the pre-trained LM from large-scale unlabeled text.</p>
 </li>
 <li><font color="#32adff">Bidirectional</font>: The contextual information should be bidirectional.</li>
 <li><font color="#32adff">Iterative</font>: Humans adopt a progressive strategy to improve prediction confidence by iteratively correcting the recognized results.</li>
