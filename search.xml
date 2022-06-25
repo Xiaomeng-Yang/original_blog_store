@@ -1114,7 +1114,7 @@ where the probability of $\pi$ is defined as
   <entry>
     <title>[Paper Review] Read Like Humans: Autonomous, Bidirectional and Iterative Language Modeling for Scene Text Recognition</title>
     <url>/2022/06/23/ABINet-Model/</url>
-    <content><![CDATA[<div align="center"> <img src="/2022/06/23/ABINet-Model/Pipeline.jpg" width="700"></div>
+    <content><![CDATA[<div align="center"> <img src="/2022/06/23/ABINet-Model/pipeline.jpg" width="700"></div>
 
 <a id="more"></a>
 <h1 id="Background"><a href="#Background" class="headerlink" title="Background"></a>Background</h1><p>How to effectively model linguistic rules in end-to-end deep networks remains a research challenge.</p>
@@ -1155,34 +1155,39 @@ where the probability of $\pi$ is defined as
 </ul>
 <div align="center"> <img src="/2022/06/23/ABINet-Model/language.jpg" width="320"></div>
 
-<h2 id="Fusion-amp-Supervised-Training"><a href="#Fusion-amp-Supervised-Training" class="headerlink" title="Fusion &amp; Supervised Training"></a>Fusion &amp; Supervised Training</h2><font color="#32adff">Gated mechanism</font>:
-- $G = \sigma([F_v, F_l]W_f)$
-- $F_f = G\odot F_v + (1-G)\odot F_l$
+<h2 id="Fusion-and-Supervised-Training"><a href="#Fusion-and-Supervised-Training" class="headerlink" title="Fusion and Supervised Training"></a>Fusion and Supervised Training</h2><p>Gated mechanism:</p>
+<ul>
+<li><script type="math/tex; mode=display">G = \sigma([F_v, F_l]W_f)</script></li>
+<li><script type="math/tex; mode=display">F_f = G\odot F_v + (1-G)\odot F_l</script></li>
+</ul>
+<p>Total loss:</p>
+<script type="math/tex; mode=display">\mathcal{L} = \lambda_v\mathcal{L}_v + \frac{\lambda_l}{M} \sum\limits_{i=1}\limits^M\mathcal{L}_l^i + \frac{1}{M} \sum\limits_{i=1}\limits^M\mathcal{L}_f^i,</script><p>cross entropy losses from $F_v$, $F_l$ and $F_f$ at $i$th iteration</p>
+<h2 id="Semi-supervised-Ensemble-Self-training"><a href="#Semi-supervised-Ensemble-Self-training" class="headerlink" title="Semi-supervised Ensemble Self-training"></a>Semi-supervised Ensemble Self-training</h2><div align="center"> <img src="/2022/06/23/ABINet-Model/algorithm.jpg" width="500"></div>
 
-Total loss: $\mathcal{L} = \lambda_v\mathcal{L}_v + \frac{\lambda_l}{M} \sum\limits_{i=1}\limits^M\mathcal{L}_l^i + \frac{1}{M} \sum\limits_{i=1}\limits^M\mathcal{L}_f^i$
- (cross entropy losses from $F_v$, $F_l$ and $F_f$ at $i$-th iteration)
+<ul>
+<li>Equation 8: the loss function for supervised training</li>
+<li>Equation 9:<ul>
+<li><script type="math/tex; mode=display">\mathcal{C} = \mathop{min}\limits_{1\le t\le T}e^{\mathbb{E}[logP(y_t)]}</script></li>
+<li><script type="math/tex; mode=display">P(y_t) = \mathop{max}\limits_{1\le m\le M}P_m(y_t)</script></li>
+</ul>
+</li>
+<li>$N_{upl}$: the step number for updating pseudo labels</li>
+</ul>
+<h1 id="Experiments"><a href="#Experiments" class="headerlink" title="Experiments"></a>Experiments</h1><div align="center"> <img src="/2022/06/23/ABINet-Model/results.jpg" width="750"></div>
 
-## Semi-supervised Ensemble Self-training
-<div align="center"> <img src="/2022/06/23/ABINet-Model/algorithm.jpg" width="500"></div>
-- Equation 8: the loss function for supervised training
-- Equation 9:
-  - $\mathcal{C} = \mathop{min}\limits_{1\le t\le T}e^{\mathbb{E}[logP(y_t)]}$ (the minimum confidence of characters within a text instance)
-  - $P(y_t) = \mathop{max}\limits_{1\le m\le M}P_m(y_t)$
-- $N_{upl}$: the step number for updating pseudo labels
+<h1 id="Conclusion"><a href="#Conclusion" class="headerlink" title="Conclusion"></a>Conclusion</h1><p>Compare with the SRN:</p>
+<ul>
+<li>Block the gradient between the LM and VM</li>
+<li>Modify the parallel attention</li>
+<li>LM layers does not use self-attention</li>
+</ul>
+<p><strong>Questions to think about:</strong></p>
+<ul>
+<li><font color="#32adff">"No self-attention is applied in BCN to avoid leaking information across time steps" ??</font></li>
+<li><font color="#32adff">Although this paper analyzes the better way to combine the visual and semantic information compared with SRN, it seems that there is still room for improvement.</font>
 
-# Experiments
-<div align="center"> <img src="/2022/06/23/ABINet-Model/results.jpg" width="750"></div>
-
-# Conclusion
-Compare with the SRN:
-- Block the gradient between the LM and VM
-- Modify the parallel attention
-- LM layers does not use self-attention
-
-**Questions to think about:**
-- <font color="#32adff">"No self-attention is applied in BCN to avoid leaking information across time steps" ??</font>
-- <font color="#32adff">Although this paper analyzes the better way to combine the visual and semantic information compared with SRN, it seems that there is still room for improvement.</font>
-
+</li>
+</ul>
 <h1 id="Reference"><a href="#Reference" class="headerlink" title="Reference:"></a>Reference:</h1><ul>
 <li>Paper: <a href="https://https://openaccess.thecvf.com/content/CVPR2021/papers/Fang_Read_Like_Humans_Autonomous_Bidirectional_and_Iterative_Language_Modeling_for_CVPR_2021_paper.pdf">Read Like Humans: Autonomous, Bidirectional and Iterative Language Modeling for Scene Text Recognition</a></li>
 <li>Code: <a href="https://github.com/FangShancheng/ABINet">https://github.com/FangShancheng/ABINet</a></li>
