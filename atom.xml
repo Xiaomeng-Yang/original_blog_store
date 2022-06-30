@@ -6,7 +6,7 @@
   <link href="https://rachel-yang.github.io/atom.xml" rel="self"/>
   
   <link href="https://rachel-yang.github.io/"/>
-  <updated>2022-06-27T08:14:59.311Z</updated>
+  <updated>2022-06-30T10:01:12.922Z</updated>
   <id>https://rachel-yang.github.io/</id>
   
   <author>
@@ -21,17 +21,11 @@
     <link href="https://rachel-yang.github.io/2022/06/25/Joint-Visual-Semantic-Reasoning/"/>
     <id>https://rachel-yang.github.io/2022/06/25/Joint-Visual-Semantic-Reasoning/</id>
     <published>2022-06-25T07:21:27.000Z</published>
-    <updated>2022-06-27T08:14:59.311Z</updated>
+    <updated>2022-06-30T10:01:12.922Z</updated>
     
     
-      
-      
-        
-        
-    <summary type="html">&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
-&lt;h1 id=&quot;Background&quot;&gt;&lt;a href=&quot;#Background&quot; class=&quot;headerlink&quot; title=&quot;Background&quot;&gt;&lt;/a&gt;Background&lt;/h1&gt;&lt;p&gt;How to develop a</summary>
-        
-      
+    <summary type="html">&lt;h1 id=&quot;Background&quot;&gt;&lt;a href=&quot;#Background&quot; class=&quot;headerlink&quot; title=&quot;Background&quot;&gt;&lt;/a&gt;Background&lt;/h1&gt;&lt;p&gt;How to develop a visual-semantic reasoning skill for text recognition?&lt;/p&gt;
+&lt;h1 id=&quot;Method&quot;&gt;&lt;a href=&quot;#Method&quot; class=&quot;headerlink&quot; title=&quot;Method&quot;&gt;&lt;/a&gt;Method&lt;/h1&gt;&lt;p&gt;The framework contains a &lt;font color=&quot;#32adff&quot;&gt;visual feature extractor&lt;/font&gt; extracts context-rich holistic feature and multi-scale feature maps, and a &lt;font color=&quot;#32adff&quot;&gt;multi-stage attentional decoder&lt;/font&gt; builds up the character sequence estimates.&lt;/p&gt;</summary>
     
     
     

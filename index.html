@@ -19,7 +19,7 @@
 
 <script class="hexo-configurations">
     var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"rachel-yang.github.io","root":"/","scheme":"Gemini","version":"8.0.0","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12,"b2t":false,"scrollpercent":true},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"search.xml","localsearch":{"enable":true,"trigger":"manual","top_n_per_article":1,"unescape":false,"preload":false}};
+    var CONFIG = {"hostname":"rachel-yang.github.io","root":"/","scheme":"Gemini","version":"8.0.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"b2t":false,"scrollpercent":true},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"search.xml","localsearch":{"enable":true,"trigger":"manual","top_n_per_article":1,"unescape":false,"preload":false}};
   </script>
 
   <meta name="description" content="Pretending to be a drawer (:-D)">
@@ -151,7 +151,7 @@
   </li>
         <li class="menu-item menu-item-photos">
 
-    <a href="/photos" rel="section"><i class="fa fa-camera-retro fa-fw"></i>Gallery</a>
+    <a href="/gallery" rel="section"><i class="fa fa-camera-retro fa-fw"></i>Gallery</a>
 
   </li>
       <li class="menu-item menu-item-search">
@@ -316,7 +316,7 @@
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">Edited on</span>
-        <time title="Modified: 2022-06-27 16:14:59" itemprop="dateModified" datetime="2022-06-27T16:14:59+08:00">2022-06-27</time>
+        <time title="Modified: 2022-06-30 18:01:12" itemprop="dateModified" datetime="2022-06-30T18:01:12+08:00">2022-06-30</time>
       </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -354,19 +354,16 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <a id="more"></a>
-<h1 id="Background"><a href="#Background" class="headerlink" title="Background"></a>Background</h1><p>How to develop a visual-semantic reasoning skill for text recognition?</p>
+          <h1 id="Background"><a href="#Background" class="headerlink" title="Background"></a>Background</h1><p>How to develop a visual-semantic reasoning skill for text recognition?</p>
 <h1 id="Method"><a href="#Method" class="headerlink" title="Method"></a>Method</h1><p>The framework contains a <font color="#32adff">visual feature extractor</font> extracts context-rich holistic feature and multi-scale feature maps, and a <font color="#32adff">multi-stage attentional decoder</font> builds up the character sequence estimates.</p>
-<div align="center"> <img src="/2022/06/25/Joint-Visual-Semantic-Reasoning/pipeline.jpg" width="700"></div>
-
-<h2 id="Visual-Feature-Extractor"><a href="#Visual-Feature-Extractor" class="headerlink" title="Visual Feature Extractor"></a>Visual Feature Extractor</h2><p>Architecture: <strong>ResNet + FPN + 2-layer BiLSTM</strong></p>
-<p>The 2-layer BiLSTM takes in a sequence feature $(W_L \times D)$: column-wise max-pooling $B_L$</p>
-<ul>
-<li>multi-scale feature-maps $\{B_L, B_{L-1}, B_{L-2}\}$: context for 2D attention</li>
-<li>holistic feature $h_L$: initialize the initial state of first stage decoder</li>
-</ul>
-<h2 id="Joint-Visual-Semantic-Reasoning-Decoder"><a href="#Joint-Visual-Semantic-Reasoning-Decoder" class="headerlink" title="Joint Visual-Semantic Reasoning Decoder"></a>Joint Visual-Semantic Reasoning Decoder</h2><p>The first layer decoder relies only on the extracted visual feature. Subsequent stages use global semantic information.</p>
-<h1 id="Experiments"><a href="#Experiments" class="headerlink" title="Experiments"></a>Experiments</h1><h1 id="Conclusion"><a href="#Conclusion" class="headerlink" title="Conclusion"></a>Conclusion</h1>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2022/06/25/Joint-Visual-Semantic-Reasoning/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 

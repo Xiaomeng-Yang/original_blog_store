@@ -1302,9 +1302,9 @@ Randomly select a single character and hides corresponding visual features based
   <entry>
     <title>[Paper Review] Joint Visual Semantic Reasoning: Multi-Stage Decoder for Text Recognition</title>
     <url>/2022/06/25/Joint-Visual-Semantic-Reasoning/</url>
-    <content><![CDATA[<a id="more"></a>
-<h1 id="Background"><a href="#Background" class="headerlink" title="Background"></a>Background</h1><p>How to develop a visual-semantic reasoning skill for text recognition?</p>
+    <content><![CDATA[<h1 id="Background"><a href="#Background" class="headerlink" title="Background"></a>Background</h1><p>How to develop a visual-semantic reasoning skill for text recognition?</p>
 <h1 id="Method"><a href="#Method" class="headerlink" title="Method"></a>Method</h1><p>The framework contains a <font color="#32adff">visual feature extractor</font> extracts context-rich holistic feature and multi-scale feature maps, and a <font color="#32adff">multi-stage attentional decoder</font> builds up the character sequence estimates.</p>
+<a id="more"></a>
 <div align="center"> <img src="/2022/06/25/Joint-Visual-Semantic-Reasoning/pipeline.jpg" width="700"></div>
 
 <h2 id="Visual-Feature-Extractor"><a href="#Visual-Feature-Extractor" class="headerlink" title="Visual Feature Extractor"></a>Visual Feature Extractor</h2><p>Architecture: <strong>ResNet + FPN + 2-layer BiLSTM</strong></p>
