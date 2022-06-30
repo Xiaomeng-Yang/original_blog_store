@@ -971,23 +971,24 @@ where the probability of $\pi$ is defined as
 
 <p><strong>Drawbacks:</strong></p>
 <ul>
-<li>Limited semantic context (one-way serial)</li>
-<li>Pass the wrong semantic information down and cause a error accumulation</li>
-<li>Time-consuming and inefficient</li>
+<li><font color="#ffad4">Limited semantic context</font> (one-way serial)</li>
+<li>Pass the wrong semantic information down and cause a <font color="#ffad4">error accumulation</font></li>
+<li>Time-consuming and <font color="#ffad4">inefficient</font></li>
 </ul>
-<h2 id="DAN"><a href="#DAN" class="headerlink" title="DAN"></a>DAN</h2><h2 id="SEED-2020"><a href="#SEED-2020" class="headerlink" title="SEED (2020)"></a>SEED (2020)</h2><h2 id="SRN-2020"><a href="#SRN-2020" class="headerlink" title="SRN (2020)"></a>SRN (2020)</h2><p><a href="/2022/06/23/Towards-Accurate-Scene-Text-Recognition-with-Semantic-Reasoning-Networks/" title="SRN">SRN</a> proposes a structure named global semantic reasoning module (GSRM), which is <font color="#32adff">multi-way parallel transmission</font>. The semantic module works like a post-processor.</p>
+<h2 id="SEED-2020-CVPR"><a href="#SEED-2020-CVPR" class="headerlink" title="SEED (2020 CVPR)"></a>SEED (2020 CVPR)</h2><p><strong>Drawbacks:</strong><br>For example, two related words “Chair” and “Table” may lie close in word-embedding space, but their character combination is apart.</p>
+<h2 id="SRN-2020-CVPR"><a href="#SRN-2020-CVPR" class="headerlink" title="SRN (2020 CVPR)"></a>SRN (2020 CVPR)</h2><p><a href="/2022/06/23/Towards-Accurate-Scene-Text-Recognition-with-Semantic-Reasoning-Networks/" title="SRN">SRN</a> proposes a structure named global semantic reasoning module (GSRM), which is <font color="#32adff">multi-way parallel transmission</font>. The semantic module works like a post-processor.</p>
 <ul>
 <li>PVAM: Parallel attention mechanism with idx queries.</li>
 <li>GSRM: Four Transformer layers (multi-head self-attention, masked the corresponding character itself)</li>
 </ul>
 <div align="center"> <img src="/2022/06/23/Review-the-Scene-Text-Recognition-Models-with-Semantic-Information/SRN_pipeline.jpg" width="750"></div>
 
-<p><strong>Drawbacks:</strong><br>  The serial connection between the visual and semantic module may not be the perfect interaction:</p>
+<p><strong>Drawbacks:</strong><br>The serial connection between the visual and semantic module may not be the perfect interaction:</p>
 <ul>
 <li>Cannot use the pre-trained LM from large-scale unlabeled text directly.</li>
 <li>Errors from VM output directly harm the LM accuracy.</li>
 </ul>
-<h2 id="ABINet-2021"><a href="#ABINet-2021" class="headerlink" title="ABINet (2021)"></a>ABINet (2021)</h2><p><a href="/2022/06/23/ABINet-Model/" title="ABINet">ABINet</a> proposes an <font color="#32adff"> autonomous, bidirectional and Iterative</font> structure.</p>
+<h2 id="ABINet-2021-CVPR"><a href="#ABINet-2021-CVPR" class="headerlink" title="ABINet (2021 CVPR)"></a>ABINet (2021 CVPR)</h2><p><a href="/2022/06/23/ABINet-Model/" title="ABINet">ABINet</a> proposes an <font color="#32adff">autonomous, bidirectional and Iterative</font> structure.</p>
 <ul>
 <li>Autonomous: Block gradient flow between VM and LM, both VM and LM could be pretrained separately.</li>
 <li>Bidirectional: several Transformer decoder layers (no self-attention, query is the positional encodings of the characters in the first layer)</li>
@@ -995,10 +996,14 @@ where the probability of $\pi$ is defined as
 </ul>
 <div align="center"> <img src="/2022/06/23/Review-the-Scene-Text-Recognition-Models-with-Semantic-Information/ABINet_pipeline.jpg" width="700"></div>
 
-<h2 id="MATRN-2021"><a href="#MATRN-2021" class="headerlink" title="MATRN (2021)"></a>MATRN (2021)</h2><p><a href="/2022/06/24/MATRN-Model/" title="MATRN">MATRN</a> proposes an</p>
+<p><strong>Drawbacks:</strong><br>The LM character refinements does not <font color="#ffad4">interact with visual features</font>, like a post-processor. (The LM’s inputs are logits[N, T, C] and positional encodings.)</p>
+<h2 id="VisionLAN-2021-ICCV"><a href="#VisionLAN-2021-ICCV" class="headerlink" title="VisionLAN (2021 ICCV)"></a>VisionLAN (2021 ICCV)</h2><div align="center"> <img src="/2022/06/23/Review-the-Scene-Text-Recognition-Models-with-Semantic-Information/VisionLAN_pipeline.jpg" width="700"></div>
+
+<h2 id="MATRN"><a href="#MATRN" class="headerlink" title="MATRN"></a>MATRN</h2><p><a href="/2022/06/24/MATRN-Model/" title="MATRN">MATRN</a> summarizes the previous methods, and proposes an improvement model based on ABINet, which <font color="#32adff">emphasizes the interaction between visual and semantic features</font>.</p>
 <div align="center"> <img src="/2022/06/23/Review-the-Scene-Text-Recognition-Models-with-Semantic-Information/MATRN_pipeline.jpg" width="700"></div>
 
-<h2 id="VisionLAN-2021"><a href="#VisionLAN-2021" class="headerlink" title="VisionLAN (2021)"></a>VisionLAN (2021)</h2><div align="center"> <img src="/2022/06/23/Review-the-Scene-Text-Recognition-Models-with-Semantic-Information/VisionLAN_pipeline.jpg" width="700"></div>
+<p><strong>Drawbacks:</strong></p>
+<font color="ffad4"> Somewhat complex </font>
 ]]></content>
       <categories>
         <category>Scene Text Recognition</category>
@@ -1023,7 +1028,7 @@ where the probability of $\pi$ is defined as
 <ul>
 <li><font color="#32adff">Query: the reading order</font> $[0,1,…,N-1]$</li>
 <li>Key and Value: the input 2D features $(v_{ij}, v_{ij})$</li>
-<li>Attention Score: multi-layer perceptron (For more information, see <a href="/2022/04/23/Attention-Transformer/" title="the post about attention">the post about attention</a>.)</li>
+<li>Attention Score: multi-layer perceptron (For more information, see <a href="/2022/01/23/Attention-Transformer/" title="the post about attention">the post about attention</a>.)</li>
 </ul>
 <h2 id="GSRM"><a href="#GSRM" class="headerlink" title="GSRM"></a>GSRM</h2><div align="center"> <img src="/2022/06/23/Towards-Accurate-Scene-Text-Recognition-with-Semantic-Reasoning-Networks/GSRM.jpg" width="380"></div>
 
@@ -1041,6 +1046,7 @@ where the probability of $\pi$ is defined as
 <h2 id="Results"><a href="#Results" class="headerlink" title="Results"></a>Results</h2><div align="center"> <img src="/2022/06/23/Towards-Accurate-Scene-Text-Recognition-with-Semantic-Reasoning-Networks/results.jpg" width="800"></div>
 
 <h1 id="Conclusion"><a href="#Conclusion" class="headerlink" title="Conclusion"></a>Conclusion</h1><p>SRN decouples the semantic module from the decoding process and uses parallel attention (with idx query) to decode the visual features instead. It utilizes the tokens predicts by visual module to get the semantic information, and then fuse the two modal features.</p>
+<p>The serial architectural gets severely limited on using <font color="ffad4">argmax operation</font> in visual-to-semantic embedding layer, which invokes <font color="ffad4">non-differentiability</font>.</p>
 <p><strong>Questions to think about</strong>:</p>
 <ul>
 <li><font color="#32adff">What's the best way to interact semantic information with visual information?</font></li>
@@ -1065,36 +1071,36 @@ where the probability of $\pi$ is defined as
   </entry>
   <entry>
     <title>Attention &amp; Transformer</title>
-    <url>/2022/04/23/Attention-Transformer/</url>
+    <url>/2022/01/23/Attention-Transformer/</url>
     <content><![CDATA[<h1 id="Attention"><a href="#Attention" class="headerlink" title="Attention"></a>Attention</h1><p>Attention mechanism mimics the retrieval of a value $v_i$ for a query $q$ based on a key $k_i$ in database.</p>
 <a id="more"></a>
-<div align="center"> <img src="/2022/04/23/Attention-Transformer/1.png" width="650"></div>
+<div align="center"> <img src="/2022/01/23/Attention-Transformer/1.png" width="650"></div>
 
-<div align="center"> <img src="/2022/04/23/Attention-Transformer/2.png" width="500"></div>
+<div align="center"> <img src="/2022/01/23/Attention-Transformer/2.png" width="500"></div>
 
 <p><strong>Ways to compute the attention scores:</strong></p>
-<div align="center"> <img src="/2022/04/23/Attention-Transformer/3.png" width="650"></div>
+<div align="center"> <img src="/2022/01/23/Attention-Transformer/3.png" width="650"></div>
 
 <h2 id="Bahdanau-Attention"><a href="#Bahdanau-Attention" class="headerlink" title="Bahdanau Attention"></a>Bahdanau Attention</h2><p>Attention is used between decoder steps: state $h_{t-1}$ is used to compute attention and its output $c(t)$, and both $h_{t-1}$ and $c(t)$ are passed to the decoder at step $t$.</p>
 <ul>
 <li>ASTER use this attention</li>
 <li>SEED use the semantic embedding to initialize the c(0)</li>
 </ul>
-<div align="center"> <img src="/2022/04/23/Attention-Transformer/4.png" width="650"></div>
+<div align="center"> <img src="/2022/01/23/Attention-Transformer/4.png" width="650"></div>
 
 <h2 id="Luong-Attention"><a href="#Luong-Attention" class="headerlink" title="Luong Attention"></a>Luong Attention</h2><p>Attention is used after RNN decoder step $t$ before making a prediction. State $h_{t}$ used to compute attention and its output $c(t)$. The $h_t$ is combined with $c(t)$ to get an updated representation $\tilde{h}_t$, which is used to get a prediction.</p>
-<div align="center"> <img src="/2022/04/23/Attention-Transformer/5.png" width="650"></div>
+<div align="center"> <img src="/2022/01/23/Attention-Transformer/5.png" width="650"></div>
 
 <h2 id="Self-Attention"><a href="#Self-Attention" class="headerlink" title="Self-Attention"></a>Self-Attention</h2><p>Get the relations between x and each word, and then add the weighted summation into x.</p>
-<div align="center"> <img src="/2022/04/23/Attention-Transformer/6.png" width="650"></div>
+<div align="center"> <img src="/2022/01/23/Attention-Transformer/6.png" width="650"></div>
 
-<h1 id="Transformer"><a href="#Transformer" class="headerlink" title="Transformer"></a>Transformer</h1><div align="center"> <img src="/2022/04/23/Attention-Transformer/7.png" width="550"></div>
+<h1 id="Transformer"><a href="#Transformer" class="headerlink" title="Transformer"></a>Transformer</h1><div align="center"> <img src="/2022/01/23/Attention-Transformer/7.png" width="550"></div>
 
-<div align="center"> <img src="/2022/04/23/Attention-Transformer/8.png" width="650"></div>
+<div align="center"> <img src="/2022/01/23/Attention-Transformer/8.png" width="650"></div>
 
-<div align="center"> <img src="/2022/04/23/Attention-Transformer/9.png" width="650"></div>
+<div align="center"> <img src="/2022/01/23/Attention-Transformer/9.png" width="650"></div>
 
-<div align="center"> <img src="/2022/04/23/Attention-Transformer/10.png" width="650"></div>
+<div align="center"> <img src="/2022/01/23/Attention-Transformer/10.png" width="650"></div>
 
 <p>Resource:</p>
 <ul>
@@ -1211,7 +1217,56 @@ where the probability of $\pi$ is defined as
   <entry>
     <title>[Paper Review] Multi-modal Text Recognition Networks: Interactive Enhancements between Visual and Semantic Features</title>
     <url>/2022/06/24/MATRN-Model/</url>
-    <content><![CDATA[<p><div align="center"> <img src="/2022/06/24/MATRN-Model/MATRN_pipeline.jpg" width="750"></div><br><a id="more"></a></p>
+    <content><![CDATA[<div align="center"> <img src="/2022/06/24/MATRN-Model/MATRN_pipeline.jpg" width="750"></div>
+
+<a id="more"></a>
+<h1 id="Background"><a href="#Background" class="headerlink" title="Background"></a>Background</h1><p><strong>Question</strong>: What is the best way to model the interactions between visual and semantic features identified by VM and LM, respectively?</p>
+<div align="center"> <img src="/2022/06/24/MATRN-Model/compare.jpg" width="350"></div>
+
+<ul>
+<li>(a): <a href="/2022/06/23/Towards-Accurate-Scene-Text-Recognition-with-Semantic-Reasoning-Networks/" title="SRN">SRN</a>,  <a href="/2022/06/23/ABINet-Model/" title="ABINet">ABINet</a></li>
+<li>(b): <a href="/2022/06/25/Joint-Visual-Semantic-Reasoning/" title="Joint Visual Semantic Reasoning">Joint Visual Semantic Reasoning</a></li>
+<li>(c): <a href="/2022/06/24/From-two-to-one/" title="VisionLAN">VisionLAN</a></li>
+</ul>
+<h1 id="Method"><a href="#Method" class="headerlink" title="Method"></a>Method</h1><p>For <font color="#32adff">visual and semantic feature extraction</font>, MATRN employ <font color="ffad4">ABINet’s corresponding structures</font>. The LM is initialized with weights pre-trained on WikiText-103.</p>
+<p>It proposes new spatial encoding, multi-modal feature enhancement and visual clue masking module.</p>
+<h2 id="Spatial-Encoding-to-Semantic-Features"><a href="#Spatial-Encoding-to-Semantic-Features" class="headerlink" title="Spatial Encoding to Semantic Features"></a>Spatial Encoding to Semantic Features</h2><p><strong>Question</strong>: How to align each piece of information of different modalities?<br><strong>Solution</strong>: Utilize $A^{V-S}$ the <font color="ffad4">attention map for text generation</font> and $P^V$ <font color="ffad4">spatial position embedding</font>.</p>
+<ul>
+<li>$A^{V-S}$ provides which visual features are used to estimated a character at each position.</li>
+<li>$S^{Align} = S + A^{V-S}flatten(P^V)$</li>
+</ul>
+<h2 id="Multi-modal-Features-Enhancement"><a href="#Multi-modal-Features-Enhancement" class="headerlink" title="Multi-modal Features Enhancement"></a>Multi-modal Features Enhancement</h2><div align="center"> <img src="/2022/06/24/MATRN-Model/fe.jpg" width="400"></div>
+
+<font color="32adff">Multi-modal FE</font>: Both visual and semantic features are processed through <font color="ffad4">self-attentions</font>.
+
+## Visual Clue Masking Strategy
+
+<div align="center"> <img src="/2022/06/24/MATRN-Model/mask.jpg" width="400"></div>
+
+Randomly select a single character and hides corresponding visual features based on the attention map $A^{V-S}$:
++ find the <font color="32adff">top-K visual features</font> in the descending order of the attention scores at the chosen position
++ multi-modal FE becomes <font color="ffad4">stimulated to encode semantic knowledge into the visual features</font>
+
+<h2 id="Training-Objective"><a href="#Training-Objective" class="headerlink" title="Training Objective:"></a>Training Objective:</h2><script type="math/tex; mode=display">\mathcal{L} = \mathcal{L}_{E^v} + \frac{1}{M} \sum\limits_{i=1}\limits^M (\mathcal{L}_{S_{(i)}} + \mathcal{L}_{S^M_{(i)}} + \mathcal{L}_{E^{V^M}_{(i)}} + \mathcal{L}_{F_{(i)}}),</script><p>visual features; semantic, multi-modal semantic, multi-modal visual, final fused features at $i$th iteration</p>
+<h1 id="Experiments"><a href="#Experiments" class="headerlink" title="Experiments"></a>Experiments</h1><div align="center"> <img src="/2022/06/24/MATRN-Model/result.jpg" width="750"></div>
+
+<ul>
+<li>Semantic FE: add corresponding visual features into semantic features, <font color="32adff">better regular recognition</font></li>
+<li>Visual FE: add corresponding semantic features into visual features, <font color="32adff">better irregular recognition</font></li>
+</ul>
+<h1 id="Conclusion"><a href="#Conclusion" class="headerlink" title="Conclusion"></a>Conclusion</h1><p>Compare with the ABINet:</p>
+<ul>
+<li>Add multi-modal feature enhancement, let visual features interact with semantic features</li>
+<li>Visual clue masking</li>
+</ul>
+<p><strong>Questions to think about:</strong></p>
+<ul>
+<li>More concise structure?</li>
+</ul>
+<h1 id="Reference"><a href="#Reference" class="headerlink" title="Reference:"></a>Reference:</h1><ul>
+<li>Paper: <a href="https://arxiv.org/pdf/2111.15263.pdf">Multi-modal Text Recognition Networks: Interactive Enhancements between Visual and Semantic Features</a></li>
+<li>Code: <a href="https://github.com/wp03052/MATRN">https://github.com/wp03052/MATRN</a></li>
+</ul>
 ]]></content>
       <categories>
         <category>Paper Review</category>
@@ -1225,6 +1280,15 @@ where the probability of $\pi$ is defined as
     <title>[Paper Review] From Two to One: A New Scene Text Recognizer with Visual Language Modeling Network</title>
     <url>/2022/06/24/From-two-to-one/</url>
     <content><![CDATA[<p><div align="center"> <img src="/2022/06/24/From-two-to-one/VisionLAN_pipeline.jpg" width="750"></div><br><a id="more"></a></p>
+<h1 id="Background"><a href="#Background" class="headerlink" title="Background"></a>Background</h1><h1 id="Method"><a href="#Method" class="headerlink" title="Method"></a>Method</h1><p>Backbone (ResNet45) extracts the</p>
+<h2 id="Masked-Language-aware-Module"><a href="#Masked-Language-aware-Module" class="headerlink" title="Masked Language-aware Module"></a>Masked Language-aware Module</h2><p>Aim: generate the character-wise mask map with only original word-level annotations.</p>
+<ul>
+<li>Input: visual features $V$, character index $P\in[1,N_w]$<br>-</li>
+</ul>
+<h1 id="Reference"><a href="#Reference" class="headerlink" title="Reference:"></a>Reference:</h1><ul>
+<li>Paper: <a href="https://openaccess.thecvf.com/content/ICCV2021/papers/Wang_From_Two_to_One_A_New_Scene_Text_Recognizer_With_ICCV_2021_paper.pdf">From Two to One: A New Scene Text Recognizer with Visual Language Modeling Network</a></li>
+<li>Code: <a href="https://github.com/wangyuxin87/VisionLAN">https://github.com/wangyuxin87/VisionLAN</a></li>
+</ul>
 ]]></content>
       <categories>
         <category>Paper Review</category>
@@ -1232,6 +1296,48 @@ where the probability of $\pi$ is defined as
       <tags>
         <tag>STR</tag>
         <tag>Semi-Supervised</tag>
+        <tag>Mask</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>[Paper Review] Joint Visual Semantic Reasoning: Multi-Stage Decoder for Text Recognition</title>
+    <url>/2022/06/25/Joint-Visual-Semantic-Reasoning/</url>
+    <content><![CDATA[<a id="more"></a>
+<h1 id="Background"><a href="#Background" class="headerlink" title="Background"></a>Background</h1><p>How to develop a visual-semantic reasoning skill for text recognition?</p>
+<h1 id="Method"><a href="#Method" class="headerlink" title="Method"></a>Method</h1><p>The framework contains a <font color="#32adff">visual feature extractor</font> extracts context-rich holistic feature and multi-scale feature maps, and a <font color="#32adff">multi-stage attentional decoder</font> builds up the character sequence estimates.</p>
+<div align="center"> <img src="/2022/06/25/Joint-Visual-Semantic-Reasoning/pipeline.jpg" width="700"></div>
+
+<h2 id="Visual-Feature-Extractor"><a href="#Visual-Feature-Extractor" class="headerlink" title="Visual Feature Extractor"></a>Visual Feature Extractor</h2><p>Architecture: <strong>ResNet + FPN + 2-layer BiLSTM</strong></p>
+<p>The 2-layer BiLSTM takes in a sequence feature $(W_L \times D)$: column-wise max-pooling $B_L$</p>
+<ul>
+<li>multi-scale feature-maps $\{B_L, B_{L-1}, B_{L-2}\}$: context for 2D attention</li>
+<li>holistic feature $h_L$: initialize the initial state of first stage decoder</li>
+</ul>
+<h2 id="Joint-Visual-Semantic-Reasoning-Decoder"><a href="#Joint-Visual-Semantic-Reasoning-Decoder" class="headerlink" title="Joint Visual-Semantic Reasoning Decoder"></a>Joint Visual-Semantic Reasoning Decoder</h2><p>The first layer decoder relies only on the extracted visual feature. Subsequent stages use global semantic information.</p>
+<h1 id="Experiments"><a href="#Experiments" class="headerlink" title="Experiments"></a>Experiments</h1><h1 id="Conclusion"><a href="#Conclusion" class="headerlink" title="Conclusion"></a>Conclusion</h1>]]></content>
+      <categories>
+        <category>Paper Review</category>
+      </categories>
+      <tags>
+        <tag>STR</tag>
+        <tag>Semantic Module</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>[Paper Review] SEED: Semantics Enhanced Encoder-Decoder Framework for Scene Text Recognition</title>
+    <url>/2022/03/25/SEED-Model/</url>
+    <content><![CDATA[<p><div align="center"> <img src="/2022/03/25/SEED-Model/pipeline.jpg" width="750"></div><br><a id="more"></a></p>
+<h1 id="Background"><a href="#Background" class="headerlink" title="Background"></a>Background</h1><h1 id="Method"><a href="#Method" class="headerlink" title="Method"></a>Method</h1><h1 id="Experiments"><a href="#Experiments" class="headerlink" title="Experiments"></a>Experiments</h1><h1 id="Conclusion"><a href="#Conclusion" class="headerlink" title="Conclusion"></a>Conclusion</h1><h1 id="Reference"><a href="#Reference" class="headerlink" title="Reference:"></a>Reference:</h1><ul>
+<li>Paper: <a href="https://openaccess.thecvf.com/content_CVPR_2020/papers/Qiao_SEED_Semantics_Enhanced_Encoder-Decoder_Framework_for_Scene_Text_Recognition_CVPR_2020_paper.pdf">SEED: Semantics Enhanced Encoder-Decoder Framework for Scene Text Recognition</a></li>
+<li>Code: <a href="https://github.com/Pay20Y/SEED">https://github.com/Pay20Y/SEED</a></li>
+</ul>
+]]></content>
+      <categories>
+        <category>Paper Review</category>
+      </categories>
+      <tags>
+        <tag>STR</tag>
+        <tag>Semantic Module</tag>
       </tags>
   </entry>
 </search>

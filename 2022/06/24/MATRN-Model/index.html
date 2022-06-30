@@ -19,7 +19,7 @@
 
 <script class="hexo-configurations">
     var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"rachel-yang.github.io","root":"/","scheme":"Gemini","version":"8.0.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"b2t":false,"scrollpercent":true},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"search.xml","localsearch":{"enable":true,"trigger":"manual","top_n_per_article":1,"unescape":false,"preload":false}};
+    var CONFIG = {"hostname":"rachel-yang.github.io","root":"/","scheme":"Gemini","version":"8.0.0","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12,"b2t":false,"scrollpercent":true},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"search.xml","localsearch":{"enable":true,"trigger":"manual","top_n_per_article":1,"unescape":false,"preload":false}};
   </script>
 
   <meta property="og:type" content="article">
@@ -28,8 +28,12 @@
 <meta property="og:site_name" content="Xun&#39;s Gallery">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://rachel-yang.github.io/2022/06/24/MATRN-Model/MATRN_pipeline.jpg">
+<meta property="og:image" content="https://rachel-yang.github.io/2022/06/24/MATRN-Model/compare.jpg">
+<meta property="og:image" content="https://rachel-yang.github.io/2022/06/24/MATRN-Model/fe.jpg">
+<meta property="og:image" content="https://rachel-yang.github.io/2022/06/24/MATRN-Model/mask.jpg">
+<meta property="og:image" content="https://rachel-yang.github.io/2022/06/24/MATRN-Model/result.jpg">
 <meta property="article:published_time" content="2022-06-23T19:54:37.000Z">
-<meta property="article:modified_time" content="2022-06-23T20:09:14.358Z">
+<meta property="article:modified_time" content="2022-06-29T14:52:43.469Z">
 <meta property="article:author" content="珣XUN">
 <meta property="article:tag" content="STR">
 <meta property="article:tag" content="Semantic Module">
@@ -153,6 +157,11 @@
     <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a>
 
   </li>
+        <li class="menu-item menu-item-photos">
+
+    <a href="/photos" rel="section"><i class="fa fa-camera-retro fa-fw"></i>Gallery</a>
+
+  </li>
       <li class="menu-item menu-item-search">
         <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
         </a>
@@ -197,7 +206,7 @@
 
   <aside class="sidebar">
 
-    <div class="sidebar-inner sidebar-overview-active">
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
       <ul class="sidebar-nav">
         <li class="sidebar-nav-toc">
           Table of Contents
@@ -209,6 +218,7 @@
 
       <!--noindex-->
       <section class="post-toc-wrap sidebar-panel">
+          <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Background"><span class="nav-number">1.</span> <span class="nav-text">Background</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Method"><span class="nav-number">2.</span> <span class="nav-text">Method</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Spatial-Encoding-to-Semantic-Features"><span class="nav-number">2.1.</span> <span class="nav-text">Spatial Encoding to Semantic Features</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Multi-modal-Features-Enhancement"><span class="nav-number">2.2.</span> <span class="nav-text">Multi-modal Features Enhancement</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Training-Objective"><span class="nav-number">2.3.</span> <span class="nav-text">Training Objective:</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Experiments"><span class="nav-number">3.</span> <span class="nav-text">Experiments</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Conclusion"><span class="nav-number">4.</span> <span class="nav-text">Conclusion</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Reference"><span class="nav-number">5.</span> <span class="nav-text">Reference:</span></a></li></ol></div>
       </section>
       <!--/noindex-->
 
@@ -224,7 +234,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">28</span>
+          <span class="site-state-item-count">30</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -237,7 +247,7 @@
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">26</span>
+        <span class="site-state-item-count">27</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>
@@ -307,10 +317,16 @@
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">Posted on</span>
-      
 
-      <time title="Created: 2022-06-24 03:54:37 / Modified: 04:09:14" itemprop="dateCreated datePublished" datetime="2022-06-24T03:54:37+08:00">2022-06-24</time>
+      <time title="Created: 2022-06-24 03:54:37" itemprop="dateCreated datePublished" datetime="2022-06-24T03:54:37+08:00">2022-06-24</time>
     </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">Edited on</span>
+        <time title="Modified: 2022-06-29 22:52:43" itemprop="dateModified" datetime="2022-06-29T22:52:43+08:00">2022-06-29</time>
+      </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
         <i class="far fa-folder"></i>
@@ -329,7 +345,7 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">Symbols count in article: </span>
-      <span>0</span>
+      <span>1.9k</span>
     </span>
     <span class="post-meta-item" title="Reading time">
       <span class="post-meta-item-icon">
@@ -347,7 +363,56 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        <p><div align="center"> <img src="/2022/06/24/MATRN-Model/MATRN_pipeline.jpg" width="750"></div><br><a id="more"></a></p>
+        <div align="center"> <img src="/2022/06/24/MATRN-Model/MATRN_pipeline.jpg" width="750"></div>
+
+<a id="more"></a>
+<h1 id="Background"><a href="#Background" class="headerlink" title="Background"></a>Background</h1><p><strong>Question</strong>: What is the best way to model the interactions between visual and semantic features identified by VM and LM, respectively?</p>
+<div align="center"> <img src="/2022/06/24/MATRN-Model/compare.jpg" width="350"></div>
+
+<ul>
+<li>(a): <a href="/2022/06/23/Towards-Accurate-Scene-Text-Recognition-with-Semantic-Reasoning-Networks/" title="SRN">SRN</a>,  <a href="/2022/06/23/ABINet-Model/" title="ABINet">ABINet</a></li>
+<li>(b): <a href="/2022/06/25/Joint-Visual-Semantic-Reasoning/" title="Joint Visual Semantic Reasoning">Joint Visual Semantic Reasoning</a></li>
+<li>(c): <a href="/2022/06/24/From-two-to-one/" title="VisionLAN">VisionLAN</a></li>
+</ul>
+<h1 id="Method"><a href="#Method" class="headerlink" title="Method"></a>Method</h1><p>For <font color="#32adff">visual and semantic feature extraction</font>, MATRN employ <font color="ffad4">ABINet’s corresponding structures</font>. The LM is initialized with weights pre-trained on WikiText-103.</p>
+<p>It proposes new spatial encoding, multi-modal feature enhancement and visual clue masking module.</p>
+<h2 id="Spatial-Encoding-to-Semantic-Features"><a href="#Spatial-Encoding-to-Semantic-Features" class="headerlink" title="Spatial Encoding to Semantic Features"></a>Spatial Encoding to Semantic Features</h2><p><strong>Question</strong>: How to align each piece of information of different modalities?<br><strong>Solution</strong>: Utilize $A^{V-S}$ the <font color="ffad4">attention map for text generation</font> and $P^V$ <font color="ffad4">spatial position embedding</font>.</p>
+<ul>
+<li>$A^{V-S}$ provides which visual features are used to estimated a character at each position.</li>
+<li>$S^{Align} = S + A^{V-S}flatten(P^V)$</li>
+</ul>
+<h2 id="Multi-modal-Features-Enhancement"><a href="#Multi-modal-Features-Enhancement" class="headerlink" title="Multi-modal Features Enhancement"></a>Multi-modal Features Enhancement</h2><div align="center"> <img src="/2022/06/24/MATRN-Model/fe.jpg" width="400"></div>
+
+<font color="32adff">Multi-modal FE</font>: Both visual and semantic features are processed through <font color="ffad4">self-attentions</font>.
+
+## Visual Clue Masking Strategy
+
+<div align="center"> <img src="/2022/06/24/MATRN-Model/mask.jpg" width="400"></div>
+
+Randomly select a single character and hides corresponding visual features based on the attention map $A^{V-S}$:
++ find the <font color="32adff">top-K visual features</font> in the descending order of the attention scores at the chosen position
++ multi-modal FE becomes <font color="ffad4">stimulated to encode semantic knowledge into the visual features</font>
+
+<h2 id="Training-Objective"><a href="#Training-Objective" class="headerlink" title="Training Objective:"></a>Training Objective:</h2><script type="math/tex; mode=display">\mathcal{L} = \mathcal{L}_{E^v} + \frac{1}{M} \sum\limits_{i=1}\limits^M (\mathcal{L}_{S_{(i)}} + \mathcal{L}_{S^M_{(i)}} + \mathcal{L}_{E^{V^M}_{(i)}} + \mathcal{L}_{F_{(i)}}),</script><p>visual features; semantic, multi-modal semantic, multi-modal visual, final fused features at $i$th iteration</p>
+<h1 id="Experiments"><a href="#Experiments" class="headerlink" title="Experiments"></a>Experiments</h1><div align="center"> <img src="/2022/06/24/MATRN-Model/result.jpg" width="750"></div>
+
+<ul>
+<li>Semantic FE: add corresponding visual features into semantic features, <font color="32adff">better regular recognition</font></li>
+<li>Visual FE: add corresponding semantic features into visual features, <font color="32adff">better irregular recognition</font></li>
+</ul>
+<h1 id="Conclusion"><a href="#Conclusion" class="headerlink" title="Conclusion"></a>Conclusion</h1><p>Compare with the ABINet:</p>
+<ul>
+<li>Add multi-modal feature enhancement, let visual features interact with semantic features</li>
+<li>Visual clue masking</li>
+</ul>
+<p><strong>Questions to think about:</strong></p>
+<ul>
+<li>More concise structure?</li>
+</ul>
+<h1 id="Reference"><a href="#Reference" class="headerlink" title="Reference:"></a>Reference:</h1><ul>
+<li>Paper: <a target="_blank" rel="noopener" href="https://arxiv.org/pdf/2111.15263.pdf">Multi-modal Text Recognition Networks: Interactive Enhancements between Visual and Semantic Features</a></li>
+<li>Code: <a target="_blank" rel="noopener" href="https://github.com/wp03052/MATRN">https://github.com/wp03052/MATRN</a></li>
+</ul>
 
     </div>
 
@@ -430,13 +495,13 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-line"></i>
     </span>
-    <span title="Symbols count total">36k</span>
+    <span title="Symbols count total">40k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="Reading time total">26 mins.</span>
+    <span title="Reading time total">29 mins.</span>
   </span>
 </div>
 

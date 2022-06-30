@@ -6,7 +6,7 @@
   <link href="https://rachel-yang.github.io/atom.xml" rel="self"/>
   
   <link href="https://rachel-yang.github.io/"/>
-  <updated>2022-06-23T19:55:45.751Z</updated>
+  <updated>2022-06-27T08:14:59.311Z</updated>
   <id>https://rachel-yang.github.io/</id>
   
   <author>
@@ -15,6 +15,34 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>[Paper Review] Joint Visual Semantic Reasoning: Multi-Stage Decoder for Text Recognition</title>
+    <link href="https://rachel-yang.github.io/2022/06/25/Joint-Visual-Semantic-Reasoning/"/>
+    <id>https://rachel-yang.github.io/2022/06/25/Joint-Visual-Semantic-Reasoning/</id>
+    <published>2022-06-25T07:21:27.000Z</published>
+    <updated>2022-06-27T08:14:59.311Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
+&lt;h1 id=&quot;Background&quot;&gt;&lt;a href=&quot;#Background&quot; class=&quot;headerlink&quot; title=&quot;Background&quot;&gt;&lt;/a&gt;Background&lt;/h1&gt;&lt;p&gt;How to develop a</summary>
+        
+      
+    
+    
+    
+    <category term="Paper Review" scheme="https://rachel-yang.github.io/categories/Paper-Review/"/>
+    
+    
+    <category term="STR" scheme="https://rachel-yang.github.io/tags/STR/"/>
+    
+    <category term="Semantic Module" scheme="https://rachel-yang.github.io/tags/Semantic-Module/"/>
+    
+  </entry>
   
   <entry>
     <title>DAN Model</title>
@@ -34,7 +62,7 @@
     <link href="https://rachel-yang.github.io/2022/06/24/From-two-to-one/"/>
     <id>https://rachel-yang.github.io/2022/06/24/From-two-to-one/</id>
     <published>2022-06-23T19:54:49.000Z</published>
-    <updated>2022-06-23T20:08:07.627Z</updated>
+    <updated>2022-06-30T07:00:01.804Z</updated>
     
     
     <summary type="html">&lt;p&gt;&lt;div align=&quot;center&quot;&gt; &lt;img src=&quot;/2022/06/24/From-two-to-one/VisionLAN_pipeline.jpg&quot; width=&quot;750&quot;&gt;&lt;/div&gt;&lt;br&gt;&lt;/p&gt;</summary>
@@ -48,6 +76,8 @@
     
     <category term="Semi-Supervised" scheme="https://rachel-yang.github.io/tags/Semi-Supervised/"/>
     
+    <category term="Mask" scheme="https://rachel-yang.github.io/tags/Mask/"/>
+    
   </entry>
   
   <entry>
@@ -55,10 +85,10 @@
     <link href="https://rachel-yang.github.io/2022/06/24/MATRN-Model/"/>
     <id>https://rachel-yang.github.io/2022/06/24/MATRN-Model/</id>
     <published>2022-06-23T19:54:37.000Z</published>
-    <updated>2022-06-23T20:09:14.358Z</updated>
+    <updated>2022-06-29T14:52:43.469Z</updated>
     
     
-    <summary type="html">&lt;p&gt;&lt;div align=&quot;center&quot;&gt; &lt;img src=&quot;/2022/06/24/MATRN-Model/MATRN_pipeline.jpg&quot; width=&quot;750&quot;&gt;&lt;/div&gt;&lt;br&gt;&lt;/p&gt;</summary>
+    <summary type="html">&lt;div align=&quot;center&quot;&gt; &lt;img src=&quot;/2022/06/24/MATRN-Model/MATRN_pipeline.jpg&quot; width=&quot;750&quot;&gt;&lt;/div&gt;</summary>
     
     
     
@@ -101,7 +131,7 @@
     <link href="https://rachel-yang.github.io/2022/06/23/Towards-Accurate-Scene-Text-Recognition-with-Semantic-Reasoning-Networks/"/>
     <id>https://rachel-yang.github.io/2022/06/23/Towards-Accurate-Scene-Text-Recognition-with-Semantic-Reasoning-Networks/</id>
     <published>2022-06-23T08:53:46.000Z</published>
-    <updated>2022-06-23T16:40:01.390Z</updated>
+    <updated>2022-06-27T07:48:32.861Z</updated>
     
     
     <summary type="html">&lt;div align=&quot;center&quot;&gt; &lt;img src=&quot;/2022/06/23/Towards-Accurate-Scene-Text-Recognition-with-Semantic-Reasoning-Networks/SRN_pipeline.jpg&quot; width=&quot;750&quot;&gt;&lt;/div&gt;</summary>
@@ -124,7 +154,7 @@
     <link href="https://rachel-yang.github.io/2022/06/23/Review-the-Scene-Text-Recognition-Models-with-Semantic-Information/"/>
     <id>https://rachel-yang.github.io/2022/06/23/Review-the-Scene-Text-Recognition-Models-with-Semantic-Information/</id>
     <published>2022-06-23T05:18:59.000Z</published>
-    <updated>2022-06-23T20:08:57.415Z</updated>
+    <updated>2022-06-30T05:32:19.939Z</updated>
     
     
     <summary type="html">&lt;p&gt;This article reviews the ways that scene text recognition models utilize the semantic information to boost their performance, from the &lt;font color=&quot;#32adff&quot;&gt;Bahdanau Attention Decoder&lt;/font&gt; to various &lt;font color=&quot;#32adff&quot;&gt;Semantic Modules&lt;/font&gt;.&lt;br&gt;&lt;/p&gt;</summary>
@@ -141,11 +171,32 @@
   </entry>
   
   <entry>
+    <title>[Paper Review] SEED: Semantics Enhanced Encoder-Decoder Framework for Scene Text Recognition</title>
+    <link href="https://rachel-yang.github.io/2022/03/25/SEED-Model/"/>
+    <id>https://rachel-yang.github.io/2022/03/25/SEED-Model/</id>
+    <published>2022-03-25T06:52:20.000Z</published>
+    <updated>2022-06-25T06:57:39.968Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;&lt;div align=&quot;center&quot;&gt; &lt;img src=&quot;/2022/03/25/SEED-Model/pipeline.jpg&quot; width=&quot;750&quot;&gt;&lt;/div&gt;&lt;br&gt;&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="Paper Review" scheme="https://rachel-yang.github.io/categories/Paper-Review/"/>
+    
+    
+    <category term="STR" scheme="https://rachel-yang.github.io/tags/STR/"/>
+    
+    <category term="Semantic Module" scheme="https://rachel-yang.github.io/tags/Semantic-Module/"/>
+    
+  </entry>
+  
+  <entry>
     <title>Attention &amp; Transformer</title>
-    <link href="https://rachel-yang.github.io/2022/04/23/Attention-Transformer/"/>
-    <id>https://rachel-yang.github.io/2022/04/23/Attention-Transformer/</id>
-    <published>2022-04-23T09:36:46.000Z</published>
-    <updated>2022-06-23T19:49:30.405Z</updated>
+    <link href="https://rachel-yang.github.io/2022/01/23/Attention-Transformer/"/>
+    <id>https://rachel-yang.github.io/2022/01/23/Attention-Transformer/</id>
+    <published>2022-01-23T09:36:46.000Z</published>
+    <updated>2022-06-25T06:56:05.016Z</updated>
     
     
     <summary type="html">&lt;h1 id=&quot;Attention&quot;&gt;&lt;a href=&quot;#Attention&quot; class=&quot;headerlink&quot; title=&quot;Attention&quot;&gt;&lt;/a&gt;Attention&lt;/h1&gt;&lt;p&gt;Attention mechanism mimics the retrieval of a value $v_i$ for a query $q$ based on a key $k_i$ in database.&lt;/p&gt;</summary>
@@ -385,59 +436,6 @@
     
     
     <category term="STR" scheme="https://rachel-yang.github.io/tags/STR/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Server</title>
-    <link href="https://rachel-yang.github.io/2021/05/09/Server/"/>
-    <id>https://rachel-yang.github.io/2021/05/09/Server/</id>
-    <published>2021-05-09T07:03:47.000Z</published>
-    <updated>2021-05-09T07:36:27.041Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;p&gt;This talks about how to build your own remote server.&lt;/p&gt;
-&lt;h2 id=&quot;Anaconda&quot;&gt;&lt;a href=&quot;#Anaconda&quot; class=&quot;headerlink&quot;</summary>
-        
-      
-    
-    
-    
-    <category term="Remote Server" scheme="https://rachel-yang.github.io/categories/Remote-Server/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>FGSM Attack</title>
-    <link href="https://rachel-yang.github.io/2021/03/08/FGSM-Attack/"/>
-    <id>https://rachel-yang.github.io/2021/03/08/FGSM-Attack/</id>
-    <published>2021-03-08T11:23:05.000Z</published>
-    <updated>2021-07-16T03:23:41.809Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;p&gt;Resource: &lt;a href=&quot;https://arxiv.org/abs/1412.6572&quot;&gt;Explaining and Harnessing Adversarial</summary>
-        
-      
-    
-    
-    
-    <category term="Adversarial Attack" scheme="https://rachel-yang.github.io/categories/Adversarial-Attack/"/>
-    
-    
-    <category term="Adversarial Training" scheme="https://rachel-yang.github.io/tags/Adversarial-Training/"/>
-    
-    <category term="Attack" scheme="https://rachel-yang.github.io/tags/Attack/"/>
-    
-    <category term="hide" scheme="https://rachel-yang.github.io/tags/hide/"/>
     
   </entry>
   

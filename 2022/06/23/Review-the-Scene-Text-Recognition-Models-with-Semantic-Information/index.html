@@ -19,7 +19,7 @@
 
 <script class="hexo-configurations">
     var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"rachel-yang.github.io","root":"/","scheme":"Gemini","version":"8.0.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"b2t":false,"scrollpercent":true},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"search.xml","localsearch":{"enable":true,"trigger":"manual","top_n_per_article":1,"unescape":false,"preload":false}};
+    var CONFIG = {"hostname":"rachel-yang.github.io","root":"/","scheme":"Gemini","version":"8.0.0","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12,"b2t":false,"scrollpercent":true},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"search.xml","localsearch":{"enable":true,"trigger":"manual","top_n_per_article":1,"unescape":false,"preload":false}};
   </script>
 
   <meta name="description" content="This article reviews the ways that scene text recognition models utilize the semantic information to boost their performance, from the Bahdanau Attention Decoder to various Semantic Modules.">
@@ -32,10 +32,10 @@
 <meta property="og:image" content="https://rachel-yang.github.io/2022/06/23/Review-the-Scene-Text-Recognition-Models-with-Semantic-Information/RARE_architecture.jpg">
 <meta property="og:image" content="https://rachel-yang.github.io/2022/06/23/Review-the-Scene-Text-Recognition-Models-with-Semantic-Information/SRN_pipeline.jpg">
 <meta property="og:image" content="https://rachel-yang.github.io/2022/06/23/Review-the-Scene-Text-Recognition-Models-with-Semantic-Information/ABINet_pipeline.jpg">
-<meta property="og:image" content="https://rachel-yang.github.io/2022/06/23/Review-the-Scene-Text-Recognition-Models-with-Semantic-Information/MATRN_pipeline.jpg">
 <meta property="og:image" content="https://rachel-yang.github.io/2022/06/23/Review-the-Scene-Text-Recognition-Models-with-Semantic-Information/VisionLAN_pipeline.jpg">
+<meta property="og:image" content="https://rachel-yang.github.io/2022/06/23/Review-the-Scene-Text-Recognition-Models-with-Semantic-Information/MATRN_pipeline.jpg">
 <meta property="article:published_time" content="2022-06-23T05:18:59.000Z">
-<meta property="article:modified_time" content="2022-06-23T20:08:57.415Z">
+<meta property="article:modified_time" content="2022-06-30T05:32:19.939Z">
 <meta property="article:author" content="珣XUN">
 <meta property="article:tag" content="STR">
 <meta property="article:tag" content="Review">
@@ -159,6 +159,11 @@
     <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a>
 
   </li>
+        <li class="menu-item menu-item-photos">
+
+    <a href="/photos" rel="section"><i class="fa fa-camera-retro fa-fw"></i>Gallery</a>
+
+  </li>
       <li class="menu-item menu-item-search">
         <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
         </a>
@@ -215,7 +220,7 @@
 
       <!--noindex-->
       <section class="post-toc-wrap sidebar-panel">
-          <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Bahdanau-Attention"><span class="nav-number">1.</span> <span class="nav-text">Bahdanau Attention</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#DAN"><span class="nav-number">2.</span> <span class="nav-text">DAN</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#SEED-2020"><span class="nav-number">3.</span> <span class="nav-text">SEED (2020)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#SRN-2020"><span class="nav-number">4.</span> <span class="nav-text">SRN (2020)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ABINet-2021"><span class="nav-number">5.</span> <span class="nav-text">ABINet (2021)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#MATRN-2021"><span class="nav-number">6.</span> <span class="nav-text">MATRN (2021)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#VisionLAN-2021"><span class="nav-number">7.</span> <span class="nav-text">VisionLAN (2021)</span></a></li></ol></div>
+          <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Bahdanau-Attention"><span class="nav-number">1.</span> <span class="nav-text">Bahdanau Attention</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#SEED-2020-CVPR"><span class="nav-number">2.</span> <span class="nav-text">SEED (2020 CVPR)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#SRN-2020-CVPR"><span class="nav-number">3.</span> <span class="nav-text">SRN (2020 CVPR)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ABINet-2021-CVPR"><span class="nav-number">4.</span> <span class="nav-text">ABINet (2021 CVPR)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#VisionLAN-2021-ICCV"><span class="nav-number">5.</span> <span class="nav-text">VisionLAN (2021 ICCV)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#MATRN"><span class="nav-number">6.</span> <span class="nav-text">MATRN</span></a></li></ol></div>
       </section>
       <!--/noindex-->
 
@@ -231,7 +236,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">28</span>
+          <span class="site-state-item-count">30</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -244,7 +249,7 @@
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">26</span>
+        <span class="site-state-item-count">27</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>
@@ -322,7 +327,7 @@
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">Edited on</span>
-        <time title="Modified: 2022-06-24 04:08:57" itemprop="dateModified" datetime="2022-06-24T04:08:57+08:00">2022-06-24</time>
+        <time title="Modified: 2022-06-30 13:32:19" itemprop="dateModified" datetime="2022-06-30T13:32:19+08:00">2022-06-30</time>
       </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -342,14 +347,14 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">Symbols count in article: </span>
-      <span>1.7k</span>
+      <span>2.1k</span>
     </span>
     <span class="post-meta-item" title="Reading time">
       <span class="post-meta-item-icon">
         <i class="far fa-clock"></i>
       </span>
       <span class="post-meta-item-text">Reading time &asymp;</span>
-      <span>1 mins.</span>
+      <span>2 mins.</span>
     </span>
 </div>
 
@@ -367,23 +372,24 @@
 
 <p><strong>Drawbacks:</strong></p>
 <ul>
-<li>Limited semantic context (one-way serial)</li>
-<li>Pass the wrong semantic information down and cause a error accumulation</li>
-<li>Time-consuming and inefficient</li>
+<li><font color="#ffad4">Limited semantic context</font> (one-way serial)</li>
+<li>Pass the wrong semantic information down and cause a <font color="#ffad4">error accumulation</font></li>
+<li>Time-consuming and <font color="#ffad4">inefficient</font></li>
 </ul>
-<h2 id="DAN"><a href="#DAN" class="headerlink" title="DAN"></a>DAN</h2><h2 id="SEED-2020"><a href="#SEED-2020" class="headerlink" title="SEED (2020)"></a>SEED (2020)</h2><h2 id="SRN-2020"><a href="#SRN-2020" class="headerlink" title="SRN (2020)"></a>SRN (2020)</h2><p><a href="/2022/06/23/Towards-Accurate-Scene-Text-Recognition-with-Semantic-Reasoning-Networks/" title="SRN">SRN</a> proposes a structure named global semantic reasoning module (GSRM), which is <font color="#32adff">multi-way parallel transmission</font>. The semantic module works like a post-processor.</p>
+<h2 id="SEED-2020-CVPR"><a href="#SEED-2020-CVPR" class="headerlink" title="SEED (2020 CVPR)"></a>SEED (2020 CVPR)</h2><p><strong>Drawbacks:</strong><br>For example, two related words “Chair” and “Table” may lie close in word-embedding space, but their character combination is apart.</p>
+<h2 id="SRN-2020-CVPR"><a href="#SRN-2020-CVPR" class="headerlink" title="SRN (2020 CVPR)"></a>SRN (2020 CVPR)</h2><p><a href="/2022/06/23/Towards-Accurate-Scene-Text-Recognition-with-Semantic-Reasoning-Networks/" title="SRN">SRN</a> proposes a structure named global semantic reasoning module (GSRM), which is <font color="#32adff">multi-way parallel transmission</font>. The semantic module works like a post-processor.</p>
 <ul>
 <li>PVAM: Parallel attention mechanism with idx queries.</li>
 <li>GSRM: Four Transformer layers (multi-head self-attention, masked the corresponding character itself)</li>
 </ul>
 <div align="center"> <img src="/2022/06/23/Review-the-Scene-Text-Recognition-Models-with-Semantic-Information/SRN_pipeline.jpg" width="750"></div>
 
-<p><strong>Drawbacks:</strong><br>  The serial connection between the visual and semantic module may not be the perfect interaction:</p>
+<p><strong>Drawbacks:</strong><br>The serial connection between the visual and semantic module may not be the perfect interaction:</p>
 <ul>
 <li>Cannot use the pre-trained LM from large-scale unlabeled text directly.</li>
 <li>Errors from VM output directly harm the LM accuracy.</li>
 </ul>
-<h2 id="ABINet-2021"><a href="#ABINet-2021" class="headerlink" title="ABINet (2021)"></a>ABINet (2021)</h2><p><a href="/2022/06/23/ABINet-Model/" title="ABINet">ABINet</a> proposes an <font color="#32adff"> autonomous, bidirectional and Iterative</font> structure.</p>
+<h2 id="ABINet-2021-CVPR"><a href="#ABINet-2021-CVPR" class="headerlink" title="ABINet (2021 CVPR)"></a>ABINet (2021 CVPR)</h2><p><a href="/2022/06/23/ABINet-Model/" title="ABINet">ABINet</a> proposes an <font color="#32adff">autonomous, bidirectional and Iterative</font> structure.</p>
 <ul>
 <li>Autonomous: Block gradient flow between VM and LM, both VM and LM could be pretrained separately.</li>
 <li>Bidirectional: several Transformer decoder layers (no self-attention, query is the positional encodings of the characters in the first layer)</li>
@@ -391,10 +397,14 @@
 </ul>
 <div align="center"> <img src="/2022/06/23/Review-the-Scene-Text-Recognition-Models-with-Semantic-Information/ABINet_pipeline.jpg" width="700"></div>
 
-<h2 id="MATRN-2021"><a href="#MATRN-2021" class="headerlink" title="MATRN (2021)"></a>MATRN (2021)</h2><p><a href="/2022/06/24/MATRN-Model/" title="MATRN">MATRN</a> proposes an</p>
+<p><strong>Drawbacks:</strong><br>The LM character refinements does not <font color="#ffad4">interact with visual features</font>, like a post-processor. (The LM’s inputs are logits[N, T, C] and positional encodings.)</p>
+<h2 id="VisionLAN-2021-ICCV"><a href="#VisionLAN-2021-ICCV" class="headerlink" title="VisionLAN (2021 ICCV)"></a>VisionLAN (2021 ICCV)</h2><div align="center"> <img src="/2022/06/23/Review-the-Scene-Text-Recognition-Models-with-Semantic-Information/VisionLAN_pipeline.jpg" width="700"></div>
+
+<h2 id="MATRN"><a href="#MATRN" class="headerlink" title="MATRN"></a>MATRN</h2><p><a href="/2022/06/24/MATRN-Model/" title="MATRN">MATRN</a> summarizes the previous methods, and proposes an improvement model based on ABINet, which <font color="#32adff">emphasizes the interaction between visual and semantic features</font>.</p>
 <div align="center"> <img src="/2022/06/23/Review-the-Scene-Text-Recognition-Models-with-Semantic-Information/MATRN_pipeline.jpg" width="700"></div>
 
-<h2 id="VisionLAN-2021"><a href="#VisionLAN-2021" class="headerlink" title="VisionLAN (2021)"></a>VisionLAN (2021)</h2><div align="center"> <img src="/2022/06/23/Review-the-Scene-Text-Recognition-Models-with-Semantic-Information/VisionLAN_pipeline.jpg" width="700"></div>
+<p><strong>Drawbacks:</strong></p>
+<font color="ffad4"> Somewhat complex </font>
 
     </div>
 
@@ -412,8 +422,8 @@
 
           <div class="post-nav">
             <div class="post-nav-item">
-                <a href="/2022/04/23/Attention-Transformer/" rel="prev" title="Attention & Transformer">
-                  <i class="fa fa-chevron-left"></i> Attention & Transformer
+                <a href="/2022/03/25/SEED-Model/" rel="prev" title="[Paper Review] SEED: Semantics Enhanced Encoder-Decoder Framework for Scene Text Recognition">
+                  <i class="fa fa-chevron-left"></i> [Paper Review] SEED: Semantics Enhanced Encoder-Decoder Framework for Scene Text Recognition
                 </a>
             </div>
             <div class="post-nav-item">
@@ -477,13 +487,13 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-line"></i>
     </span>
-    <span title="Symbols count total">36k</span>
+    <span title="Symbols count total">40k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="Reading time total">26 mins.</span>
+    <span title="Reading time total">29 mins.</span>
   </span>
 </div>
 
