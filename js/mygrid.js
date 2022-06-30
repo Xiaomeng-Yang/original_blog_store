@@ -44,10 +44,10 @@ if (windowPath.indexOf('photos') > 0 ) {
 							  cdn_url       = data[i].split(';')[2]; // 原图 cdn url
 							  small_cdn_url = data[i].split(';')[3]; // 缩略图 cdn url
 
-                li += '<div class="card" style="width:' + imageWidth + 'px">' +
+                li += '<div class="card" style="width:' + imageWidth + 'px" >' +
                         '<div class="ImageInCard" style="height:'+ imageWidth * imageY / imageX + 'px">' +
                             '<a data-fancybox="gallery" href="' + cdn_url + '" data-caption="' + imgName + '" title="' +  imgName + '">' +
-                                '<img data-src="' + small_cdn_url + '" src="/js/mygrid.j/' + small_cdn_url + '" data-loaded="true">' +
+                                '<img data-src="' + small_cdn_url + '" src="' + small_cdn_url + '" data-loaded="true">' +
                             '</a>' +
                         '</div>' +
                       '</div>'

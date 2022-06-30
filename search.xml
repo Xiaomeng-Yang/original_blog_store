@@ -1,6 +1,98 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>[Paper Review] Read Like Humans: Autonomous, Bidirectional and Iterative Language Modeling for Scene Text Recognition</title>
+    <url>/2022/06/23/ABINet-Model/</url>
+    <content><![CDATA[<div align="center"> <img src="/2022/06/23/ABINet-Model/pipeline.jpg" width="700"></div>
+
+<a id="more"></a>
+<h1 id="Background"><a href="#Background" class="headerlink" title="Background"></a>Background</h1><p>How to effectively model linguistic rules in end-to-end deep networks remains a research challenge.</p>
+<div align="center"> <img src="/2022/06/23/ABINet-Model/compare.jpg" width="380"></div>
+
+<p><strong>Approach:</strong></p>
+<ul>
+<li><p><font color="#32adff">Autonomous</font>: The learning between vision and language should be independent.</p>
+<p>The vision and language modules in previous methods are in serial (Fig. 1a), which makes it cannot utilize the pre-trained LM from large-scale unlabeled text.</p>
+</li>
+<li><font color="#32adff">Bidirectional</font>: The contextual information should be bidirectional.</li>
+<li><font color="#32adff">Iterative</font>: Humans adopt a progressive strategy to improve prediction confidence by iteratively correcting the recognized results.</li>
+</ul>
+<h1 id="Method"><a href="#Method" class="headerlink" title="Method"></a>Method</h1><p>The ABINet model contains vision model and language model. The VM extracts visual features and output the primary prediction tokens to the LM model. And the LM captures the bidirectional semantic information by Transformer units. The visual features and language features are fused using gated unit, and then the fusion prediction can be feed back into the LM repeatedly to feature correction.</p>
+<ul>
+<li>Autonomous: <font color="#32adff">Block gradient flow between VM and LM</font>, both VM and LM could be pretrained separately.</li>
+<li>Bidirectional: <font color="#32adff">several Transformer layers</font></li>
+<li>Iterative: <font color="#32adff">Feed the outputs of ABINet into LM repeatedly</font>.</li>
+</ul>
+<h2 id="Vision-Model"><a href="#Vision-Model" class="headerlink" title="Vision Model"></a>Vision Model</h2><ul>
+<li>Backbone: <font color="#ffad4">ResNet + Transformer units</font></li>
+<li>Position Attention:<ul>
+<li><font color="#ffad4">Query: positional encodings of character orders</font></li>
+<li>Key: a mini U-Net’s output with input features</li>
+<li>V: input features</li>
+<li>Attention Score: dot-product</li>
+</ul>
+</li>
+</ul>
+<div align="center"> <img src="/2022/06/23/ABINet-Model/vision.jpg" width="400"></div>
+
+<h2 id="Language-Model"><a href="#Language-Model" class="headerlink" title="Language Model"></a>Language Model</h2><p>A variant of L-layers transformer decoder (multi-head attention and feed-forward network followed by residual connection and layer normalization).</p>
+<p>Attention operation <font color="#ffad4">(No Self-Attention)</font>:</p>
+<ul>
+<li><font color="#32adff">Q: positional encodings of character orders in the first layer. </font></li>
+<li>K, V: character probability</li>
+<li>Attention Score: dot-product</li>
+</ul>
+<div align="center"> <img src="/2022/06/23/ABINet-Model/language.jpg" width="320"></div>
+
+<h2 id="Fusion-and-Supervised-Training"><a href="#Fusion-and-Supervised-Training" class="headerlink" title="Fusion and Supervised Training"></a>Fusion and Supervised Training</h2><p>Gated mechanism:</p>
+<ul>
+<li><script type="math/tex; mode=display">G = \sigma([F_v, F_l]W_f)</script></li>
+<li><script type="math/tex; mode=display">F_f = G\odot F_v + (1-G)\odot F_l</script></li>
+</ul>
+<p>Total loss:</p>
+<script type="math/tex; mode=display">\mathcal{L} = \lambda_v\mathcal{L}_v + \frac{\lambda_l}{M} \sum\limits_{i=1}\limits^M\mathcal{L}_l^i + \frac{1}{M} \sum\limits_{i=1}\limits^M\mathcal{L}_f^i,</script><p>cross entropy losses from $F_v$, $F_l$ and $F_f$ at $i$th iteration</p>
+<h2 id="Semi-supervised-Ensemble-Self-training"><a href="#Semi-supervised-Ensemble-Self-training" class="headerlink" title="Semi-supervised Ensemble Self-training"></a>Semi-supervised Ensemble Self-training</h2><div align="center"> <img src="/2022/06/23/ABINet-Model/algorithm.jpg" width="500"></div>
+
+<ul>
+<li>Equation 8: the loss function for supervised training</li>
+<li>Equation 9:<ul>
+<li><script type="math/tex; mode=display">\mathcal{C} = \mathop{min}\limits_{1\le t\le T}e^{\mathbb{E}[logP(y_t)]}</script></li>
+<li><script type="math/tex; mode=display">P(y_t) = \mathop{max}\limits_{1\le m\le M}P_m(y_t)</script></li>
+</ul>
+</li>
+<li>$N_{upl}$: the step number for updating pseudo labels</li>
+</ul>
+<h1 id="Experiments"><a href="#Experiments" class="headerlink" title="Experiments"></a>Experiments</h1><div align="center"> <img src="/2022/06/23/ABINet-Model/results.jpg" width="750"></div>
+
+<h1 id="Conclusion"><a href="#Conclusion" class="headerlink" title="Conclusion"></a>Conclusion</h1><p>Compare with the SRN:</p>
+<ul>
+<li>Block the gradient between the LM and VM</li>
+<li>Modify the parallel attention</li>
+<li>LM layers does not use self-attention</li>
+</ul>
+<p><strong>Questions to think about:</strong></p>
+<ul>
+<li><font color="#32adff">"No self-attention is applied in BCN to avoid leaking information across time steps" ??</font></li>
+<li><font color="#32adff">Although this paper analyzes the better way to combine the visual and semantic information compared with SRN, it seems that there is still room for improvement.</font>
+
+</li>
+</ul>
+<h1 id="Reference"><a href="#Reference" class="headerlink" title="Reference:"></a>Reference:</h1><ul>
+<li>Paper: <a href="https://https://openaccess.thecvf.com/content/CVPR2021/papers/Fang_Read_Like_Humans_Autonomous_Bidirectional_and_Iterative_Language_Modeling_for_CVPR_2021_paper.pdf">Read Like Humans: Autonomous, Bidirectional and Iterative Language Modeling for Scene Text Recognition</a></li>
+<li>Code: <a href="https://github.com/FangShancheng/ABINet">https://github.com/FangShancheng/ABINet</a></li>
+</ul>
+]]></content>
+      <categories>
+        <category>Paper Review</category>
+      </categories>
+      <tags>
+        <tag>STR</tag>
+        <tag>Semantic Module</tag>
+        <tag>Parallel Decoder</tag>
+        <tag>Iterative Correction</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>AGD Method (Adversarial Example Detection)</title>
     <url>/2021/02/03/AGD-Method-Adversarial-Example-Detection/</url>
     <content><![CDATA[<p>Resource: <a href="https://arxiv.org/pdf/1507.05717.pdf">2021 AAAI-Beating Attackers At Their Own Games:<br>Adversarial Example Detection Using Adversarial Gradient Directions</a></p>
@@ -32,33 +124,6 @@
       <tags>
         <tag>Adversarial</tag>
         <tag>Detection</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>About SSH</title>
-    <url>/2021/01/15/About-SSH/</url>
-    <content><![CDATA[<h2 id="SSH-tool"><a href="#SSH-tool" class="headerlink" title="SSH tool"></a>SSH tool</h2><p>I use MobaXterm (<a href="https://mobaxterm.mobatek.net/">official website</a>), since it enables the visualization of many operations.</p>
-<p>Select session -&gt; SSH; then type in the server ip, username and password.<br><a id="more"></a><br><img src="/2021/01/15/About-SSH/figure_SSH.jpg" alt="figureSSH"></p>
-<h2 id="Pycharm-connection"><a href="#Pycharm-connection" class="headerlink" title="Pycharm connection"></a>Pycharm connection</h2><p>I omit the basic downloading and  installation here. You can just google Pycharm and download its <strong>Professional</strong> version from its official website.</p>
-<p>Note: students and professors can use academic</p>
-<ol>
-<li><p>Select tools -&gt; Deployment -&gt; Configuration<br><img src="/2021/01/15/About-SSH/figure_1.jpg" alt="figure1"></p>
-</li>
-<li><p>Press “+” button and choose the SFTP (Secure File Transfer Protocol)<br><img src="/2021/01/15/About-SSH/figure_2.jpg" alt="figure2"></p>
-</li>
-<li><p>Add a new SSH configuration<br><img src="/2021/01/15/About-SSH/figure_3.jpg" alt="figure3"></p>
-<p><img src="/2021/01/15/About-SSH/figure_4.jpg" alt="figure4"></p>
-</li>
-<li><p>Root path is the location of the remote server you want to transfer files to; then for <strong>Mappings</strong>, local path is your local project’s path.<br><img src="/2021/01/15/About-SSH/figure_5.jpg" alt="figure5"></p>
-<p><img src="/2021/01/15/About-SSH/figure_6.jpg" alt="figure6"></p>
-</li>
-</ol>
-]]></content>
-      <categories>
-        <category>Remote Server</category>
-      </categories>
-      <tags>
-        <tag>SSH</tag>
       </tags>
   </entry>
   <entry>
@@ -133,6 +198,82 @@
       </tags>
   </entry>
   <entry>
+    <title>About SSH</title>
+    <url>/2021/01/15/About-SSH/</url>
+    <content><![CDATA[<h2 id="SSH-tool"><a href="#SSH-tool" class="headerlink" title="SSH tool"></a>SSH tool</h2><p>I use MobaXterm (<a href="https://mobaxterm.mobatek.net/">official website</a>), since it enables the visualization of many operations.</p>
+<p>Select session -&gt; SSH; then type in the server ip, username and password.<br><a id="more"></a><br><img src="/2021/01/15/About-SSH/figure_SSH.jpg" alt="figureSSH"></p>
+<h2 id="Pycharm-connection"><a href="#Pycharm-connection" class="headerlink" title="Pycharm connection"></a>Pycharm connection</h2><p>I omit the basic downloading and  installation here. You can just google Pycharm and download its <strong>Professional</strong> version from its official website.</p>
+<p>Note: students and professors can use academic</p>
+<ol>
+<li><p>Select tools -&gt; Deployment -&gt; Configuration<br><img src="/2021/01/15/About-SSH/figure_1.jpg" alt="figure1"></p>
+</li>
+<li><p>Press “+” button and choose the SFTP (Secure File Transfer Protocol)<br><img src="/2021/01/15/About-SSH/figure_2.jpg" alt="figure2"></p>
+</li>
+<li><p>Add a new SSH configuration<br><img src="/2021/01/15/About-SSH/figure_3.jpg" alt="figure3"></p>
+<p><img src="/2021/01/15/About-SSH/figure_4.jpg" alt="figure4"></p>
+</li>
+<li><p>Root path is the location of the remote server you want to transfer files to; then for <strong>Mappings</strong>, local path is your local project’s path.<br><img src="/2021/01/15/About-SSH/figure_5.jpg" alt="figure5"></p>
+<p><img src="/2021/01/15/About-SSH/figure_6.jpg" alt="figure6"></p>
+</li>
+</ol>
+]]></content>
+      <categories>
+        <category>Remote Server</category>
+      </categories>
+      <tags>
+        <tag>SSH</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Algorithm Design and Analysis</title>
+    <url>/2021/09/10/Algorithm-Design-and-Analysis/</url>
+    <content><![CDATA[<p>Practical Problems:</p>
+<ul>
+<li>step1: topic choosing<br>A practical problem</li>
+<li>step 2: formulate the problem<a id="more"></a>
+</li>
+</ul>
+<p>Key observation:</p>
+<ul>
+<li>problem structure (decompose, simple case)</li>
+<li>solution (space, solution —&gt; solution)</li>
+</ul>
+<p>Math Problems</p>
+<ul>
+<li><p><strong>POSITIVE</strong>, design an algorithm to solve this problem</p>
+<ul>
+<li><p>P0: SIMPLE CASE (try solving the simplest case of the certain problem) —&gt; P1: DECOMPOSE —&gt; INDUCTION —&gt;DC OPTIMAL SUBSTRUCTION —&gt; DP P1.2. “near-sighted” —&gt; Greedy</p>
+</li>
+<li><p>Cannot decompose / —&gt; P2 (SOLUTION —&gt; SOLUTION ) —&gt; S2 IMPROVEMENT (LP/QP/NLP/NF/LS/SA)</p>
+</li>
+<li><p>p3 SOLUTION FORM<br>$X = [x_1,x_2,…,x_n], x_i = 0/1$; step-by-step construction</p>
+</li>
+</ul>
+<p>ENUMERATION</p>
+<p>S3 SMART ENUMERATION (b&amp;b,b&amp;c,b&p; bt)</p>
+</li>
+</ul>
+<ul>
+<li><strong>NEGATIVE</strong>, prove the difficulty of it —&gt; TRADE-OFF<ul>
+<li>OPTIMAL =&gt; approximation</li>
+<li>Deterministic =&gt; Random</li>
+<li>Worst-Case =&gt; Practical Cases</li>
+</ul>
+</li>
+</ul>
+<p>A: active set (the set needing to be extract)</p>
+<ul>
+<li>Estimate the length of the line after extracting the whole set</li>
+<li>Estimate the lower bound of the possible extractions.</li>
+</ul>
+<p>TAKE-HOME MSG</p>
+<ul>
+<li>Try to solve the simplest case first when meeting a practical problem.<br>-</li>
+<li>According to the observation of little amount of samples, get heuristic —&gt; NN (large amount of samples)<br>-</li>
+</ul>
+]]></content>
+  </entry>
+  <entry>
     <title>Add Mathematical Formula in Hexo-Next Blogs</title>
     <url>/2021/07/20/Add-Mathematical-Formula-in-Hexo-Next-Blogs/</url>
     <content><![CDATA[<p>This blog is about how to add mathematical formulas for your hexo-next blogs.</p>
@@ -157,6 +298,17 @@
       </tags>
   </entry>
   <entry>
+    <title>Adversarial Training</title>
+    <url>/2021/08/03/Adversarial-Training/</url>
+    <content><![CDATA[]]></content>
+      <categories>
+        <category>Overview</category>
+      </categories>
+      <tags>
+        <tag>Adversarial Training</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Adversarial Attack and Defense</title>
     <url>/2021/07/13/Attack/</url>
     <content><![CDATA[<h1 id="Adversarial-Attacks"><a href="#Adversarial-Attacks" class="headerlink" title="Adversarial Attacks"></a>Adversarial Attacks</h1><a id="more"></a>
@@ -171,6 +323,54 @@
 ]]></content>
       <tags>
         <tag>Overview</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Attention &amp; Transformer</title>
+    <url>/2022/01/23/Attention-Transformer/</url>
+    <content><![CDATA[<h1 id="Attention"><a href="#Attention" class="headerlink" title="Attention"></a>Attention</h1><p>Attention mechanism mimics the retrieval of a value $v_i$ for a query $q$ based on a key $k_i$ in database.</p>
+<a id="more"></a>
+<div align="center"> <img src="/2022/01/23/Attention-Transformer/1.png" width="650"></div>
+
+<div align="center"> <img src="/2022/01/23/Attention-Transformer/2.png" width="500"></div>
+
+<p><strong>Ways to compute the attention scores:</strong></p>
+<div align="center"> <img src="/2022/01/23/Attention-Transformer/3.png" width="650"></div>
+
+<h2 id="Bahdanau-Attention"><a href="#Bahdanau-Attention" class="headerlink" title="Bahdanau Attention"></a>Bahdanau Attention</h2><p>Attention is used between decoder steps: state $h_{t-1}$ is used to compute attention and its output $c(t)$, and both $h_{t-1}$ and $c(t)$ are passed to the decoder at step $t$.</p>
+<ul>
+<li>ASTER use this attention</li>
+<li>SEED use the semantic embedding to initialize the c(0)</li>
+</ul>
+<div align="center"> <img src="/2022/01/23/Attention-Transformer/4.png" width="650"></div>
+
+<h2 id="Luong-Attention"><a href="#Luong-Attention" class="headerlink" title="Luong Attention"></a>Luong Attention</h2><p>Attention is used after RNN decoder step $t$ before making a prediction. State $h_{t}$ used to compute attention and its output $c(t)$. The $h_t$ is combined with $c(t)$ to get an updated representation $\tilde{h}_t$, which is used to get a prediction.</p>
+<div align="center"> <img src="/2022/01/23/Attention-Transformer/5.png" width="650"></div>
+
+<h2 id="Self-Attention"><a href="#Self-Attention" class="headerlink" title="Self-Attention"></a>Self-Attention</h2><p>Get the relations between x and each word, and then add the weighted summation into x.</p>
+<div align="center"> <img src="/2022/01/23/Attention-Transformer/6.png" width="650"></div>
+
+<h1 id="Transformer"><a href="#Transformer" class="headerlink" title="Transformer"></a>Transformer</h1><div align="center"> <img src="/2022/01/23/Attention-Transformer/7.png" width="550"></div>
+
+<div align="center"> <img src="/2022/01/23/Attention-Transformer/8.png" width="650"></div>
+
+<div align="center"> <img src="/2022/01/23/Attention-Transformer/9.png" width="650"></div>
+
+<div align="center"> <img src="/2022/01/23/Attention-Transformer/10.png" width="650"></div>
+
+<p>Resource:</p>
+<ul>
+<li>Thanks to Voita’s post, <a href="https://lena-voita.github.io/nlp_course/seq2seq_and_attention.html">Seq2Seq and Attention</a></li>
+<li><a href="https://arxiv.org/pdf/1409.0473.pdf">Neural Machine Translation by Jointly Learning to Align and Translate</a></li>
+<li><a href="https://arxiv.org/pdf/1706.03762.pdf">Attention is All you Need</a></li>
+</ul>
+]]></content>
+      <categories>
+        <category>Basic Neural Networks</category>
+      </categories>
+      <tags>
+        <tag>attention</tag>
+        <tag>transformer</tag>
       </tags>
   </entry>
   <entry>
@@ -259,8 +459,8 @@
         <category>Scene Text Recognition</category>
       </categories>
       <tags>
-        <tag>CTC</tag>
         <tag>STR</tag>
+        <tag>CTC</tag>
       </tags>
   </entry>
   <entry>
@@ -432,6 +632,71 @@
       </tags>
   </entry>
   <entry>
+    <title>Connectionist Temporal Classification with Maximum Entropy Regularization</title>
+    <url>/2021/08/05/Connectionist-Temporal-Classification-with-Maximum-Entropy-Regularization/</url>
+    <content><![CDATA[<h1 id="Background"><a href="#Background" class="headerlink" title="Background"></a>Background</h1><p>CTC tends to produce <font color="32adff">highly peaky and overconfident distributions</font>, which is a symptom of <strong>overfitting</strong>.</p>
+<ul>
+<li>Harm the training process: CTC lacks exploration and is prone to fall into worse local minima.</li>
+<li>Output overconfident paths: CTC tends to concentrate all its output distribution over one specific path.</li>
+<li>Output paths with peaky distribution.</li>
+</ul>
+<a id="more"></a>
+<p><strong>CTC peaky distribution problem</strong>:</p>
+<ul>
+<li>Once CTC finds a dominant feasible path during the training process, the <font color="32adff">error signal will concentrate on the vicinity of this path</font>, and the prediction of this feasible path will continuously strengthen until this path completely dominates the prediction output.</li>
+<li>As blanks are included in most of the feasible paths, <font color="32adff">dominant paths are often overwhelmed by blanks</font>, interspersed by sharp spikes (narrow regions along the time axis) of non-blank labels.</li>
+</ul>
+<h1 id="Approach"><a href="#Approach" class="headerlink" title="Approach"></a>Approach</h1><h2 id="Overview"><a href="#Overview" class="headerlink" title="Overview"></a>Overview</h2><ul>
+<li><p>Propose a maximum conditional entropy based regularization for CTC (EnCTC)</p>
+<p>The formula of maximum conditional entropy is: <font color="ffaad4">$H(p(\pi|l,X))=-\sum\limits_{\pi\in \mathcal{B}^{-1}(l)}p(\pi|X,l)log\,p(\pi|X,l)$</font>.</p>
+<p>The graph of function $f=-xlog(x)$ in the range of $x\in(0,1]$ is shown below.</p>
+<div align="center"> <img src="/2021/08/05/Connectionist-Temporal-Classification-with-Maximum-Entropy-Regularization/entropy.jpg" width="400"></div>
+
+<p>From the graph, we can see that when $x$ near $0$ or $1$, $f$ is near to $0$.</p>
+</li>
+<li><p>Propose an algorithm to limit the size of the CTC feasible set by eliminating these unreasonable paths that seriously violate the equal spacing prior (EsCTC)</p>
+</li>
+</ul>
+<h2 id="CTC"><a href="#CTC" class="headerlink" title="CTC"></a>CTC</h2><p>The original CTC loss function is</p>
+<font color="ffaad4">$$L_{ctc} = -log\,p(l|X_{1:T}) = -log\; \sum\limits_{\pi\in\mathcal{B}^{-1}(l)}p(\pi|X_{1:T}),$$</font>
+where the probability of $\pi$ is defined as
+<font color="ffaad4">$$p(\pi|X_{1:T}) = \mathop{\Pi}\limits_{t=1}\limits^Ty_{\pi_t}^t, \forall\pi\in L'^T.$$</font>
+
+<p>The error signal of CTC loss with respect to $y_k^t$ is:</p>
+<div align="center"> <img src="/2021/08/05/Connectionist-Temporal-Classification-with-Maximum-Entropy-Regularization/partial.jpg" width="400"></div>
+
+<h2 id="EnCTC"><a href="#EnCTC" class="headerlink" title="EnCTC"></a>EnCTC</h2><h2 id="EsCTC"><a href="#EsCTC" class="headerlink" title="EsCTC"></a>EsCTC</h2><h1 id="Experiments"><a href="#Experiments" class="headerlink" title="Experiments"></a>Experiments</h1><h1 id="Conclusion"><a href="#Conclusion" class="headerlink" title="Conclusion"></a>Conclusion</h1><h1 id="Resource"><a href="#Resource" class="headerlink" title="Resource"></a>Resource</h1><ul>
+<li><a href="https://papers.nips.cc/paper/2018/hash/e44fea3bec53bcea3b7513ccef5857ac-Abstract.html">Connectionist Temporal Classification with Maximum Entropy Regularization</a></li>
+<li><a href="https://github.com/liuhu-bigeye/enctc.crnn">Github Code</a></li>
+</ul>
+]]></content>
+      <categories>
+        <category>Paper Review</category>
+      </categories>
+      <tags>
+        <tag>CTC</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>DAN Model</title>
+    <url>/2022/06/24/DAN-Model/</url>
+    <content><![CDATA[]]></content>
+  </entry>
+  <entry>
+    <title>FGSM Attack</title>
+    <url>/2021/03/08/FGSM-Attack/</url>
+    <content><![CDATA[<p>Resource: <a href="https://arxiv.org/abs/1412.6572">Explaining and Harnessing Adversarial Examples</a></p>
+]]></content>
+      <categories>
+        <category>Adversarial Attack</category>
+      </categories>
+      <tags>
+        <tag>Adversarial Training</tag>
+        <tag>Attack</tag>
+        <tag>hide</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>DIM Attack</title>
     <url>/2021/01/15/DIM-Attack/</url>
     <content><![CDATA[<p>Resource: <a href>Improving Transferability of Adversarial Examples with Input Diversity</a></p>
@@ -441,8 +706,31 @@
       </categories>
       <tags>
         <tag>Attack</tag>
-        <tag>Black-box</tag>
         <tag>hide</tag>
+        <tag>Black-box</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>[Paper Review] From Two to One: A New Scene Text Recognizer with Visual Language Modeling Network</title>
+    <url>/2022/06/24/From-two-to-one/</url>
+    <content><![CDATA[<p><div align="center"> <img src="/2022/06/24/From-two-to-one/VisionLAN_pipeline.jpg" width="750"></div><br><a id="more"></a></p>
+<h1 id="Background"><a href="#Background" class="headerlink" title="Background"></a>Background</h1><h1 id="Method"><a href="#Method" class="headerlink" title="Method"></a>Method</h1><p>Backbone (ResNet45) extracts the</p>
+<h2 id="Masked-Language-aware-Module"><a href="#Masked-Language-aware-Module" class="headerlink" title="Masked Language-aware Module"></a>Masked Language-aware Module</h2><p>Aim: generate the character-wise mask map with only original word-level annotations.</p>
+<ul>
+<li>Input: visual features $V$, character index $P\in[1,N_w]$<br>-</li>
+</ul>
+<h1 id="Reference"><a href="#Reference" class="headerlink" title="Reference:"></a>Reference:</h1><ul>
+<li>Paper: <a href="https://openaccess.thecvf.com/content/ICCV2021/papers/Wang_From_Two_to_One_A_New_Scene_Text_Recognizer_With_ICCV_2021_paper.pdf">From Two to One: A New Scene Text Recognizer with Visual Language Modeling Network</a></li>
+<li>Code: <a href="https://github.com/wangyuxin87/VisionLAN">https://github.com/wangyuxin87/VisionLAN</a></li>
+</ul>
+]]></content>
+      <categories>
+        <category>Paper Review</category>
+      </categories>
+      <tags>
+        <tag>STR</tag>
+        <tag>Semi-Supervised</tag>
+        <tag>Mask</tag>
       </tags>
   </entry>
   <entry>
@@ -473,17 +761,89 @@ use_cudnn_on_gpu=None, data_formt = None, name=None)</code></p>
       </tags>
   </entry>
   <entry>
-    <title>FGSM Attack</title>
-    <url>/2021/03/08/FGSM-Attack/</url>
-    <content><![CDATA[<p>Resource: <a href="https://arxiv.org/abs/1412.6572">Explaining and Harnessing Adversarial Examples</a></p>
-]]></content>
+    <title>[Paper Review] Joint Visual Semantic Reasoning: Multi-Stage Decoder for Text Recognition</title>
+    <url>/2022/06/25/Joint-Visual-Semantic-Reasoning/</url>
+    <content><![CDATA[<h1 id="Background"><a href="#Background" class="headerlink" title="Background"></a>Background</h1><p>How to develop a visual-semantic reasoning skill for text recognition?</p>
+<h1 id="Method"><a href="#Method" class="headerlink" title="Method"></a>Method</h1><p>The framework contains a <font color="#32adff">visual feature extractor</font> extracts context-rich holistic feature and multi-scale feature maps, and a <font color="#32adff">multi-stage attentional decoder</font> builds up the character sequence estimates.</p>
+<a id="more"></a>
+<div align="center"> <img src="/2022/06/25/Joint-Visual-Semantic-Reasoning/pipeline.jpg" width="700"></div>
+
+<h2 id="Visual-Feature-Extractor"><a href="#Visual-Feature-Extractor" class="headerlink" title="Visual Feature Extractor"></a>Visual Feature Extractor</h2><p>Architecture: <strong>ResNet + FPN + 2-layer BiLSTM</strong></p>
+<p>The 2-layer BiLSTM takes in a sequence feature $(W_L \times D)$: column-wise max-pooling $B_L$</p>
+<ul>
+<li>multi-scale feature-maps $\{B_L, B_{L-1}, B_{L-2}\}$: context for 2D attention</li>
+<li>holistic feature $h_L$: initialize the initial state of first stage decoder</li>
+</ul>
+<h2 id="Joint-Visual-Semantic-Reasoning-Decoder"><a href="#Joint-Visual-Semantic-Reasoning-Decoder" class="headerlink" title="Joint Visual-Semantic Reasoning Decoder"></a>Joint Visual-Semantic Reasoning Decoder</h2><p>The first layer decoder relies only on the extracted visual feature. Subsequent stages use global semantic information.</p>
+<h1 id="Experiments"><a href="#Experiments" class="headerlink" title="Experiments"></a>Experiments</h1><h1 id="Conclusion"><a href="#Conclusion" class="headerlink" title="Conclusion"></a>Conclusion</h1>]]></content>
       <categories>
-        <category>Adversarial Attack</category>
+        <category>Paper Review</category>
       </categories>
       <tags>
-        <tag>Adversarial Training</tag>
-        <tag>Attack</tag>
-        <tag>hide</tag>
+        <tag>STR</tag>
+        <tag>Semantic Module</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>[Paper Review] Multi-modal Text Recognition Networks: Interactive Enhancements between Visual and Semantic Features</title>
+    <url>/2022/06/24/MATRN-Model/</url>
+    <content><![CDATA[<div align="center"> <img src="/2022/06/24/MATRN-Model/MATRN_pipeline.jpg" width="750"></div>
+
+<a id="more"></a>
+<h1 id="Background"><a href="#Background" class="headerlink" title="Background"></a>Background</h1><p><strong>Question</strong>: What is the best way to model the interactions between visual and semantic features identified by VM and LM, respectively?</p>
+<div align="center"> <img src="/2022/06/24/MATRN-Model/compare.jpg" width="350"></div>
+
+<ul>
+<li>(a): <a href="/2022/06/23/Towards-Accurate-Scene-Text-Recognition-with-Semantic-Reasoning-Networks/" title="SRN">SRN</a>,  <a href="/2022/06/23/ABINet-Model/" title="ABINet">ABINet</a></li>
+<li>(b): <a href="/2022/06/25/Joint-Visual-Semantic-Reasoning/" title="Joint Visual Semantic Reasoning">Joint Visual Semantic Reasoning</a></li>
+<li>(c): <a href="/2022/06/24/From-two-to-one/" title="VisionLAN">VisionLAN</a></li>
+</ul>
+<h1 id="Method"><a href="#Method" class="headerlink" title="Method"></a>Method</h1><p>For <font color="#32adff">visual and semantic feature extraction</font>, MATRN employ <font color="ffad4">ABINet’s corresponding structures</font>. The LM is initialized with weights pre-trained on WikiText-103.</p>
+<p>It proposes new spatial encoding, multi-modal feature enhancement and visual clue masking module.</p>
+<h2 id="Spatial-Encoding-to-Semantic-Features"><a href="#Spatial-Encoding-to-Semantic-Features" class="headerlink" title="Spatial Encoding to Semantic Features"></a>Spatial Encoding to Semantic Features</h2><p><strong>Question</strong>: How to align each piece of information of different modalities?<br><strong>Solution</strong>: Utilize $A^{V-S}$ the <font color="ffad4">attention map for text generation</font> and $P^V$ <font color="ffad4">spatial position embedding</font>.</p>
+<ul>
+<li>$A^{V-S}$ provides which visual features are used to estimated a character at each position.</li>
+<li>$S^{Align} = S + A^{V-S}flatten(P^V)$</li>
+</ul>
+<h2 id="Multi-modal-Features-Enhancement"><a href="#Multi-modal-Features-Enhancement" class="headerlink" title="Multi-modal Features Enhancement"></a>Multi-modal Features Enhancement</h2><div align="center"> <img src="/2022/06/24/MATRN-Model/fe.jpg" width="400"></div>
+
+<font color="32adff">Multi-modal FE</font>: Both visual and semantic features are processed through <font color="ffad4">self-attentions</font>.
+
+## Visual Clue Masking Strategy
+
+<div align="center"> <img src="/2022/06/24/MATRN-Model/mask.jpg" width="400"></div>
+
+Randomly select a single character and hides corresponding visual features based on the attention map $A^{V-S}$:
++ find the <font color="32adff">top-K visual features</font> in the descending order of the attention scores at the chosen position
++ multi-modal FE becomes <font color="ffad4">stimulated to encode semantic knowledge into the visual features</font>
+
+<h2 id="Training-Objective"><a href="#Training-Objective" class="headerlink" title="Training Objective:"></a>Training Objective:</h2><script type="math/tex; mode=display">\mathcal{L} = \mathcal{L}_{E^v} + \frac{1}{M} \sum\limits_{i=1}\limits^M (\mathcal{L}_{S_{(i)}} + \mathcal{L}_{S^M_{(i)}} + \mathcal{L}_{E^{V^M}_{(i)}} + \mathcal{L}_{F_{(i)}}),</script><p>visual features; semantic, multi-modal semantic, multi-modal visual, final fused features at $i$th iteration</p>
+<h1 id="Experiments"><a href="#Experiments" class="headerlink" title="Experiments"></a>Experiments</h1><div align="center"> <img src="/2022/06/24/MATRN-Model/result.jpg" width="750"></div>
+
+<ul>
+<li>Semantic FE: add corresponding visual features into semantic features, <font color="32adff">better regular recognition</font></li>
+<li>Visual FE: add corresponding semantic features into visual features, <font color="32adff">better irregular recognition</font></li>
+</ul>
+<h1 id="Conclusion"><a href="#Conclusion" class="headerlink" title="Conclusion"></a>Conclusion</h1><p>Compare with the ABINet:</p>
+<ul>
+<li>Add multi-modal feature enhancement, let visual features interact with semantic features</li>
+<li>Visual clue masking</li>
+</ul>
+<p><strong>Questions to think about:</strong></p>
+<ul>
+<li>More concise structure?</li>
+</ul>
+<h1 id="Reference"><a href="#Reference" class="headerlink" title="Reference:"></a>Reference:</h1><ul>
+<li>Paper: <a href="https://arxiv.org/pdf/2111.15263.pdf">Multi-modal Text Recognition Networks: Interactive Enhancements between Visual and Semantic Features</a></li>
+<li>Code: <a href="https://github.com/wp03052/MATRN">https://github.com/wp03052/MATRN</a></li>
+</ul>
+]]></content>
+      <categories>
+        <category>Paper Review</category>
+      </categories>
+      <tags>
+        <tag>STR</tag>
+        <tag>Semantic Module</tag>
       </tags>
   </entry>
   <entry>
@@ -528,6 +888,21 @@ use_cudnn_on_gpu=None, data_formt = None, name=None)</code></p>
       <tags>
         <tag>Hexo</tag>
         <tag>Latex</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>OCR-Data</title>
+    <url>/2021/05/09/OCR-Data/</url>
+    <content><![CDATA[<p>This blog talks about the popular used <strong>Text Recognition Data</strong></p>
+<h2 id="Synthetic-Word-Dataset"><a href="#Synthetic-Word-Dataset" class="headerlink" title="Synthetic Word Dataset"></a>Synthetic Word Dataset</h2><p><a href="https://www.robots.ox.ac.uk/~vgg/data/text/">https://www.robots.ox.ac.uk/~vgg/data/text/</a><br><a id="more"></a><br>This is synthetically generated dataset which we found sufficient for training text recognition on real-world images.</p>
+<p><img src="/2021/05/09/OCR-Data/Synth90k.jpg" alt="figure1" title="Synthetic 90k Example"></p>
+<p>Use linux remote server to download the dataset:<br><code>wget https://thor.robots.ox.ac.uk/~vgg/data/text/mjsynth.tar.gz</code></p>
+<h1 id><a href="#" class="headerlink" title="#"></a>#</h1>]]></content>
+      <categories>
+        <category>Scene Text Recognition</category>
+      </categories>
+      <tags>
+        <tag>STR</tag>
       </tags>
   </entry>
   <entry>
@@ -632,21 +1007,6 @@ use_cudnn_on_gpu=None, data_formt = None, name=None)</code></p>
       </tags>
   </entry>
   <entry>
-    <title>OCR-Data</title>
-    <url>/2021/05/09/OCR-Data/</url>
-    <content><![CDATA[<p>This blog talks about the popular used <strong>Text Recognition Data</strong></p>
-<h2 id="Synthetic-Word-Dataset"><a href="#Synthetic-Word-Dataset" class="headerlink" title="Synthetic Word Dataset"></a>Synthetic Word Dataset</h2><p><a href="https://www.robots.ox.ac.uk/~vgg/data/text/">https://www.robots.ox.ac.uk/~vgg/data/text/</a><br><a id="more"></a><br>This is synthetically generated dataset which we found sufficient for training text recognition on real-world images.</p>
-<p><img src="/2021/05/09/OCR-Data/Synth90k.jpg" alt="figure1" title="Synthetic 90k Example"></p>
-<p>Use linux remote server to download the dataset:<br><code>wget https://thor.robots.ox.ac.uk/~vgg/data/text/mjsynth.tar.gz</code></p>
-<h1 id><a href="#" class="headerlink" title="#"></a>#</h1>]]></content>
-      <categories>
-        <category>Scene Text Recognition</category>
-      </categories>
-      <tags>
-        <tag>STR</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>RNN &amp; LSTM</title>
     <url>/2021/01/15/RNN-LSTM/</url>
     <content><![CDATA[<p>Resource:</p>
@@ -722,15 +1082,6 @@ use_cudnn_on_gpu=None, data_formt = None, name=None)</code></p>
       </tags>
   </entry>
   <entry>
-    <title>Server</title>
-    <url>/2021/05/09/Server/</url>
-    <content><![CDATA[<p>This talks about how to build your own remote server.</p>
-<h2 id="Anaconda"><a href="#Anaconda" class="headerlink" title="Anaconda"></a>Anaconda</h2>]]></content>
-      <categories>
-        <category>Remote Server</category>
-      </categories>
-  </entry>
-  <entry>
     <title>PCA Method</title>
     <url>/2021/01/27/PCA-Method/</url>
     <content><![CDATA[<p>Resource: <a href="https://arxiv.org/pdf/1608.00530.pdf">EARLY METHODS FOR DETECTING ADVERSARIAL IMAGES</a></p>
@@ -768,14 +1119,137 @@ use_cudnn_on_gpu=None, data_formt = None, name=None)</code></p>
       </tags>
   </entry>
   <entry>
-    <title>Adversarial Training</title>
-    <url>/2021/08/03/Adversarial-Training/</url>
-    <content><![CDATA[]]></content>
+    <title>Review the Scene Text Recognition Models with Semantic Information</title>
+    <url>/2022/06/23/Review-the-Scene-Text-Recognition-Models-with-Semantic-Information/</url>
+    <content><![CDATA[<p>This article reviews the ways that scene text recognition models utilize the semantic information to boost their performance, from the <font color="#32adff">Bahdanau Attention Decoder</font> to various <font color="#32adff">Semantic Modules</font>.<br><a id="more"></a></p>
+<p>As we all know, to recognize the text in the wild, both the visual features and semantic information are significant, Especially for the blurred images. The ideal text recognition process is recognizing the clear text using visual features and inferring the blurred words according to its context information.</p>
+<h2 id="Bahdanau-Attention"><a href="#Bahdanau-Attention" class="headerlink" title="Bahdanau Attention"></a>Bahdanau Attention</h2><p>RARE, ASTER and so on utilizes the <font color="#32adff"> recurrence attention</font> to capture the semantic information during the decoding process. At time step $t$, the decoder predicts a character based on previous state $s_{t-1}$ and the sequence features $h_{t}$ output by BLSTM.</p>
+<div align="center"> <img src="/2022/06/23/Review-the-Scene-Text-Recognition-Models-with-Semantic-Information/RARE_architecture.jpg" width="300"></div>
+
+<p><strong>Drawbacks:</strong></p>
+<ul>
+<li><font color="#ffad4">Limited semantic context</font> (one-way serial)</li>
+<li>Pass the wrong semantic information down and cause a <font color="#ffad4">error accumulation</font></li>
+<li>Time-consuming and <font color="#ffad4">inefficient</font></li>
+</ul>
+<h2 id="SEED-2020-CVPR"><a href="#SEED-2020-CVPR" class="headerlink" title="SEED (2020 CVPR)"></a>SEED (2020 CVPR)</h2><p><strong>Drawbacks:</strong><br>For example, two related words “Chair” and “Table” may lie close in word-embedding space, but their character combination is apart.</p>
+<h2 id="SRN-2020-CVPR"><a href="#SRN-2020-CVPR" class="headerlink" title="SRN (2020 CVPR)"></a>SRN (2020 CVPR)</h2><p><a href="/2022/06/23/Towards-Accurate-Scene-Text-Recognition-with-Semantic-Reasoning-Networks/" title="SRN">SRN</a> proposes a structure named global semantic reasoning module (GSRM), which is <font color="#32adff">multi-way parallel transmission</font>. The semantic module works like a post-processor.</p>
+<ul>
+<li>PVAM: Parallel attention mechanism with idx queries.</li>
+<li>GSRM: Four Transformer layers (multi-head self-attention, masked the corresponding character itself)</li>
+</ul>
+<div align="center"> <img src="/2022/06/23/Review-the-Scene-Text-Recognition-Models-with-Semantic-Information/SRN_pipeline.jpg" width="750"></div>
+
+<p><strong>Drawbacks:</strong><br>The serial connection between the visual and semantic module may not be the perfect interaction:</p>
+<ul>
+<li>Cannot use the pre-trained LM from large-scale unlabeled text directly.</li>
+<li>Errors from VM output directly harm the LM accuracy.</li>
+</ul>
+<h2 id="ABINet-2021-CVPR"><a href="#ABINet-2021-CVPR" class="headerlink" title="ABINet (2021 CVPR)"></a>ABINet (2021 CVPR)</h2><p><a href="/2022/06/23/ABINet-Model/" title="ABINet">ABINet</a> proposes an <font color="#32adff">autonomous, bidirectional and Iterative</font> structure.</p>
+<ul>
+<li>Autonomous: Block gradient flow between VM and LM, both VM and LM could be pretrained separately.</li>
+<li>Bidirectional: several Transformer decoder layers (no self-attention, query is the positional encodings of the characters in the first layer)</li>
+<li>Iterative: Feed the outputs of ABINet into LM repeatedly.</li>
+</ul>
+<div align="center"> <img src="/2022/06/23/Review-the-Scene-Text-Recognition-Models-with-Semantic-Information/ABINet_pipeline.jpg" width="700"></div>
+
+<p><strong>Drawbacks:</strong><br>The LM character refinements does not <font color="#ffad4">interact with visual features</font>, like a post-processor. (The LM’s inputs are logits[N, T, C] and positional encodings.)</p>
+<h2 id="VisionLAN-2021-ICCV"><a href="#VisionLAN-2021-ICCV" class="headerlink" title="VisionLAN (2021 ICCV)"></a>VisionLAN (2021 ICCV)</h2><div align="center"> <img src="/2022/06/23/Review-the-Scene-Text-Recognition-Models-with-Semantic-Information/VisionLAN_pipeline.jpg" width="700"></div>
+
+<h2 id="MATRN"><a href="#MATRN" class="headerlink" title="MATRN"></a>MATRN</h2><p><a href="/2022/06/24/MATRN-Model/" title="MATRN">MATRN</a> summarizes the previous methods, and proposes an improvement model based on ABINet, which <font color="#32adff">emphasizes the interaction between visual and semantic features</font>.</p>
+<div align="center"> <img src="/2022/06/23/Review-the-Scene-Text-Recognition-Models-with-Semantic-Information/MATRN_pipeline.jpg" width="700"></div>
+
+<p><strong>Drawbacks:</strong></p>
+<font color="ffad4"> Somewhat complex </font>
+]]></content>
       <categories>
-        <category>Overview</category>
+        <category>Scene Text Recognition</category>
       </categories>
       <tags>
-        <tag>Adversarial Training</tag>
+        <tag>STR</tag>
+        <tag>Review</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>[Paper Review] SEED: Semantics Enhanced Encoder-Decoder Framework for Scene Text Recognition</title>
+    <url>/2022/03/25/SEED-Model/</url>
+    <content><![CDATA[<p><div align="center"> <img src="/2022/03/25/SEED-Model/pipeline.jpg" width="750"></div><br><a id="more"></a></p>
+<h1 id="Background"><a href="#Background" class="headerlink" title="Background"></a>Background</h1><h1 id="Method"><a href="#Method" class="headerlink" title="Method"></a>Method</h1><h1 id="Experiments"><a href="#Experiments" class="headerlink" title="Experiments"></a>Experiments</h1><h1 id="Conclusion"><a href="#Conclusion" class="headerlink" title="Conclusion"></a>Conclusion</h1><h1 id="Reference"><a href="#Reference" class="headerlink" title="Reference:"></a>Reference:</h1><ul>
+<li>Paper: <a href="https://openaccess.thecvf.com/content_CVPR_2020/papers/Qiao_SEED_Semantics_Enhanced_Encoder-Decoder_Framework_for_Scene_Text_Recognition_CVPR_2020_paper.pdf">SEED: Semantics Enhanced Encoder-Decoder Framework for Scene Text Recognition</a></li>
+<li>Code: <a href="https://github.com/Pay20Y/SEED">https://github.com/Pay20Y/SEED</a></li>
+</ul>
+]]></content>
+      <categories>
+        <category>Paper Review</category>
+      </categories>
+      <tags>
+        <tag>STR</tag>
+        <tag>Semantic Module</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Server</title>
+    <url>/2021/05/09/Server/</url>
+    <content><![CDATA[<p>This talks about how to build your own remote server.</p>
+<h2 id="Anaconda"><a href="#Anaconda" class="headerlink" title="Anaconda"></a>Anaconda</h2>]]></content>
+      <categories>
+        <category>Remote Server</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>[Paper Review] Towards Accurate Scene Text Recognition with Semantic Reasoning Networks</title>
+    <url>/2022/06/23/Towards-Accurate-Scene-Text-Recognition-with-Semantic-Reasoning-Networks/</url>
+    <content><![CDATA[<div align="center"> <img src="/2022/06/23/Towards-Accurate-Scene-Text-Recognition-with-Semantic-Reasoning-Networks/SRN_pipeline.jpg" width="750"></div>
+
+<a id="more"></a>
+<h1 id="Background"><a href="#Background" class="headerlink" title="Background"></a>Background</h1><ul>
+<li>Better utilize the semantic information to boost the recognition accuracy for the hard images (blurred, shaded, low resolution).</li>
+<li>Recent works consider the semantic information in the way of one-way serial transmission.</li>
+</ul>
+<h1 id="Approach"><a href="#Approach" class="headerlink" title="Approach"></a>Approach</h1><p>As shown in the above figure, the SRN consists of Backbone, Parallel Visual Attention Module (PVAM), Global Semantic Reasoning Module (GSRM) and Fusion Module. For <font color="#32adff">backbone</font>, it uses the <font color="#ffad4">ResNet50 + FPN</font> to extract the local features and two stack <font color="#ffad4">transformer units</font> to capture the global spatial dependencies.</p>
+<h2 id="PVAM"><a href="#PVAM" class="headerlink" title="PVAM"></a>PVAM</h2><p>The parallel attention decoder cannot get the semantic information between characters.</p>
+<ul>
+<li><font color="#32adff">Query: the reading order</font> $[0,1,…,N-1]$</li>
+<li>Key and Value: the input 2D features $(v_{ij}, v_{ij})$</li>
+<li>Attention Score: multi-layer perceptron (For more information, see <a href="/2022/01/23/Attention-Transformer/" title="the post about attention">the post about attention</a>.)</li>
+</ul>
+<h2 id="GSRM"><a href="#GSRM" class="headerlink" title="GSRM"></a>GSRM</h2><div align="center"> <img src="/2022/06/23/Towards-Accurate-Scene-Text-Recognition-with-Semantic-Reasoning-Networks/GSRM.jpg" width="380"></div>
+
+<ul>
+<li>Visual-to-Semantic Embedding Block: Predict the text token utilizing the PVAM’s output.</li>
+<li>Global Semantic Reasoning Block: <font color="#32adff">several transformer units</font> (multi-head self-attention, masked the corresponding character itself)</li>
+</ul>
+<h2 id="Fusion"><a href="#Fusion" class="headerlink" title="Fusion"></a>Fusion</h2><p>SRN utilizes the <font color="#32adff">gated unit</font> to fuse the visual aligned features G and semantic information S.</p>
+<p>$Loss = \alpha_eL_e + \alpha_rL_r + \alpha_fL_f$ (1.0, 0.15, 2.0)</p>
+<h1 id="Experiments"><a href="#Experiments" class="headerlink" title="Experiments"></a>Experiments</h1><h2 id="Model-Training"><a href="#Model-Training" class="headerlink" title="Model Training"></a>Model Training</h2><ul>
+<li>Utilize the ResNet50 pre-trained on ImageNet as the initialized model.</li>
+<li>Train SRN without GSRM for about 3 epochs.</li>
+<li>Then, train the whole pipeline end-to-end with the same optimizer until convergence.</li>
+</ul>
+<h2 id="Results"><a href="#Results" class="headerlink" title="Results"></a>Results</h2><div align="center"> <img src="/2022/06/23/Towards-Accurate-Scene-Text-Recognition-with-Semantic-Reasoning-Networks/results.jpg" width="800"></div>
+
+<h1 id="Conclusion"><a href="#Conclusion" class="headerlink" title="Conclusion"></a>Conclusion</h1><p>SRN decouples the semantic module from the decoding process and uses parallel attention (with idx query) to decode the visual features instead. It utilizes the tokens predicts by visual module to get the semantic information, and then fuse the two modal features.</p>
+<p>The serial architectural gets severely limited on using <font color="ffad4">argmax operation</font> in visual-to-semantic embedding layer, which invokes <font color="ffad4">non-differentiability</font>.</p>
+<p><strong>Questions to think about</strong>:</p>
+<ul>
+<li><font color="#32adff">What's the best way to interact semantic information with visual information?</font></li>
+<li><font color="#32adff">Can the parallel attention be improved (Parallel Attention v.s. CTC)?</font></li>
+<li><font color="#32adff">What if we train the semantic module with the ground truth?</font>
+
+</li>
+</ul>
+<h1 id="Reference"><a href="#Reference" class="headerlink" title="Reference:"></a>Reference:</h1><ul>
+<li>Paper: <a href="https://openaccess.thecvf.com/content_CVPR_2020/papers/Yu_Towards_Accurate_Scene_Text_Recognition_With_Semantic_Reasoning_Networks_CVPR_2020_paper.pdf">Towards Accurate Scene Text Recognition with Semantic Reasoning Networks</a></li>
+<li>Code: <a href="https://github.com/chenjun2hao/SRN.pytorch">https://github.com/chenjun2hao/SRN.pytorch</a></li>
+</ul>
+]]></content>
+      <categories>
+        <category>Paper Review</category>
+      </categories>
+      <tags>
+        <tag>STR</tag>
+        <tag>Semantic Module</tag>
+        <tag>Parallel Decoder</tag>
       </tags>
   </entry>
   <entry>
@@ -864,480 +1338,6 @@ use_cudnn_on_gpu=None, data_formt = None, name=None)</code></p>
         <tag>Adversarial Training</tag>
         <tag>Improve Generalization</tag>
         <tag>Semi-Supervised Learning</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Connectionist Temporal Classification with Maximum Entropy Regularization</title>
-    <url>/2021/08/05/Connectionist-Temporal-Classification-with-Maximum-Entropy-Regularization/</url>
-    <content><![CDATA[<h1 id="Background"><a href="#Background" class="headerlink" title="Background"></a>Background</h1><p>CTC tends to produce <font color="32adff">highly peaky and overconfident distributions</font>, which is a symptom of <strong>overfitting</strong>.</p>
-<ul>
-<li>Harm the training process: CTC lacks exploration and is prone to fall into worse local minima.</li>
-<li>Output overconfident paths: CTC tends to concentrate all its output distribution over one specific path.</li>
-<li>Output paths with peaky distribution.</li>
-</ul>
-<a id="more"></a>
-<p><strong>CTC peaky distribution problem</strong>:</p>
-<ul>
-<li>Once CTC finds a dominant feasible path during the training process, the <font color="32adff">error signal will concentrate on the vicinity of this path</font>, and the prediction of this feasible path will continuously strengthen until this path completely dominates the prediction output.</li>
-<li>As blanks are included in most of the feasible paths, <font color="32adff">dominant paths are often overwhelmed by blanks</font>, interspersed by sharp spikes (narrow regions along the time axis) of non-blank labels.</li>
-</ul>
-<h1 id="Approach"><a href="#Approach" class="headerlink" title="Approach"></a>Approach</h1><h2 id="Overview"><a href="#Overview" class="headerlink" title="Overview"></a>Overview</h2><ul>
-<li><p>Propose a maximum conditional entropy based regularization for CTC (EnCTC)</p>
-<p>The formula of maximum conditional entropy is: <font color="ffaad4">$H(p(\pi|l,X))=-\sum\limits_{\pi\in \mathcal{B}^{-1}(l)}p(\pi|X,l)log\,p(\pi|X,l)$</font>.</p>
-<p>The graph of function $f=-xlog(x)$ in the range of $x\in(0,1]$ is shown below.</p>
-<div align="center"> <img src="/2021/08/05/Connectionist-Temporal-Classification-with-Maximum-Entropy-Regularization/entropy.jpg" width="400"></div>
-
-<p>From the graph, we can see that when $x$ near $0$ or $1$, $f$ is near to $0$.</p>
-</li>
-<li><p>Propose an algorithm to limit the size of the CTC feasible set by eliminating these unreasonable paths that seriously violate the equal spacing prior (EsCTC)</p>
-</li>
-</ul>
-<h2 id="CTC"><a href="#CTC" class="headerlink" title="CTC"></a>CTC</h2><p>The original CTC loss function is</p>
-<font color="ffaad4">$$L_{ctc} = -log\,p(l|X_{1:T}) = -log\; \sum\limits_{\pi\in\mathcal{B}^{-1}(l)}p(\pi|X_{1:T}),$$</font>
-where the probability of $\pi$ is defined as
-<font color="ffaad4">$$p(\pi|X_{1:T}) = \mathop{\Pi}\limits_{t=1}\limits^Ty_{\pi_t}^t, \forall\pi\in L'^T.$$</font>
-
-<p>The error signal of CTC loss with respect to $y_k^t$ is:</p>
-<div align="center"> <img src="/2021/08/05/Connectionist-Temporal-Classification-with-Maximum-Entropy-Regularization/partial.jpg" width="400"></div>
-
-<h2 id="EnCTC"><a href="#EnCTC" class="headerlink" title="EnCTC"></a>EnCTC</h2><h2 id="EsCTC"><a href="#EsCTC" class="headerlink" title="EsCTC"></a>EsCTC</h2><h1 id="Experiments"><a href="#Experiments" class="headerlink" title="Experiments"></a>Experiments</h1><h1 id="Conclusion"><a href="#Conclusion" class="headerlink" title="Conclusion"></a>Conclusion</h1><h1 id="Resource"><a href="#Resource" class="headerlink" title="Resource"></a>Resource</h1><ul>
-<li><a href="https://papers.nips.cc/paper/2018/hash/e44fea3bec53bcea3b7513ccef5857ac-Abstract.html">Connectionist Temporal Classification with Maximum Entropy Regularization</a></li>
-<li><a href="https://github.com/liuhu-bigeye/enctc.crnn">Github Code</a></li>
-</ul>
-]]></content>
-      <categories>
-        <category>Paper Review</category>
-      </categories>
-      <tags>
-        <tag>CTC</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Algorithm Design and Analysis</title>
-    <url>/2021/09/10/Algorithm-Design-and-Analysis/</url>
-    <content><![CDATA[<p>Practical Problems:</p>
-<ul>
-<li>step1: topic choosing<br>A practical problem</li>
-<li>step 2: formulate the problem<a id="more"></a>
-</li>
-</ul>
-<p>Key observation:</p>
-<ul>
-<li>problem structure (decompose, simple case)</li>
-<li>solution (space, solution —&gt; solution)</li>
-</ul>
-<p>Math Problems</p>
-<ul>
-<li><p><strong>POSITIVE</strong>, design an algorithm to solve this problem</p>
-<ul>
-<li><p>P0: SIMPLE CASE (try solving the simplest case of the certain problem) —&gt; P1: DECOMPOSE —&gt; INDUCTION —&gt;DC OPTIMAL SUBSTRUCTION —&gt; DP P1.2. “near-sighted” —&gt; Greedy</p>
-</li>
-<li><p>Cannot decompose / —&gt; P2 (SOLUTION —&gt; SOLUTION ) —&gt; S2 IMPROVEMENT (LP/QP/NLP/NF/LS/SA)</p>
-</li>
-<li><p>p3 SOLUTION FORM<br>$X = [x_1,x_2,…,x_n], x_i = 0/1$; step-by-step construction</p>
-</li>
-</ul>
-<p>ENUMERATION</p>
-<p>S3 SMART ENUMERATION (b&amp;b,b&amp;c,b&p; bt)</p>
-</li>
-</ul>
-<ul>
-<li><strong>NEGATIVE</strong>, prove the difficulty of it —&gt; TRADE-OFF<ul>
-<li>OPTIMAL =&gt; approximation</li>
-<li>Deterministic =&gt; Random</li>
-<li>Worst-Case =&gt; Practical Cases</li>
-</ul>
-</li>
-</ul>
-<p>A: active set (the set needing to be extract)</p>
-<ul>
-<li>Estimate the length of the line after extracting the whole set</li>
-<li>Estimate the lower bound of the possible extractions.</li>
-</ul>
-<p>TAKE-HOME MSG</p>
-<ul>
-<li>Try to solve the simplest case first when meeting a practical problem.<br>-</li>
-<li>According to the observation of little amount of samples, get heuristic —&gt; NN (large amount of samples)<br>-</li>
-</ul>
-]]></content>
-  </entry>
-  <entry>
-    <title>Review the Scene Text Recognition Models with Semantic Information</title>
-    <url>/2022/06/23/Review-the-Scene-Text-Recognition-Models-with-Semantic-Information/</url>
-    <content><![CDATA[<p>This article reviews the ways that scene text recognition models utilize the semantic information to boost their performance, from the <font color="#32adff">Bahdanau Attention Decoder</font> to various <font color="#32adff">Semantic Modules</font>.<br><a id="more"></a></p>
-<p>As we all know, to recognize the text in the wild, both the visual features and semantic information are significant, Especially for the blurred images. The ideal text recognition process is recognizing the clear text using visual features and inferring the blurred words according to its context information.</p>
-<h2 id="Bahdanau-Attention"><a href="#Bahdanau-Attention" class="headerlink" title="Bahdanau Attention"></a>Bahdanau Attention</h2><p>RARE, ASTER and so on utilizes the <font color="#32adff"> recurrence attention</font> to capture the semantic information during the decoding process. At time step $t$, the decoder predicts a character based on previous state $s_{t-1}$ and the sequence features $h_{t}$ output by BLSTM.</p>
-<div align="center"> <img src="/2022/06/23/Review-the-Scene-Text-Recognition-Models-with-Semantic-Information/RARE_architecture.jpg" width="300"></div>
-
-<p><strong>Drawbacks:</strong></p>
-<ul>
-<li><font color="#ffad4">Limited semantic context</font> (one-way serial)</li>
-<li>Pass the wrong semantic information down and cause a <font color="#ffad4">error accumulation</font></li>
-<li>Time-consuming and <font color="#ffad4">inefficient</font></li>
-</ul>
-<h2 id="SEED-2020-CVPR"><a href="#SEED-2020-CVPR" class="headerlink" title="SEED (2020 CVPR)"></a>SEED (2020 CVPR)</h2><p><strong>Drawbacks:</strong><br>For example, two related words “Chair” and “Table” may lie close in word-embedding space, but their character combination is apart.</p>
-<h2 id="SRN-2020-CVPR"><a href="#SRN-2020-CVPR" class="headerlink" title="SRN (2020 CVPR)"></a>SRN (2020 CVPR)</h2><p><a href="/2022/06/23/Towards-Accurate-Scene-Text-Recognition-with-Semantic-Reasoning-Networks/" title="SRN">SRN</a> proposes a structure named global semantic reasoning module (GSRM), which is <font color="#32adff">multi-way parallel transmission</font>. The semantic module works like a post-processor.</p>
-<ul>
-<li>PVAM: Parallel attention mechanism with idx queries.</li>
-<li>GSRM: Four Transformer layers (multi-head self-attention, masked the corresponding character itself)</li>
-</ul>
-<div align="center"> <img src="/2022/06/23/Review-the-Scene-Text-Recognition-Models-with-Semantic-Information/SRN_pipeline.jpg" width="750"></div>
-
-<p><strong>Drawbacks:</strong><br>The serial connection between the visual and semantic module may not be the perfect interaction:</p>
-<ul>
-<li>Cannot use the pre-trained LM from large-scale unlabeled text directly.</li>
-<li>Errors from VM output directly harm the LM accuracy.</li>
-</ul>
-<h2 id="ABINet-2021-CVPR"><a href="#ABINet-2021-CVPR" class="headerlink" title="ABINet (2021 CVPR)"></a>ABINet (2021 CVPR)</h2><p><a href="/2022/06/23/ABINet-Model/" title="ABINet">ABINet</a> proposes an <font color="#32adff">autonomous, bidirectional and Iterative</font> structure.</p>
-<ul>
-<li>Autonomous: Block gradient flow between VM and LM, both VM and LM could be pretrained separately.</li>
-<li>Bidirectional: several Transformer decoder layers (no self-attention, query is the positional encodings of the characters in the first layer)</li>
-<li>Iterative: Feed the outputs of ABINet into LM repeatedly.</li>
-</ul>
-<div align="center"> <img src="/2022/06/23/Review-the-Scene-Text-Recognition-Models-with-Semantic-Information/ABINet_pipeline.jpg" width="700"></div>
-
-<p><strong>Drawbacks:</strong><br>The LM character refinements does not <font color="#ffad4">interact with visual features</font>, like a post-processor. (The LM’s inputs are logits[N, T, C] and positional encodings.)</p>
-<h2 id="VisionLAN-2021-ICCV"><a href="#VisionLAN-2021-ICCV" class="headerlink" title="VisionLAN (2021 ICCV)"></a>VisionLAN (2021 ICCV)</h2><div align="center"> <img src="/2022/06/23/Review-the-Scene-Text-Recognition-Models-with-Semantic-Information/VisionLAN_pipeline.jpg" width="700"></div>
-
-<h2 id="MATRN"><a href="#MATRN" class="headerlink" title="MATRN"></a>MATRN</h2><p><a href="/2022/06/24/MATRN-Model/" title="MATRN">MATRN</a> summarizes the previous methods, and proposes an improvement model based on ABINet, which <font color="#32adff">emphasizes the interaction between visual and semantic features</font>.</p>
-<div align="center"> <img src="/2022/06/23/Review-the-Scene-Text-Recognition-Models-with-Semantic-Information/MATRN_pipeline.jpg" width="700"></div>
-
-<p><strong>Drawbacks:</strong></p>
-<font color="ffad4"> Somewhat complex </font>
-]]></content>
-      <categories>
-        <category>Scene Text Recognition</category>
-      </categories>
-      <tags>
-        <tag>STR</tag>
-        <tag>Review</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>[Paper Review] Towards Accurate Scene Text Recognition with Semantic Reasoning Networks</title>
-    <url>/2022/06/23/Towards-Accurate-Scene-Text-Recognition-with-Semantic-Reasoning-Networks/</url>
-    <content><![CDATA[<div align="center"> <img src="/2022/06/23/Towards-Accurate-Scene-Text-Recognition-with-Semantic-Reasoning-Networks/SRN_pipeline.jpg" width="750"></div>
-
-<a id="more"></a>
-<h1 id="Background"><a href="#Background" class="headerlink" title="Background"></a>Background</h1><ul>
-<li>Better utilize the semantic information to boost the recognition accuracy for the hard images (blurred, shaded, low resolution).</li>
-<li>Recent works consider the semantic information in the way of one-way serial transmission.</li>
-</ul>
-<h1 id="Approach"><a href="#Approach" class="headerlink" title="Approach"></a>Approach</h1><p>As shown in the above figure, the SRN consists of Backbone, Parallel Visual Attention Module (PVAM), Global Semantic Reasoning Module (GSRM) and Fusion Module. For <font color="#32adff">backbone</font>, it uses the <font color="#ffad4">ResNet50 + FPN</font> to extract the local features and two stack <font color="#ffad4">transformer units</font> to capture the global spatial dependencies.</p>
-<h2 id="PVAM"><a href="#PVAM" class="headerlink" title="PVAM"></a>PVAM</h2><p>The parallel attention decoder cannot get the semantic information between characters.</p>
-<ul>
-<li><font color="#32adff">Query: the reading order</font> $[0,1,…,N-1]$</li>
-<li>Key and Value: the input 2D features $(v_{ij}, v_{ij})$</li>
-<li>Attention Score: multi-layer perceptron (For more information, see <a href="/2022/01/23/Attention-Transformer/" title="the post about attention">the post about attention</a>.)</li>
-</ul>
-<h2 id="GSRM"><a href="#GSRM" class="headerlink" title="GSRM"></a>GSRM</h2><div align="center"> <img src="/2022/06/23/Towards-Accurate-Scene-Text-Recognition-with-Semantic-Reasoning-Networks/GSRM.jpg" width="380"></div>
-
-<ul>
-<li>Visual-to-Semantic Embedding Block: Predict the text token utilizing the PVAM’s output.</li>
-<li>Global Semantic Reasoning Block: <font color="#32adff">several transformer units</font> (multi-head self-attention, masked the corresponding character itself)</li>
-</ul>
-<h2 id="Fusion"><a href="#Fusion" class="headerlink" title="Fusion"></a>Fusion</h2><p>SRN utilizes the <font color="#32adff">gated unit</font> to fuse the visual aligned features G and semantic information S.</p>
-<p>$Loss = \alpha_eL_e + \alpha_rL_r + \alpha_fL_f$ (1.0, 0.15, 2.0)</p>
-<h1 id="Experiments"><a href="#Experiments" class="headerlink" title="Experiments"></a>Experiments</h1><h2 id="Model-Training"><a href="#Model-Training" class="headerlink" title="Model Training"></a>Model Training</h2><ul>
-<li>Utilize the ResNet50 pre-trained on ImageNet as the initialized model.</li>
-<li>Train SRN without GSRM for about 3 epochs.</li>
-<li>Then, train the whole pipeline end-to-end with the same optimizer until convergence.</li>
-</ul>
-<h2 id="Results"><a href="#Results" class="headerlink" title="Results"></a>Results</h2><div align="center"> <img src="/2022/06/23/Towards-Accurate-Scene-Text-Recognition-with-Semantic-Reasoning-Networks/results.jpg" width="800"></div>
-
-<h1 id="Conclusion"><a href="#Conclusion" class="headerlink" title="Conclusion"></a>Conclusion</h1><p>SRN decouples the semantic module from the decoding process and uses parallel attention (with idx query) to decode the visual features instead. It utilizes the tokens predicts by visual module to get the semantic information, and then fuse the two modal features.</p>
-<p>The serial architectural gets severely limited on using <font color="ffad4">argmax operation</font> in visual-to-semantic embedding layer, which invokes <font color="ffad4">non-differentiability</font>.</p>
-<p><strong>Questions to think about</strong>:</p>
-<ul>
-<li><font color="#32adff">What's the best way to interact semantic information with visual information?</font></li>
-<li><font color="#32adff">Can the parallel attention be improved (Parallel Attention v.s. CTC)?</font></li>
-<li><font color="#32adff">What if we train the semantic module with the ground truth?</font>
-
-</li>
-</ul>
-<h1 id="Reference"><a href="#Reference" class="headerlink" title="Reference:"></a>Reference:</h1><ul>
-<li>Paper: <a href="https://openaccess.thecvf.com/content_CVPR_2020/papers/Yu_Towards_Accurate_Scene_Text_Recognition_With_Semantic_Reasoning_Networks_CVPR_2020_paper.pdf">Towards Accurate Scene Text Recognition with Semantic Reasoning Networks</a></li>
-<li>Code: <a href="https://github.com/chenjun2hao/SRN.pytorch">https://github.com/chenjun2hao/SRN.pytorch</a></li>
-</ul>
-]]></content>
-      <categories>
-        <category>Paper Review</category>
-      </categories>
-      <tags>
-        <tag>STR</tag>
-        <tag>Semantic Module</tag>
-        <tag>Parallel Decoder</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Attention &amp; Transformer</title>
-    <url>/2022/01/23/Attention-Transformer/</url>
-    <content><![CDATA[<h1 id="Attention"><a href="#Attention" class="headerlink" title="Attention"></a>Attention</h1><p>Attention mechanism mimics the retrieval of a value $v_i$ for a query $q$ based on a key $k_i$ in database.</p>
-<a id="more"></a>
-<div align="center"> <img src="/2022/01/23/Attention-Transformer/1.png" width="650"></div>
-
-<div align="center"> <img src="/2022/01/23/Attention-Transformer/2.png" width="500"></div>
-
-<p><strong>Ways to compute the attention scores:</strong></p>
-<div align="center"> <img src="/2022/01/23/Attention-Transformer/3.png" width="650"></div>
-
-<h2 id="Bahdanau-Attention"><a href="#Bahdanau-Attention" class="headerlink" title="Bahdanau Attention"></a>Bahdanau Attention</h2><p>Attention is used between decoder steps: state $h_{t-1}$ is used to compute attention and its output $c(t)$, and both $h_{t-1}$ and $c(t)$ are passed to the decoder at step $t$.</p>
-<ul>
-<li>ASTER use this attention</li>
-<li>SEED use the semantic embedding to initialize the c(0)</li>
-</ul>
-<div align="center"> <img src="/2022/01/23/Attention-Transformer/4.png" width="650"></div>
-
-<h2 id="Luong-Attention"><a href="#Luong-Attention" class="headerlink" title="Luong Attention"></a>Luong Attention</h2><p>Attention is used after RNN decoder step $t$ before making a prediction. State $h_{t}$ used to compute attention and its output $c(t)$. The $h_t$ is combined with $c(t)$ to get an updated representation $\tilde{h}_t$, which is used to get a prediction.</p>
-<div align="center"> <img src="/2022/01/23/Attention-Transformer/5.png" width="650"></div>
-
-<h2 id="Self-Attention"><a href="#Self-Attention" class="headerlink" title="Self-Attention"></a>Self-Attention</h2><p>Get the relations between x and each word, and then add the weighted summation into x.</p>
-<div align="center"> <img src="/2022/01/23/Attention-Transformer/6.png" width="650"></div>
-
-<h1 id="Transformer"><a href="#Transformer" class="headerlink" title="Transformer"></a>Transformer</h1><div align="center"> <img src="/2022/01/23/Attention-Transformer/7.png" width="550"></div>
-
-<div align="center"> <img src="/2022/01/23/Attention-Transformer/8.png" width="650"></div>
-
-<div align="center"> <img src="/2022/01/23/Attention-Transformer/9.png" width="650"></div>
-
-<div align="center"> <img src="/2022/01/23/Attention-Transformer/10.png" width="650"></div>
-
-<p>Resource:</p>
-<ul>
-<li>Thanks to Voita’s post, <a href="https://lena-voita.github.io/nlp_course/seq2seq_and_attention.html">Seq2Seq and Attention</a></li>
-<li><a href="https://arxiv.org/pdf/1409.0473.pdf">Neural Machine Translation by Jointly Learning to Align and Translate</a></li>
-<li><a href="https://arxiv.org/pdf/1706.03762.pdf">Attention is All you Need</a></li>
-</ul>
-]]></content>
-      <categories>
-        <category>Basic Neural Networks</category>
-      </categories>
-      <tags>
-        <tag>attention</tag>
-        <tag>transformer</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>[Paper Review] Read Like Humans: Autonomous, Bidirectional and Iterative Language Modeling for Scene Text Recognition</title>
-    <url>/2022/06/23/ABINet-Model/</url>
-    <content><![CDATA[<div align="center"> <img src="/2022/06/23/ABINet-Model/pipeline.jpg" width="700"></div>
-
-<a id="more"></a>
-<h1 id="Background"><a href="#Background" class="headerlink" title="Background"></a>Background</h1><p>How to effectively model linguistic rules in end-to-end deep networks remains a research challenge.</p>
-<div align="center"> <img src="/2022/06/23/ABINet-Model/compare.jpg" width="380"></div>
-
-<p><strong>Approach:</strong></p>
-<ul>
-<li><p><font color="#32adff">Autonomous</font>: The learning between vision and language should be independent.</p>
-<p>The vision and language modules in previous methods are in serial (Fig. 1a), which makes it cannot utilize the pre-trained LM from large-scale unlabeled text.</p>
-</li>
-<li><font color="#32adff">Bidirectional</font>: The contextual information should be bidirectional.</li>
-<li><font color="#32adff">Iterative</font>: Humans adopt a progressive strategy to improve prediction confidence by iteratively correcting the recognized results.</li>
-</ul>
-<h1 id="Method"><a href="#Method" class="headerlink" title="Method"></a>Method</h1><p>The ABINet model contains vision model and language model. The VM extracts visual features and output the primary prediction tokens to the LM model. And the LM captures the bidirectional semantic information by Transformer units. The visual features and language features are fused using gated unit, and then the fusion prediction can be feed back into the LM repeatedly to feature correction.</p>
-<ul>
-<li>Autonomous: <font color="#32adff">Block gradient flow between VM and LM</font>, both VM and LM could be pretrained separately.</li>
-<li>Bidirectional: <font color="#32adff">several Transformer layers</font></li>
-<li>Iterative: <font color="#32adff">Feed the outputs of ABINet into LM repeatedly</font>.</li>
-</ul>
-<h2 id="Vision-Model"><a href="#Vision-Model" class="headerlink" title="Vision Model"></a>Vision Model</h2><ul>
-<li>Backbone: <font color="#ffad4">ResNet + Transformer units</font></li>
-<li>Position Attention:<ul>
-<li><font color="#ffad4">Query: positional encodings of character orders</font></li>
-<li>Key: a mini U-Net’s output with input features</li>
-<li>V: input features</li>
-<li>Attention Score: dot-product</li>
-</ul>
-</li>
-</ul>
-<div align="center"> <img src="/2022/06/23/ABINet-Model/vision.jpg" width="400"></div>
-
-<h2 id="Language-Model"><a href="#Language-Model" class="headerlink" title="Language Model"></a>Language Model</h2><p>A variant of L-layers transformer decoder (multi-head attention and feed-forward network followed by residual connection and layer normalization).</p>
-<p>Attention operation <font color="#ffad4">(No Self-Attention)</font>:</p>
-<ul>
-<li><font color="#32adff">Q: positional encodings of character orders in the first layer. </font></li>
-<li>K, V: character probability</li>
-<li>Attention Score: dot-product</li>
-</ul>
-<div align="center"> <img src="/2022/06/23/ABINet-Model/language.jpg" width="320"></div>
-
-<h2 id="Fusion-and-Supervised-Training"><a href="#Fusion-and-Supervised-Training" class="headerlink" title="Fusion and Supervised Training"></a>Fusion and Supervised Training</h2><p>Gated mechanism:</p>
-<ul>
-<li><script type="math/tex; mode=display">G = \sigma([F_v, F_l]W_f)</script></li>
-<li><script type="math/tex; mode=display">F_f = G\odot F_v + (1-G)\odot F_l</script></li>
-</ul>
-<p>Total loss:</p>
-<script type="math/tex; mode=display">\mathcal{L} = \lambda_v\mathcal{L}_v + \frac{\lambda_l}{M} \sum\limits_{i=1}\limits^M\mathcal{L}_l^i + \frac{1}{M} \sum\limits_{i=1}\limits^M\mathcal{L}_f^i,</script><p>cross entropy losses from $F_v$, $F_l$ and $F_f$ at $i$th iteration</p>
-<h2 id="Semi-supervised-Ensemble-Self-training"><a href="#Semi-supervised-Ensemble-Self-training" class="headerlink" title="Semi-supervised Ensemble Self-training"></a>Semi-supervised Ensemble Self-training</h2><div align="center"> <img src="/2022/06/23/ABINet-Model/algorithm.jpg" width="500"></div>
-
-<ul>
-<li>Equation 8: the loss function for supervised training</li>
-<li>Equation 9:<ul>
-<li><script type="math/tex; mode=display">\mathcal{C} = \mathop{min}\limits_{1\le t\le T}e^{\mathbb{E}[logP(y_t)]}</script></li>
-<li><script type="math/tex; mode=display">P(y_t) = \mathop{max}\limits_{1\le m\le M}P_m(y_t)</script></li>
-</ul>
-</li>
-<li>$N_{upl}$: the step number for updating pseudo labels</li>
-</ul>
-<h1 id="Experiments"><a href="#Experiments" class="headerlink" title="Experiments"></a>Experiments</h1><div align="center"> <img src="/2022/06/23/ABINet-Model/results.jpg" width="750"></div>
-
-<h1 id="Conclusion"><a href="#Conclusion" class="headerlink" title="Conclusion"></a>Conclusion</h1><p>Compare with the SRN:</p>
-<ul>
-<li>Block the gradient between the LM and VM</li>
-<li>Modify the parallel attention</li>
-<li>LM layers does not use self-attention</li>
-</ul>
-<p><strong>Questions to think about:</strong></p>
-<ul>
-<li><font color="#32adff">"No self-attention is applied in BCN to avoid leaking information across time steps" ??</font></li>
-<li><font color="#32adff">Although this paper analyzes the better way to combine the visual and semantic information compared with SRN, it seems that there is still room for improvement.</font>
-
-</li>
-</ul>
-<h1 id="Reference"><a href="#Reference" class="headerlink" title="Reference:"></a>Reference:</h1><ul>
-<li>Paper: <a href="https://https://openaccess.thecvf.com/content/CVPR2021/papers/Fang_Read_Like_Humans_Autonomous_Bidirectional_and_Iterative_Language_Modeling_for_CVPR_2021_paper.pdf">Read Like Humans: Autonomous, Bidirectional and Iterative Language Modeling for Scene Text Recognition</a></li>
-<li>Code: <a href="https://github.com/FangShancheng/ABINet">https://github.com/FangShancheng/ABINet</a></li>
-</ul>
-]]></content>
-      <categories>
-        <category>Paper Review</category>
-      </categories>
-      <tags>
-        <tag>STR</tag>
-        <tag>Semantic Module</tag>
-        <tag>Parallel Decoder</tag>
-        <tag>Iterative Correction</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>DAN Model</title>
-    <url>/2022/06/24/DAN-Model/</url>
-    <content><![CDATA[]]></content>
-  </entry>
-  <entry>
-    <title>[Paper Review] Multi-modal Text Recognition Networks: Interactive Enhancements between Visual and Semantic Features</title>
-    <url>/2022/06/24/MATRN-Model/</url>
-    <content><![CDATA[<div align="center"> <img src="/2022/06/24/MATRN-Model/MATRN_pipeline.jpg" width="750"></div>
-
-<a id="more"></a>
-<h1 id="Background"><a href="#Background" class="headerlink" title="Background"></a>Background</h1><p><strong>Question</strong>: What is the best way to model the interactions between visual and semantic features identified by VM and LM, respectively?</p>
-<div align="center"> <img src="/2022/06/24/MATRN-Model/compare.jpg" width="350"></div>
-
-<ul>
-<li>(a): <a href="/2022/06/23/Towards-Accurate-Scene-Text-Recognition-with-Semantic-Reasoning-Networks/" title="SRN">SRN</a>,  <a href="/2022/06/23/ABINet-Model/" title="ABINet">ABINet</a></li>
-<li>(b): <a href="/2022/06/25/Joint-Visual-Semantic-Reasoning/" title="Joint Visual Semantic Reasoning">Joint Visual Semantic Reasoning</a></li>
-<li>(c): <a href="/2022/06/24/From-two-to-one/" title="VisionLAN">VisionLAN</a></li>
-</ul>
-<h1 id="Method"><a href="#Method" class="headerlink" title="Method"></a>Method</h1><p>For <font color="#32adff">visual and semantic feature extraction</font>, MATRN employ <font color="ffad4">ABINet’s corresponding structures</font>. The LM is initialized with weights pre-trained on WikiText-103.</p>
-<p>It proposes new spatial encoding, multi-modal feature enhancement and visual clue masking module.</p>
-<h2 id="Spatial-Encoding-to-Semantic-Features"><a href="#Spatial-Encoding-to-Semantic-Features" class="headerlink" title="Spatial Encoding to Semantic Features"></a>Spatial Encoding to Semantic Features</h2><p><strong>Question</strong>: How to align each piece of information of different modalities?<br><strong>Solution</strong>: Utilize $A^{V-S}$ the <font color="ffad4">attention map for text generation</font> and $P^V$ <font color="ffad4">spatial position embedding</font>.</p>
-<ul>
-<li>$A^{V-S}$ provides which visual features are used to estimated a character at each position.</li>
-<li>$S^{Align} = S + A^{V-S}flatten(P^V)$</li>
-</ul>
-<h2 id="Multi-modal-Features-Enhancement"><a href="#Multi-modal-Features-Enhancement" class="headerlink" title="Multi-modal Features Enhancement"></a>Multi-modal Features Enhancement</h2><div align="center"> <img src="/2022/06/24/MATRN-Model/fe.jpg" width="400"></div>
-
-<font color="32adff">Multi-modal FE</font>: Both visual and semantic features are processed through <font color="ffad4">self-attentions</font>.
-
-## Visual Clue Masking Strategy
-
-<div align="center"> <img src="/2022/06/24/MATRN-Model/mask.jpg" width="400"></div>
-
-Randomly select a single character and hides corresponding visual features based on the attention map $A^{V-S}$:
-+ find the <font color="32adff">top-K visual features</font> in the descending order of the attention scores at the chosen position
-+ multi-modal FE becomes <font color="ffad4">stimulated to encode semantic knowledge into the visual features</font>
-
-<h2 id="Training-Objective"><a href="#Training-Objective" class="headerlink" title="Training Objective:"></a>Training Objective:</h2><script type="math/tex; mode=display">\mathcal{L} = \mathcal{L}_{E^v} + \frac{1}{M} \sum\limits_{i=1}\limits^M (\mathcal{L}_{S_{(i)}} + \mathcal{L}_{S^M_{(i)}} + \mathcal{L}_{E^{V^M}_{(i)}} + \mathcal{L}_{F_{(i)}}),</script><p>visual features; semantic, multi-modal semantic, multi-modal visual, final fused features at $i$th iteration</p>
-<h1 id="Experiments"><a href="#Experiments" class="headerlink" title="Experiments"></a>Experiments</h1><div align="center"> <img src="/2022/06/24/MATRN-Model/result.jpg" width="750"></div>
-
-<ul>
-<li>Semantic FE: add corresponding visual features into semantic features, <font color="32adff">better regular recognition</font></li>
-<li>Visual FE: add corresponding semantic features into visual features, <font color="32adff">better irregular recognition</font></li>
-</ul>
-<h1 id="Conclusion"><a href="#Conclusion" class="headerlink" title="Conclusion"></a>Conclusion</h1><p>Compare with the ABINet:</p>
-<ul>
-<li>Add multi-modal feature enhancement, let visual features interact with semantic features</li>
-<li>Visual clue masking</li>
-</ul>
-<p><strong>Questions to think about:</strong></p>
-<ul>
-<li>More concise structure?</li>
-</ul>
-<h1 id="Reference"><a href="#Reference" class="headerlink" title="Reference:"></a>Reference:</h1><ul>
-<li>Paper: <a href="https://arxiv.org/pdf/2111.15263.pdf">Multi-modal Text Recognition Networks: Interactive Enhancements between Visual and Semantic Features</a></li>
-<li>Code: <a href="https://github.com/wp03052/MATRN">https://github.com/wp03052/MATRN</a></li>
-</ul>
-]]></content>
-      <categories>
-        <category>Paper Review</category>
-      </categories>
-      <tags>
-        <tag>STR</tag>
-        <tag>Semantic Module</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>[Paper Review] From Two to One: A New Scene Text Recognizer with Visual Language Modeling Network</title>
-    <url>/2022/06/24/From-two-to-one/</url>
-    <content><![CDATA[<p><div align="center"> <img src="/2022/06/24/From-two-to-one/VisionLAN_pipeline.jpg" width="750"></div><br><a id="more"></a></p>
-<h1 id="Background"><a href="#Background" class="headerlink" title="Background"></a>Background</h1><h1 id="Method"><a href="#Method" class="headerlink" title="Method"></a>Method</h1><p>Backbone (ResNet45) extracts the</p>
-<h2 id="Masked-Language-aware-Module"><a href="#Masked-Language-aware-Module" class="headerlink" title="Masked Language-aware Module"></a>Masked Language-aware Module</h2><p>Aim: generate the character-wise mask map with only original word-level annotations.</p>
-<ul>
-<li>Input: visual features $V$, character index $P\in[1,N_w]$<br>-</li>
-</ul>
-<h1 id="Reference"><a href="#Reference" class="headerlink" title="Reference:"></a>Reference:</h1><ul>
-<li>Paper: <a href="https://openaccess.thecvf.com/content/ICCV2021/papers/Wang_From_Two_to_One_A_New_Scene_Text_Recognizer_With_ICCV_2021_paper.pdf">From Two to One: A New Scene Text Recognizer with Visual Language Modeling Network</a></li>
-<li>Code: <a href="https://github.com/wangyuxin87/VisionLAN">https://github.com/wangyuxin87/VisionLAN</a></li>
-</ul>
-]]></content>
-      <categories>
-        <category>Paper Review</category>
-      </categories>
-      <tags>
-        <tag>STR</tag>
-        <tag>Semi-Supervised</tag>
-        <tag>Mask</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>[Paper Review] Joint Visual Semantic Reasoning: Multi-Stage Decoder for Text Recognition</title>
-    <url>/2022/06/25/Joint-Visual-Semantic-Reasoning/</url>
-    <content><![CDATA[<h1 id="Background"><a href="#Background" class="headerlink" title="Background"></a>Background</h1><p>How to develop a visual-semantic reasoning skill for text recognition?</p>
-<h1 id="Method"><a href="#Method" class="headerlink" title="Method"></a>Method</h1><p>The framework contains a <font color="#32adff">visual feature extractor</font> extracts context-rich holistic feature and multi-scale feature maps, and a <font color="#32adff">multi-stage attentional decoder</font> builds up the character sequence estimates.</p>
-<a id="more"></a>
-<div align="center"> <img src="/2022/06/25/Joint-Visual-Semantic-Reasoning/pipeline.jpg" width="700"></div>
-
-<h2 id="Visual-Feature-Extractor"><a href="#Visual-Feature-Extractor" class="headerlink" title="Visual Feature Extractor"></a>Visual Feature Extractor</h2><p>Architecture: <strong>ResNet + FPN + 2-layer BiLSTM</strong></p>
-<p>The 2-layer BiLSTM takes in a sequence feature $(W_L \times D)$: column-wise max-pooling $B_L$</p>
-<ul>
-<li>multi-scale feature-maps $\{B_L, B_{L-1}, B_{L-2}\}$: context for 2D attention</li>
-<li>holistic feature $h_L$: initialize the initial state of first stage decoder</li>
-</ul>
-<h2 id="Joint-Visual-Semantic-Reasoning-Decoder"><a href="#Joint-Visual-Semantic-Reasoning-Decoder" class="headerlink" title="Joint Visual-Semantic Reasoning Decoder"></a>Joint Visual-Semantic Reasoning Decoder</h2><p>The first layer decoder relies only on the extracted visual feature. Subsequent stages use global semantic information.</p>
-<h1 id="Experiments"><a href="#Experiments" class="headerlink" title="Experiments"></a>Experiments</h1><h1 id="Conclusion"><a href="#Conclusion" class="headerlink" title="Conclusion"></a>Conclusion</h1>]]></content>
-      <categories>
-        <category>Paper Review</category>
-      </categories>
-      <tags>
-        <tag>STR</tag>
-        <tag>Semantic Module</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>[Paper Review] SEED: Semantics Enhanced Encoder-Decoder Framework for Scene Text Recognition</title>
-    <url>/2022/03/25/SEED-Model/</url>
-    <content><![CDATA[<p><div align="center"> <img src="/2022/03/25/SEED-Model/pipeline.jpg" width="750"></div><br><a id="more"></a></p>
-<h1 id="Background"><a href="#Background" class="headerlink" title="Background"></a>Background</h1><h1 id="Method"><a href="#Method" class="headerlink" title="Method"></a>Method</h1><h1 id="Experiments"><a href="#Experiments" class="headerlink" title="Experiments"></a>Experiments</h1><h1 id="Conclusion"><a href="#Conclusion" class="headerlink" title="Conclusion"></a>Conclusion</h1><h1 id="Reference"><a href="#Reference" class="headerlink" title="Reference:"></a>Reference:</h1><ul>
-<li>Paper: <a href="https://openaccess.thecvf.com/content_CVPR_2020/papers/Qiao_SEED_Semantics_Enhanced_Encoder-Decoder_Framework_for_Scene_Text_Recognition_CVPR_2020_paper.pdf">SEED: Semantics Enhanced Encoder-Decoder Framework for Scene Text Recognition</a></li>
-<li>Code: <a href="https://github.com/Pay20Y/SEED">https://github.com/Pay20Y/SEED</a></li>
-</ul>
-]]></content>
-      <categories>
-        <category>Paper Review</category>
-      </categories>
-      <tags>
-        <tag>STR</tag>
-        <tag>Semantic Module</tag>
       </tags>
   </entry>
 </search>
