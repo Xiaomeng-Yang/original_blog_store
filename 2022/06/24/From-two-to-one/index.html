@@ -27,15 +27,19 @@
 <meta property="og:url" content="https://rachel-yang.github.io/2022/06/24/From-two-to-one/index.html">
 <meta property="og:site_name" content="Xun&#39;s Gallery">
 <meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://rachel-yang.github.io/2022/06/24/From-two-to-one/background.jpg">
 <meta property="og:image" content="https://rachel-yang.github.io/2022/06/24/From-two-to-one/VisionLAN_pipeline.jpg">
+<meta property="og:image" content="https://rachel-yang.github.io/2022/06/24/From-two-to-one/MLM.jpg">
+<meta property="og:image" content="https://rachel-yang.github.io/2022/06/24/From-two-to-one/VRM.jpg">
+<meta property="og:image" content="https://rachel-yang.github.io/2022/06/24/From-two-to-one/results.jpg">
 <meta property="article:published_time" content="2022-06-23T19:54:49.000Z">
-<meta property="article:modified_time" content="2022-06-30T07:00:01.804Z">
+<meta property="article:modified_time" content="2022-07-07T09:46:03.005Z">
 <meta property="article:author" content="珣XUN">
 <meta property="article:tag" content="STR">
 <meta property="article:tag" content="Semi-Supervised">
 <meta property="article:tag" content="Mask">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://rachel-yang.github.io/2022/06/24/From-two-to-one/VisionLAN_pipeline.jpg">
+<meta name="twitter:image" content="https://rachel-yang.github.io/2022/06/24/From-two-to-one/background.jpg">
 
 
 <link rel="canonical" href="https://rachel-yang.github.io/2022/06/24/From-two-to-one/">
@@ -215,7 +219,7 @@
 
       <!--noindex-->
       <section class="post-toc-wrap sidebar-panel">
-          <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Background"><span class="nav-number">1.</span> <span class="nav-text">Background</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Method"><span class="nav-number">2.</span> <span class="nav-text">Method</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Masked-Language-aware-Module"><span class="nav-number">2.1.</span> <span class="nav-text">Masked Language-aware Module</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Reference"><span class="nav-number">3.</span> <span class="nav-text">Reference:</span></a></li></ol></div>
+          <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Conclusion"><span class="nav-number">1.</span> <span class="nav-text">Conclusion</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Reference"><span class="nav-number">2.</span> <span class="nav-text">Reference:</span></a></li></ol></div>
       </section>
       <!--/noindex-->
 
@@ -231,20 +235,20 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">30</span>
+          <span class="site-state-item-count">27</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">9</span>
+        <span class="site-state-item-count">8</span>
         <span class="site-state-item-name">categories</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">27</span>
+        <span class="site-state-item-count">26</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>
@@ -322,7 +326,7 @@
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">Edited on</span>
-        <time title="Modified: 2022-06-30 15:00:01" itemprop="dateModified" datetime="2022-06-30T15:00:01+08:00">2022-06-30</time>
+        <time title="Modified: 2022-07-07 17:46:03" itemprop="dateModified" datetime="2022-07-07T17:46:03+08:00">2022-07-07</time>
       </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -349,7 +353,7 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">Symbols count in article: </span>
-      <span>327</span>
+      <span>1k</span>
     </span>
     <span class="post-meta-item" title="Reading time">
       <span class="post-meta-item-icon">
@@ -367,13 +371,39 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        <p><div align="center"> <img src="/2022/06/24/From-two-to-one/VisionLAN_pipeline.jpg" width="750"></div><br><a id="more"></a></p>
-<h1 id="Background"><a href="#Background" class="headerlink" title="Background"></a>Background</h1><h1 id="Method"><a href="#Method" class="headerlink" title="Method"></a>Method</h1><p>Backbone (ResNet45) extracts the</p>
-<h2 id="Masked-Language-aware-Module"><a href="#Masked-Language-aware-Module" class="headerlink" title="Masked Language-aware Module"></a>Masked Language-aware Module</h2><p>Aim: generate the character-wise mask map with only original word-level annotations.</p>
-<ul>
-<li>Input: visual features $V$, character index $P\in[1,N_w]$<br>-</li>
-</ul>
-<h1 id="Reference"><a href="#Reference" class="headerlink" title="Reference:"></a>Reference:</h1><ul>
+        <div align="center"> <img src="/2022/06/24/From-two-to-one/background.jpg" width="400"></div>
+<a id="more"></a>
+
+# Background
+Previous methods use two-step architecture to utilize the semantic information, However
+- the extra computation cost is huge
+- the two modal is independent (the semantic module works as a post-processor)
+
+# Method
+<div align="center"> <img src="/2022/06/24/From-two-to-one/VisionLAN_pipeline.jpg" width="750"></div>
+Backbone (ResNet45) extracts the 2D features, then MLM generates the position-aware character mask map $Mask_c$. VRM takes occluded feature map $V_m$ as input and makes prediction under the complete word-level supervision.
+
+## Masked Language-aware Module
+<div align="center"> <img src="/2022/06/24/From-two-to-one/MLM.jpg" width="400"></div>
+Aim: generate the character-wise mask map with only original word-level annotations.
+- Input: visual features $V$, character index $P\in[1,N_w]$
+- Transformer unit and prediction layer for $V_{mas}$ and $V_{rem}$ share the weights.
+
+## Visual Reasoning Module
+<div align="center"> <img src="/2022/06/24/From-two-to-one/VRM.jpg" width="400"></div>
+N transformer units + prediction layer
+
+# Training
+Loss function:
+$$L = L_{rec} + \lambda_1L_{mas} + \lambda_2L_{rem}$$
+
+- LF training: split the connection between MLM and VRM, VRM uses visual textual for prediction.
+- LA training: VRM learn the linguistic rules.
+
+# Experiments
+<div align="center"> <img src="/2022/06/24/From-two-to-one/results.jpg" width="750"></div>
+
+<h1 id="Conclusion"><a href="#Conclusion" class="headerlink" title="Conclusion"></a>Conclusion</h1><h1 id="Reference"><a href="#Reference" class="headerlink" title="Reference:"></a>Reference:</h1><ul>
 <li>Paper: <a target="_blank" rel="noopener" href="https://openaccess.thecvf.com/content/ICCV2021/papers/Wang_From_Two_to_One_A_New_Scene_Text_Recognizer_With_ICCV_2021_paper.pdf">From Two to One: A New Scene Text Recognizer with Visual Language Modeling Network</a></li>
 <li>Code: <a target="_blank" rel="noopener" href="https://github.com/wangyuxin87/VisionLAN">https://github.com/wangyuxin87/VisionLAN</a></li>
 </ul>
@@ -444,7 +474,8 @@
     <div class="footer-inner">
       
 
-      
+      <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
 
 <div class="copyright">
   

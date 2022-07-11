@@ -225,6 +225,30 @@
       </tags>
   </entry>
   <entry>
+    <title>Add Mathematical Formula in Hexo-Next Blogs</title>
+    <url>/2021/07/20/Add-Mathematical-Formula-in-Hexo-Next-Blogs/</url>
+    <content><![CDATA[<p>This blog is about how to add mathematical formulas for your hexo-next blogs.</p>
+<p><strong><font color="#32adff">Change the rendering engine of Hexo’s Markdown:</font></strong></p>
+<a id="more"></a>
+<p>The hexo-renderer-kramed engine is modified based on the default rendering engine hexo-renderer-marked by rewriting the bugs. They are close to each other, and both of them are light weight.</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">npm uninstall hexo-renderer-marked --save</span><br><span class="line">npm install hexo-renderer-kramed --save</span><br></pre></td></tr></table></figure>
+<p><strong><font color="#32adff">Resolve semantic conflicts:</font></strong></p>
+<p>Find the file “node_modules\kramed\lib\rules\inline.js”, and make the following two changes.</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">//escape: /^\\([\\`*&#123;&#125;\[\]()<span class="comment">#$+\-.!_&gt;])/,</span></span><br><span class="line">escape: /^\\([`*\[\]()<span class="comment">#$+\-.!_&gt;])/,</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight"><table><tr><td class="code"><pre><span class="line">//em: /^\b_((?:__|[\s\S])+?)_\b|^\*((?:\*\*|[\s\S])+?)\*(?!\*)/,</span><br><span class="line">em: /^\*((?:\*\*|[\s\S])+?)\*(?!\*)/,</span><br></pre></td></tr></table></figure>
+<p><strong><font color="#32adff">Enable mathjax in the _config.yml of Next theme:</font></strong></p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">math:</span><br><span class="line">  <span class="comment"># Default (false) will load mathjax / katex script on demand.</span></span><br><span class="line">  <span class="comment"># That is it only render those page which has `mathjax: true` in Front-matter.</span></span><br><span class="line">  <span class="comment"># If you set it to true, it will load mathjax / katex srcipt EVERY PAGE.</span></span><br><span class="line">  every_page: false</span><br><span class="line"></span><br><span class="line">  mathjax:</span><br><span class="line">    enable: true <span class="comment"># change this to true</span></span><br><span class="line"></span><br><span class="line">  katex:</span><br><span class="line">    enable: false</span><br><span class="line">    <span class="comment"># See: https://github.com/KaTeX/KaTeX/tree/master/contrib/copy-tex</span></span><br><span class="line">    copy_tex: false</span><br></pre></td></tr></table></figure>
+<p><strong><font color="#32adff">Enable mathjax for a post:</font></strong><br><figure class="highlight python"><table><tr><td class="code"><pre><span class="line">title: Add Mathematical Formula <span class="keyword">in</span> Hexo-Next Blogs</span><br><span class="line">date: <span class="number">2021</span>-07-<span class="number">20</span> <span class="number">14</span>:<span class="number">43</span>:<span class="number">22</span></span><br><span class="line">tags:</span><br><span class="line">  - Hexo</span><br><span class="line">  - Latex</span><br><span class="line">categories: <span class="string">&quot;Hexo&quot;</span></span><br><span class="line">mathjax: true</span><br></pre></td></tr></table></figure><br><strong><font color="#32adff">Use a single $ or $$ to add mathematical formulas.</font></strong></p>
+<p>Resource: <a href="https://blog.csdn.net/ssjdoudou/article/details/103318019/">《Hexo-next主题支持数学公式》 by请叫我算术嘉</a></p>
+]]></content>
+      <categories>
+        <category>Hexo</category>
+      </categories>
+      <tags>
+        <tag>Hexo</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Algorithm Design and Analysis</title>
     <url>/2021/09/10/Algorithm-Design-and-Analysis/</url>
     <content><![CDATA[<p>Practical Problems:</p>
@@ -272,41 +296,6 @@
 <li>According to the observation of little amount of samples, get heuristic —&gt; NN (large amount of samples)<br>-</li>
 </ul>
 ]]></content>
-  </entry>
-  <entry>
-    <title>Add Mathematical Formula in Hexo-Next Blogs</title>
-    <url>/2021/07/20/Add-Mathematical-Formula-in-Hexo-Next-Blogs/</url>
-    <content><![CDATA[<p>This blog is about how to add mathematical formulas for your hexo-next blogs.</p>
-<p><strong><font color="#32adff">Change the rendering engine of Hexo’s Markdown:</font></strong></p>
-<a id="more"></a>
-<p>The hexo-renderer-kramed engine is modified based on the default rendering engine hexo-renderer-marked by rewriting the bugs. They are close to each other, and both of them are light weight.</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">npm uninstall hexo-renderer-marked --save</span><br><span class="line">npm install hexo-renderer-kramed --save</span><br></pre></td></tr></table></figure>
-<p><strong><font color="#32adff">Resolve semantic conflicts:</font></strong></p>
-<p>Find the file “node_modules\kramed\lib\rules\inline.js”, and make the following two changes.</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">//escape: /^\\([\\`*&#123;&#125;\[\]()<span class="comment">#$+\-.!_&gt;])/,</span></span><br><span class="line">escape: /^\\([`*\[\]()<span class="comment">#$+\-.!_&gt;])/,</span></span><br></pre></td></tr></table></figure>
-<figure class="highlight"><table><tr><td class="code"><pre><span class="line">//em: /^\b_((?:__|[\s\S])+?)_\b|^\*((?:\*\*|[\s\S])+?)\*(?!\*)/,</span><br><span class="line">em: /^\*((?:\*\*|[\s\S])+?)\*(?!\*)/,</span><br></pre></td></tr></table></figure>
-<p><strong><font color="#32adff">Enable mathjax in the _config.yml of Next theme:</font></strong></p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">math:</span><br><span class="line">  <span class="comment"># Default (false) will load mathjax / katex script on demand.</span></span><br><span class="line">  <span class="comment"># That is it only render those page which has `mathjax: true` in Front-matter.</span></span><br><span class="line">  <span class="comment"># If you set it to true, it will load mathjax / katex srcipt EVERY PAGE.</span></span><br><span class="line">  every_page: false</span><br><span class="line"></span><br><span class="line">  mathjax:</span><br><span class="line">    enable: true <span class="comment"># change this to true</span></span><br><span class="line"></span><br><span class="line">  katex:</span><br><span class="line">    enable: false</span><br><span class="line">    <span class="comment"># See: https://github.com/KaTeX/KaTeX/tree/master/contrib/copy-tex</span></span><br><span class="line">    copy_tex: false</span><br></pre></td></tr></table></figure>
-<p><strong><font color="#32adff">Enable mathjax for a post:</font></strong><br><figure class="highlight python"><table><tr><td class="code"><pre><span class="line">title: Add Mathematical Formula <span class="keyword">in</span> Hexo-Next Blogs</span><br><span class="line">date: <span class="number">2021</span>-07-<span class="number">20</span> <span class="number">14</span>:<span class="number">43</span>:<span class="number">22</span></span><br><span class="line">tags:</span><br><span class="line">  - Hexo</span><br><span class="line">  - Latex</span><br><span class="line">categories: <span class="string">&quot;Hexo&quot;</span></span><br><span class="line">mathjax: true</span><br></pre></td></tr></table></figure><br><strong><font color="#32adff">Use a single $ or $$ to add mathematical formulas.</font></strong></p>
-<p>Resource: <a href="https://blog.csdn.net/ssjdoudou/article/details/103318019/">《Hexo-next主题支持数学公式》 by请叫我算术嘉</a></p>
-]]></content>
-      <categories>
-        <category>Hexo</category>
-      </categories>
-      <tags>
-        <tag>Hexo</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Adversarial Training</title>
-    <url>/2021/08/03/Adversarial-Training/</url>
-    <content><![CDATA[]]></content>
-      <categories>
-        <category>Overview</category>
-      </categories>
-      <tags>
-        <tag>Adversarial Training</tag>
-      </tags>
   </entry>
   <entry>
     <title>Adversarial Attack and Defense</title>
@@ -683,57 +672,6 @@ where the probability of $\pi$ is defined as
     <content><![CDATA[]]></content>
   </entry>
   <entry>
-    <title>FGSM Attack</title>
-    <url>/2021/03/08/FGSM-Attack/</url>
-    <content><![CDATA[<p>Resource: <a href="https://arxiv.org/abs/1412.6572">Explaining and Harnessing Adversarial Examples</a></p>
-]]></content>
-      <categories>
-        <category>Adversarial Attack</category>
-      </categories>
-      <tags>
-        <tag>Adversarial Training</tag>
-        <tag>Attack</tag>
-        <tag>hide</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>DIM Attack</title>
-    <url>/2021/01/15/DIM-Attack/</url>
-    <content><![CDATA[<p>Resource: <a href>Improving Transferability of Adversarial Examples with Input Diversity</a></p>
-]]></content>
-      <categories>
-        <category>Adversarial Attack</category>
-      </categories>
-      <tags>
-        <tag>Attack</tag>
-        <tag>hide</tag>
-        <tag>Black-box</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>[Paper Review] From Two to One: A New Scene Text Recognizer with Visual Language Modeling Network</title>
-    <url>/2022/06/24/From-two-to-one/</url>
-    <content><![CDATA[<p><div align="center"> <img src="/2022/06/24/From-two-to-one/VisionLAN_pipeline.jpg" width="750"></div><br><a id="more"></a></p>
-<h1 id="Background"><a href="#Background" class="headerlink" title="Background"></a>Background</h1><h1 id="Method"><a href="#Method" class="headerlink" title="Method"></a>Method</h1><p>Backbone (ResNet45) extracts the</p>
-<h2 id="Masked-Language-aware-Module"><a href="#Masked-Language-aware-Module" class="headerlink" title="Masked Language-aware Module"></a>Masked Language-aware Module</h2><p>Aim: generate the character-wise mask map with only original word-level annotations.</p>
-<ul>
-<li>Input: visual features $V$, character index $P\in[1,N_w]$<br>-</li>
-</ul>
-<h1 id="Reference"><a href="#Reference" class="headerlink" title="Reference:"></a>Reference:</h1><ul>
-<li>Paper: <a href="https://openaccess.thecvf.com/content/ICCV2021/papers/Wang_From_Two_to_One_A_New_Scene_Text_Recognizer_With_ICCV_2021_paper.pdf">From Two to One: A New Scene Text Recognizer with Visual Language Modeling Network</a></li>
-<li>Code: <a href="https://github.com/wangyuxin87/VisionLAN">https://github.com/wangyuxin87/VisionLAN</a></li>
-</ul>
-]]></content>
-      <categories>
-        <category>Paper Review</category>
-      </categories>
-      <tags>
-        <tag>STR</tag>
-        <tag>Semi-Supervised</tag>
-        <tag>Mask</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Extra Knowledge of Tensorflow</title>
     <url>/2021/01/14/Extra-Knowledge-of-Tensorflow/</url>
     <content><![CDATA[<h3 id="NCHW-amp-NHWC"><a href="#NCHW-amp-NHWC" class="headerlink" title="NCHW &amp; NHWC"></a>NCHW &amp; NHWC</h3><p>When we use the Tensorflow Application,<br>E.g.</p>
@@ -758,6 +696,69 @@ use_cudnn_on_gpu=None, data_formt = None, name=None)</code></p>
       <tags>
         <tag>Tensorflow</tag>
         <tag>Basic Knowledge</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>FGSM Attack</title>
+    <url>/2021/03/08/FGSM-Attack/</url>
+    <content><![CDATA[<p>Resource: <a href="https://arxiv.org/abs/1412.6572">Explaining and Harnessing Adversarial Examples</a></p>
+]]></content>
+      <categories>
+        <category>Adversarial Attack</category>
+      </categories>
+      <tags>
+        <tag>Adversarial Training</tag>
+        <tag>Attack</tag>
+        <tag>hide</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>[Paper Review] From Two to One: A New Scene Text Recognizer with Visual Language Modeling Network</title>
+    <url>/2022/06/24/From-two-to-one/</url>
+    <content><![CDATA[<div align="center"> <img src="/2022/06/24/From-two-to-one/background.jpg" width="400"></div>
+<a id="more"></a>
+
+# Background
+Previous methods use two-step architecture to utilize the semantic information, However
+- the extra computation cost is huge
+- the two modal is independent (the semantic module works as a post-processor)
+
+# Method
+<div align="center"> <img src="/2022/06/24/From-two-to-one/VisionLAN_pipeline.jpg" width="750"></div>
+Backbone (ResNet45) extracts the 2D features, then MLM generates the position-aware character mask map $Mask_c$. VRM takes occluded feature map $V_m$ as input and makes prediction under the complete word-level supervision.
+
+## Masked Language-aware Module
+<div align="center"> <img src="/2022/06/24/From-two-to-one/MLM.jpg" width="400"></div>
+Aim: generate the character-wise mask map with only original word-level annotations.
+- Input: visual features $V$, character index $P\in[1,N_w]$
+- Transformer unit and prediction layer for $V_{mas}$ and $V_{rem}$ share the weights.
+
+## Visual Reasoning Module
+<div align="center"> <img src="/2022/06/24/From-two-to-one/VRM.jpg" width="400"></div>
+N transformer units + prediction layer
+
+# Training
+Loss function:
+$$L = L_{rec} + \lambda_1L_{mas} + \lambda_2L_{rem}$$
+
+- LF training: split the connection between MLM and VRM, VRM uses visual textual for prediction.
+- LA training: VRM learn the linguistic rules.
+
+# Experiments
+<div align="center"> <img src="/2022/06/24/From-two-to-one/results.jpg" width="750"></div>
+
+<h1 id="Conclusion"><a href="#Conclusion" class="headerlink" title="Conclusion"></a>Conclusion</h1><h1 id="Reference"><a href="#Reference" class="headerlink" title="Reference:"></a>Reference:</h1><ul>
+<li>Paper: <a href="https://openaccess.thecvf.com/content/ICCV2021/papers/Wang_From_Two_to_One_A_New_Scene_Text_Recognizer_With_ICCV_2021_paper.pdf">From Two to One: A New Scene Text Recognizer with Visual Language Modeling Network</a></li>
+<li>Code: <a href="https://github.com/wangyuxin87/VisionLAN">https://github.com/wangyuxin87/VisionLAN</a></li>
+</ul>
+]]></content>
+      <categories>
+        <category>Paper Review</category>
+      </categories>
+      <tags>
+        <tag>STR</tag>
+        <tag>Semi-Supervised</tag>
+        <tag>Mask</tag>
       </tags>
   </entry>
   <entry>
@@ -807,10 +808,9 @@ use_cudnn_on_gpu=None, data_formt = None, name=None)</code></p>
 </ul>
 <h2 id="Multi-modal-Features-Enhancement"><a href="#Multi-modal-Features-Enhancement" class="headerlink" title="Multi-modal Features Enhancement"></a>Multi-modal Features Enhancement</h2><div align="center"> <img src="/2022/06/24/MATRN-Model/fe.jpg" width="400"></div>
 
-<font color="32adff">Multi-modal FE</font>: Both visual and semantic features are processed through <font color="ffad4">self-attentions</font>.
+<font color="32adff">Multi-modal FE</font>: Both visual and semantic features are processed through <font color="ffad4">self-attentions</font>. Contact them together.
 
 ## Visual Clue Masking Strategy
-
 <div align="center"> <img src="/2022/06/24/MATRN-Model/mask.jpg" width="400"></div>
 
 Randomly select a single character and hides corresponding visual features based on the attention map $A^{V-S}$:
@@ -888,21 +888,6 @@ Randomly select a single character and hides corresponding visual features based
       <tags>
         <tag>Hexo</tag>
         <tag>Latex</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>OCR-Data</title>
-    <url>/2021/05/09/OCR-Data/</url>
-    <content><![CDATA[<p>This blog talks about the popular used <strong>Text Recognition Data</strong></p>
-<h2 id="Synthetic-Word-Dataset"><a href="#Synthetic-Word-Dataset" class="headerlink" title="Synthetic Word Dataset"></a>Synthetic Word Dataset</h2><p><a href="https://www.robots.ox.ac.uk/~vgg/data/text/">https://www.robots.ox.ac.uk/~vgg/data/text/</a><br><a id="more"></a><br>This is synthetically generated dataset which we found sufficient for training text recognition on real-world images.</p>
-<p><img src="/2021/05/09/OCR-Data/Synth90k.jpg" alt="figure1" title="Synthetic 90k Example"></p>
-<p>Use linux remote server to download the dataset:<br><code>wget https://thor.robots.ox.ac.uk/~vgg/data/text/mjsynth.tar.gz</code></p>
-<h1 id><a href="#" class="headerlink" title="#"></a>#</h1>]]></content>
-      <categories>
-        <category>Scene Text Recognition</category>
-      </categories>
-      <tags>
-        <tag>STR</tag>
       </tags>
   </entry>
   <entry>
@@ -1004,6 +989,21 @@ Randomly select a single character and hides corresponding visual features based
       <tags>
         <tag>Adversarial Training</tag>
         <tag>Improve Generalization</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>OCR-Data</title>
+    <url>/2021/05/09/OCR-Data/</url>
+    <content><![CDATA[<p>This blog talks about the popular used <strong>Text Recognition Data</strong></p>
+<h2 id="Synthetic-Word-Dataset"><a href="#Synthetic-Word-Dataset" class="headerlink" title="Synthetic Word Dataset"></a>Synthetic Word Dataset</h2><p><a href="https://www.robots.ox.ac.uk/~vgg/data/text/">https://www.robots.ox.ac.uk/~vgg/data/text/</a><br><a id="more"></a><br>This is synthetically generated dataset which we found sufficient for training text recognition on real-world images.</p>
+<p><img src="/2021/05/09/OCR-Data/Synth90k.jpg" alt="figure1" title="Synthetic 90k Example"></p>
+<p>Use linux remote server to download the dataset:<br><code>wget https://thor.robots.ox.ac.uk/~vgg/data/text/mjsynth.tar.gz</code></p>
+<h1 id><a href="#" class="headerlink" title="#"></a>#</h1>]]></content>
+      <categories>
+        <category>Scene Text Recognition</category>
+      </categories>
+      <tags>
+        <tag>STR</tag>
       </tags>
   </entry>
   <entry>
@@ -1133,28 +1133,32 @@ Randomly select a single character and hides corresponding visual features based
 <li>Time-consuming and <font color="#ffad4">inefficient</font></li>
 </ul>
 <h2 id="SEED-2020-CVPR"><a href="#SEED-2020-CVPR" class="headerlink" title="SEED (2020 CVPR)"></a>SEED (2020 CVPR)</h2><p><strong>Drawbacks:</strong><br>For example, two related words “Chair” and “Table” may lie close in word-embedding space, but their character combination is apart.</p>
-<h2 id="SRN-2020-CVPR"><a href="#SRN-2020-CVPR" class="headerlink" title="SRN (2020 CVPR)"></a>SRN (2020 CVPR)</h2><p><a href="/2022/06/23/Towards-Accurate-Scene-Text-Recognition-with-Semantic-Reasoning-Networks/" title="SRN">SRN</a> proposes a structure named global semantic reasoning module (GSRM), which is <font color="#32adff">multi-way parallel transmission</font>. The semantic module works like a post-processor.</p>
-<ul>
-<li>PVAM: Parallel attention mechanism with idx queries.</li>
-<li>GSRM: Four Transformer layers (multi-head self-attention, masked the corresponding character itself)</li>
-</ul>
+<h2 id="SRN-2020-CVPR"><a href="#SRN-2020-CVPR" class="headerlink" title="SRN (2020 CVPR)"></a>SRN (2020 CVPR)</h2><a href="/2022/06/23/Towards-Accurate-Scene-Text-Recognition-with-Semantic-Reasoning-Networks/" title="SRN">SRN</a> proposes a structure named global semantic reasoning module (GSRM), which is <font color="#32adff">multi-way parallel transmission</font>. The semantic module works like a post-processor.
+- PVAM: Parallel attention mechanism with idx queries.
+- GSRM: Four Transformer layers (multi-head self-attention, masked the corresponding character itself)
+
 <div align="center"> <img src="/2022/06/23/Review-the-Scene-Text-Recognition-Models-with-Semantic-Information/SRN_pipeline.jpg" width="750"></div>
 
-<p><strong>Drawbacks:</strong><br>The serial connection between the visual and semantic module may not be the perfect interaction:</p>
-<ul>
-<li>Cannot use the pre-trained LM from large-scale unlabeled text directly.</li>
-<li>Errors from VM output directly harm the LM accuracy.</li>
-</ul>
-<h2 id="ABINet-2021-CVPR"><a href="#ABINet-2021-CVPR" class="headerlink" title="ABINet (2021 CVPR)"></a>ABINet (2021 CVPR)</h2><p><a href="/2022/06/23/ABINet-Model/" title="ABINet">ABINet</a> proposes an <font color="#32adff">autonomous, bidirectional and Iterative</font> structure.</p>
-<ul>
-<li>Autonomous: Block gradient flow between VM and LM, both VM and LM could be pretrained separately.</li>
-<li>Bidirectional: several Transformer decoder layers (no self-attention, query is the positional encodings of the characters in the first layer)</li>
-<li>Iterative: Feed the outputs of ABINet into LM repeatedly.</li>
-</ul>
+**Drawbacks:**
+The serial connection between the visual and semantic module may not be the perfect interaction:
+- Cannot use the pre-trained LM from large-scale unlabeled text directly.
+- Errors from VM output directly harm the LM accuracy.
+
+## ABINet (2021 CVPR)
+<a href="/2022/06/23/ABINet-Model/" title="ABINet">ABINet</a> proposes an <font color="#32adff">autonomous, bidirectional and Iterative</font> structure.
+
+- Autonomous: Block gradient flow between VM and LM, both VM and LM could be pretrained separately.
+- Bidirectional: several Transformer decoder layers (no self-attention, query is the positional encodings of the characters in the first layer)
+- Iterative: Feed the outputs of ABINet into LM repeatedly.
+
 <div align="center"> <img src="/2022/06/23/Review-the-Scene-Text-Recognition-Models-with-Semantic-Information/ABINet_pipeline.jpg" width="700"></div>
 
-<p><strong>Drawbacks:</strong><br>The LM character refinements does not <font color="#ffad4">interact with visual features</font>, like a post-processor. (The LM’s inputs are logits[N, T, C] and positional encodings.)</p>
-<h2 id="VisionLAN-2021-ICCV"><a href="#VisionLAN-2021-ICCV" class="headerlink" title="VisionLAN (2021 ICCV)"></a>VisionLAN (2021 ICCV)</h2><div align="center"> <img src="/2022/06/23/Review-the-Scene-Text-Recognition-Models-with-Semantic-Information/VisionLAN_pipeline.jpg" width="700"></div>
+**Drawbacks:**
+The LM character refinements does not <font color="#ffad4">interact with visual features</font>, like a post-processor. (The LM's inputs are logits[N, T, C] and positional encodings.)
+
+## VisionLAN (2021 ICCV)
+<a href="/2022/06/24/From-two-to-one/" title="VisionLAN">VisionLAN</a>
+<div align="center"> <img src="/2022/06/23/Review-the-Scene-Text-Recognition-Models-with-Semantic-Information/VisionLAN_pipeline.jpg" width="700"></div>
 
 <h2 id="MATRN"><a href="#MATRN" class="headerlink" title="MATRN"></a>MATRN</h2><p><a href="/2022/06/24/MATRN-Model/" title="MATRN">MATRN</a> summarizes the previous methods, and proposes an improvement model based on ABINet, which <font color="#32adff">emphasizes the interaction between visual and semantic features</font>.</p>
 <div align="center"> <img src="/2022/06/23/Review-the-Scene-Text-Recognition-Models-with-Semantic-Information/MATRN_pipeline.jpg" width="700"></div>
@@ -1186,15 +1190,6 @@ Randomly select a single character and hides corresponding visual features based
         <tag>STR</tag>
         <tag>Semantic Module</tag>
       </tags>
-  </entry>
-  <entry>
-    <title>Server</title>
-    <url>/2021/05/09/Server/</url>
-    <content><![CDATA[<p>This talks about how to build your own remote server.</p>
-<h2 id="Anaconda"><a href="#Anaconda" class="headerlink" title="Anaconda"></a>Anaconda</h2>]]></content>
-      <categories>
-        <category>Remote Server</category>
-      </categories>
   </entry>
   <entry>
     <title>[Paper Review] Towards Accurate Scene Text Recognition with Semantic Reasoning Networks</title>

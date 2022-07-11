@@ -56,10 +56,10 @@
     <link href="https://rachel-yang.github.io/2022/06/24/From-two-to-one/"/>
     <id>https://rachel-yang.github.io/2022/06/24/From-two-to-one/</id>
     <published>2022-06-23T19:54:49.000Z</published>
-    <updated>2022-06-30T07:00:01.804Z</updated>
+    <updated>2022-07-07T09:46:03.005Z</updated>
     
     
-    <summary type="html">&lt;p&gt;&lt;div align=&quot;center&quot;&gt; &lt;img src=&quot;/2022/06/24/From-two-to-one/VisionLAN_pipeline.jpg&quot; width=&quot;750&quot;&gt;&lt;/div&gt;&lt;br&gt;&lt;/p&gt;</summary>
+    <summary type="html">&lt;div align=&quot;center&quot;&gt; &lt;img src=&quot;/2022/06/24/From-two-to-one/background.jpg&quot; width=&quot;400&quot;&gt;&lt;/div&gt;</summary>
     
     
     
@@ -79,7 +79,7 @@
     <link href="https://rachel-yang.github.io/2022/06/24/MATRN-Model/"/>
     <id>https://rachel-yang.github.io/2022/06/24/MATRN-Model/</id>
     <published>2022-06-23T19:54:37.000Z</published>
-    <updated>2022-06-29T14:52:43.469Z</updated>
+    <updated>2022-07-07T09:51:58.647Z</updated>
     
     
     <summary type="html">&lt;div align=&quot;center&quot;&gt; &lt;img src=&quot;/2022/06/24/MATRN-Model/MATRN_pipeline.jpg&quot; width=&quot;750&quot;&gt;&lt;/div&gt;</summary>
@@ -148,7 +148,7 @@
     <link href="https://rachel-yang.github.io/2022/06/23/Review-the-Scene-Text-Recognition-Models-with-Semantic-Information/"/>
     <id>https://rachel-yang.github.io/2022/06/23/Review-the-Scene-Text-Recognition-Models-with-Semantic-Information/</id>
     <published>2022-06-23T05:18:59.000Z</published>
-    <updated>2022-06-30T05:32:19.939Z</updated>
+    <updated>2022-07-07T09:46:56.745Z</updated>
     
     
     <summary type="html">&lt;p&gt;This article reviews the ways that scene text recognition models utilize the semantic information to boost their performance, from the &lt;font color=&quot;#32adff&quot;&gt;Bahdanau Attention Decoder&lt;/font&gt; to various &lt;font color=&quot;#32adff&quot;&gt;Semantic Modules&lt;/font&gt;.&lt;br&gt;&lt;/p&gt;</summary>
@@ -268,23 +268,6 @@
     <category term="Improve Generalization" scheme="https://rachel-yang.github.io/tags/Improve-Generalization/"/>
     
     <category term="Semi-Supervised Learning" scheme="https://rachel-yang.github.io/tags/Semi-Supervised-Learning/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Adversarial Training</title>
-    <link href="https://rachel-yang.github.io/2021/08/03/Adversarial-Training/"/>
-    <id>https://rachel-yang.github.io/2021/08/03/Adversarial-Training/</id>
-    <published>2021-08-03T05:13:13.000Z</published>
-    <updated>2021-08-03T06:08:37.485Z</updated>
-    
-    
-    
-    
-    <category term="Overview" scheme="https://rachel-yang.github.io/categories/Overview/"/>
-    
-    
-    <category term="Adversarial Training" scheme="https://rachel-yang.github.io/tags/Adversarial-Training/"/>
     
   </entry>
   
@@ -430,6 +413,35 @@
     
     
     <category term="STR" scheme="https://rachel-yang.github.io/tags/STR/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>FGSM Attack</title>
+    <link href="https://rachel-yang.github.io/2021/03/08/FGSM-Attack/"/>
+    <id>https://rachel-yang.github.io/2021/03/08/FGSM-Attack/</id>
+    <published>2021-03-08T11:23:05.000Z</published>
+    <updated>2021-07-16T03:23:41.809Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;Resource: &lt;a href=&quot;https://arxiv.org/abs/1412.6572&quot;&gt;Explaining and Harnessing Adversarial</summary>
+        
+      
+    
+    
+    
+    <category term="Adversarial Attack" scheme="https://rachel-yang.github.io/categories/Adversarial-Attack/"/>
+    
+    
+    <category term="Adversarial Training" scheme="https://rachel-yang.github.io/tags/Adversarial-Training/"/>
+    
+    <category term="Attack" scheme="https://rachel-yang.github.io/tags/Attack/"/>
+    
+    <category term="hide" scheme="https://rachel-yang.github.io/tags/hide/"/>
     
   </entry>
   

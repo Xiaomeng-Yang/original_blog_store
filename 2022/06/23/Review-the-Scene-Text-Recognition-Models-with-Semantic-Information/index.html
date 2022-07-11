@@ -35,7 +35,7 @@
 <meta property="og:image" content="https://rachel-yang.github.io/2022/06/23/Review-the-Scene-Text-Recognition-Models-with-Semantic-Information/VisionLAN_pipeline.jpg">
 <meta property="og:image" content="https://rachel-yang.github.io/2022/06/23/Review-the-Scene-Text-Recognition-Models-with-Semantic-Information/MATRN_pipeline.jpg">
 <meta property="article:published_time" content="2022-06-23T05:18:59.000Z">
-<meta property="article:modified_time" content="2022-06-30T05:32:19.939Z">
+<meta property="article:modified_time" content="2022-07-07T09:46:56.745Z">
 <meta property="article:author" content="珣XUN">
 <meta property="article:tag" content="STR">
 <meta property="article:tag" content="Review">
@@ -220,7 +220,7 @@
 
       <!--noindex-->
       <section class="post-toc-wrap sidebar-panel">
-          <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Bahdanau-Attention"><span class="nav-number">1.</span> <span class="nav-text">Bahdanau Attention</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#SEED-2020-CVPR"><span class="nav-number">2.</span> <span class="nav-text">SEED (2020 CVPR)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#SRN-2020-CVPR"><span class="nav-number">3.</span> <span class="nav-text">SRN (2020 CVPR)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ABINet-2021-CVPR"><span class="nav-number">4.</span> <span class="nav-text">ABINet (2021 CVPR)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#VisionLAN-2021-ICCV"><span class="nav-number">5.</span> <span class="nav-text">VisionLAN (2021 ICCV)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#MATRN"><span class="nav-number">6.</span> <span class="nav-text">MATRN</span></a></li></ol></div>
+          <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Bahdanau-Attention"><span class="nav-number">1.</span> <span class="nav-text">Bahdanau Attention</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#SEED-2020-CVPR"><span class="nav-number">2.</span> <span class="nav-text">SEED (2020 CVPR)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#SRN-2020-CVPR"><span class="nav-number">3.</span> <span class="nav-text">SRN (2020 CVPR)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#MATRN"><span class="nav-number">4.</span> <span class="nav-text">MATRN</span></a></li></ol></div>
       </section>
       <!--/noindex-->
 
@@ -236,20 +236,20 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">30</span>
+          <span class="site-state-item-count">27</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">9</span>
+        <span class="site-state-item-count">8</span>
         <span class="site-state-item-name">categories</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">27</span>
+        <span class="site-state-item-count">26</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>
@@ -327,7 +327,7 @@
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">Edited on</span>
-        <time title="Modified: 2022-06-30 13:32:19" itemprop="dateModified" datetime="2022-06-30T13:32:19+08:00">2022-06-30</time>
+        <time title="Modified: 2022-07-07 17:46:56" itemprop="dateModified" datetime="2022-07-07T17:46:56+08:00">2022-07-07</time>
       </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -384,28 +384,32 @@
 <li>Time-consuming and <font color="#ffad4">inefficient</font></li>
 </ul>
 <h2 id="SEED-2020-CVPR"><a href="#SEED-2020-CVPR" class="headerlink" title="SEED (2020 CVPR)"></a>SEED (2020 CVPR)</h2><p><strong>Drawbacks:</strong><br>For example, two related words “Chair” and “Table” may lie close in word-embedding space, but their character combination is apart.</p>
-<h2 id="SRN-2020-CVPR"><a href="#SRN-2020-CVPR" class="headerlink" title="SRN (2020 CVPR)"></a>SRN (2020 CVPR)</h2><p><a href="/2022/06/23/Towards-Accurate-Scene-Text-Recognition-with-Semantic-Reasoning-Networks/" title="SRN">SRN</a> proposes a structure named global semantic reasoning module (GSRM), which is <font color="#32adff">multi-way parallel transmission</font>. The semantic module works like a post-processor.</p>
-<ul>
-<li>PVAM: Parallel attention mechanism with idx queries.</li>
-<li>GSRM: Four Transformer layers (multi-head self-attention, masked the corresponding character itself)</li>
-</ul>
+<h2 id="SRN-2020-CVPR"><a href="#SRN-2020-CVPR" class="headerlink" title="SRN (2020 CVPR)"></a>SRN (2020 CVPR)</h2><a href="/2022/06/23/Towards-Accurate-Scene-Text-Recognition-with-Semantic-Reasoning-Networks/" title="SRN">SRN</a> proposes a structure named global semantic reasoning module (GSRM), which is <font color="#32adff">multi-way parallel transmission</font>. The semantic module works like a post-processor.
+- PVAM: Parallel attention mechanism with idx queries.
+- GSRM: Four Transformer layers (multi-head self-attention, masked the corresponding character itself)
+
 <div align="center"> <img src="/2022/06/23/Review-the-Scene-Text-Recognition-Models-with-Semantic-Information/SRN_pipeline.jpg" width="750"></div>
 
-<p><strong>Drawbacks:</strong><br>The serial connection between the visual and semantic module may not be the perfect interaction:</p>
-<ul>
-<li>Cannot use the pre-trained LM from large-scale unlabeled text directly.</li>
-<li>Errors from VM output directly harm the LM accuracy.</li>
-</ul>
-<h2 id="ABINet-2021-CVPR"><a href="#ABINet-2021-CVPR" class="headerlink" title="ABINet (2021 CVPR)"></a>ABINet (2021 CVPR)</h2><p><a href="/2022/06/23/ABINet-Model/" title="ABINet">ABINet</a> proposes an <font color="#32adff">autonomous, bidirectional and Iterative</font> structure.</p>
-<ul>
-<li>Autonomous: Block gradient flow between VM and LM, both VM and LM could be pretrained separately.</li>
-<li>Bidirectional: several Transformer decoder layers (no self-attention, query is the positional encodings of the characters in the first layer)</li>
-<li>Iterative: Feed the outputs of ABINet into LM repeatedly.</li>
-</ul>
+**Drawbacks:**
+The serial connection between the visual and semantic module may not be the perfect interaction:
+- Cannot use the pre-trained LM from large-scale unlabeled text directly.
+- Errors from VM output directly harm the LM accuracy.
+
+## ABINet (2021 CVPR)
+<a href="/2022/06/23/ABINet-Model/" title="ABINet">ABINet</a> proposes an <font color="#32adff">autonomous, bidirectional and Iterative</font> structure.
+
+- Autonomous: Block gradient flow between VM and LM, both VM and LM could be pretrained separately.
+- Bidirectional: several Transformer decoder layers (no self-attention, query is the positional encodings of the characters in the first layer)
+- Iterative: Feed the outputs of ABINet into LM repeatedly.
+
 <div align="center"> <img src="/2022/06/23/Review-the-Scene-Text-Recognition-Models-with-Semantic-Information/ABINet_pipeline.jpg" width="700"></div>
 
-<p><strong>Drawbacks:</strong><br>The LM character refinements does not <font color="#ffad4">interact with visual features</font>, like a post-processor. (The LM’s inputs are logits[N, T, C] and positional encodings.)</p>
-<h2 id="VisionLAN-2021-ICCV"><a href="#VisionLAN-2021-ICCV" class="headerlink" title="VisionLAN (2021 ICCV)"></a>VisionLAN (2021 ICCV)</h2><div align="center"> <img src="/2022/06/23/Review-the-Scene-Text-Recognition-Models-with-Semantic-Information/VisionLAN_pipeline.jpg" width="700"></div>
+**Drawbacks:**
+The LM character refinements does not <font color="#ffad4">interact with visual features</font>, like a post-processor. (The LM's inputs are logits[N, T, C] and positional encodings.)
+
+## VisionLAN (2021 ICCV)
+<a href="/2022/06/24/From-two-to-one/" title="VisionLAN">VisionLAN</a>
+<div align="center"> <img src="/2022/06/23/Review-the-Scene-Text-Recognition-Models-with-Semantic-Information/VisionLAN_pipeline.jpg" width="700"></div>
 
 <h2 id="MATRN"><a href="#MATRN" class="headerlink" title="MATRN"></a>MATRN</h2><p><a href="/2022/06/24/MATRN-Model/" title="MATRN">MATRN</a> summarizes the previous methods, and proposes an improvement model based on ABINet, which <font color="#32adff">emphasizes the interaction between visual and semantic features</font>.</p>
 <div align="center"> <img src="/2022/06/23/Review-the-Scene-Text-Recognition-Models-with-Semantic-Information/MATRN_pipeline.jpg" width="700"></div>
@@ -478,7 +482,8 @@
     <div class="footer-inner">
       
 
-      
+      <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
 
 <div class="copyright">
   
