@@ -1,0 +1,700 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.3.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/transparent.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/transparent.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/transparent.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Times+New+Roman:300,300italic,400,400italic,700,700italic|Arial:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.14.0/css/all.min.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css">
+
+<script class="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"rachel-yang.github.io","root":"/","scheme":"Gemini","version":"8.0.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"b2t":false,"scrollpercent":true},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"search.xml","localsearch":{"enable":true,"trigger":"manual","top_n_per_article":1,"unescape":false,"preload":false}};
+  </script>
+
+  <meta name="description" content="This post lists papers about scene text recognition published in top conferences. Latest papers on Arxiv MaskOCR: Text Recognition with Masked Encoder-Decoder Pretraining [2022&#x2F;6&#x2F;1] Visual-Semantic Tr">
+<meta property="og:type" content="article">
+<meta property="og:title" content="STR Papers List">
+<meta property="og:url" content="https://rachel-yang.github.io/2022/07/11/STR-papers-list/index.html">
+<meta property="og:site_name" content="Xun&#39;s Gallery">
+<meta property="og:description" content="This post lists papers about scene text recognition published in top conferences. Latest papers on Arxiv MaskOCR: Text Recognition with Masked Encoder-Decoder Pretraining [2022&#x2F;6&#x2F;1] Visual-Semantic Tr">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2022-07-11T10:04:40.000Z">
+<meta property="article:modified_time" content="2022-07-25T07:33:54.656Z">
+<meta property="article:author" content="珣XUN">
+<meta property="article:tag" content="STR">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://rachel-yang.github.io/2022/07/11/STR-papers-list/">
+
+
+<script class="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'en'
+  };
+</script>
+
+  <title>STR Papers List | Xun's Gallery</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  body { margin-top: 2rem; }
+
+  .use-motion .menu-item,
+  .use-motion .sidebar,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header {
+    visibility: visible;
+  }
+
+  .use-motion .header,
+  .use-motion .site-brand-container .toggle,
+  .use-motion .footer { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle,
+  .use-motion .custom-logo-image {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line {
+    transform: scaleX(1);
+  }
+
+  .search-pop-overlay, .sidebar-nav { display: none; }
+  .sidebar-panel { display: block; }
+  </style>
+</noscript>
+
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+<!-- hexo injector head_end end --><link rel="alternate" href="/atom.xml" title="Xun's Gallery" type="application/atom+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <h1 class="site-title">Xun's Gallery</h1>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">About everything interesting~</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu">
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a>
+
+  </li>
+        <li class="menu-item menu-item-photos">
+
+    <a href="/gallery" rel="section"><i class="fa fa-camera-retro fa-fw"></i>Gallery</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="Searching..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <section class="post-toc-wrap sidebar-panel">
+          <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Latest-papers-on-Arxiv"><span class="nav-number">1.</span> <span class="nav-text">Latest papers on Arxiv</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Sort-by-Conferences-The-latest-three-years"><span class="nav-number">2.</span> <span class="nav-text">Sort by Conferences (The latest three years)</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#2022-MM"><span class="nav-number">2.1.</span> <span class="nav-text">2022 MM</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2022-IJCAI"><span class="nav-number">2.2.</span> <span class="nav-text">2022 IJCAI</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2022-AAAI"><span class="nav-number">2.3.</span> <span class="nav-text">2022 AAAI</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2022-CVPR"><span class="nav-number">2.4.</span> <span class="nav-text">2022 CVPR</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2021-ICCV"><span class="nav-number">2.5.</span> <span class="nav-text">2021 ICCV</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2021-CPVR"><span class="nav-number">2.6.</span> <span class="nav-text">2021 CPVR</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2021-AAAI"><span class="nav-number">2.7.</span> <span class="nav-text">2021 AAAI</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2021-MM"><span class="nav-number">2.8.</span> <span class="nav-text">2021 MM</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2020-ECCV"><span class="nav-number">2.9.</span> <span class="nav-text">2020 ECCV</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2020-CVPR"><span class="nav-number">2.10.</span> <span class="nav-text">2020 CVPR</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2020-AAAI"><span class="nav-number">2.11.</span> <span class="nav-text">2020 AAAI</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Sort-by-Methods"><span class="nav-number">3.</span> <span class="nav-text">Sort by Methods</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#CTC-based-decoder"><span class="nav-number">3.1.</span> <span class="nav-text">CTC-based decoder</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Attention-based-decoder"><span class="nav-number">3.2.</span> <span class="nav-text">Attention-based decoder</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Parallel-attention-decoder"><span class="nav-number">3.3.</span> <span class="nav-text">Parallel-attention decoder</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Datasets"><span class="nav-number">3.4.</span> <span class="nav-text">Datasets</span></a></li></ol></li></ol></div>
+      </section>
+      <!--/noindex-->
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="珣XUN"
+      src="/images/avatar.jpg">
+  <p class="site-author-name" itemprop="name">珣XUN</p>
+  <div class="site-description" itemprop="description">Pretending to be a drawer (:-D)</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">29</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">9</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">29</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/Rachel-Yang" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;Rachel-Yang" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:xiaomeng.rachel@gmail.com" title="E-Mail → mailto:xiaomeng.rachel@gmail.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+
+
+
+      </section>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+      
+
+      
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://rachel-yang.github.io/2022/07/11/STR-papers-list/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="珣XUN">
+      <meta itemprop="description" content="Pretending to be a drawer (:-D)">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Xun's Gallery">
+    </span>
+
+    
+    
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          STR Papers List
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <i class="fa fa-thumb-tack"></i>
+    <font color=#00449b>Pinned</font>
+    <span class="post-meta-divider"></span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2022-07-11 18:04:40" itemprop="dateCreated datePublished" datetime="2022-07-11T18:04:40+08:00">2022-07-11</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">Edited on</span>
+        <time title="Modified: 2022-07-25 15:33:54" itemprop="dateModified" datetime="2022-07-25T15:33:54+08:00">2022-07-25</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Scene-Text-Recognition/" itemprop="url" rel="index"><span itemprop="name">Scene Text Recognition</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-item" title="Views" id="busuanzi_container_page_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">Views: </span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
+      </div>
+      <div class="post-meta">
+    <span class="post-meta-item" title="Symbols count in article">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">Symbols count in article: </span>
+      <span>4.5k</span>
+    </span>
+    <span class="post-meta-item" title="Reading time">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">Reading time &asymp;</span>
+      <span>3 mins.</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <p>This post lists papers about scene text recognition published in top conferences.</p>
+<h1 id="Latest-papers-on-Arxiv"><a href="#Latest-papers-on-Arxiv" class="headerlink" title="Latest papers on Arxiv"></a>Latest papers on Arxiv</h1><ul>
+<li><a target="_blank" rel="noopener" href="https://arxiv.org/pdf/2206.00311v1.pdf">MaskOCR: Text Recognition with Masked Encoder-Decoder Pretraining</a> [2022/6/1]</li>
+<li><a target="_blank" rel="noopener" href="https://arxiv.org/pdf/2112.00948.pdf">Visual-Semantic Transformer for Scene Text Recognition</a> [2021/12/2]</li>
+<li><a target="_blank" rel="noopener" href="https://arxiv.org/pdf/2111.15263v1.pdf">Multi-modal Text Recognition Networks: Interactive Enhancements between Visual and Semantic Features</a> [2021/11/30]</li>
+</ul>
+<a id="more"></a>
+<h1 id="Sort-by-Conferences-The-latest-three-years"><a href="#Sort-by-Conferences-The-latest-three-years" class="headerlink" title="Sort by Conferences (The latest three years)"></a>Sort by Conferences (The latest three years)</h1><h2 id="2022-MM"><a href="#2022-MM" class="headerlink" title="2022 MM"></a>2022 MM</h2><ul>
+<li><a target="_blank" rel="noopener" href="https://arxiv.org/pdf/2207.00193.pdf">Reading and Writing: Discriminative and Generative Modeling for Self-Supervised Text Recognition</a></li>
+</ul>
+<h2 id="2022-IJCAI"><a href="#2022-IJCAI" class="headerlink" title="2022 IJCAI"></a>2022 IJCAI</h2><ul>
+<li><a target="_blank" rel="noopener" href="https://arxiv.org/pdf/2205.00159.pdf">SVTR: Scene Text Recognition with a Single Visual Model</a></li>
+</ul>
+<h2 id="2022-AAAI"><a href="#2022-AAAI" class="headerlink" title="2022 AAAI"></a>2022 AAAI</h2><ul>
+<li><a target="_blank" rel="noopener" href="https://federated-learning.org/fl-aaai-2022/Papers/FL-AAAI-22_paper_6.pdf">FedOCR: Efficient and Secure Federated Learning for Scene Text Recognition</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.aaai.org/AAAI22Papers/AAAI-10147.ZhangX.pdf">Context-based Contrastive Learning for Scene Text Recognition</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.aaai.org/AAAI22Papers/AAAI-1905.HeY.pdf">Visual Semantics Allow for Textual Reasoning Better in Scene Text Recognition</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.aaai.org/AAAI22Papers/AAAI-785.LiuH.pdf">Perceiving Stroke-Semantic Context: Hierarchical Contrastive Learning for Robust Scene Text Recognition</a></li>
+</ul>
+<h2 id="2022-CVPR"><a href="#2022-CVPR" class="headerlink" title="2022 CVPR"></a>2022 CVPR</h2><ul>
+<li><a target="_blank" rel="noopener" href="https://openaccess.thecvf.com/content/CVPR2022/papers/Zheng_Pushing_the_Performance_Limit_of_Scene_Text_Recognizer_Without_Human_CVPR_2022_paper.pdf">Pushing the Performance Limit of Scene Text Recognizer without Human Annotation</a></li>
+<li><a target="_blank" rel="noopener" href="https://openaccess.thecvf.com/content/CVPR2022/papers/Liu_Open-Set_Text_Recognition_via_Character-Context_Decoupling_CVPR_2022_paper.pdf">Open-set Text Recognition via Character-Context Decoupling</a></li>
+<li><a target="_blank" rel="noopener" href="https://openaccess.thecvf.com/content/CVPR2022/papers/Luo_SimAN_Exploring_Self-Supervised_Representation_Learning_of_Scene_Text_via_Similarity-Aware_CVPR_2022_paper.pdf">SimAN: Exploring Self-Supervised Representation Learning of Scene Text via Similarity-Aware Normalization</a></li>
+</ul>
+<h2 id="2021-ICCV"><a href="#2021-ICCV" class="headerlink" title="2021 ICCV"></a>2021 ICCV</h2><ul>
+<li><a target="_blank" rel="noopener" href="https://openaccess.thecvf.com/content/ICCV2021/papers/Bhunia_Towards_the_Unseen_Iterative_Text_Recognition_by_Distilling_From_Errors_ICCV_2021_paper.pdf">Towards the Unseen: Iterative Text Recognition by Distilling from Errors</a></li>
+<li><a target="_blank" rel="noopener" href="https://openaccess.thecvf.com/content/ICCV2021/papers/Bhunia_Joint_Visual_Semantic_Reasoning_Multi-Stage_Decoder_for_Text_Recognition_ICCV_2021_paper.pdf">Joint Visual Semantic Reasoning: Multi-Stage Decoder for Text Recognition</a></li>
+<li><a target="_blank" rel="noopener" href="https://openaccess.thecvf.com/content/ICCV2021/papers/Bhunia_Text_Is_Text_No_Matter_What_Unifying_Text_Recognition_Using_ICCV_2021_paper.pdf">Text is Text, No Matter What: Unifying Text Recognition using Knowledge Distillation</a></li>
+<li><a target="_blank" rel="noopener" href="https://openaccess.thecvf.com/content/ICCV2021/papers/Wang_From_Two_to_One_A_New_Scene_Text_Recognizer_With_ICCV_2021_paper.pdf">From Two to One: A New Scene Text Recognizer with Visual Language Modeling Network</a></li>
+</ul>
+<h2 id="2021-CPVR"><a href="#2021-CPVR" class="headerlink" title="2021 CPVR"></a>2021 CPVR</h2><ul>
+<li><a target="_blank" rel="noopener" href="https://openaccess.thecvf.com/content/CVPR2021/papers/Fang_Read_Like_Humans_Autonomous_Bidirectional_and_Iterative_Language_Modeling_for_CVPR_2021_paper.pdf">Read Like Humans: Autonomous, Bidirectional and Iterative Language Modeling for Scene Text Recognition</a></li>
+<li><a target="_blank" rel="noopener" href="https://openaccess.thecvf.com/content/CVPR2021/papers/Nguyen_Dictionary-Guided_Scene_Text_Recognition_CVPR_2021_paper.pdf">Dictionary-guided Scene Text Recognition</a></li>
+<li><a target="_blank" rel="noopener" href="https://openaccess.thecvf.com/content/CVPR2021/papers/Yan_Primitive_Representation_Learning_for_Scene_Text_Recognition_CVPR_2021_paper.pdf">Primitive Representation Learning for Scene Text Recognition</a></li>
+<li><a target="_blank" rel="noopener" href="https://openaccess.thecvf.com/content/CVPR2021/papers/Aberdam_Sequence-to-Sequence_Contrastive_Learning_for_Text_Recognition_CVPR_2021_paper.pdf">Sequence-to-Sequence Contrastive Learning for Text Recognition</a></li>
+<li><a target="_blank" rel="noopener" href="https://openaccess.thecvf.com/content/CVPR2021/papers/Baek_What_if_We_Only_Use_Real_Datasets_for_Scene_Text_CVPR_2021_paper.pdf">What If We Only Use Real Datasets for Scene Text Recognition? Toward Scene Text Recognition With Fewer Labels</a></li>
+</ul>
+<h2 id="2021-AAAI"><a href="#2021-AAAI" class="headerlink" title="2021 AAAI"></a>2021 AAAI</h2><ul>
+<li><a target="_blank" rel="noopener" href="https://arxiv.org/pdf/2005.13117.pdf">SPIN：Structure-Preserving Inner Offset Network for Scene Text Recognition</a></li>
+</ul>
+<h2 id="2021-MM"><a href="#2021-MM" class="headerlink" title="2021 MM"></a>2021 MM</h2><ul>
+<li><a target="_blank" rel="noopener" href="https://dl.acm.org/doi/10.1145/3474085.3475238">PIMNet: A Parallel, Iterative and Mimicking Network for Scene Text Recognition</a></li>
+</ul>
+<h2 id="2020-ECCV"><a href="#2020-ECCV" class="headerlink" title="2020 ECCV"></a>2020 ECCV</h2><ul>
+<li><a target="_blank" rel="noopener" href="https://arxiv.org/pdf/2007.07542.pdf">Robustscanner: Dynamically Enhancing Positional Clues for Robust Text Recognition</a></li>
+</ul>
+<h2 id="2020-CVPR"><a href="#2020-CVPR" class="headerlink" title="2020 CVPR"></a>2020 CVPR</h2><ul>
+<li><a target="_blank" rel="noopener" href="https://openaccess.thecvf.com/content_CVPR_2020/papers/Litman_SCATTER_Selective_Context_Attentional_Scene_Text_Recognizer_CVPR_2020_paper.pdf">SCATTER: Selective Context Attentional Scene Text Recognizer</a></li>
+<li><a target="_blank" rel="noopener" href="https://openaccess.thecvf.com/content_CVPRW_2020/papers/w34/Lee_On_Recognizing_Texts_of_Arbitrary_Shapes_With_2D_Self-Attention_CVPRW_2020_paper.pdf">On Recognizing Texts of Arbitrary Shapes with 2D Self-Attention</a></li>
+<li><a target="_blank" rel="noopener" href="https://openaccess.thecvf.com/content_CVPR_2020/papers/Qiao_SEED_Semantics_Enhanced_Encoder-Decoder_Framework_for_Scene_Text_Recognition_CVPR_2020_paper.pdf">Seed: Semantics Enhanced Encoder-Decoder Framework for Scene Text Recognition</a></li>
+<li><a target="_blank" rel="noopener" href="https://openaccess.thecvf.com/content_CVPR_2020/papers/Yu_Towards_Accurate_Scene_Text_Recognition_With_Semantic_Reasoning_Networks_CVPR_2020_paper.pdf">Towards Accurate Scene Text Recognition with Semantic Reasoning Networks</a></li>
+<li><a target="_blank" rel="noopener" href="https://openaccess.thecvf.com/content_CVPR_2020/papers/Luo_Learn_to_Augment_Joint_Data_Augmentation_and_Network_Optimization_for_CVPR_2020_paper.pdf">Learn to Augment: Joint Data Augmentation and Network Optimization for Text Recognition</a></li>
+<li><a target="_blank" rel="noopener" href="https://arxiv.org/pdf/2003.10608.pdf">UnrealText: Synthesizing Realistic Scene Text Images from the Unreal World</a></li>
+<li><a target="_blank" rel="noopener" href="https://openaccess.thecvf.com/content_CVPR_2020/papers/Xu_What_Machines_See_Is_Not_What_They_Get_Fooling_Scene_CVPR_2020_paper.pdf">What Machines See Is Not What They Get: Fooling Scene Text Recognition Models with Adversarial Text Images</a></li>
+<li><a target="_blank" rel="noopener" href="https://openaccess.thecvf.com/content_CVPR_2020/papers/Wan_On_Vocabulary_Reliance_in_Scene_Text_Recognition_CVPR_2020_paper.pdf">On Vocabulary Reliance in Scene Text Recognition</a></li>
+</ul>
+<h2 id="2020-AAAI"><a href="#2020-AAAI" class="headerlink" title="2020 AAAI"></a>2020 AAAI</h2><ul>
+<li><a target="_blank" rel="noopener" href="https://arxiv.org/pdf/1912.12422v1.pdf">Textscanner: Reading Characters in Order for Robust Scene Text Recognition</a></li>
+<li><a target="_blank" rel="noopener" href="https://arxiv.org/pdf/1912.10205.pdf">Decoupled Attention Network for Text Recognition</a></li>
+<li><a target="_blank" rel="noopener" href="https://arxiv.org/pdf/2002.01276.pdf">GTC: Guided Training of CTC towards Efficient and Accurate Scene Text Recognition</a></li>
+</ul>
+<h1 id="Sort-by-Methods"><a href="#Sort-by-Methods" class="headerlink" title="Sort by Methods"></a>Sort by Methods</h1><ul>
+<li>ESIR: End-to-end scene text recognition via iterative image rectification [2019-CVPR]</li>
+<li>Sequence-to-sequence domain adaptation network for robust text image recognition [2019-CVPR]</li>
+</ul>
+<h2 id="CTC-based-decoder"><a href="#CTC-based-decoder" class="headerlink" title="CTC-based decoder"></a>CTC-based decoder</h2><ul>
+<li>SVTR: Scene Text Recognition with a Single Visual Model [IJCAI-2022]<ul>
+<li>Transformer encoder + CTC decoder</li>
+</ul>
+</li>
+<li>An End-to-End Trainable Neural Network for Image-based Sequence Recognition and Its Application to Scene Text Recognition [TPAMI-2016]<ul>
+<li>CRNN Model</li>
+</ul>
+</li>
+<li>STAR-Net: A spatial attention residue network for scene text recognition [BMVC-2016]</li>
+<li>GTC: Guided Training of CTC towards Efficient and Accurate Scene Text Recognition [AAAI-2020]<ul>
+<li>训练的时候用Attention分支辅助CTC，测试的时候只用CTC</li>
+</ul>
+</li>
+</ul>
+<h2 id="Attention-based-decoder"><a href="#Attention-based-decoder" class="headerlink" title="Attention-based decoder"></a>Attention-based decoder</h2><ul>
+<li>Towards accurate scene text recognition with semantic reasoning networks [CVPR-2020]</li>
+<li>What is wrong with scene text recognition model comparisons? dataset and model analysis [ICCV-2019]<ul>
+<li>TRBA, conclusion of previous methods</li>
+</ul>
+</li>
+<li>Show, attend and read: A simple and strong baseline for irregular text recognition [AAAI-2019]<ul>
+<li>2D Attention</li>
+</ul>
+</li>
+<li>ASTER: An Attentional Scene Text Recognizer with Flexible Rectification [TPAMI-2018]<ul>
+<li>TPS矫正 + encoder + attention decoder</li>
+</ul>
+</li>
+<li>MORAN: A Multi-Object Rectified Attention Network for Scene Text Recognition [PR-2018]<ul>
+<li>任意方向矫正</li>
+</ul>
+</li>
+<li>Edit probability for scene text recognition [CVPR-2018]</li>
+<li>Focusing attention: Towards accurate text recognition in natural images [ICCV-2017]</li>
+<li>Robust Scene Text Recognition With Automatic Rectification [CVPR-2016]<ul>
+<li>TPS矫正 + Attention</li>
+</ul>
+</li>
+</ul>
+<h2 id="Parallel-attention-decoder"><a href="#Parallel-attention-decoder" class="headerlink" title="Parallel-attention decoder"></a>Parallel-attention decoder</h2><ul>
+<li>Towards accurate scene text recognition with semantic reasoning networks<ul>
+<li>SRN, see for detail</li>
+</ul>
+</li>
+<li>Read Like Humans: Autonomous, Bidirectional and Iterative Language Modeling for Scene Text Recognition<ul>
+<li>ABINet, see for detail</li>
+</ul>
+</li>
+<li>From Two to One: A New Scene Text Recognizer with Visual Language Modeling Network</li>
+<li>Multi-modal Text Recognition Networks: Interactive Enhancements between Visual and Semantic Features</li>
+</ul>
+<h2 id="Datasets"><a href="#Datasets" class="headerlink" title="Datasets"></a>Datasets</h2><ul>
+<li>Synthetic data and artificial neural net?works for natural scene text recognition [NIPS-2014]<ul>
+<li>MJ Dataset</li>
+</ul>
+</li>
+<li>Synthetic data for text localisation in natural images [CVPR-2016]<ul>
+<li>SynthText Dataset</li>
+</ul>
+</li>
+<li>UnrealText: Synthesizing realistic scene text images from the unreal world [CVPR-2020]</li>
+</ul>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/STR/" rel="tag"><i class="fa fa-tag"></i> STR</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2022/07/11/Mask-OCR/" rel="prev" title="[Paper Review] MaskOCR: Text Recognition with Masked Encoder-Decoder Pretraining">
+                  <i class="fa fa-chevron-left"></i> [Paper Review] MaskOCR: Text Recognition with Masked Encoder-Decoder Pretraining
+                </a>
+            </div>
+            <div class="post-nav-item">
+            </div>
+          </div>
+    </footer>
+  </article>
+  
+  
+  
+
+
+
+      
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      const activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      const commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      
+
+      <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">珣XUN</span>
+</div>
+<div class="wordcount">
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-line"></i>
+    </span>
+    <span title="Symbols count total">45k</span>
+  </span>
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="Reading time total">33 mins.</span>
+  </span>
+</div>
+<div class="busuanzi-count">
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="Total Visitors">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="Total Views">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+<!--
+  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a>
+  </div>-->
+
+    </div>
+  </footer>
+
+  
+
+
+  <script src="//cdn.jsdelivr.net/npm/animejs@3.2.0/lib/anime.min.js"></script>
+
+
+<script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script>
+
+  
+
+
+
+
+  <script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+
+
+
+  
+
+  
+      <script>
+  if (typeof MathJax === 'undefined') {
+    window.MathJax = {
+      tex: {
+        inlineMath: {'[+]': [['$', '$']]},
+        tags: 'ams'
+      },
+      options: {
+        renderActions: {
+          findScript: [10, doc => {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+              const display = !!node.type.match(/; *mode=display/);
+              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+              const text = document.createTextNode('');
+              node.parentNode.replaceChild(text, node);
+              math.start = {node: text, delim: '', n: 0};
+              math.end = {node: text, delim: '', n: 0};
+              doc.math.push(math);
+            });
+          }, '', false],
+          insertedScript: [200, () => {
+            document.querySelectorAll('mjx-container').forEach(node => {
+              const target = node.parentNode;
+              if (target.nodeName.toLowerCase() === 'li') {
+                target.parentNode.classList.add('has-jax');
+              }
+            });
+          }, '', false]
+        }
+      }
+    };
+    const script = document.createElement('script');
+    script.src = '//cdn.jsdelivr.net/npm/mathjax@3.1.0/es5/tex-mml-chtml.js';
+    script.defer = true;
+    document.head.appendChild(script);
+  } else {
+    MathJax.startup.document.state(0);
+    MathJax.typesetClear();
+    MathJax.texReset();
+    MathJax.typeset();
+  }
+</script>
+
+    
+
+  
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginModelPath":"assets/","model":{"jsonPath":"/live2dw/assets/hijiki.model.json"},"display":{"position":"left","width":280,"height":340},"mobile":{"show":false},"rect":"opacity:0.7","log":false,"pluginJsPath":"lib/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+</html>
