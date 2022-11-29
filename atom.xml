@@ -6,7 +6,7 @@
   <link href="https://rachel-yang.github.io/atom.xml" rel="self"/>
   
   <link href="https://rachel-yang.github.io/"/>
-  <updated>2022-07-25T07:33:54.656Z</updated>
+  <updated>2022-11-29T12:16:47.379Z</updated>
   <id>https://rachel-yang.github.io/</id>
   
   <author>
@@ -17,18 +17,124 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>[2022-ECCV] Levenshtein OCR</title>
+    <link href="https://rachel-yang.github.io/2022/11/29/Levenshtein-OCR/"/>
+    <id>https://rachel-yang.github.io/2022/11/29/Levenshtein-OCR/</id>
+    <published>2022-11-29T07:27:51.000Z</published>
+    <updated>2022-11-29T12:16:47.379Z</updated>
+    
+    
+    <summary type="html">&lt;ul&gt;
+&lt;li&gt;Paper: &lt;a href=&quot;https://arxiv.org/abs/2209.03594v1&quot;&gt;https://arxiv.org/abs/2209.03594v1&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Code: Waiting…&lt;/li&gt;
+&lt;li&gt;Tips: Iterative refinement, interpretability (whether to depend on the linguistic information or not)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div align=&quot;center&quot;&gt; &lt;img src=&quot;/2022/11/29/Levenshtein-OCR/overview.jpg&quot; width=&quot;600&quot;&gt;&lt;/div&gt;</summary>
+    
+    
+    
+    <category term="Paper Review" scheme="https://rachel-yang.github.io/categories/Paper-Review/"/>
+    
+    
+    <category term="STR" scheme="https://rachel-yang.github.io/tags/STR/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>[2022-TIP] PETR: Rethinking the Capability of Transformer-Based Language Model in Scene Text Recognition</title>
+    <link href="https://rachel-yang.github.io/2022/10/12/PETR-Model/"/>
+    <id>https://rachel-yang.github.io/2022/10/12/PETR-Model/</id>
+    <published>2022-10-12T06:39:49.000Z</published>
+    <updated>2022-10-16T12:31:12.679Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;This paper utilizes destructed scene text images and predicted length loss. They destruct the images, and design a module to classify whether the input image is destructed or not. Besides, the loss of the predicted label’s length is used to optimize the model. &lt;/p&gt;</summary>
+    
+    
+    
+    <category term="Paper Review" scheme="https://rachel-yang.github.io/categories/Paper-Review/"/>
+    
+    
+    <category term="STR" scheme="https://rachel-yang.github.io/tags/STR/"/>
+    
+    <category term="Semantic Module" scheme="https://rachel-yang.github.io/tags/Semantic-Module/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>[2022-ECCV] Scene Text Recognition with Single-Point Decoding Network</title>
+    <link href="https://rachel-yang.github.io/2022/10/12/Scene-Text-Recognition-with-Single-Point-Decoding-Network/"/>
+    <id>https://rachel-yang.github.io/2022/10/12/Scene-Text-Recognition-with-Single-Point-Decoding-Network/</id>
+    <published>2022-10-12T06:39:49.000Z</published>
+    <updated>2022-10-16T12:31:36.350Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
+&lt;h1 id=&quot;Background&quot;&gt;&lt;a href=&quot;#Background&quot; class=&quot;headerlink&quot; title=&quot;Background&quot;&gt;&lt;/a&gt;Background&lt;/h1&gt;&lt;h1 id=&quot;Method&quot;&gt;&lt;a</summary>
+        
+      
+    
+    
+    
+    <category term="Paper Review" scheme="https://rachel-yang.github.io/categories/Paper-Review/"/>
+    
+    
+    <category term="STR" scheme="https://rachel-yang.github.io/tags/STR/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>[Paper Review] Scene Text Recognition with Permuted Autoregressive Sequence Models</title>
+    <link href="https://rachel-yang.github.io/2022/09/13/Parseq-Model/"/>
+    <id>https://rachel-yang.github.io/2022/09/13/Parseq-Model/</id>
+    <published>2022-09-13T13:00:11.000Z</published>
+    <updated>2022-09-16T12:05:23.671Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;This method utilize the idea of XLNet (Permuted language Model), which is an outstanding work in the area of NLP.&lt;br&gt;&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="Paper Review" scheme="https://rachel-yang.github.io/categories/Paper-Review/"/>
+    
+    
+    <category term="STR" scheme="https://rachel-yang.github.io/tags/STR/"/>
+    
+    <category term="Semantic Module" scheme="https://rachel-yang.github.io/tags/Semantic-Module/"/>
+    
+  </entry>
+  
+  <entry>
     <title>STR Papers List</title>
     <link href="https://rachel-yang.github.io/2022/07/11/STR-papers-list/"/>
     <id>https://rachel-yang.github.io/2022/07/11/STR-papers-list/</id>
     <published>2022-07-11T10:04:40.000Z</published>
-    <updated>2022-07-25T07:33:54.656Z</updated>
+    <updated>2022-11-29T12:27:37.558Z</updated>
     
     
     <summary type="html">&lt;p&gt;This post lists papers about scene text recognition published in top conferences.&lt;/p&gt;
-&lt;h1 id=&quot;Latest-papers-on-Arxiv&quot;&gt;&lt;a href=&quot;#Latest-papers-on-Arxiv&quot; class=&quot;headerlink&quot; title=&quot;Latest papers on Arxiv&quot;&gt;&lt;/a&gt;Latest papers on Arxiv&lt;/h1&gt;&lt;ul&gt;
+&lt;h1 id=&quot;Latest-Papers-updated-on-11-20&quot;&gt;&lt;a href=&quot;#Latest-Papers-updated-on-11-20&quot; class=&quot;headerlink&quot; title=&quot;Latest Papers (updated on 11.20)&quot;&gt;&lt;/a&gt;Latest Papers (updated on 11.20)&lt;/h1&gt;&lt;ul&gt;
+&lt;li&gt;Arxiv: [IterVM: Iterative Vision Modeling Module for Scene Text Recognition]&lt;/li&gt;
+&lt;li&gt;Applied intelligence: [Scene text recognition based on two-stage attention and multi-branch feature fusion module]&lt;/li&gt;
+&lt;li&gt;ICPR-2022: [Portmanteauing Features for Scene Text Recognition]&lt;/li&gt;
+&lt;li&gt;TMM-2022: [Dual Relation Network for Scene Text Recognition]&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id=&quot;Arxiv&quot;&gt;&lt;a href=&quot;#Arxiv&quot; class=&quot;headerlink&quot; title=&quot;Arxiv&quot;&gt;&lt;/a&gt;Arxiv&lt;/h1&gt;&lt;ul&gt;
 &lt;li&gt;&lt;a href=&quot;https://arxiv.org/pdf/2206.00311v1.pdf&quot;&gt;MaskOCR: Text Recognition with Masked Encoder-Decoder Pretraining&lt;/a&gt; [2022/6/1]&lt;/li&gt;
 &lt;li&gt;&lt;a href=&quot;https://arxiv.org/pdf/2112.00948.pdf&quot;&gt;Visual-Semantic Transformer for Scene Text Recognition&lt;/a&gt; [2021/12/2]&lt;/li&gt;
 &lt;li&gt;&lt;a href=&quot;https://arxiv.org/pdf/2111.15263v1.pdf&quot;&gt;Multi-modal Text Recognition Networks: Interactive Enhancements between Visual and Semantic Features&lt;/a&gt; [2021/11/30]&lt;/li&gt;
+&lt;li&gt;[Multimodal Semi-Supervised Learning for Text Recognition]&lt;/li&gt;
+&lt;li&gt;[Towards Open-Set Text Recognition via Label-to-Prototype Learning]&lt;/li&gt;
+&lt;li&gt;[Scene Text Recognition with Single-Point Decoding Network]&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id=&quot;Others&quot;&gt;&lt;a href=&quot;#Others&quot; class=&quot;headerlink&quot; title=&quot;Others&quot;&gt;&lt;/a&gt;Others&lt;/h1&gt;&lt;ul&gt;
+&lt;li&gt;[2022-TIP] [PETR: Rethinking the Capability of Transformer-Based Language Model in Scene Text Recognition]&lt;/li&gt;
+&lt;li&gt;[ACCESS-2022] [Scene Text Recognition with Semantics]&lt;/li&gt;
+&lt;li&gt;[BMCV-2022] [Masked Vision-Language Transformers for Scene Text Recognition]&lt;/li&gt;
 &lt;/ul&gt;</summary>
     
     
@@ -103,7 +209,7 @@
     <link href="https://rachel-yang.github.io/2022/06/24/From-two-to-one/"/>
     <id>https://rachel-yang.github.io/2022/06/24/From-two-to-one/</id>
     <published>2022-06-23T19:54:49.000Z</published>
-    <updated>2022-07-07T09:46:03.005Z</updated>
+    <updated>2022-10-12T06:45:17.455Z</updated>
     
     
     <summary type="html">&lt;div align=&quot;center&quot;&gt; &lt;img src=&quot;/2022/06/24/From-two-to-one/background.jpg&quot; width=&quot;400&quot;&gt;&lt;/div&gt;</summary>
@@ -197,7 +303,7 @@
     <link href="https://rachel-yang.github.io/2022/06/23/Review-the-Scene-Text-Recognition-Models-with-Semantic-Information/"/>
     <id>https://rachel-yang.github.io/2022/06/23/Review-the-Scene-Text-Recognition-Models-with-Semantic-Information/</id>
     <published>2022-06-23T05:18:59.000Z</published>
-    <updated>2022-07-07T09:46:56.745Z</updated>
+    <updated>2022-10-12T06:08:47.654Z</updated>
     
     
     <summary type="html">&lt;p&gt;This article reviews the ways that scene text recognition models utilize the semantic information to boost their performance, from the &lt;font color=&quot;#32adff&quot;&gt;Bahdanau Attention Decoder&lt;/font&gt; to various &lt;font color=&quot;#32adff&quot;&gt;Semantic Modules&lt;/font&gt;.&lt;br&gt;&lt;/p&gt;</summary>
@@ -361,87 +467,6 @@
     <category term="Adversarial Training" scheme="https://rachel-yang.github.io/tags/Adversarial-Training/"/>
     
     <category term="Improve Generalization" scheme="https://rachel-yang.github.io/tags/Improve-Generalization/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Add Mathematical Formula in Hexo-Next Blogs</title>
-    <link href="https://rachel-yang.github.io/2021/07/20/Add-Mathematical-Formula-in-Hexo-Next-Blogs/"/>
-    <id>https://rachel-yang.github.io/2021/07/20/Add-Mathematical-Formula-in-Hexo-Next-Blogs/</id>
-    <published>2021-07-20T06:43:22.000Z</published>
-    <updated>2021-07-20T13:16:34.704Z</updated>
-    
-    
-    <summary type="html">&lt;p&gt;This blog is about how to add mathematical formulas for your hexo-next blogs.&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;&lt;font color=&quot;#32adff&quot;&gt;Change the rendering engine of Hexo’s Markdown:&lt;/font&gt;&lt;/strong&gt;&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="Hexo" scheme="https://rachel-yang.github.io/categories/Hexo/"/>
-    
-    
-    <category term="Hexo" scheme="https://rachel-yang.github.io/tags/Hexo/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>[Paper Review] MaxUp: Lightweight Adversarial Training with Data Augmentation Improves Neural Network Training</title>
-    <link href="https://rachel-yang.github.io/2021/07/16/MaxUp-Method/"/>
-    <id>https://rachel-yang.github.io/2021/07/16/MaxUp-Method/</id>
-    <published>2021-07-16T03:26:32.000Z</published>
-    <updated>2021-07-20T13:17:39.335Z</updated>
-    
-    
-    <summary type="html">&lt;div align=&quot;center&quot;&gt; &lt;img src=&quot;/2021/07/16/MaxUp-Method/authors.jpg&quot; width=&quot;650&quot;&gt;&lt;/div&gt;
-
-&lt;h1 id=&quot;Background&quot;&gt;&lt;a href=&quot;#Background&quot; class=&quot;headerlink&quot; title=&quot;Background&quot;&gt;&lt;/a&gt;Background&lt;/h1&gt;&lt;p&gt;Alleviate the issue of over-fitting and improve generalization performance on testing data:&lt;br&gt;&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="Paper Review" scheme="https://rachel-yang.github.io/categories/Paper-Review/"/>
-    
-    
-    <category term="Adversarial Training" scheme="https://rachel-yang.github.io/tags/Adversarial-Training/"/>
-    
-    <category term="Improve Generalization" scheme="https://rachel-yang.github.io/tags/Improve-Generalization/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>CVPR2021 Papers About Adversarial Network</title>
-    <link href="https://rachel-yang.github.io/2021/07/14/CVPR2021-Papers/"/>
-    <id>https://rachel-yang.github.io/2021/07/14/CVPR2021-Papers/</id>
-    <published>2021-07-14T08:24:43.000Z</published>
-    <updated>2022-07-11T10:02:59.641Z</updated>
-    
-    
-    <summary type="html">&lt;h1 id=&quot;Adversarial-Training&quot;&gt;&lt;a href=&quot;#Adversarial-Training&quot; class=&quot;headerlink&quot; title=&quot;Adversarial Training:&quot;&gt;&lt;/a&gt;Adversarial Training:&lt;/h1&gt;&lt;h2 id=&quot;MaxUp-Lightweight-Adversarial-Training-with-Data-Augmentation-Improves-Neural-Network-Training&quot;&gt;&lt;a href=&quot;#MaxUp-Lightweight-Adversarial-Training-with-Data-Augmentation-Improves-Neural-Network-Training&quot; class=&quot;headerlink&quot; title=&quot;MaxUp: Lightweight Adversarial Training with Data Augmentation Improves Neural Network Training&quot;&gt;&lt;/a&gt;&lt;a href=&quot;https://openaccess.thecvf.com/content/CVPR2021/papers/Gong_MaxUp_Lightweight_Adversarial_Training_With_Data_Augmentation_Improves_Neural_Network_CVPR_2021_paper.pdf&quot;&gt;MaxUp: Lightweight Adversarial Training with Data Augmentation Improves Neural Network Training&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;&lt;strong&gt;Main Idea&lt;/strong&gt;: Generate a set of augmented samples, then &lt;font color=&quot;#32adff&quot;&gt;optimize over the worst (or highest) loss image&lt;/font&gt; —&amp;gt; Improve the model generalization.&lt;br&gt;&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="Adversarial Network" scheme="https://rachel-yang.github.io/categories/Adversarial-Network/"/>
-    
-    
-    <category term="Adversarial Training" scheme="https://rachel-yang.github.io/tags/Adversarial-Training/"/>
-    
-    <category term="CVPR" scheme="https://rachel-yang.github.io/tags/CVPR/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Adversarial Attack and Defense</title>
-    <link href="https://rachel-yang.github.io/2021/07/13/Attack/"/>
-    <id>https://rachel-yang.github.io/2021/07/13/Attack/</id>
-    <published>2021-07-13T01:00:05.000Z</published>
-    <updated>2021-07-21T12:34:48.126Z</updated>
-    
-    
-    <summary type="html">&lt;h1 id=&quot;Adversarial-Attacks&quot;&gt;&lt;a href=&quot;#Adversarial-Attacks&quot; class=&quot;headerlink&quot; title=&quot;Adversarial Attacks&quot;&gt;&lt;/a&gt;Adversarial Attacks&lt;/h1&gt;</summary>
-    
-    
-    
-    
-    <category term="Overview" scheme="https://rachel-yang.github.io/tags/Overview/"/>
     
   </entry>
   
