@@ -113,7 +113,7 @@
     <link href="https://rachel-yang.github.io/2022/07/11/STR-papers-list/"/>
     <id>https://rachel-yang.github.io/2022/07/11/STR-papers-list/</id>
     <published>2022-07-11T10:04:40.000Z</published>
-    <updated>2022-11-29T12:27:37.558Z</updated>
+    <updated>2022-11-29T12:34:44.580Z</updated>
     
     
     <summary type="html">&lt;p&gt;This post lists papers about scene text recognition published in top conferences.&lt;/p&gt;
@@ -122,19 +122,6 @@
 &lt;li&gt;Applied intelligence: [Scene text recognition based on two-stage attention and multi-branch feature fusion module]&lt;/li&gt;
 &lt;li&gt;ICPR-2022: [Portmanteauing Features for Scene Text Recognition]&lt;/li&gt;
 &lt;li&gt;TMM-2022: [Dual Relation Network for Scene Text Recognition]&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h1 id=&quot;Arxiv&quot;&gt;&lt;a href=&quot;#Arxiv&quot; class=&quot;headerlink&quot; title=&quot;Arxiv&quot;&gt;&lt;/a&gt;Arxiv&lt;/h1&gt;&lt;ul&gt;
-&lt;li&gt;&lt;a href=&quot;https://arxiv.org/pdf/2206.00311v1.pdf&quot;&gt;MaskOCR: Text Recognition with Masked Encoder-Decoder Pretraining&lt;/a&gt; [2022/6/1]&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://arxiv.org/pdf/2112.00948.pdf&quot;&gt;Visual-Semantic Transformer for Scene Text Recognition&lt;/a&gt; [2021/12/2]&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://arxiv.org/pdf/2111.15263v1.pdf&quot;&gt;Multi-modal Text Recognition Networks: Interactive Enhancements between Visual and Semantic Features&lt;/a&gt; [2021/11/30]&lt;/li&gt;
-&lt;li&gt;[Multimodal Semi-Supervised Learning for Text Recognition]&lt;/li&gt;
-&lt;li&gt;[Towards Open-Set Text Recognition via Label-to-Prototype Learning]&lt;/li&gt;
-&lt;li&gt;[Scene Text Recognition with Single-Point Decoding Network]&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h1 id=&quot;Others&quot;&gt;&lt;a href=&quot;#Others&quot; class=&quot;headerlink&quot; title=&quot;Others&quot;&gt;&lt;/a&gt;Others&lt;/h1&gt;&lt;ul&gt;
-&lt;li&gt;[2022-TIP] [PETR: Rethinking the Capability of Transformer-Based Language Model in Scene Text Recognition]&lt;/li&gt;
-&lt;li&gt;[ACCESS-2022] [Scene Text Recognition with Semantics]&lt;/li&gt;
-&lt;li&gt;[BMCV-2022] [Masked Vision-Language Transformers for Scene Text Recognition]&lt;/li&gt;
 &lt;/ul&gt;</summary>
     
     

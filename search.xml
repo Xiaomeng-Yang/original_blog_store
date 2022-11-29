@@ -10,6 +10,7 @@
 <li>ICPR-2022: [Portmanteauing Features for Scene Text Recognition]</li>
 <li>TMM-2022: [Dual Relation Network for Scene Text Recognition]</li>
 </ul>
+<a id="more"></a>
 <h1 id="Arxiv"><a href="#Arxiv" class="headerlink" title="Arxiv"></a>Arxiv</h1><ul>
 <li><a href="https://arxiv.org/pdf/2206.00311v1.pdf">MaskOCR: Text Recognition with Masked Encoder-Decoder Pretraining</a> [2022/6/1]</li>
 <li><a href="https://arxiv.org/pdf/2112.00948.pdf">Visual-Semantic Transformer for Scene Text Recognition</a> [2021/12/2]</li>
@@ -23,7 +24,6 @@
 <li>[ACCESS-2022] [Scene Text Recognition with Semantics]</li>
 <li>[BMCV-2022] [Masked Vision-Language Transformers for Scene Text Recognition]</li>
 </ul>
-<a id="more"></a>
 <h1 id="Sort-by-Conferences-The-latest-three-years"><a href="#Sort-by-Conferences-The-latest-three-years" class="headerlink" title="Sort by Conferences (The latest three years)"></a>Sort by Conferences (The latest three years)</h1><h2 id="2022-ECCV"><a href="#2022-ECCV" class="headerlink" title="2022 ECCV"></a>2022 ECCV</h2><ul>
 <li><a href>SGBANet: Semantic GAN and Balanced Attention Network for Arbitrarily Oriented Scene Text Recognition</a></li>
 <li><a href>Scene Text Recognition with Permuted Autoregressive Sequence Models</a></li>
