@@ -6,7 +6,7 @@
   <link href="https://rachel-yang.github.io/atom.xml" rel="self"/>
   
   <link href="https://rachel-yang.github.io/"/>
-  <updated>2022-11-29T12:16:47.379Z</updated>
+  <updated>2022-12-03T09:41:58.799Z</updated>
   <id>https://rachel-yang.github.io/</id>
   
   <author>
@@ -17,11 +17,36 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>IterVM: Iterative Vision Modeling Module for Scene Text Recognition</title>
+    <link href="https://rachel-yang.github.io/2022/12/03/IterVM-Iterative-Vision-Modeling-Module-for-Scene-Text-Recognition/"/>
+    <id>https://rachel-yang.github.io/2022/12/03/IterVM-Iterative-Vision-Modeling-Module-for-Scene-Text-Recognition/</id>
+    <published>2022-12-03T07:28:03.000Z</published>
+    <updated>2022-12-03T09:41:58.799Z</updated>
+    
+    
+    <summary type="html">&lt;ul&gt;
+&lt;li&gt;Paper: &lt;a href=&quot;https://arxiv.org/abs/2204.02630&quot;&gt;https://arxiv.org/abs/2204.02630&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Code: &lt;a href=&quot;https://github.com/VDIGPKU/IterNet&quot;&gt;https://github.com/VDIGPKU/IterNet&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Tips: IterVM + IterLM, &lt;strong&gt;iterative vision module&lt;/strong&gt;, introduce &lt;font color=&quot;#32adff&quot;&gt;feedback connections from the output into the middle layers&lt;/font&gt; of vision modeling module.&lt;/li&gt;
+&lt;/ul&gt;</summary>
+    
+    
+    
+    <category term="Paper Review" scheme="https://rachel-yang.github.io/categories/Paper-Review/"/>
+    
+    
+    <category term="STR" scheme="https://rachel-yang.github.io/tags/STR/"/>
+    
+    <category term="Visual Module" scheme="https://rachel-yang.github.io/tags/Visual-Module/"/>
+    
+  </entry>
+  
+  <entry>
     <title>[2022-ECCV] Levenshtein OCR</title>
     <link href="https://rachel-yang.github.io/2022/11/29/Levenshtein-OCR/"/>
     <id>https://rachel-yang.github.io/2022/11/29/Levenshtein-OCR/</id>
     <published>2022-11-29T07:27:51.000Z</published>
-    <updated>2022-11-29T12:16:47.379Z</updated>
+    <updated>2022-12-03T07:29:54.059Z</updated>
     
     
     <summary type="html">&lt;ul&gt;
@@ -38,6 +63,8 @@
     
     <category term="STR" scheme="https://rachel-yang.github.io/tags/STR/"/>
     
+    <category term="Semantic Module" scheme="https://rachel-yang.github.io/tags/Semantic-Module/"/>
+    
   </entry>
   
   <entry>
@@ -45,10 +72,10 @@
     <link href="https://rachel-yang.github.io/2022/10/12/PETR-Model/"/>
     <id>https://rachel-yang.github.io/2022/10/12/PETR-Model/</id>
     <published>2022-10-12T06:39:49.000Z</published>
-    <updated>2022-10-16T12:31:12.679Z</updated>
+    <updated>2022-12-03T07:30:45.530Z</updated>
     
     
-    <summary type="html">&lt;p&gt;This paper utilizes destructed scene text images and predicted length loss. They destruct the images, and design a module to classify whether the input image is destructed or not. Besides, the loss of the predicted label’s length is used to optimize the model. &lt;/p&gt;</summary>
+    <summary type="html">&lt;p&gt;This paper utilizes &lt;font color=&quot;#32adff&quot;&gt;destructed scene text images and predicted length loss&lt;/font&gt;. They destruct the images, and design a module to classify whether the input image is destructed or not. Besides, the loss of the predicted label’s length is used to optimize the model. &lt;/p&gt;</summary>
     
     
     
@@ -431,29 +458,6 @@
     <category term="Hexo" scheme="https://rachel-yang.github.io/tags/Hexo/"/>
     
     <category term="Latex" scheme="https://rachel-yang.github.io/tags/Latex/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>[Paper-Review] Regularizing Neural Networks via Adversarial Model Perturbation</title>
-    <link href="https://rachel-yang.github.io/2021/07/20/AMP-Regularizing-Neural-Networks-via-Adversarial-Model-Perturbation/"/>
-    <id>https://rachel-yang.github.io/2021/07/20/AMP-Regularizing-Neural-Networks-via-Adversarial-Model-Perturbation/</id>
-    <published>2021-07-20T09:04:12.000Z</published>
-    <updated>2021-08-03T05:52:28.185Z</updated>
-    
-    
-    <summary type="html">&lt;div align=&quot;center&quot;&gt; &lt;img src=&quot;/2021/07/20/AMP-Regularizing-Neural-Networks-via-Adversarial-Model-Perturbation/authors.jpg&quot; width=&quot;650&quot;&gt;&lt;/div&gt;
-
-&lt;h1 id=&quot;Background&quot;&gt;&lt;a href=&quot;#Background&quot; class=&quot;headerlink&quot; title=&quot;Background&quot;&gt;&lt;/a&gt;Background&lt;/h1&gt;&lt;p&gt;Alleviate the issue of over-fitting and improve generalization performance on testing data:&lt;br&gt;&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="Paper Review" scheme="https://rachel-yang.github.io/categories/Paper-Review/"/>
-    
-    
-    <category term="Adversarial Training" scheme="https://rachel-yang.github.io/tags/Adversarial-Training/"/>
-    
-    <category term="Improve Generalization" scheme="https://rachel-yang.github.io/tags/Improve-Generalization/"/>
     
   </entry>
   

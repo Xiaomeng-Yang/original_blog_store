@@ -162,6 +162,59 @@
       </tags>
   </entry>
   <entry>
+    <title>IterVM: Iterative Vision Modeling Module for Scene Text Recognition</title>
+    <url>/2022/12/03/IterVM-Iterative-Vision-Modeling-Module-for-Scene-Text-Recognition/</url>
+    <content><![CDATA[<ul>
+<li>Paper: <a href="https://arxiv.org/abs/2204.02630">https://arxiv.org/abs/2204.02630</a></li>
+<li>Code: <a href="https://github.com/VDIGPKU/IterNet">https://github.com/VDIGPKU/IterNet</a></li>
+<li>Tips: IterVM + IterLM, <strong>iterative vision module</strong>, introduce <font color="#32adff">feedback connections from the output into the middle layers</font> of vision modeling module.</li>
+</ul>
+<a id="more"></a>
+<div align="center"> <img src="/2022/12/03/IterVM-Iterative-Vision-Modeling-Module-for-Scene-Text-Recognition/comparison.jpg" width="400"></div>
+
+<h1 id="Background"><a href="#Background" class="headerlink" title="Background"></a>Background</h1><p>Previous works aiming to extracting <font color="#32adff">more robust and effective visual features.</font>:</p>
+<ul>
+<li>upgrade the backbone networks</li>
+<li>add rectification module</li>
+<li>improve attention mechanism</li>
+</ul>
+<h1 id="Method"><a href="#Method" class="headerlink" title="Method"></a>Method</h1><h2 id="IterVM"><a href="#IterVM" class="headerlink" title="IterVM"></a>IterVM</h2><div align="center"> <img src="/2022/12/03/IterVM-Iterative-Vision-Modeling-Module-for-Scene-Text-Recognition/architecture.jpg" width="450"></div>
+
+<p>Equation($\mathcal{u}$ is upsample operation):</p>
+<div align="center"> <img src="/2022/12/03/IterVM-Iterative-Vision-Modeling-Module-for-Scene-Text-Recognition/equation.jpg" width="250"></div>
+
+<h2 id="IterNet"><a href="#IterNet" class="headerlink" title="IterNet"></a>IterNet</h2><div align="center"> <img src="/2022/12/03/IterVM-Iterative-Vision-Modeling-Module-for-Scene-Text-Recognition/IterNet.jpg" width="450"></div>
+
+<p>Training Loss:</p>
+<div align="center"> <img src="/2022/12/03/IterVM-Iterative-Vision-Modeling-Module-for-Scene-Text-Recognition/loss.jpg" width="230"></div>
+
+<h1 id="Experiments"><a href="#Experiments" class="headerlink" title="Experiments"></a>Experiments</h1><ul>
+<li>The more iterations for IterVM, the better performance.</li>
+<li>These results demonstrate that the proposed IterVM can work<br>well together with IterLM.</li>
+<li>IterVM with any iteration is more accurate than the deeper and wider baselines.</li>
+<li>The proposed intermediate supervision can effectively boost the performance of IterNet as well as the modules in it, especially for IterVM.</li>
+</ul>
+<div align="center"> <img src="/2022/12/03/IterVM-Iterative-Vision-Modeling-Module-for-Scene-Text-Recognition/table_1.jpg" width="350""></div>
+
+<div align="center"> <img src="/2022/12/03/IterVM-Iterative-Vision-Modeling-Module-for-Scene-Text-Recognition/table_2.jpg" width="400""></div>
+
+<div align="center"> <img src="/2022/12/03/IterVM-Iterative-Vision-Modeling-Module-for-Scene-Text-Recognition/table_3.jpg" width="350""></div>
+
+<div align="center"> <img src="/2022/12/03/IterVM-Iterative-Vision-Modeling-Module-for-Scene-Text-Recognition/table_4.jpg" width="700""></div>
+
+<h1 id="Conclusion"><a href="#Conclusion" class="headerlink" title="Conclusion"></a>Conclusion</h1><ul>
+<li>Vision modeling module in the state-of-the-art scene text recognizer has become a performance bottleneck.</li>
+</ul>
+]]></content>
+      <categories>
+        <category>Paper Review</category>
+      </categories>
+      <tags>
+        <tag>STR</tag>
+        <tag>Visual Module</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>[2022-ECCV] Levenshtein OCR</title>
     <url>/2022/11/29/Levenshtein-OCR/</url>
     <content><![CDATA[<ul>
@@ -231,12 +284,13 @@
       </categories>
       <tags>
         <tag>STR</tag>
+        <tag>Semantic Module</tag>
       </tags>
   </entry>
   <entry>
     <title>[2022-TIP] PETR: Rethinking the Capability of Transformer-Based Language Model in Scene Text Recognition</title>
     <url>/2022/10/12/PETR-Model/</url>
-    <content><![CDATA[<p>This paper utilizes destructed scene text images and predicted length loss. They destruct the images, and design a module to classify whether the input image is destructed or not. Besides, the loss of the predicted label’s length is used to optimize the model. </p>
+    <content><![CDATA[<p>This paper utilizes <font color="#32adff">destructed scene text images and predicted length loss</font>. They destruct the images, and design a module to classify whether the input image is destructed or not. Besides, the loss of the predicted label’s length is used to optimize the model. </p>
 <a id="more"></a>
 <h1 id="Background"><a href="#Background" class="headerlink" title="Background"></a>Background</h1><ul>
 <li>Visual prediction with low character-wise accuracy limits the capability of transformer-based language model (TLM).</li>
