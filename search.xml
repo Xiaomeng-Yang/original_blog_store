@@ -162,6 +162,57 @@
       </tags>
   </entry>
   <entry>
+    <title>[ICPR-2022] Portmanteauing Features for Scene Text Recognition</title>
+    <url>/2022/12/04/Portmanteauing-Features-for-Scene-Text-Recognition/</url>
+    <content><![CDATA[<ul>
+<li>Paper: <a href="https://arxiv.org/pdf/2211.05036.pdf">https://arxiv.org/pdf/2211.05036.pdf</a></li>
+<li>Code: Waiting…; <a href="https://github.com/chewyukai/portmanteauing-features">https://github.com/chewyukai/portmanteauing-features</a></li>
+<li>Tips: Portmanteau features, which utilizes both the original and rectified images; Rectification network,</li>
+</ul>
+<a id="more"></a>
+<div align="center"> <img src="/2022/12/04/Portmanteauing-Features-for-Scene-Text-Recognition/overview.jpg" width="450"></div>
+
+<h1 id="Background"><a href="#Background" class="headerlink" title="Background"></a>Background</h1><ul>
+<li>Some SOTA STR methods <font color="#32adff">rely on rectification network</font>, which is used for images that can be recognized without it.</li>
+<li>In some cases, rectification network generates unnecessary distortions on images.</li>
+<li>Alleviate the unnecessary distortions.</li>
+</ul>
+<h1 id="Method"><a href="#Method" class="headerlink" title="Method"></a>Method</h1><div align="center"> <img src="/2022/12/04/Portmanteauing-Features-for-Scene-Text-Recognition/architecture.jpg" width="700"></div>
+
+<h2 id="The-First-Stage"><a href="#The-First-Stage" class="headerlink" title="The First Stage"></a>The First Stage</h2><ul>
+<li>Two different reshaping schemes:<ul>
+<li>fixed height with varying width which will be padded.</li>
+<li>fixed height and fixed width followed by a rectification network</li>
+</ul>
+</li>
+<li>Channel concatenation</li>
+<li>Linear projection block to produce the portmanteau feature</li>
+</ul>
+<div align="center"> <img src="/2022/12/04/Portmanteauing-Features-for-Scene-Text-Recognition/bmi.jpg" width="500"></div>
+
+<h2 id="The-Second-Stage"><a href="#The-Second-Stage" class="headerlink" title="The Second Stage"></a>The Second Stage</h2><ul>
+<li>A variant of the ViT and Axial Transformer , called the <font color="#32adff">DaViT</font></li>
+</ul>
+<div align="center"> <img src="/2022/12/04/Portmanteauing-Features-for-Scene-Text-Recognition/transformer.jpg" width="500"></div>
+
+<h2 id="The-Final-Stage"><a href="#The-Final-Stage" class="headerlink" title="The Final Stage"></a>The Final Stage</h2><ul>
+<li>Vanilla transformer decoder</li>
+</ul>
+<h1 id="Experiments"><a href="#Experiments" class="headerlink" title="Experiments"></a>Experiments</h1><div align="center"> <img src="/2022/12/04/Portmanteauing-Features-for-Scene-Text-Recognition/table_1.jpg" width="700"></div>
+
+<div align="center"> <img src="/2022/12/04/Portmanteauing-Features-for-Scene-Text-Recognition/tabel_2.jpg" width="700"></div>
+
+<div align="center"> <img src="/2022/12/04/Portmanteauing-Features-for-Scene-Text-Recognition/adverse.jpg" width="500"></div>
+]]></content>
+      <categories>
+        <category>Paper Review</category>
+      </categories>
+      <tags>
+        <tag>STR</tag>
+        <tag>Rectification Network</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>IterVM: Iterative Vision Modeling Module for Scene Text Recognition</title>
     <url>/2022/12/03/IterVM-Iterative-Vision-Modeling-Module-for-Scene-Text-Recognition/</url>
     <content><![CDATA[<ul>
@@ -211,7 +262,7 @@
       </categories>
       <tags>
         <tag>STR</tag>
-        <tag>Visual Module</tag>
+        <tag>Vision Module</tag>
       </tags>
   </entry>
   <entry>

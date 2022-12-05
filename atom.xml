@@ -6,7 +6,7 @@
   <link href="https://rachel-yang.github.io/atom.xml" rel="self"/>
   
   <link href="https://rachel-yang.github.io/"/>
-  <updated>2022-12-03T09:41:58.799Z</updated>
+  <updated>2022-12-05T07:23:31.979Z</updated>
   <id>https://rachel-yang.github.io/</id>
   
   <author>
@@ -17,11 +17,36 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>[ICPR-2022] Portmanteauing Features for Scene Text Recognition</title>
+    <link href="https://rachel-yang.github.io/2022/12/04/Portmanteauing-Features-for-Scene-Text-Recognition/"/>
+    <id>https://rachel-yang.github.io/2022/12/04/Portmanteauing-Features-for-Scene-Text-Recognition/</id>
+    <published>2022-12-04T06:24:20.000Z</published>
+    <updated>2022-12-05T07:23:31.979Z</updated>
+    
+    
+    <summary type="html">&lt;ul&gt;
+&lt;li&gt;Paper: &lt;a href=&quot;https://arxiv.org/pdf/2211.05036.pdf&quot;&gt;https://arxiv.org/pdf/2211.05036.pdf&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Code: Waiting…; &lt;a href=&quot;https://github.com/chewyukai/portmanteauing-features&quot;&gt;https://github.com/chewyukai/portmanteauing-features&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Tips: Portmanteau features, which utilizes both the original and rectified images; Rectification network,&lt;/li&gt;
+&lt;/ul&gt;</summary>
+    
+    
+    
+    <category term="Paper Review" scheme="https://rachel-yang.github.io/categories/Paper-Review/"/>
+    
+    
+    <category term="STR" scheme="https://rachel-yang.github.io/tags/STR/"/>
+    
+    <category term="Rectification Network" scheme="https://rachel-yang.github.io/tags/Rectification-Network/"/>
+    
+  </entry>
+  
+  <entry>
     <title>IterVM: Iterative Vision Modeling Module for Scene Text Recognition</title>
     <link href="https://rachel-yang.github.io/2022/12/03/IterVM-Iterative-Vision-Modeling-Module-for-Scene-Text-Recognition/"/>
     <id>https://rachel-yang.github.io/2022/12/03/IterVM-Iterative-Vision-Modeling-Module-for-Scene-Text-Recognition/</id>
     <published>2022-12-03T07:28:03.000Z</published>
-    <updated>2022-12-03T09:41:58.799Z</updated>
+    <updated>2022-12-04T06:24:36.703Z</updated>
     
     
     <summary type="html">&lt;ul&gt;
@@ -37,7 +62,7 @@
     
     <category term="STR" scheme="https://rachel-yang.github.io/tags/STR/"/>
     
-    <category term="Visual Module" scheme="https://rachel-yang.github.io/tags/Visual-Module/"/>
+    <category term="Vision Module" scheme="https://rachel-yang.github.io/tags/Vision-Module/"/>
     
   </entry>
   
@@ -437,27 +462,6 @@
     <category term="Improve Generalization" scheme="https://rachel-yang.github.io/tags/Improve-Generalization/"/>
     
     <category term="Semi-Supervised Learning" scheme="https://rachel-yang.github.io/tags/Semi-Supervised-Learning/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Mathematical Symbols in Latex</title>
-    <link href="https://rachel-yang.github.io/2021/07/20/Mathematical-Symbols-in-Latex/"/>
-    <id>https://rachel-yang.github.io/2021/07/20/Mathematical-Symbols-in-Latex/</id>
-    <published>2021-07-20T13:01:16.000Z</published>
-    <updated>2021-08-05T07:40:32.144Z</updated>
-    
-    
-    <summary type="html">&lt;p&gt;&lt;strong&gt;This blog lists most of the mathematical symbols in latex for usage.&lt;/strong&gt;&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="Hexo" scheme="https://rachel-yang.github.io/categories/Hexo/"/>
-    
-    
-    <category term="Hexo" scheme="https://rachel-yang.github.io/tags/Hexo/"/>
-    
-    <category term="Latex" scheme="https://rachel-yang.github.io/tags/Latex/"/>
     
   </entry>
   
